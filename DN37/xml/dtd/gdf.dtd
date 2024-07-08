@@ -1,0 +1,133 @@
+<!ELEMENT gdf     (command|graphicElement|elementPanel|FSMstate|toolBar|panelWindow|menu)*>
+
+
+
+
+
+<!ELEMENT command   (parameter)*>
+<!ATTLIST command
+  class        CDATA     #REQUIRED>
+
+
+
+
+
+<!ELEMENT graphicElement   (parameter)*>
+<!ATTLIST graphicElement
+  class        CDATA     #REQUIRED>
+
+
+
+<!ELEMENT elementPanel   (parameter)*>
+<!ATTLIST elementPanel
+  class        CDATA     #REQUIRED
+  elementType  CDATA     #REQUIRED>
+
+
+
+
+
+<!ELEMENT FSMstate   (paramter)*>
+<!ATTLIST FSMstate
+  class         CDATA     #REQUIRED>
+
+
+
+
+
+
+<!ELEMENT toolBar  (singleTool|multipleTool)*>
+<!ATTLIST toolBar
+  name         CDATA     #REQUIRED
+  x            CDATA     #REQUIRED
+  y            CDATA     #REQUIRED
+  w            CDATA     #REQUIRED
+  h            CDATA     #REQUIRED>
+  
+<!ELEMENT singleTool   EMPTY>
+<!ATTLIST singleTool
+	x      CDATA     #REQUIRED
+	y      CDATA     #REQUIRED
+	w      CDATA     #REQUIRED
+	h      CDATA     #REQUIRED
+	name   CDATA     #REQUIRED
+	type   (push|toggle) "toggle"
+	group  CDATA     "defaultGroup"
+	icon   CDATA     #REQUIRED
+	command  CDATA     #REQUIRED
+	toolTip  CDATA     #REQUIRED>
+	
+<!ELEMENT multipleTool   (subTool)*>
+<!ATTLIST multipleTool
+	group  CDATA     "defaultGroup"
+	x      CDATA     #REQUIRED
+	y      CDATA     #REQUIRED
+	w      CDATA     #REQUIRED
+	h      CDATA     #REQUIRED>
+
+<!ELEMENT subTool   EMPTY>
+<!ATTLIST subTool
+	name   CDATA     #REQUIRED
+	icon   CDATA     #REQUIRED
+	command  CDATA     #REQUIRED
+	toolTip  CDATA     #REQUIRED>
+	
+	
+
+
+
+<!ELEMENT panelWindow  (panelElement|emptyPanelElement)*>
+<!ATTLIST toolBar
+  name         CDATA     #REQUIRED
+  caption      CDATA     #REQUIRED
+  icon         CDATA     #REQUIRED
+  visible      (true|false) "true"
+  x            CDATA     #REQUIRED
+  y            CDATA     #REQUIRED
+  w            CDATA     #REQUIRED
+  h            CDATA     #REQUIRED>
+
+<!ELEMENT panelElement   (parameter)*>
+<!ATTLIST panelElement
+  name         CDATA     #REQUIRED
+  caption      CDATA     #REQUIRED
+  class        CDATA     #REQUIRED>
+
+<!ELEMENT emptyPanelElement   EMPTY>
+<!ATTLIST emptyPanelElement
+  name         CDATA     #REQUIRED
+  caption      CDATA     #REQUIRED>
+
+
+
+
+
+
+<!ELEMENT menu   (menu|menuItem|specialMenu|separator)*>
+<!ATTLIST menu
+  name         CDATA     #REQUIRED
+  caption      CDATA     #REQUIRED>
+
+<!ELEMENT menuItem   (parameter)*>
+<!ATTLIST menuItem
+  name         CDATA     #REQUIRED
+  class        CDATA     ""
+  caption      CDATA     #REQUIRED
+  type         (push|toggle) "push"
+  command      CDATA     #REQUIRED>
+
+<!ELEMENT specialMenu   (parameter)*>
+<!ATTLIST specialMenu
+  name         CDATA     #REQUIRED
+  caption      CDATA     #REQUIRED
+  class        CDATA     #REQUIRED>
+
+<!ELEMENT separator   EMPTY>
+<!ATTLIST separator
+  name         CDATA     #REQUIRED>
+
+
+<!ELEMENT parameter   EMPTY>
+<!ATTLIST parameter
+  type         (boolean|double|integer|string)     #REQUIRED
+  value        CDATA     #REQUIRED>

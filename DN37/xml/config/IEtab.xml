@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE fdl SYSTEM "IEtab.dtd">
+<IEtab>
+	<tool name="GreatSPN" description="GreatSPN">
+	  <extension ext="*.net"/>
+	</tool>
+	
+	<tool name="DnQL" description="DrawNET Query Language">
+	  <extension ext="*.dnql"/>
+	</tool>
+
+	<formalism description="Petri Nets" path="PetriNets/PN/PN.fdl" allowSubFormalisms="no">
+		<import toolref="GreatSPN" class="drawnet/lib/filters/GSPNFilter" />
+		<export toolref="GreatSPN" class="drawnet/lib/filters/GSPNFilter" />
+	</formalism>
+	
+	<formalism descritpion="ALL" path="*" allowSubFormalism="yes">
+		<import toolref="DnQL" class="drawnet/lib/filters/DnQLfilter" />
+		<export toolref="DnQL" class="drawnet/lib/filters/DnQLfilter" />
+	</formalism>
+</IEtab>

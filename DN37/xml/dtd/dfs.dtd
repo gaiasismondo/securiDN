@@ -1,0 +1,41 @@
+<!ELEMENT dfs     (customEditor|planeDef|elementDef|propertyDef)*>
+<!ATTLIST dfs
+  fdl	      CDATA     #REQUIRED>
+
+
+<!ELEMENT planeDef	EMPTY>
+<!ATTLIST planeDef
+  id	      CDATA	#REQUIRED
+  derivesFrom CDATA	""
+  label	      CDATA	#REQUIRED>
+
+<!ELEMENT elementDef	EMPTY>
+<!ATTLIST elementDef
+  id	      CDATA	#REQUIRED
+  icon	      CDATA	#REQUIRED
+  overIcon    CDATA	""
+  selectedIcon    CDATA	""
+  label	      CDATA	#REQUIRED
+  inPlane     CDATA     ""
+  derivesFrom CDATA   "">
+
+<!ELEMENT propertyDef	EMPTY>
+<!ATTLIST propertyDef
+  id	      CDATA	#REQUIRED
+  icon	      CDATA	#REQUIRED
+  overIcon    CDATA	""
+  label	      CDATA	#REQUIRED
+  inPlane     CDATA     "">
+
+
+<!ELEMENT customEditor   (parameter)*>
+<!ATTLIST customEditor
+  id	      CDATA	#REQUIRED
+  type	      (selector|property|element) "element"
+  class       CDATA     #REQUIRED>
+
+
+<!ELEMENT parameter   EMPTY>
+<!ATTLIST parameter
+  type         (integer|string)     #REQUIRED
+  value        CDATA     #REQUIRED>

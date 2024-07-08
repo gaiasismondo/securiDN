@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DrawNETconfig>
+	<formalismPath>xml/formalism</formalismPath>
+	<DTDPath>xml/dtd</DTDPath>
+	<skinFile>themes/aquathemepack.zip</skinFile>
+	<showSplashScreen>yes</showSplashScreen>
+	<defaultFormalism>PetriNets/PN/PN.dfs</defaultFormalism>
+</DrawNETconfig>

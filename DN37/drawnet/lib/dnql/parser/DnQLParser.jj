@@ -1,0 +1,1416 @@
+
+/*
+ * Copyright © 2002 Sun Microsystems, Inc., 4150 Network Circle, Santa Clara,
+ * California 95054, U.S.A. All rights reserved.  Sun Microsystems, Inc. has
+ * intellectual property rights relating to technology embodied in the product
+ * that is described in this document. In particular, and without limitation,
+ * these intellectual property rights may include one or more of the U.S.
+ * patents listed at http://www.sun.com/patents and one or more additional
+ * patents or pending patent applications in the U.S. and in other countries.
+ * U.S. Government Rights - Commercial software. Government users are subject
+ * to the Sun Microsystems, Inc. standard license agreement and applicable
+ * provisions of the FAR and its supplements.  Use is subject to license terms.
+ * Sun,  Sun Microsystems,  the Sun logo and  Java are trademarks or registered
+ * trademarks of Sun Microsystems, Inc. in the U.S. and other countries.  This
+ * product is covered and controlled by U.S. Export Control laws and may be
+ * subject to the export or import laws in other countries.  Nuclear, missile,
+ * chemical biological weapons or nuclear maritime end uses or end users,
+ * whether direct or indirect, are strictly prohibited.  Export or reexport
+ * to countries subject to U.S. embargo or to entities identified on U.S.
+ * export exclusion lists, including, but not limited to, the denied persons
+ * and specially designated nationals lists is strictly prohibited.
+ */
+
+
+options {
+  LOOKAHEAD = 1;
+  CHOICE_AMBIGUITY_CHECK = 2;
+  OTHER_AMBIGUITY_CHECK = 1;
+  STATIC = false;
+  DEBUG_PARSER = false;
+  DEBUG_LOOKAHEAD = false;
+  DEBUG_TOKEN_MANAGER = false;
+  ERROR_REPORTING = true;
+  JAVA_UNICODE_ESCAPE = false;
+  UNICODE_INPUT = false;
+  IGNORE_CASE = false;
+  USER_TOKEN_MANAGER = false;
+  USER_CHAR_STREAM = false;
+  BUILD_PARSER = true;
+  BUILD_TOKEN_MANAGER = true;
+  SANITY_CHECK = true;
+  FORCE_LA_CHECK = false;
+}
+
+PARSER_BEGIN(DnQLParser)
+package drawnet.lib.dnql.parser;
+
+import java.util.*;
+import java.io.*;
+
+import drawnet.lib.ddl.*;
+import drawnet.lib.dnql.*;
+import drawnet.lib.dnql.statements.*;
+import drawnet.lib.dnql.expressions.*;
+import drawnet.lib.dnql.resultTypes.*;
+
+
+public class DnQLParser {
+  String query;
+  DnQLParsedQuery pq;
+
+  public DnQLParser(String q) {
+  		this(new StringReader(q));
+  		query = q;
+  }
+  
+  public DnQLParsedQuery parse() {
+    pq = new DnQLParsedQuery(query);
+    
+    try {
+    	Input();
+    	pq.setStatus("OK");
+    } catch(ParseException e) {
+    	pq.reportParseError(e.getMessage());
+    }
+
+  	return pq;
+  }
+}
+
+PARSER_END(DnQLParser)
+
+/* Tokens section */
+
+/* INSTRUCTION SET */
+
+TOKEN[IGNORE_CASE] :
+{
+  < _ABSTRACT			: "ABSTRACT" >
+| < _ACCESS				: "ACCESS" >
+| < _ADD				: "ADD" >
+| < _ALIAS				: "ALIAS" >
+| < _ALL				: "ALL" >
+| < _ALTER				: "ALTER" >
+
+| < _AND				: "AND" >
+| < _ANY				: "ANY" >
+| < _AS					: "AS" >
+| < _ASC				: "ASC" >
+| < _BREADFIRST			: "BREADFIRST" >
+| < _BY					: "BY" >
+                                           
+| < _CONCRETE			: "CONCRETE" >
+| < _CONSTRAINT			: "CONSTRAINT" >
+| < _CONTAINER			: "CONTAINER" >
+| < _CREATE				: "CREATE" >
+| < _CURRENT			: "CURRENT" >
+| < _D					: "D" >
+| < _DATATYPE			: "DATATYPE" >
+| < _DEFAULT			: "DEFAULT" >
+| < _DEFAULTINSTANCE	: "DEFAULTINSTANCE" >
+                                           
+| < _DELETE				: "DELETE" >
+| < _DEPTHFIRST			: "DEPTHFIRST" >
+| < _DESC				: "DESC" >
+| < _DIMENSION			: "DIMENSION" >
+| < _DISTINCT			: "DISTINCT" >
+| < _DROP				: "DROP" >
+
+| < _ELEMENT			: "ELEMENT" >
+| < _ETYPE				: "ETYPE" >
+| < _EXIST				: "EXIST" >
+| < _FALSE				: "FALSE" >
+| < _FILE				: "FILE" >
+| < _FLAT				: "FLAT" >                                          
+| < _FOR				: "FOR" >
+
+| < _FORMALISM			: "FORMALISM" >
+| < _FROM				: "FROM" >
+| < _GROUP				: "GROUP" >
+| < _ID					: "ID" >
+| < _IN					: "IN" >
+| < _INCLUDE			: "INCLUDE" >
+| < _INSERT				: "INSERT" >
+| < _INTO				: "INTO" >
+| < _JOIN				: "JOIN" >
+                                           
+| < _LIMIT				: "LIMIT" >
+| < _LIKE				: "LIKE" >
+| < _LOADED				: "LOADED" >
+| < _MAIN				: "MAIN" >
+| < _MODEL				: "MODEL" >
+| < _ON					: "ON" >
+
+| < _OR					: "OR" >
+| < _ORDER				: "ORDER" >
+| < _OPTION				: "OPTION" >
+| < _NOT				: "NOT" >
+| < _PARENT				: "PARENT" >
+| < _PATH				: "PATH" >
+| < _PHASE				: "PHASE" >
+                                           
+| < _PLANE				: "PLANE" >
+| < _PRIVATE			: "PRIVATE" >
+| < _PROPERTY			: "PROPERTY" >
+| < _PUBLIC				: "PUBLIC" >
+| < _R					: "R" >
+| < _RLIKE				: "RLIKE" >
+| < _RENAME				: "RENAME" >
+| < _RUN				: "RUN" >
+| < _RW					: "RW" >
+                                           
+| < _SAVE				: "SAVE" >
+| < _SELECT				: "SELECT" >
+| < _SET				: "SET" >
+| < _SHADOW				: "SHADOW" >
+| < _SHOW				: "SHOW" >
+| < _SOME				: "SOME" >
+| < _TO					: "TO" >
+
+| < _TRANSPOSE			: "TRANSPOSE" >
+| < _TRUE				: "TRUE" >
+| < _TYPEREF			: "TYPEREF" >
+| < _UNION				: "UNION" > 
+| < _UNSET          	: "UNSET" >
+
+| < _UPDATE				: "UPDATE" >
+| < _USE				: "USE" >
+| < _VALUE				: "VALUE" >
+| < _VARIABLE			: "VARIABLE" >
+| < _W					: "W" >
+| < _WHERE				: "WHERE" >
+
+}
+
+/* WHITE SPACE */
+
+SKIP :
+{
+  " "
+| "\t"
+| "\n"
+| "\r"
+| "\f"
+}
+
+/* COMMENTS */
+
+MORE :
+{
+  "//" : IN_SINGLE_LINE_COMMENT
+|
+  "/*" : IN_MULTI_LINE_COMMENT
+}
+
+<IN_SINGLE_LINE_COMMENT>
+SPECIAL_TOKEN :
+{
+  <SINGLE_LINE_COMMENT: "\n" | "\r" | "\r\n" > : DEFAULT
+}
+
+<IN_MULTI_LINE_COMMENT>
+SPECIAL_TOKEN :
+{
+  <MULTI_LINE_COMMENT: "*/" > : DEFAULT
+}
+
+<IN_SINGLE_LINE_COMMENT,IN_MULTI_LINE_COMMENT>
+MORE :
+{
+  < ~[] >
+}
+
+/* SEPARATORS */
+
+TOKEN :
+{
+  < LPAREN: "(" >
+| < RPAREN: ")" >
+| < LBRACE: "{" >
+| < RBRACE: "}" >
+| < LBRACKET: "[" >
+| < RBRACKET: "]" >
+| < SEMICOLON: ";" >
+| < COMMA: "," >
+| < DOT: "." >
+| < SHARP: "#" >
+| < AT: "@" >
+}
+
+/* OPERATORS */
+
+TOKEN :
+{
+  < GT: ">" >
+| < LT: "<" >
+//| < ASSIGN: "=" >
+| < BANG: "!" >
+| < TILDE: "~" >
+| < HOOK: "?" >
+| < COLON: ":" >
+//| < EQ: "==" >
+| < EQ: "=" >  // Different from standard C / Java notation
+| < LE: "<=" >
+| < GE: ">=" >
+| < NE: "<>" >
+| < RIGHTARROW: "=>" >
+| < SMALLRIGHTARROW: "->" >
+//| < INCR: "++" >
+//| < DECR: "--" >
+| < PLUS: "+" >
+| < MINUS: "-" >
+| < STAR: "*" >
+| < SLASH: "/" >
+| < AMP: "&" >
+| < HATAMP: "^&" >
+| < HATSHARP: "^#" >
+//| < BIT_OR: "|" >
+//| < XOR: "^" >
+| < REM: "%" >
+//	| < LSHIFT: "<<" >
+//	| < RSIGNEDSHIFT: ">>" >
+//	| < RUNSIGNEDSHIFT: ">>>" >
+//| < PLUSASSIGN: "+=" >
+//| < MINUSASSIGN: "-=" >
+//| < STARASSIGN: "*=" >
+//| < SLASHASSIGN: "/=" >
+//| < ANDASSIGN: "&=" >
+//| < ORASSIGN: "|=" >
+//| < XORASSIGN: "^=" >
+//| < REMASSIGN: "%=" >
+//	| < LSHIFTASSIGN: "<<=" >
+//	| < RSIGNEDSHIFTASSIGN: ">>=" >
+//	| < RUNSIGNEDSHIFTASSIGN: ">>>=" >
+}
+
+
+
+/* JAVA LITERALS */
+
+TOKEN :
+{
+  < INTEGER_LITERAL:
+        <DECIMAL_LITERAL>
+      | <HEX_LITERAL>
+      | "0"
+  >
+|
+  < #DECIMAL_LITERAL: ["1"-"9"] (["0"-"9"])* >
+|
+  < #HEX_LITERAL: "0" ["x","X"] (["0"-"9","a"-"f","A"-"F"])+ >
+|
+  < FLOATING_POINT_LITERAL:
+        (["0"-"9"])* "." (["0"-"9"])* (<EXPONENT>)?
+      | (["0"-"9"])+ (<EXPONENT>)
+  >
+|
+  < #EXPONENT: ["e","E"] (["+","-"])? (["0"-"9"])+ >
+|
+  < STRING_LITERAL:
+      "'"
+      (   (~["'","\\", "\t", "\n"])
+        | ("\\"
+            ( ["\\","'", "t", "n"]
+            )
+          )
+      )*
+      "'"
+  >
+}
+
+/* IDENTIFIERS */
+
+TOKEN :
+{
+  < IDENTIFIER: <LETTER> (<LETTER>|<DIGIT>)* >
+|
+  < #LETTER:
+      [
+       "_",
+       "a"-"z",
+       "A"-"Z"
+      ]
+  >
+|
+  < #DIGIT:
+      [
+       "0"-"9"
+      ]
+  >
+}
+
+TOKEN :
+{
+  < URL_IDENTIFIER:
+      "<:" ( ~[">"] )* ">"
+  >
+|
+  < ESCAPED_IDENTIFIER:
+      "`" ( ~["`"] )* "`"
+  >
+}
+
+/* Tokens section end*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Grammar section */
+
+/* Main producitons */
+
+void Input() :
+{}
+{
+  qStatement() (<SEMICOLON> qStatement() )* <EOF>
+}
+
+void qStatement() :
+{}
+{
+	<_ALTER> ALTERquery() |
+	<_CREATE> CREATEquery() |
+	<_DELETE> <_ELEMENT> DELETEquery() |
+	<_DROP> DROPquery() |
+	<_INSERT> <_ELEMENT> INSERTquery() |
+	<_RENAME> RENAMEquery() |
+	<_SAVE> SAVEquery() |
+	SELECTquery() |
+	<_SET> SETquery() |
+	<_SHOW> SHOWquery() |
+	<_UNSET> UNSETquery() |
+	<_UPDATE> UPDATEquery() |
+	<_USE> USEquery() |
+	{}
+}
+
+
+/* Statement productions */
+
+/* ALTER query */
+
+void ALTERquery() :
+{
+	qsh_elementId eId = null;
+	qsh_propertyId pId = null;
+	String url = null;
+	qsh_locatedId sv = null;
+}
+{
+	<_ELEMENT> [LOOKAHEAD(2) eId = elementId()] ALTER_ELEMENTquery(eId) (<COMMA> ALTER_ELEMENTquery(eId))* |
+	<_ETYPE> [LOOKAHEAD(2) eId = elementId()] ALTER_ETYPEquery(eId) (<COMMA> ALTER_ETYPEquery(eId))* |
+	<_FORMALISM> [LOOKAHEAD(2) url = UrlValue()] ALTER_FORMALISMquery(url) (<COMMA> ALTER_FORMALISMquery(url))* |
+	<_MODEL> [LOOKAHEAD(2) url = UrlValue()] ALTER_MODELquery(url) (<COMMA> ALTER_MODELquery(url))* |
+	<_PLANE> [LOOKAHEAD(2) sv = locatedId()] ALTER_PLANEquery(sv) (<COMMA> ALTER_PLANEquery(sv))* |
+	<_PROPERTY> [LOOKAHEAD(2) pId = propertyId()] ALTER_PROPERTYquery(pId) (<COMMA> ALTER_PROPERTYquery(pId))*
+}
+
+void ALTER_ELEMENTquery(qsh_elementId eId) :
+{}
+{
+	MatchedBraces()
+}
+
+void ALTER_ETYPEquery(qsh_elementId eId) :
+{}
+{
+	MatchedBraces()
+}
+
+void ALTER_FORMALISMquery(String furl) :
+{
+	qsh_elementId eId;
+	String url;
+	Vector<String> slist;
+}
+{
+	<_ADD> <_INCLUDE> url = UrlValue()   {pq.add(new qs_ALTER_FORMALISM(qs_ALTER_FORMALISM.ADD_INCLUDE, url, furl));} |
+	<_DROP> <_INCLUDE>  url = UrlValue() {pq.add(new qs_ALTER_FORMALISM(qs_ALTER_FORMALISM.DROP_INCLUDE, url, furl));} |
+	<_MAIN> eId = elementId()            {pq.add(new qs_ALTER_FORMALISM(qs_ALTER_FORMALISM.MAIN, eId, furl));} |
+	<_SET> <_DEFAULT> <_PLANE> slist = idList() {pq.add(new qs_ALTER_FORMALISM(qs_ALTER_FORMALISM.DEFAULT_PLANE, slist, furl));}
+}
+
+void ALTER_MODELquery(String murl) :
+{
+	qsh_elementId eId;
+	String url;
+}
+{
+	<_FORMALISM> url = UrlValue() {pq.add(new qs_ALTER_MODEL(qs_ALTER_MODEL.FORMALISM, url, murl));} |
+	<_MAIN> eId = elementId()     {pq.add(new qs_ALTER_MODEL(qs_ALTER_MODEL.MAIN, eId, murl));}
+}
+
+void ALTER_PLANEquery(qsh_locatedId sv) :
+{
+	planePhasesList ppl = null;
+	int pOpt = -1;
+}
+{
+	<_OPTION> pOpt = planeOptions() {pq.add(new qs_ALTER_PLANE(qs_ALTER_PLANE.OPTION, sv, pOpt));} |
+	<_PHASE> ppl = planeList() {pq.add(new qs_ALTER_PLANE(qs_ALTER_PLANE.PHASE, sv, ppl));}
+
+}
+
+void ALTER_PROPERTYquery(qsh_propertyId pId) :
+{}
+{
+	MatchedBraces()
+}
+
+
+
+
+
+
+
+/* CREATE query */
+
+void CREATEquery() :
+{
+	String sv;
+	qsh_locatedId lsv;
+	String Murl = null, Furl = null;
+	planePhasesList ppl = null;
+	int pOpt = -1;
+}
+{
+	<_DIMENSION> lsv = locatedId() {pq.add(new qs_CREATE(qs_CREATE.DIMENSION, lsv));} |
+	<_FORMALISM> sv = identifier() [<_FILE> Furl = UrlValue()]
+					{pq.add(new qs_CREATE_FORMALISM(sv, Furl));} |
+	<_MODEL> sv = identifier() [<_FILE> Murl = UrlValue()] [<_FORMALISM> Furl = UrlValue()] 
+					{pq.add(new qs_CREATE_MODEL(sv, Murl, Furl));} |
+	<_PLANE> lsv = locatedId() <_OPTION> pOpt = planeOptions() [<_PHASE> ppl = planeList()]
+							{pq.add(new qs_CREATE(qs_CREATE.PLANE, lsv, pOpt, ppl));} |
+	<_PHASE> lsv = locatedId() {pq.add(new qs_CREATE(qs_CREATE.PHASE, lsv));} |
+	MatchedBraces()
+}
+
+
+
+
+
+
+
+/* DELETE query */
+
+void DELETEquery() :
+{}
+{
+	MatchedBraces()
+}
+
+
+
+
+
+
+
+/*DROP query */
+
+void DROPquery() :
+{
+	qsh_locatedId sv;
+	qsh_elementId eId;
+	String url;
+	qsh_propertyId pId;
+}
+{
+	<_DIMENSION> sv = locatedId()         {pq.add(new qs_DROP(qs_DROP.DIMENSION, sv));} |
+	LOOKAHEAD(2)
+	<_ETYPE> <_ID> eId = elementId()       {pq.add(new qs_DROP(qs_DROP.ETYPE, eId));} |
+	<_ETYPE> <_FROM> eId = elementId()
+	         <_WHERE> MatchedBraces()      {pq.add(new qs_DROP(qs_DROP.ETYPE, eId));} |
+	<_FORMALISM> url = UrlValue()          {pq.add(new qs_DROP(qs_DROP.FORMALISM, url));} |
+	<_MODEL>  url = UrlValue()             {pq.add(new qs_DROP(qs_DROP.MODEL, url));} |
+	<_PHASE> sv = locatedId()             {pq.add(new qs_DROP(qs_DROP.PHASE, sv));} |
+	 LOOKAHEAD(2)
+	<_PROPERTY> <_ID> pId = propertyId()   {pq.add(new qs_DROP(qs_DROP.ETYPE, pId));} |
+	<_PROPERTY> <_FROM> pId = propertyId()
+	            <_WHERE> MatchedBraces()   {pq.add(new qs_DROP(qs_DROP.ETYPE, pId));} |
+	<_PLANE> sv = locatedId()             {pq.add(new qs_DROP(qs_DROP.PLANE, sv));}
+}
+
+
+
+
+
+
+
+/* INSERT query */
+
+void INSERTquery() :
+{}
+{
+	MatchedBraces()
+}
+
+
+
+
+
+
+
+/* RENAME query */
+
+void RENAMEquery() :
+{
+	qsh_elementId eId = null;
+	qsh_locatedId sv = null;
+	String url = null;
+	qsh_propertyId pId = null;
+	String newName;
+}
+{
+	<_DIMENSION> sv = locatedId()   <_TO> newName = identifier()
+									 {pq.add(new qs_RENAME(qs_RENAME.DIMENSION, sv, newName));} |
+	<_ELEMENT> eId = elementId()    <_TO> newName = identifier()
+									 {pq.add(new qs_RENAME(qs_RENAME.ELEMENT, eId, newName));} |
+	<_ETYPE> eId = elementId()      <_TO> newName = identifier(
+									) {pq.add(new qs_RENAME(qs_RENAME.ETYPE, eId, newName));} |
+	<_FORMALISM> url = UrlValue()   <_TO> newName = UrlValue()
+									 {pq.add(new qs_RENAME(qs_RENAME.FORMALISM, url, newName));} |
+	<_MODEL>  url = UrlValue()      <_TO> newName = UrlValue()
+									 {pq.add(new qs_RENAME(qs_RENAME.MODEL, url, newName));} |
+	<_PHASE> sv = locatedId()       <_TO> newName = identifier()
+									 {pq.add(new qs_RENAME(qs_RENAME.PHASE, sv, newName));} |
+	<_PLANE> sv = locatedId()       <_TO> newName = identifier()
+									 {pq.add(new qs_RENAME(qs_RENAME.PLANE, sv, newName));} |
+	<_PROPERTY> pId = propertyId()  <_TO> newName = identifier()
+									 {pq.add(new qs_RENAME(qs_RENAME.PROPERTY, pId, newName));}
+}
+
+
+
+
+
+
+
+/* SAVE query */
+
+void SAVEquery() :
+{}
+{
+	MatchedBraces()
+}
+
+
+
+
+
+
+
+
+/* SELECT query */
+
+
+void SELECTquery() :
+{
+	qsh_SELECT_tree Tr;
+}
+{
+	Tr = SELECTquery_expr() {pq.add(new qs_SELECT(Tr));}
+}
+
+
+qsh_SELECT_tree SELECTquery_expr() :
+{
+	qsh_SELECT_tree t1, t2;
+}
+{
+	t1 = SELECTquery_term() (<_UNION> t2 = SELECTquery_term() {t1 = new qsst_UNION(t1, t2);})* {return t1;}
+}
+
+qsh_SELECT_tree SELECTquery_term() :
+{
+	qsh_SELECT_tree t1;
+}
+{
+	t1 = SELECTquery_fact() (t1 = PostProc_part(t1))*  {return t1;}
+}	
+	
+qsh_SELECT_tree SELECTquery_fact() :
+{
+	qsh_SELECT_tree t1;
+}
+{
+	<_SELECT> t1 = SELECTquery_spec()  {return t1;} |
+	<LPAREN> t1 = SELECTquery_expr() <RPAREN> {return new qsst_braced_SELECT(t1);}
+}
+
+qsh_SELECT_tree PostProc_part(qsh_SELECT_tree t1) :
+{
+	qsh_SELECT_tree t2;
+}
+{
+	t2 = GroupBy_part(t1)  {return t2;} |
+	t2 = OrderBy_part(t1)  {return t2;} |
+	t2 = Limit_part(t1)    {return t2;}
+}
+
+qsh_SELECT_tree SELECTquery_spec() :
+{
+	qsh_SELECT_enumerator en;
+	qsh_SELECT_iterator t1 = null;
+	qsh_SELECT_where wc1, wc2 = null;
+	qsh_SELECT_values selV = null;
+	boolean distinct = false;	
+}
+{
+	[<_DISTINCT> {distinct = true;} ]
+	{selV = new qsh_SELECT_values();}
+	ValuesBase(selV) [<_FROM>
+	en = SELECTquery_type() {t1 = new qsh_SELECT_iterator(en);}
+		( <COMMA> en = SELECTquery_type()
+								{t1.setInnerIterator(new qsh_SELECT_iterator(en));} |
+		  <_JOIN> en = SELECTquery_type() <_ON> wc1 = whereExpression()
+								{t1.setInnerIterator(new qsh_SELECT_iterator(en,wc1));}
+		)*	[<_WHERE> wc2 = whereExpression()]  ]
+				{qsst_SELECT_base rv = new qsst_SELECT_base(selV, t1, distinct, wc2);
+				 if(distinct) {return new qsst_DISTINCT(rv);} else {return rv;}
+				}
+}
+
+
+qsh_SELECT_enumerator SELECTquery_type() :
+{
+	String sv = null;
+	String typeFilter = null;
+	qsh_elementId eId = null;
+	int depth;
+	int mode;
+	boolean parentFilter = false;
+	qsh_SELECT_tree t1;
+}
+{
+	<_ELEMENT>   [eId = elementId()]
+				 [(<_ETYPE> {parentFilter = false;} | <_PARENT> {parentFilter = true;}) typeFilter = identifier()]
+				 [<_AS> sv = identifier()]
+				 {mode = qsh_SELECT_enumerator.FLAT; depth = 0;}
+				 [<_FLAT> | (<_BREADFIRST>  {mode = qsh_SELECT_enumerator.BREADFIRST;} |
+							<_DEPTHFIRST>  {mode = qsh_SELECT_enumerator.DEPTHFIRST;})
+							[depth = IntegerValue()]]
+				 {return new qsh_SELECT_ELEMENT(eId, typeFilter, parentFilter, sv, mode, depth);} |
+	<_ETYPE>     [eId = elementId()]
+				 [<_PARENT> typeFilter = identifier()]
+				 [<_AS> sv = identifier()]
+				 {mode = qsh_SELECT_enumerator.FLAT; depth = 0;}
+				 [<_FLAT> | (<_BREADFIRST>  {mode = qsh_SELECT_enumerator.BREADFIRST;} |
+							<_DEPTHFIRST>  {mode = qsh_SELECT_enumerator.DEPTHFIRST;})
+							[depth = IntegerValue()]]
+				 {return new qsh_SELECT_ETYPE(eId, typeFilter, sv, mode, depth);} |
+	<_PROPERTY>  [eId = elementId()] [<_AS> sv = identifier()]
+				 {return new qsh_SELECT_PROPERTY(eId, sv);} |
+	<_VALUE>     [eId = elementId()] [<_AS> sv = identifier()]
+				 {return new qsh_SELECT_VALUE(eId, sv);} |
+	<_TRANSPOSE> [eId = elementId()] [<_AS> sv = identifier()]
+				 {return null;} |
+	<LPAREN> t1 = SELECTquery_expr() <RPAREN> <_AS> sv = identifier() {return new qsh_SELECT_SUBQUERY(t1, sv);}
+}
+
+
+
+
+
+void ValuesBase(qsh_SELECT_values vb) :
+{}
+{
+	<STAR> {vb.setStar();} |
+	RenamedValueExpression(vb) (<COMMA> RenamedValueExpression(vb) )*
+}
+
+void RenamedValueExpression(qsh_SELECT_values vb) :
+{
+	DnQLexpression e;
+	String sv = null;
+}
+{
+	LOOKAHEAD(3) sv = identifier() <SMALLRIGHTARROW> <STAR> {vb.addStar(sv);} |
+	e = Expression() [<_AS> sv = identifier()] {vb.add(sv, e);}
+}
+
+
+
+
+
+
+
+qsh_SELECT_tree GroupBy_part(qsh_SELECT_tree t1) :
+{
+	Vector<String> sList;
+}
+{
+	<_GROUP> <_BY> sList = idList() {return new qsst_GROUP_BY(t1, sList);}
+}
+
+qsh_SELECT_tree OrderBy_part(qsh_SELECT_tree t1) :
+{
+	orderByFieldList obList;
+}
+{
+	<_ORDER> <_BY> obList = orderByList() {return new qsst_ORDER_BY(t1, obList);}
+}
+
+qsh_SELECT_tree Limit_part(qsh_SELECT_tree t1) :
+{
+	int qty, start;
+}
+{
+	<_LIMIT> {start = 0;} [LOOKAHEAD(2) start = IntegerValue() <COMMA>] qty = IntegerValue()
+			 {return new qsst_LIMIT(t1, start, qty);}
+}
+
+
+qsh_SELECT_where whereExpression() :
+{
+	DnQLexpression e;
+}
+{
+	e = Expression()
+	{return new qsh_SELECT_where(e);}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SAVE query */
+
+void SETquery() :
+{
+	String url;
+}
+{
+	<_MODEL> <_PATH> url = UrlValue()      {pq.add(new qs_SET(qs_SET.MODEL_PATH, url));}      |
+	<_FORMALISM> <_PATH> url = UrlValue()  {pq.add(new qs_SET(qs_SET.FORMALISM_PATH, url));}  |
+	<_VARIABLE> SET_VARIABLEquery() (<COMMA> SET_VARIABLEquery())*
+}
+
+void SET_VARIABLEquery() :
+{
+	String vn;
+	String ct = "_global";
+	DnQLexpression e;
+}
+{
+	[LOOKAHEAD(2) ct = identifier() <SMALLRIGHTARROW>] vn = identifier() <EQ> e = Expression()
+										   {pq.add(new qs_SET_VARIABLE(ct, vn, e));}
+}
+
+
+
+
+
+/* SHOW query */
+
+void SHOWquery() :
+{
+	qsh_elementId eId = null;
+	qsh_locatedId sv = null;
+	int ty = -1;
+	String url = null;
+	String sv2 = null;
+	qsh_propertyId pId = null;
+}
+{
+	<_CURRENT> SHOW_CURRENTquery() (<COMMA> SHOW_CURRENTquery())* |
+	<_ETYPE> [LOOKAHEAD(2) eId = elementId()] SHOW_ETYPEquery(eId) (<COMMA> SHOW_ETYPEquery(eId))*  |
+	<_FORMALISM> [LOOKAHEAD(2) url = UrlValue()] SHOW_FORMALISMquery(url) (<COMMA> SHOW_FORMALISMquery(url))* |
+	<_MODEL> [LOOKAHEAD(2) url = UrlValue()] SHOW_MODELquery(url) (<COMMA> SHOW_MODELquery(url))* |
+	<_PLANE> [LOOKAHEAD(2) sv = locatedId()] SHOW_PLANEquery(sv) (<COMMA> SHOW_PLANEquery(sv))* |
+	<_PROPERTY> [LOOKAHEAD(2) pId = propertyId()] SHOW_PROPERTYquery(pId) (<COMMA> SHOW_PROPERTYquery(pId))* |
+	<_VARIABLE> [sv2 = identifier()] {pq.add(new qs_SHOW_VARIABLE(sv2)); }
+}
+
+void SHOW_CURRENTquery() :
+{
+	String url;
+}
+{
+	LOOKAHEAD(2) <_DIMENSION> <_MODEL> url = UrlValue()
+		{pq.add(new qs_SHOW_CURRENT(qs_SHOW_CURRENT.DIMENSION, url)); } |
+	<_DIMENSION> {pq.add(new qs_SHOW_CURRENT(qs_SHOW_CURRENT.DIMENSION)); } |
+	<_ELEMENT> {pq.add(new qs_SHOW_CURRENT(qs_SHOW_CURRENT.ELEMENT)); } |
+	<_ETYPE> {pq.add(new qs_SHOW_CURRENT(qs_SHOW_CURRENT.ETYPE)); } |
+	<_FORMALISM> {pq.add(new qs_SHOW_CURRENT(qs_SHOW_CURRENT.FORMALISM)); } |
+	<_MODEL> {pq.add(new qs_SHOW_CURRENT(qs_SHOW_CURRENT.MODEL)); } |
+	LOOKAHEAD(2) <_PHASE> <_MODEL> url = UrlValue()
+		{pq.add(new qs_SHOW_CURRENT(qs_SHOW_CURRENT.PHASE, url)); } |
+	<_PHASE> {pq.add(new qs_SHOW_CURRENT(qs_SHOW_CURRENT.PHASE)); } |
+	<_PLANE> {pq.add(new qs_SHOW_CURRENT(qs_SHOW_CURRENT.PLANE)); } |
+	<_PROPERTY> {pq.add(new qs_SHOW_CURRENT(qs_SHOW_CURRENT.PROPERTY)); }
+}
+
+
+
+qs_SHOW_ETYPE SHOW_ETYPEquery(qsh_elementId eId) :
+{
+qsh_elementId peId;
+}
+{	
+	<_ACCESS> {return (new qs_SHOW_ETYPE(qs_SHOW_ETYPE.ACCESS, eId));} |
+	LOOKAHEAD(2) <_ALIAS> <_FOR> peId = elementId() {
+		qs_SHOW_ETYPE se = new qs_SHOW_ETYPE(qs_SHOW_ETYPE.ALIAS, eId, peId);
+		return se;
+	} |
+	<_ALIAS>  {return (new qs_SHOW_ETYPE(qs_SHOW_ETYPE.ALIAS, eId));} |
+	<_DEFAULTINSTANCE> {return (new qs_SHOW_ETYPE(qs_SHOW_ETYPE.DEFAULTINSTANCE, eId));} |
+	<_PARENT> {return (new qs_SHOW_ETYPE(qs_SHOW_ETYPE.PARENT, eId));} |
+	<_PLANE>  {return (new qs_SHOW_ETYPE(qs_SHOW_ETYPE.PLANE, eId));} |
+	LOOKAHEAD(2) <_SHADOW> <_FOR> peId = elementId() {
+		qs_SHOW_ETYPE se = new qs_SHOW_ETYPE(qs_SHOW_ETYPE.SHADOW, eId, peId);
+		return se;
+	} |
+	<_SHADOW>  {return (new qs_SHOW_ETYPE(qs_SHOW_ETYPE.SHADOW, eId));} |
+	<_RUN> <_CONSTRAINT>  {return (new qs_SHOW_ETYPE(qs_SHOW_ETYPE.RUN_CONSTRAINT, eId));} |
+	<_MODEL> <_CONSTRAINT>  {return (new qs_SHOW_ETYPE(qs_SHOW_ETYPE.MODEL_CONSTRAINT, eId));}
+}
+
+
+void SHOW_FORMALISMquery(String url) :
+{
+}
+{
+	<_FILE> {pq.add(new qs_SHOW_FORMALISM(qs_SHOW_FORMALISM.FILE, url)); } |
+	<_INCLUDE> {pq.add(new qs_SHOW_FORMALISM(qs_SHOW_FORMALISM.INCLUDE, url)); } |
+	<_LOADED> {pq.add(new qs_SHOW_FORMALISM(qs_SHOW_FORMALISM.LOADED, url)); } |
+	<_MAIN>  {pq.add(new qs_SHOW_FORMALISM(qs_SHOW_FORMALISM.MAIN, url)); } |
+	<_PATH> {pq.add(new qs_SHOW_FORMALISM(qs_SHOW_FORMALISM.PATH, url)); } |
+	<_PHASE> {pq.add(new qs_SHOW_FORMALISM(qs_SHOW_FORMALISM.PHASE, url)); } |
+	<_PLANE> {pq.add(new qs_SHOW_FORMALISM(qs_SHOW_FORMALISM.PLANE, url)); } |
+	<_DEFAULT> <_PLANE> {pq.add(new qs_SHOW_FORMALISM(qs_SHOW_FORMALISM.DEFAULT_PLANE, url)); }
+}
+
+void SHOW_MODELquery(String url) :
+{}
+{
+	<_DIMENSION> {pq.add(new qs_SHOW_MODEL(qs_SHOW_MODEL.DIMENSION, url)); } |
+	<_FILE> {pq.add(new qs_SHOW_MODEL(qs_SHOW_MODEL.FILE, url)); } |
+	<_FORMALISM> {pq.add(new qs_SHOW_MODEL(qs_SHOW_MODEL.FORMALISM, url)); } |
+	<_LOADED> {pq.add(new qs_SHOW_MODEL(qs_SHOW_MODEL.LOADED, url)); } |
+	<_MAIN> {pq.add(new qs_SHOW_MODEL(qs_SHOW_MODEL.MAIN, url)); } |
+	<_PATH> {pq.add(new qs_SHOW_MODEL(qs_SHOW_MODEL.PATH, url)); }
+}
+
+void SHOW_PLANEquery(qsh_locatedId sv) :
+{}
+{
+	<_PHASE>  {pq.add(new qs_SHOW_PLANE(qs_SHOW_PLANE.PHASE, sv));}  |
+	<_OPTION> {pq.add(new qs_SHOW_PLANE(qs_SHOW_PLANE.OPTION, sv));}
+}
+
+
+qs_SHOW_PROPERTY SHOW_PROPERTYquery(qsh_propertyId pId) :
+{
+}
+{	
+	<_DATATYPE> {return (new qs_SHOW_PROPERTY(qs_SHOW_PROPERTY.DATATYPE, pId));} |
+    <_DEFAULT>  {return (new qs_SHOW_PROPERTY(qs_SHOW_PROPERTY.DEFAULT, pId));} |
+	<_PLANE>    {return (new qs_SHOW_PROPERTY(qs_SHOW_PROPERTY.PLANE, pId));}
+}
+
+
+
+
+
+
+/* UNSET query */
+
+void UNSETquery() :
+{
+	String vn;
+	String ct = "_global";
+}
+{
+	<_VARIABLE> [LOOKAHEAD(2) ct = identifier() <SMALLRIGHTARROW>] vn = identifier()
+										   {pq.add(new qs_UNSET_VARIABLE(ct, vn));}
+				(<COMMA> [LOOKAHEAD(2) ct = identifier() <SMALLRIGHTARROW>] vn = identifier()
+										   {pq.add(new qs_UNSET_VARIABLE(ct, vn));})*
+}
+
+
+
+
+
+
+
+
+
+
+
+/* UPDATE query */
+
+void UPDATEquery() :
+{}
+{
+	MatchedBraces()
+}
+
+
+
+
+
+
+/* USE query */
+
+void USEquery() :
+{
+	qsh_locatedId sv;
+	qsh_elementId eId;
+	String url;
+	qsh_propertyId pId;
+}
+{
+	<_DIMENSION> sv = locatedId()  {pq.add(new qs_USE(qs_USE.DIMENSION, sv));} |
+	<_ELEMENT> eId = elementId()    {pq.add(new qs_USE(qs_USE.ELEMENT, eId));} |
+	<_ETYPE> eId = elementId()      {pq.add(new qs_USE(qs_USE.ETYPE, eId));} |
+	<_FORMALISM> url = UrlValue()   {pq.add(new qs_USE(qs_USE.FORMALISM, url));} |
+	<_MODEL>  url = UrlValue()      {pq.add(new qs_USE(qs_USE.MODEL, url));} |
+	<_PHASE> sv = locatedId()      {pq.add(new qs_USE(qs_USE.PHASE, sv));} |
+	<_PLANE> sv = locatedId()      {pq.add(new qs_USE(qs_USE.PLANE, sv));} |
+	<_PROPERTY> pId = propertyId()  {pq.add(new qs_USE(qs_USE.PROPERTY, pId));}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* other common produtions */
+
+qsh_locatedId locatedId() :
+{
+	String di;
+	String url;
+}
+{
+	url = UrlValue() di = identifier() {return new qsh_locatedId(url, di);} |
+	di = identifier()  {return new qsh_locatedId (di);}
+}
+
+String identifier() :
+{
+	Token t1;
+}
+{
+	t1 = <IDENTIFIER> {return t1.image;} |
+	t1 = <ESCAPED_IDENTIFIER> {return t1.image.substring(1,t1.image.length()-1);}
+}
+
+qsh_propertyId propertyId() :
+{
+	qsh_propertyId pr;
+}
+{
+	LOOKAHEAD(refProperty()) pr = refProperty() {return pr;}   |
+	LOOKAHEAD(normProperty()) pr = normProperty() {return pr;} |
+{System.out.println("Exp3");}
+	pr = propertySpec(null) {return pr;}
+}
+
+qsh_propertyId refProperty() :
+{
+	qsh_propertyNavigator pn;
+	qsh_propertyId pro;
+}
+{
+	<STAR> <LBRACKET> pro = propertyId() <RBRACKET> 
+			pn = innerPropertySpec() {return new qsh_propertyId(pro, pn);}
+}
+
+qsh_propertyId normProperty() :
+{
+	qsh_propertyId pId;
+	qsh_elementId eId;
+}
+{
+	eId = elementId() <SMALLRIGHTARROW> pId = propertySpec(eId) {return pId;}
+}
+
+qsh_propertyId propertySpec(qsh_elementId eId) :
+{
+	qsh_propertyNavigator pn;
+	String sv;
+}
+{
+  sv = identifier() pn = innerPropertySpec() {if(eId != null) {return new qsh_propertyId(eId, sv, pn);}
+  						 					             else {return new qsh_propertyId(sv, pn);}}
+}
+
+qsh_propertyNavigator innerPropertySpec() :
+{
+	qsh_propertyNavigator pn;
+	DnQLexpression e1;
+	String sv;
+}
+{
+  {pn = new qsh_propertyNavigator();}
+  ( <DOT> sv = identifier() {pn.add(new qsh_propertyIdPart(sv));} |
+    <LBRACKET> e1 = Expression() <RBRACKET> {pn.add(new qsh_propertyIdPart(e1));}
+  )* {return pn;}
+}
+
+
+qsh_elementId elementId() :
+{
+	Vector<String> di = null;
+	String url;
+	qsh_propertyId pro;
+}
+{
+	url = UrlValue() di = dottedIdentifier() {return new qsh_elementId(url, di);} |
+	<STAR> <LPAREN> pro = propertyId() <RPAREN> [<DOT> di = dottedIdentifier()]
+											{return new qsh_elementId(pro, di);} |
+	di = dottedIdentifier()  {return new qsh_elementId(di);}
+}
+
+Vector<String> dottedIdentifier() :
+{
+	Vector<String> di = null;
+	String sv;
+}
+{
+  sv = identifier() {di = new Vector<String>(); di.add(sv);}
+  (  LOOKAHEAD(<DOT> (<IDENTIFIER> | <ESCAPED_IDENTIFIER>))
+    "." sv = identifier() {di.add(sv);}
+  )* {return di;}
+}
+
+int IntegerValue() :
+{
+	Token t1;
+}
+{
+	t1 = <INTEGER_LITERAL> {
+		if(t1.image.length() < 3) {
+			return Integer.parseInt(t1.image);
+		} else if(t1.image.substring(0,2).equals("0x")) {
+			return Integer.parseInt(t1.image.substring(2), 16);
+		} else {
+			return Integer.parseInt(t1.image);
+		}
+	}
+}
+
+double RealValue() :
+{
+	Token t1;
+}
+{
+	t1 = <FLOATING_POINT_LITERAL> {
+		return Double.parseDouble(t1.image);
+	}
+}
+
+boolean BooleanValue() :
+{
+	Token t1;
+}
+{
+	<_TRUE>  {return true;} |
+	<_FALSE> {return false;}
+}
+
+String StringValue() :
+{
+	Token t1;
+}
+{
+	t1 = <STRING_LITERAL> {return t1.image.substring(1,t1.image.length()-1);}
+}
+
+String UrlValue() :
+{
+	Token t1;
+}
+{
+	t1 = <URL_IDENTIFIER> {return t1.image.substring(2,t1.image.length()-1);}
+}
+
+Vector<String> idList() :
+{
+	Vector<String> di = null;
+	String sv;
+}
+{
+  sv = identifier() {di = new Vector<String>(); di.add(sv);}
+  ( LOOKAHEAD(<COMMA> (<IDENTIFIER> | <ESCAPED_IDENTIFIER>) )
+    "," sv = identifier() {di.add(sv);}
+  )* {return di;}
+}
+
+int planeOptions() :
+{}
+{
+	"!" {return PlaneType.OPT_ONE;}  |
+    "?" {return PlaneType.OPT_QM;}   |
+    "+" {return PlaneType.OPT_PLUS;} |
+    "*" {return PlaneType.OPT_STAR;}
+}
+
+planePhasesList planeList() :
+{
+	planePhasesList out = new planePhasesList();
+	String sv;
+	int iT = 0;
+}
+{
+	sv = identifier() (<_D> {iT = 0;} | <_R> {iT = 1;} | <_W> {iT = 2;} | <_RW> {iT = 3;}) {out.add(sv, iT);}
+	(LOOKAHEAD(2) <COMMA> sv = identifier() (<_D> {iT = 0;} | <_R> {iT = 1;} | <_W> {iT = 2;} | <_RW> {iT = 3;}) {out.add(sv, iT);})*
+	{return out;}
+}
+
+orderByFieldList orderByList() :
+{
+	orderByFieldList out = new orderByFieldList();
+	String sv;
+	int iT = 1;
+}
+{
+	sv = identifier() (<_ASC> {iT = 1;} | <_DESC> {iT = -1;}) {out.add(sv, iT);}
+	(LOOKAHEAD(2) <COMMA> sv = identifier() (<_ASC> {iT = 1;} | <_DESC> {iT = -1;}) {out.add(sv, iT);})*
+	{return out;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/// Expressions
+
+
+DnQLexpression Expression() :		// Complete
+{
+	DnQLexpression e1;
+}
+{
+	e1 = exHookColon() {return e1;}
+}
+
+
+DnQLexpression exHookColon() :		// Complete
+{
+	DnQLexpression e1, e2, e3;
+}
+{
+	e1 = exBoolean() [<HOOK> e2 = Expression() <COLON> e3 = Expression() {e1 = new expr_HookColon(e1, e2, e3); }] {return e1;}
+}
+
+DnQLexpression exBoolean() :		// Complete
+{
+	DnQLexpression e1, e2;
+}
+{
+	e1 = exAndBoolean() (<_OR> e2 = exAndBoolean() {e1 = new expr_BooleanOr(e1, e2); } )* {return e1;}
+}
+
+DnQLexpression exAndBoolean() :		// Complete
+{
+	DnQLexpression e1, e2;
+}
+{
+	e1 = exNotBoolean() (<_AND> e2 = exNotBoolean() {e1 = new expr_BooleanAnd(e1, e2); } )* {return e1;}
+}
+
+DnQLexpression exNotBoolean() :		// Complete
+{
+	DnQLexpression e1;
+	boolean hasNot = false;
+}
+{
+	[<_NOT> {hasNot = true;}] e1 = exComparison()
+			{if(hasNot) return new expr_BooleanNot(e1); else return e1;}
+}
+
+DnQLexpression exComparison() :		// Missing: EXISTS, ALL, SOME | ANY, [NOT] IN
+{
+	DnQLexpression e1, e2;
+	int compOp;
+	Vector<DnQLexpression> eList;
+}
+{
+	<_EXIST> <LPAREN> SELECTquery_expr() <RPAREN>  {return null; /*EXIST subquery*/} |
+	e1 = exAdditiveTerm() [compOp = comparisonOperator() ( e2 = exAdditiveTerm()  {e1 = new expr_Comparison(e1, compOp, e2); } |
+									         <_ALL>  <LPAREN> ArrayValue() <RPAREN>  {/*ALL subquery*/} |
+				   					        (<_SOME> | <_ANY>) <LPAREN> ArrayValue() <RPAREN> {/*SOME subquery*/} ) |
+					  						[<_NOT>] <_IN> <LPAREN> ArrayValue() <RPAREN>	{/*[NOT] IN list*/} ]
+					  		{return e1;}
+}
+
+
+DnQLexpression exAdditiveTerm() :		// Complete
+{
+	DnQLexpression e1, e2;
+}
+{
+	e1 = exTerm() ((<PLUS> e2 = exTerm()  {e1 = new expr_Addition(e1, e2);} )  |
+			       (<MINUS> e2 = exTerm() {e1 = new expr_Subtraction(e1, e2);})
+			 )*  {return e1;}
+}
+
+DnQLexpression exTerm() :		// Complete
+{
+	DnQLexpression e1, e2;
+}
+{
+	e1 = exSignFactor() ((<STAR> e2 = exSignFactor() {e1 = new expr_Product(e1, e2);} )  |
+			             (<SLASH> e2 = exSignFactor() {e1 = new expr_Division(e1, e2);}) |
+			             (<REM> e2 = exSignFactor() {e1 = new expr_Mod(e1, e2);})
+			   )*  {return e1;}
+}
+
+DnQLexpression exSignFactor() :		// Complete
+{
+	DnQLexpression e1;
+	boolean minus = false;
+}
+{
+	[<MINUS> {minus = true;}] e1 = exFactor()
+			{if(minus) return new expr_UnaryMinus(e1); else return e1;}
+}
+
+DnQLexpression exFactor() :		// Complete
+{
+	DnQLexpression e1;
+	String sv1, sv2;
+	qsh_elementId eId;
+	qsh_propertyId pId;
+	Vector<DnQLexpression> params;
+	qsh_propertyNavigator pNav;
+}
+{
+//{System.out.println("Ex Par Exp");}
+	<LPAREN> e1 = Expression() <RPAREN>  {return new expr_Parentesis(e1);} |
+	sv1 = identifier() {e1 = null; params = null;}
+					   [<LPAREN> params = exParameters() <RPAREN> {e1 = new expr_FuncCall(sv1, params);} |
+	                    <SMALLRIGHTARROW> sv2 = identifier() [<LPAREN> params = exParameters() <RPAREN>]
+	                    	{if(params == null) {e1 = new expr_VarValue(sv1, sv2);} else
+	                    						{e1 = new expr_FuncCall(sv1, sv2, params);}} ]
+	                    				{if(e1 == null) {e1 = new expr_VarValue(sv1);} } 
+	                   pNav = innerPropertySpec()
+	                    				{if(pNav.size() == 0) {return e1;} else {return new expr_NavValue(e1, pNav);}}   |
+//{System.out.println("Ex Id");}
+	<AMP> eId = elementId() {return new expr_ElementId(eId);} |
+	<SHARP> pId = propertyId() {return new expr_ValueId(pId);} |
+	<HATAMP> eId = elementId() {return new expr_ETypeId(eId);} |
+	<HATSHARP> pId = propertyId() {return new expr_PropertyId(pId);} |
+//{System.out.println("Ex Val");}
+	e1 = exValue()  {return e1;}
+}
+
+
+DnQLexpression exValue() :	// Missing: ArrayValue()
+{
+	DnQLexpression e1;
+	int Ic;
+	String Sc;
+	double Rc;
+	boolean Bc;
+}
+{
+	Ic = IntegerValue() {return new expr_Constant(new IntegerRes(null, Ic));} |
+	Sc = StringValue()  {return new expr_Constant(new StringRes(null, Sc));} |
+	Rc = RealValue()    {return new expr_Constant(new RealRes(null, Rc));} |
+	Bc = BooleanValue() {return new expr_Constant(new BooleanRes(null, Bc));} |
+	<LBRACE> e1 = ArrayValue() <RBRACE>  {return e1;}  
+}
+
+DnQLexpression ArrayValue() :		// Missing select
+{
+	qsh_SELECT_tree t1;
+	String sv;
+	DnQLexpression e1, e2;
+	AssocRes ar;
+	ArrayRes rr;
+}
+{
+	LOOKAHEAD(2) sv = StringValue() <RIGHTARROW> e2 = Expression()
+		{ar = new AssocRes(null); e1 = new expr_Constant(ar); ar.put(sv, e2.compute(null));}
+		    (<COMMA> sv = StringValue() <RIGHTARROW> e2 = Expression() {ar.put(sv, e2.compute(null));})*
+				 {return e1;} 												 |
+	LOOKAHEAD((<LPAREN>)* <_SELECT> ) t1 = SELECTquery_expr() {return null;} |
+	e2 = Expression()
+	     {rr = new ArrayRes(null); e1 = new expr_Constant(rr);  rr.add(e2.compute(null));}
+			(<COMMA> e2 = Expression() {rr.add(e2.compute(null));})* 
+				{return e1;}
+}
+
+Vector<DnQLexpression> exParameters() :		// Complete
+{
+	Vector<DnQLexpression> params = new Vector<DnQLexpression>();
+	DnQLexpression e1;
+}
+{
+	[e1 = Expression() {params.add(e1);}
+	 (<COMMA> e1 = Expression() {params.add(e1);})*]
+						{return params;}
+}
+
+
+
+
+
+int comparisonOperator() :
+{}
+{
+		<EQ>      {return qsh_comparisonOperator.EQ;}    |
+		<NE>      {return qsh_comparisonOperator.NE;}    |
+		<GT>      {return qsh_comparisonOperator.GT;}    |
+		<LT>      {return qsh_comparisonOperator.LT;}    |
+		<GE>      {return qsh_comparisonOperator.GE;}    |
+		<LE>      {return qsh_comparisonOperator.LE;}    |
+		<_LIKE>   {return qsh_comparisonOperator.LIKE;}  |
+		<_RLIKE>  {return qsh_comparisonOperator.RLIKE;} 
+}
+
+
+
+/// TEST production
+
+
+void MatchedBraces() :
+{}
+{
+  "{" [ MatchedBraces() ] "}"
+}

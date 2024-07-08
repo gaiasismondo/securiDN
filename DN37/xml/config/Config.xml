@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DrawNETDeepConfig>
+	<projectsPath>projects</projectsPath>
+	<projectFilesHolderDir>_files</projectFilesHolderDir>
+	<syntaxHighlighting>no</syntaxHighlighting>
+	<modelNameSpaces>never</modelNameSpaces>
+	<askFormalism>yes</askFormalism>
+	<formalismIndexDir>_index</formalismIndexDir>
+	<formalismIndexFile>index.fidx</formalismIndexFile>
+	<GUIDefinitionFile>/xml/config/GUI.gdf</GUIDefinitionFile>
+	<ImportExportTableFile>/xml/config/IEtab.xml</ImportExportTableFile>
+	<newAtStart>no</newAtStart>
+	<docsPath>docs</docsPath>
+	<solverDB>/xml/config/solvers_db.xml</solverDB>
+</DrawNETDeepConfig>

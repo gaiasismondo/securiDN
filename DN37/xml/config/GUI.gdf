@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE fdl SYSTEM "gdf.dtd">
+<gdf>
+
+	<!-- States of the FSM -->
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_BlackArrowInit" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_BlackArrowMoveNSelect" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_BlackArrowMove" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_BlackArrowRectSelect" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_WhiteArrowInit" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_WhiteArrowManipShown" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_WhiteArrowMoveManip" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_WhiteArrowPlus" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_WhiteArrowMinus" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_WhiteArrowMinusDelete" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_CyanCircArrowInit" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_CyanCircArrowMove" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_CyanArcArrowInit" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_CyanArcArrowManipShown" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_CyanArcArrowMoveManip" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_RectangleInit" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_RectangleDraw" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_RoundRectInit" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_RoundRectDraw" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_CircleInit" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_CircleDraw" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_LineInit" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_LineDraw" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_Rubber">
+		<parameter type="boolean" value="false" />
+	</FSMstate>
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_Rubber">
+		<parameter type="boolean" value="true" />
+	</FSMstate>
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_Zoom" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_Hand" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_Node" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_Edge" />
+	<FSMstate
+		class="drawnet.modelgui.fsmstates.FSM_EdgeDrawFirstTangent" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_EdgeDefSecondPoint" />
+	<FSMstate
+		class="drawnet.modelgui.fsmstates.FSM_EdgeDrawSecondTangent" />
+	<!-- <FSMstate class="drawnet.modelgui.fsmstates.FSM_SubModel"/>
+		<FSMstate class="drawnet.modelgui.fsmstates.FSM_Measure"/> -->
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_Image" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_Text" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_SplineInit" />
+	<FSMstate
+		class="drawnet.modelgui.fsmstates.FSM_SplineDrawFirstTangent" />
+	<FSMstate
+		class="drawnet.modelgui.fsmstates.FSM_SplineDefSecondPoint" />
+	<FSMstate
+		class="drawnet.modelgui.fsmstates.FSM_SplineDrawSecondTangent" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_BreakArc" />
+	<FSMstate class="drawnet.modelgui.fsmstates.FSM_JoinArc" />
+
+	<!-- Commands of the GUI -->
+	<!-- Questa lista deve essere eliminata; l'accesso ai command
+		avviene tramite singleton dall'interfaccia (dove sono fissati)
+		e deve avvenire tramite path completo della classe (dove sono
+		customizzabili). -->
+	<command class="drawnet.modelgui.commands.tool.CMD_New" />
+	<command class="drawnet.modelgui.commands.tool.CMD_NewForGE" />
+	<command class="drawnet.modelgui.commands.frame.CMD_Save" />
+	<command class="drawnet.modelgui.commands.frame.CMD_SaveAs" />
+	<command class="drawnet.modelgui.commands.frame.CMD_Close" />
+	<command class="drawnet.modelgui.commands.tool.CMD_Undo" />
+	<command class="drawnet.modelgui.commands.tool.CMD_Redo" />
+	<command class="drawnet.modelgui.commands.tool.CMD_Exit" />
+	<command class="drawnet.modelgui.commands.tool.CMD_Open" />
+	<command class="drawnet.modelgui.commands.tool.CMD_OpenForGE" />
+	<command class="drawnet.modelgui.commands.tool.CMD_Cut" />
+	<command class="drawnet.modelgui.commands.tool.CMD_Copy" />
+	<command class="drawnet.modelgui.commands.tool.CMD_Paste" />
+	<command class="drawnet.modelgui.commands.tool.CMD_Preferences" />
+	<command class="drawnet.modelgui.commands.tool.CMD_Print" />
+	<command class="drawnet.modelgui.commands.tool.CMD_PrintPreview" />
+	<command class="drawnet.modelgui.commands.tool.CMD_SVGExport" />
+	<command class="drawnet.modelgui.commands.tool.CMD_PageSetup" />
+	<command
+		class="drawnet.modelgui.commands.frame.CMD_GoToParentSubModel" />
+	<command
+		class="drawnet.modelgui.commands.frame.CMD_GoToGrandParentSubModel" />
+	<command class="drawnet.modelgui.commands.frame.CMD_GoToRootModel" />
+	<command
+		class="drawnet.modelgui.commands.frame.CMD_GoToSelectedSubModel" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_SelectThisSubModel" />
+	<command class="drawnet.modelgui.commands.submodel.CMD_ShowRulers" />
+	<command class="drawnet.modelgui.commands.submodel.CMD_ShowGrid" />
+	<command class="drawnet.modelgui.commands.submodel.CMD_SnapToGrid" />
+	<command class="drawnet.modelgui.commands.submodel.CMD_ShowGuides" />
+	<command
+		class="drawnet.modelgui.commands.submodel.CMD_SnapToGuides" />
+	<command class="drawnet.modelgui.commands.submodel.CMD_LockGuides" />
+	<command class="drawnet.modelgui.commands.submodel.CMD_AddLayer" />
+	<command class="drawnet.modelgui.commands.submodel.CMD_MoveLayerUp" />
+	<command
+		class="drawnet.modelgui.commands.submodel.CMD_MoveLayerDown" />
+	<command class="drawnet.modelgui.commands.submodel.CMD_TrashLayer" />
+	<command
+		class="drawnet.modelgui.commands.submodel.CMD_FlattenLayer" />
+	<command class="drawnet.modelgui.commands.submodel.CMD_RenameLayer" />
+	<command
+		class="drawnet.modelgui.commands.tool.CMD_SelectSimpleFSMState">
+		<parameter type="string" value="SelectBlackArrow" />
+		<parameter type="string"
+			value="Select Element (Black Arrow Tool)" />
+		<parameter type="string" value="BlackArrowInit" />
+	</command>
+	<command
+		class="drawnet.modelgui.commands.tool.CMD_SelectSimpleFSMState">
+		<parameter type="string" value="SelectWhiteArrow" />
+		<parameter type="string"
+			value="Select Line point (White Arrow Tool)" />
+		<parameter type="string" value="WhiteArrowInit" />
+	</command>
+	<command
+		class="drawnet.modelgui.commands.tool.CMD_SelectSimpleFSMState">
+		<parameter type="string" value="SelectWhiteArrowPlus" />
+		<parameter type="string"
+			value="Add a point to a Spline (White Arrow + Tool)" />
+		<parameter type="string" value="WhiteArrowPlus" />
+	</command>
+	<command
+		class="drawnet.modelgui.commands.tool.CMD_SelectSimpleFSMState">
+		<parameter type="string" value="SelectWhiteArrowMinus" />
+		<parameter type="string"
+			value="Delete a point from a Spline (White Arrow - Tool)" />
+		<parameter type="string" value="WhiteArrowMinus" />
+	</command>
+	<command
+		class="drawnet.modelgui.commands.tool.CMD_SelectSimpleFSMState">
+		<parameter type="string" value="SelectCyanCircArrow" />
+		<parameter type="string"
+			value="Connect/disconnect Node element" />
+		<parameter type="string" value="CyanCircArrowInit" />
+	</command>
+	<command
+		class="drawnet.modelgui.commands.tool.CMD_SelectSimpleFSMState">
+		<parameter type="string" value="SelectCyanArcArrow" />
+		<parameter type="string"
+			value="Connect/disconnect Edge element" />
+		<parameter type="string" value="CyanArcArrowInit" />
+	</command>
+	<command class="drawnet.modelgui.commands.tool.CMD_SelectRectangle" />
+	<command class="drawnet.modelgui.commands.tool.CMD_SelectRoundRect" />
+	<command class="drawnet.modelgui.commands.tool.CMD_SelectCircle" />
+	<command class="drawnet.modelgui.commands.tool.CMD_SelectLine" />
+	<command class="drawnet.modelgui.commands.tool.CMD_SelectSpline" />
+	<command
+		class="drawnet.modelgui.commands.tool.CMD_SelectSimpleFSMState">
+		<parameter type="string" value="SelectZoom" />
+		<parameter type="string" value="Select Magnifying glass (ZOOM)" />
+		<parameter type="string" value="Zoom" />
+	</command>
+	<command
+		class="drawnet.modelgui.commands.tool.CMD_SelectSimpleFSMState">
+		<parameter type="string" value="SelectHand" />
+		<parameter type="string" value="Select Hand (Drag screen)" />
+		<parameter type="string" value="Hand" />
+	</command>
+	<command class="drawnet.modelgui.commands.tool.CMD_SelectRubber">
+		<parameter type="boolean" value="false" />
+	</command>
+	<command class="drawnet.modelgui.commands.tool.CMD_SelectRubber">
+		<parameter type="boolean" value="true" />
+	</command>
+	<command class="drawnet.modelgui.commands.tool.CMD_SelectBreakArc" />
+	<command class="drawnet.modelgui.commands.tool.CMD_SelectJoinArc" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AddRectangleElement" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AddCircleElement" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AddRoundRectElement" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AddLineElement" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AddSplineElement" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_DeleteSelectedElements" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_DeleteSelectedElementsConnected" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AttachSelectedNode" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_DetachSelectedNode" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AttachSelectedArc" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_DetachSelectedArc" />
+	<command class="drawnet.modelgui.commands.submodel.CMD_ZoomFact">
+		<parameter type="integer" value="25" />
+	</command>
+	<command class="drawnet.modelgui.commands.submodel.CMD_ZoomFact">
+		<parameter type="integer" value="50" />
+	</command>
+	<command class="drawnet.modelgui.commands.submodel.CMD_ZoomFact">
+		<parameter type="integer" value="100" />
+	</command>
+	<command class="drawnet.modelgui.commands.submodel.CMD_ZoomFact">
+		<parameter type="integer" value="200" />
+	</command>
+	<command class="drawnet.modelgui.commands.submodel.CMD_ZoomFact">
+		<parameter type="integer" value="400" />
+	</command>
+	<command class="drawnet.modelgui.commands.submodel.CMD_ZoomFact">
+		<parameter type="integer" value="800" />
+	</command>
+	<command class="drawnet.modelgui.commands.submodel.CMD_ZoomIn" />
+	<command class="drawnet.modelgui.commands.submodel.CMD_ZoomOut" />
+	<command class="drawnet.modelgui.commands.submodel.CMD_ZoomShowAll" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_MoveToFrontSelectedElements" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_MoveToBackSelectedElements" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_MoveForwardSelectedElements" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_MoveBackwardSelectedElements" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_LockSelectedElements" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_UnlockSelectedElements" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_GroupSelectedElements" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_UngroupSelection" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_BreakApartSelection" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_MoveSelectedElements" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_UpdateSelectedElementFromPanels" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AlignSelectedElementsLeft" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AlignSelectedElementsCenter" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AlignSelectedElementsRight" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AlignSelectedElementsTop" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AlignSelectedElementsMiddle" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AlignSelectedElementsBottom" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_DistributeSelectedElementsLeft" />
+	<command class="drawnet.modelgui.commands.element.CMD_DistributeSelectedElementsRight" />
+	<command class="drawnet.modelgui.commands.element.CMD_DistributeSelectedElementsCenter" />
+	<command class="drawnet.modelgui.commands.element.CMD_DistributeSelectedElementsTop" />
+	<command class="drawnet.modelgui.commands.element.CMD_DistributeSelectedElementsMiddle" />
+	<command class="drawnet.modelgui.commands.element.CMD_DistributeSelectedElementsBottom" />
+	<command class="drawnet.modelgui.commands.element.CMD_SpaceSelectedElementsHor" />
+	<command class="drawnet.modelgui.commands.element.CMD_SpaceSelectedElementsVer" />
+	<command class="drawnet.modelgui.commands.element.CMD_RotateCWSelectedElements" />
+	<command class="drawnet.modelgui.commands.element.CMD_RotateCCWSelectedElements" />
+	<command class="drawnet.modelgui.commands.element.CMD_FlipVertical" />
+	<command class="drawnet.modelgui.commands.element.CMD_FlipHorizontal" />
+	<command class="drawnet.modelgui.commands.element.CMD_Scale" />
+	<command class="drawnet.modelgui.commands.element.CMD_RotateFree" />
+	
+	<command class="drawnet.modelgui.commands.tool.CMD_SelectNode" />
+	<!-- <command class="drawnet.modelgui.commands.tool.CMD_SelectEdge"/>
+		<command class="drawnet.modelgui.commands.tool.CMD_SelectSubModel"/>
+		<command class="drawnet.modelgui.commands.tool.CMD_SelectMeasure"/> -->
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AddNodeElement" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AddEdgeElement" />
+	<!-- <command class="drawnet.modelgui.commands.element.CMD_AddSubModelElement"/> -->
+	<command class="drawnet.modelgui.commands.tool.CMD_SelectImage" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AddImageElement" />
+	<command class="drawnet.modelgui.commands.tool.CMD_SelectText" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AddTextElement" />
+	<command class="drawnet.modelgui.commands.tool.CMD_ShowCredits" />
+	<command class="drawnet.modelgui.commands.tool.CMD_Solve" />
+	<command class="drawnet.modelgui.commands.element.CMD_BreakArc" />
+	<command class="drawnet.modelgui.commands.element.CMD_JoinArc" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_ManipulateElement" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_AddIntermediatePoint" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_DeleteIntermediatePoint" />
+		<!-- 
+	<command class="drawnet.modelgui.commands.tool.CMD_ShowPanel">
+		<parameter type="string" value="Model" />
+	</command>
+	<command class="drawnet.modelgui.commands.tool.CMD_ShowPanel">
+		<parameter type="string" value="Explorer" />
+	</command>
+	<command class="drawnet.modelgui.commands.tool.CMD_ShowPanel">
+		<parameter type="string" value="Function" />
+	</command>
+	<command class="drawnet.modelgui.commands.tool.CMD_ShowPanel">
+		<parameter type="string" value="Object" />
+	</command>
+	<command class="drawnet.modelgui.commands.tool.CMD_ShowPanel">
+		<parameter type="string" value="XMLView" />
+	</command>
+	<command class="drawnet.modelgui.commands.tool.CMD_ShowPanel">
+		<parameter type="string" value="Element" />
+	</command>
+	 -->
+	 <command class="drawnet.modelgui.commands.views.ShowTimeline" />
+	<command
+		class="drawnet.modelgui.commands.element.CMD_RenameElementInstance" />
+	<command class="drawnet.modelgui.commands.tool.CMD_ShowHTML">
+		<parameter type="boolean" value="false" />
+		<parameter type="string" value="Help" />
+		<parameter type="string" value="help/home.html" />
+	</command>
+	<command class="drawnet.modelgui.commands.tool.CMD_ShowHTML">
+		<parameter type="boolean" value="false" />
+		<parameter type="string" value="Docs" />
+		<parameter type="string" value="index.html" />
+	</command>
+	<command class="drawnet.modelgui.commands.tool.CMD_ShowHTML">
+		<parameter type="boolean" value="false" />
+		<parameter type="string" value="Tutorial" />
+		<parameter type="string" value="tutorials/index.html" />
+	</command>
+	<command class="drawnet.modelgui.commands.tool.CMD_ShowHTML">
+		<parameter type="boolean" value="true" />
+		<parameter type="string" value="Homepage" />
+		<parameter type="string" value="http://www.draw-net.com" />
+	</command>
+
+
+
+	<!-- Graphic Elements -->
+
+	<graphicElement class="drawnet.modelgui.graphicelements.GE_Line" />
+	<graphicElement class="drawnet.modelgui.graphicelements.GE_Image" />
+	<graphicElement
+		class="drawnet.modelgui.graphicelements.GE_Rectangle" />
+	<graphicElement class="drawnet.modelgui.graphicelements.GE_Oval" />
+	<graphicElement
+		class="drawnet.modelgui.graphicelements.GE_RoundRect" />
+	<graphicElement class="drawnet.modelgui.graphicelements.GE_Text" />
+	<graphicElement class="drawnet.modelgui.graphicelements.GE_Spline" />
+	<graphicElement
+		class="drawnet.modelgui.graphicelements.GE_EdgeSpline" />
+	<graphicElement class="drawnet.modelgui.graphicelements.GE_null" />
+	<!--
+		<graphicElement class="drawnet.modelgui.graphicelements.GE_Node"/>
+	-->
+
+	<!-- Element Editors -->
+
+	<elementPanel
+		class="drawnet.modelgui.panels.elementpanel.DrawNETStrokeCapElementPanel"
+		elementType="_root.GraphicElements.GE_line" />
+	<elementPanel
+		class="drawnet.modelgui.panels.elementpanel.DrawNETImageElementPanel"
+		elementType="_root.GraphicElements.GE_image" />
+	<elementPanel
+		class="drawnet.modelgui.panels.elementpanel.DrawNETFillStrokeElementPanel"
+		elementType="_root.GraphicElements.GE_rect">
+		<parameter type="boolean" value="false" />
+	</elementPanel>
+	<elementPanel
+		class="drawnet.modelgui.panels.elementpanel.DrawNETFillStrokeElementPanel"
+		elementType="_root.GraphicElements.GE_ellipse">
+		<parameter type="boolean" value="false" />
+	</elementPanel>
+	<elementPanel
+		class="drawnet.modelgui.panels.elementpanel.DrawNETFillStrokeElementPanel"
+		elementType="_root.GraphicElements.GE_roundRect">
+		<parameter type="boolean" value="true" />
+	</elementPanel>
+	<elementPanel
+		class="drawnet.modelgui.panels.elementpanel.DrawNETTextElementPanel"
+		elementType="_root.GraphicElements.GE_text" />
+	<elementPanel
+		class="drawnet.modelgui.panels.elementpanel.DrawNETStrokeCapElementPanel"
+		elementType="_root.GraphicElements.GE_spline" />
+
+
+	<!-- ToolBars -->
+
+	<!-- Main ToolBar -->
+
+	<toolBar name="main" x="0" y="0" w="58" h="264">
+		<singleTool x="0" y="0" w="25" h="26" group="mainGroup"
+			icon="icons/BlackArrow.gif" command="SelectBlackArrow"
+			toolTip="Select element" name="BlackArrow" />
+		<multipleTool x="26" y="0" w="25" h="26" group="mainGroup">
+			<subTool icon="icons/WhiteArrowT.gif"
+				command="SelectWhiteArrow" toolTip="Select edge points"
+				name="WhiteArrow" />
+			<subTool icon="icons/WhiteArrowPlusT.gif"
+				command="SelectWhiteArrowPlus" toolTip="Add edge points"
+				name="WhiteArrowPlus" />
+			<subTool icon="icons/WhiteArrowMinusT.gif"
+				command="SelectWhiteArrowMinus" toolTip="Remove edge points"
+				name="WhiteArrowMinus" />
+		</multipleTool>
+
+		<multipleTool x="0" y="26" w="25" h="26" group="mainGroup">
+			<subTool icon="icons/BreakArc.gif" command="SelectBreakArc"
+				toolTip="Break edge" name="BreakArc" />
+			<subTool icon="icons/JoinArc.gif" command="SelectJoinArc"
+				toolTip="Join broken edge" name="JoinArc" />
+		</multipleTool>
+		<multipleTool x="26" y="26" w="25" h="26" group="mainGroup">
+			<subTool icon="icons/CyanArrowArcT.gif"
+				command="SelectCyanArcArrow" toolTip="Attach-Detach Arc"
+				name="AttachDetachArc" />
+			<subTool icon="icons/CyanArrowCircT.gif"
+				command="SelectCyanCircArrow" toolTip="Attach-Detach Node"
+				name="AttachDetachNode" />
+		</multipleTool>
+
+		<multipleTool x="0" y="52" w="25" h="26" group="mainGroup">
+			<subTool icon="icons/RectangleT.gif"
+				command="SelectRectangle" toolTip="Draw a rectangle"
+				name="Rectangle" />
+			<subTool icon="icons/CircleT.gif" command="SelectCircle"
+				toolTip="Draw a circle" name="Circle" />
+			<subTool icon="icons/RoundRectT.gif"
+				command="SelectRoundRect" toolTip="Draw a rounded-corner rectangle"
+				name="RoundRect" />
+		</multipleTool>
+		<multipleTool x="26" y="52" w="25" h="26" group="mainGroup">
+			<subTool icon="icons/LineT.gif" command="SelectLine"
+				toolTip="Draw a line" name="Line" />
+			<subTool icon="icons/SplineT.gif" command="SelectSpline"
+				toolTip="Draw a curve" name="Spline" />
+		</multipleTool>
+
+		<singleTool x="0" y="78" w="25" h="26" group="mainGroup"
+			icon="icons/Image.gif" command="SelectImage" toolTip="Add an image"
+			name="Image" />
+		<singleTool x="26" y="78" w="25" h="26" group="mainGroup"
+			icon="icons/Text.gif" command="SelectText" toolTip="Add text"
+			name="Text" />
+
+		<singleTool x="0" y="104" w="25" h="26" group="mainGroup"
+			icon="icons/EyeDropper.gif" command="" toolTip="Pick element"
+			name="Pick" />
+		<multipleTool x="26" y="104" w="25" h="26" group="mainGroup">
+			<subTool icon="icons/RubberT.gif" command="SelectRubber"
+				toolTip="Delete element" name="Delete" />
+			<subTool icon="icons/RubberCircT.gif"
+				command="SelectRubberConnected" toolTip="Delete single element"
+				name="DeleteConnected" />
+		</multipleTool>
+
+
+		<singleTool x="0" y="140" w="25" h="26" group="mainGroup"
+			icon="icons/Hand.gif" command="SelectHand" toolTip="Move view"
+			name="Hand" />
+		<singleTool x="26" y="140" w="25" h="26" group="mainGroup"
+			icon="icons/Magnify.gif" command="SelectZoom" toolTip="Zoom"
+			name="Zoom" />
+
+		<singleTool x="0" y="176" w="25" h="26" group="mainGroup"
+			icon="icons/SubModel.gif" command="SelectNode" toolTip="Add a node"
+			name="Nodes" />
+		<!--	<singleTool x="26" y="176" w="25" h="26" group="mainGroup"
+			icon="icons/Edge.gif" command="SelectEdge" toolTip="Add an edge" name="Edges"/>
+			<multipleTool x="0" y="202" w="25" h="26" group="mainGroup">
+			<subTool icon="icons/SubModelT.gif" command="SelectSubModel" toolTip="Add a submodel" name="Submodels"/>
+			<subTool icon="icons/LibraryT.gif" command="" toolTip="Add a library element" name="Library"/>
+			</multipleTool>
+			<singleTool x="26" y="202" w="25" h="26" group="mainGroup"
+			icon="icons/Results.gif" command="SelectMeasure" toolTip="Add measure" name="Measures"/> -->
+	</toolBar>
+
+	<!-- System ToolBar -->
+
+	<toolBar name="system" x="0" y="0" w="352" h="26">
+		<singleTool x="10" y="0" w="24" h="25" type="push"
+			icon="icons/New.gif" command="New" toolTip="New model..." name="New" />
+		<singleTool x="34" y="0" w="24" h="25" type="push"
+			icon="icons/NewForGE.gif" command="NewForGE"
+			toolTip="New formalism..." name="NewForGE" />
+		<singleTool x="58" y="0" w="24" h="25" type="push"
+			icon="icons/Open.gif" command="Open" toolTip="Open model..."
+			name="Open" />
+		<singleTool x="82" y="0" w="24" h="25" type="push"
+			icon="icons/OpenForGE.gif" command="OpenForGE"
+			toolTip="Open formalism..." name="OpenForGE" />
+		<singleTool x="106" y="0" w="24" h="25" type="push"
+			icon="icons/Save.gif" command="Save" toolTip="Save..." name="Save" />
+		<singleTool x="140" y="0" w="24" h="25" type="push"
+			icon="icons/Print.gif" command="Print" toolTip="Print..."
+			name="Print" />
+		<singleTool x="164" y="0" w="24" h="25" type="push"
+			icon="icons/PrintPreview.gif" command="PrintPreview"
+			toolTip="Print preview..." name="PrintPreview" />
+		<singleTool x="198" y="0" w="24" h="25" type="push"
+			icon="icons/Cut.gif" command="Cut" toolTip="Cut" name="Cut" />
+		<singleTool x="222" y="0" w="24" h="25" type="push"
+			icon="icons/Copy.gif" command="Copy" toolTip="Copy" name="Copy" />
+		<singleTool x="246" y="0" w="24" h="25" type="push"
+			icon="icons/Paste.gif" command="Paste" toolTip="Paste" name="Paste" />
+		<singleTool x="270" y="0" w="24" h="25" type="push"
+			icon="icons/CopyRef.gif" command="CopyRef" toolTip="Copy Reference" name="CopyRef" />
+		<singleTool x="304" y="0" w="24" h="25" type="push"
+			icon="icons/Undo.gif" command="Undo" toolTip="Undo last action"
+			name="Undo" />
+		<singleTool x="328" y="0" w="24" h="25" type="push"
+			icon="icons/Redo.gif" command="Redo" toolTip="Redo last action"
+			name="Redo" />
+	</toolBar>
+
+	<!-- Window Bottom ToolBar -->
+
+	<toolBar name="windowBottom" x="0" y="0" w="180" h="26">
+		<singleTool x="0" y="0" w="24" h="25" type="push"
+			icon="icons/Model.gif" command="ShowPanel:Model"
+			toolTip="Show Model panel" name="ShowPanel:Model" />
+		<singleTool x="26" y="0" w="24" h="25" type="push"
+			icon="icons/Element.gif" command="ShowPanel:Element"
+			toolTip="Show Element panel" name="ShowPanel:Element" />
+		<singleTool x="52" y="0" w="24" h="25" type="push"
+			icon="icons/Explorer.gif" command="ShowPanel:Explorer"
+			toolTip="Show Explorer panel" name="ShowPanel:Explorer" />
+		<singleTool x="78" y="0" w="24" h="25" type="push"
+			icon="icons/Function.gif" command="ShowPanel:Functions"
+			toolTip="Show Functions panel" name="ShowPanel:Functions" />
+		<singleTool x="104" y="0" w="24" h="25" type="push"
+			icon="icons/Library.gif" command="ShowPanel:Object"
+			toolTip="Show Object panel" name="ShowPanel:Object" />
+		<singleTool x="130" y="0" w="24" h="25" type="push"
+			icon="icons/XMLView.gif" command="ShowPanel:XML View"
+			toolTip="Show XML view panel" name="ShowPanel:XML View" />
+		<singleTool x="154" y="0" w="24" h="25" type="push"
+			icon="icons/TextJustify.gif" command="ShowPanel:Query"
+			toolTip="Show Query panel" name="ShowPanel:Query" />
+	</toolBar>
+
+
+
+
+
+	<!-- Panels -->
+
+	<panelWindow name="Functions" caption="Functions"
+		icon="icons/Function.gif" x="916" y="180" w="216" h="180"
+		visible="false">
+		<panelElement name="Transform" caption="Transform"
+			class="drawnet.modelgui.panels.functionpanel.DrawNETTransformPanel" />
+		<panelElement name="Align" caption="Align"
+			class="drawnet.modelgui.panels.functionpanel.DrawNETAlignPanel" />
+		<emptyPanelElement name="History" caption="History" />
+		<emptyPanelElement name="SnapGrid" caption="Snap / Grid" />
+	</panelWindow>
+
+	<panelWindow name="Explorer" caption="Explorer"
+		icon="icons/Explorer.gif" x="700" y="360" w="216" h="180"
+		visible="true">
+		<emptyPanelElement name="Navigator" caption="Navigator" />
+		<emptyPanelElement name="Layers" caption="Layers" />
+		<emptyPanelElement name="Structure" caption="Structure" />
+	</panelWindow>
+
+	<panelWindow name="Object" caption="Object" icon="icons/Library.gif"
+		x="916" y="360" w="216" h="180" visible="false">
+		<emptyPanelElement name="Library" caption="Library" />
+		<emptyPanelElement name="Import" caption="Import" />
+		<emptyPanelElement name="Export" caption="Export" />
+	</panelWindow>
+
+	<panelWindow name="Model" caption="Model" icon="icons/Model.gif"
+		x="700" y="0" w="216" h="360" visible="true" />
+
+	<panelWindow name="Element" caption="Element"
+		icon="icons/Element.gif" x="0" y="450" w="658" h="180" visible="true" />
+
+	<panelWindow name="Output" caption="Output"
+		icon="icons/Function.gif" x="30" y="480" w="658" h="126"
+		visible="false">
+		<panelElement name="Message" caption="Message"
+			class="drawnet.modelgui.panels.outputpanel.DrawNETMessagePanel" />
+		<panelElement name="Help" caption="Help"
+			class="drawnet.modelgui.panels.outputpanel.DrawNETHelpPanel" />
+	</panelWindow>
+
+
+
+
+
+	<!-- Menus -->
+
+	<menu name="main" caption="main">
+		<menu name="File" caption="File">
+			<menuItem name="File.New" caption="New model..." type="push"
+				command="New" />
+			<menuItem name="File.NewForGE" caption="New formalism..."
+				type="push" command="NewForGE" />
+			<menuItem name="File.Open" caption="Open model..."
+				type="push" command="Open" />
+			<menuItem name="File.OpenForGE" caption="Open formalism..."
+				type="push" command="OpenForGE" />
+			<menuItem name="File.Close" caption="Close" type="push"
+				command="Close" />
+			<separator name="File.s1" />
+			<menuItem name="File.Save" caption="Save" type="push"
+				command="Save" />
+			<menuItem name="File.SaveAs" caption="Save as..."
+				type="push" command="SaveAs" />
+			<separator name="File.s2" />
+			<menuItem name="File.PageSetup" caption="Page setup..."
+				type="push" command="PageSetup" />
+			<menuItem name="File.PrintPreview" caption="Print preview"
+				type="push" command="PrintPreview" />
+			<menuItem name="File.Print" caption="Print..." type="push"
+				command="Print" />
+			<menuItem name="File.SVGExport" caption="Export to SVG" type="push"
+				command="SVGExport" />
+			<separator name="File.s3" />
+			<menuItem name="File.Quit" caption="Quit" type="push"
+				command="Exit" />
+		</menu>
+		<menu name="Edit" caption="Edit">
+			<menuItem name="Edit.Undo" caption="Undo" type="push"
+				command="Undo" />
+			<menuItem name="Edit.Redo" caption="Redo" type="push"
+				command="Redo" />
+			<separator name="Edit.s1" />
+			<menuItem name="Edit.Cut" caption="Cut" type="push"
+				command="Cut" />
+			<menuItem name="Edit.Copy" caption="Copy" type="push"
+				command="Copy" />
+			<menuItem name="Edit.Paste" caption="Paste" type="push"
+				command="Paste" />
+			<menuItem name="Edit.CopyRef" caption="Copy Reference" type="push"
+				command="CopyRef" />
+			<separator name="Edit.s2" />
+			<menuItem name="Edit.Preferences" caption="Preferences..."
+				type="push" command="Preferences" />
+		</menu>
+		<menu name="View" caption="View">
+			<menuItem name="View.ZoomIn" caption="Zoom in" type="push"
+				command="ZoomIn" />
+			<menuItem name="View.ZoomOut" caption="Zoom out" type="push"
+				command="ZoomOut" />
+			<menu name="View.Mag" caption="Magnification">
+				<menuItem name="View.Mag.Zoom:25" caption="25%"
+					type="push" command="Zoom:25" />
+				<menuItem name="View.Mag.Zoom:50" caption="50%"
+					type="push" command="Zoom:50" />
+				<menuItem name="View.Mag.Zoom:100" caption="100%"
+					type="push" command="Zoom:100" />
+				<menuItem name="View.Mag.Zoom:200" caption="200%"
+					type="push" command="Zoom:200" />
+				<menuItem name="View.Mag.Zoom:400" caption="400%"
+					type="push" command="Zoom:400" />
+				<menuItem name="View.Mag.Zoom:800" caption="800%"
+					type="push" command="Zoom:800" />
+				<separator name="View.Mag.s1" />
+				<menuItem name="View.Mag.ZoomShowAll" caption="Show all"
+					type="push" command="ZoomShowAll" />
+			</menu>
+			<separator name="View.s1" />
+			<menuItem name="View.Rulers" caption="Rulers" type="toggle"
+				command="ShowRulers" />
+			<menu name="View.Grid" caption="Grid">
+				<menuItem name="View.Grid.Show" caption="Show grid"
+					type="toggle" command="ShowGrid" />
+				<menuItem name="View.Grid.Snap" caption="Snap to grid"
+					type="toggle" command="SnapToGrid" />
+			</menu>
+			<menu name="View.Guides" caption="Guides">
+				<menuItem name="View.Guides.Show" caption="Show guides"
+					type="toggle" command="ShowGuides" />
+				<menuItem name="View.Guides.Snap"
+					caption="Snap to guides" type="toggle" command="SnapToGuides" />
+				<menuItem name="View.Guides.Lock" caption="Lock guides"
+					type="toggle" command="LockGuides" />
+			</menu>
+		</menu>
+		<menu name="Insert" caption="Insert"></menu>
+		<menu name="Modify" caption="Modify">
+			<menu name="Mod.Trans" caption="Transform">
+				<menuItem name="Mod.Trans.RotateCW"
+					caption="Rotate 90 CW" type="push"
+					command="RotateCWSelectedElements" />
+				<menuItem name="Mod.Trans.RotateCCW"
+					caption="Rotate 90 CCW" type="push"
+					command="RotateCCWSelectedElements" />
+				<menuItem name="Mod.Trans.FlipVer"
+					caption="Flip vertical" type="push" command="FlipVertical" />
+				<menuItem name="Mod.Trans.FlipHor"
+					caption="Flip horizontal" type="push" command="FlipHorizontal" />
+			</menu>
+			<menu name="Mod.Arrange" caption="Arrange">
+				<menuItem name="Mod.Arrange.BringToFront"
+					caption="Bring to front" type="push"
+					command="MoveToFrontSelectedElements" />
+				<menuItem name="Mod.Arrange.BringForward"
+					caption="Bring forward" type="push"
+					command="MoveForwardSelectedElements" />
+				<menuItem name="Mod.Arrange.SendBackward"
+					caption="Send backward" type="push"
+					command="MoveBackwardSelectedElements" />
+				<menuItem name="Mod.Arrange.SendToBack"
+					caption="Send to back" type="push"
+					command="MoveToBackSelectedElements" />
+				<separator name="Mod.Arrange.s1" />
+				<menuItem name="Mod.Arrange.Lock" caption="Lock"
+					type="push" command="LockSelectedElements" />
+				<menuItem name="Mod.Arrange.Unlock" caption="Unlock"
+					type="push" command="UnlockSelectedElements" />
+			</menu>
+			<separator name="Mod.s1" />
+			<menuItem name="Mod.Group" caption="Group" type="push"
+				command="GroupSelectedElements" />
+			<menuItem name="Mod.Ungroup" caption="Ungroup" type="push"
+				command="UngroupSelection" />
+			<menuItem name="Mod.BreakApart" caption="Break apart"
+				type="push" command="BreakApartSelection" />
+		</menu>
+		<menu name="Solve" caption="Solve"></menu>
+		<specialMenu name="Window" caption="Window"
+			class="drawnet.modelgui.menus.DrawNETWindowMenu" />
+		<menu name="Help" caption="Help">
+			<menuItem name="Help.Help" caption="Help..." type="push"
+				command="ShowHTML:Help" />
+			<separator name="Help.s1" />
+			<menuItem name="Help.Doc" caption="DrawNET Documentation"
+				type="push" command="ShowHTML:Docs" />
+			<menuItem name="Help.Tutorial" caption="Tutorials"
+				type="push" command="ShowHTML:Tutorial" />
+			<separator name="Help.s2" />
+			<menuItem name="Help.Homepage" caption="DrawNET Homepage"
+				type="push" command="ShowHTML:Homepage" />
+			<separator name="Help.s3" />
+			<menuItem name="Help.Credits" caption="Credits..."
+				type="push" command="ShowCredits" />
+		</menu>
+	</menu>
+
+
+
+</gdf>

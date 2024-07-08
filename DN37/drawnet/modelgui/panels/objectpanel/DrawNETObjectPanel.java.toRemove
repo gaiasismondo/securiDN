@@ -1,0 +1,115 @@
+package Panels.ObjectPanel;
+
+import javax.swing.*;
+import javax.swing.event.*;
+
+import java.awt.event.*;
+import java.awt.*;
+
+import utils.*;
+
+import Panels.*;
+
+public class DrawNETObjectPanel extends JInternalFrame {
+
+    DrawNETPanels desktop;
+    
+    DrawNETLibraryPanel LibraryPanel;
+    DrawNETExportPanel ExportPanel;
+    DrawNETImportPanel ImportPanel;
+    JTabbedPane tabbedPane;    
+
+    public DrawNETLibraryPanel getLibraryPanel() {
+    	return LibraryPanel;
+    }
+    
+    public void setLibraryPanel(DrawNETLibraryPanel P) {
+    	LibraryPanel = P;
+    	if(P != null) {
+    	    tabbedPane.setComponentAt(tabbedPane.indexOfTab("Library"), P);
+    	} else {
+    	    tabbedPane.setComponentAt(tabbedPane.indexOfTab("Library"), new JPanel());
+    	}
+    	tabbedPane.repaint();
+    }
+
+    public DrawNETImportPanel getImportPanel() {
+    	return ImportPanel;
+    }
+    
+    public void setImportPanel(DrawNETImportPanel P) {
+	ImportPanel = P;
+    	if(P != null) {
+    	    tabbedPane.setComponentAt(tabbedPane.indexOfTab("Import"), P);
+    	} else {
+    	    tabbedPane.setComponentAt(tabbedPane.indexOfTab("Import"), new JPanel());
+    	}
+    	tabbedPane.repaint();
+    }
+
+    public DrawNETExportPanel getExportPanel() {
+    	return ExportPanel;
+    }
+    
+    public void setExportPanel(DrawNETExportPanel P) {
+    	ExportPanel = P;
+    	if(P != null) {
+    	    tabbedPane.setComponentAt(tabbedPane.indexOfTab("Export"), P);
+    	} else {
+    	    tabbedPane.setComponentAt(tabbedPane.indexOfTab("Export"), new JPanel());
+    	}
+    	tabbedPane.repaint();
+    }
+
+
+
+    public DrawNETObjectPanel(DrawNETPanels d) {
+        super("Object / Class", 
+              true, //resizable
+              true, //closable
+              false, //maximizable
+              false);//iconifiable
+
+	desktop = d;
+	setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+	addInternalFrameListener(new InternalFrameAdapter() {
+		    public void internalFrameClosing(InternalFrameEvent e) {
+		    	desktop.showObjectPanel(false);
+		    }
+		});
+
+        JPanel contentPane = new JPanel();
+        contentPane.setLayout(new GridLayout(1, 1));
+        setFrameIcon(new ImageIcon("icons/Library.gif"));
+        
+        tabbedPane = new JTabbedPane();
+
+/*        ImportPanel = new DrawNETImportPanel(desktop);
+        	tabbedPane.addTab("Import",ImportPanel);
+
+        LibraryPanel = new DrawNETLibraryPanel(desktop);
+        	tabbedPane.addTab("Library",LibraryPanel);
+
+        ExportPanel = new DrawNETExportPanel(desktop);
+        	tabbedPane.addTab("Export",ExportPanel);
+*/
+        LibraryPanel = null;
+        	tabbedPane.addTab("Library",new JPanel());
+
+        ImportPanel = null;
+        	tabbedPane.addTab("Import",new JPanel());
+
+        ExportPanel = null;
+        	tabbedPane.addTab("Export",new JPanel());
+
+        contentPane.add(tabbedPane);
+              
+        setContentPane(contentPane);
+        
+        setSize(216,180);
+
+        //Set the window's location.
+        setLocation(484, 360);
+//iiv        setVisible(true);
+    }
+}
