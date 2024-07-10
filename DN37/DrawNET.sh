@@ -31,5 +31,6 @@ DNCLASSPATH=$DNCLASSPATH:jars/batik/batik-util.jar
 DNCLASSPATH=$DNCLASSPATH:jars/batik/batik-xml.jar
 DNCLASSPATH=$DNCLASSPATH:jars/batik/xerces_2_5_0.jar
 DNCLASSPATH=$DNCLASSPATH:jars/batik/xml-apis.jar
+DNCLASSPATH=$DNCLASSPATH:jars/gson-2.11.0.jar
 
 java -classpath $DNCLASSPATH RunDrawNET %1 %2 %3

@@ -6,6 +6,8 @@ import drawnet.lib.ddl.propertyvalues.FloatPropertyValue;
 
 import java.util.Enumeration;
 
+import com.google.gson.Gson;
+
 public class SolverFilterAG extends SolverFilter
 {
 
