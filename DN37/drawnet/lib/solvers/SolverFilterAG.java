@@ -97,11 +97,23 @@ public class SolverFilterAG extends SolverFilter
 		}
 	}
 
+	private void createJson(String filePath)
+	{
+		try(FileWriter writer = new FileWriter(filePath)){
+			writer.write("{}");
+		}
+		catch (IOException e){
+			e.printStackTrace();
+		}
+	}
+
 	public boolean execute()
 	{
 		this.mainVisit();
 		this.agVisit();
 		print("\nAG ---> JSON eseguito\n");
+		this.createJson("drawnet/lib/json/esempio.json");
+
 
 		return true;
 	}
