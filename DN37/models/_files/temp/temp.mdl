@@ -120,69 +120,34 @@
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_Node">
         <PropertyValue id="G_fromConnections" size="3">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.stationComputerArc1"/>
-          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.stationComputerArc2"/>
-          <PropertyValue id="fap2" value="_root.RootSecuriDN.AG2.stationComputerArc9"/>
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.stationComputerArc9"/>
+          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.stationComputerArc2clone1"/>
+          <PropertyValue id="fap2" value="_root.RootSecuriDN.AG2.stationComputerArc1clone1"/>
+        </PropertyValue>
+        <PropertyValue id="G_toConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.virtualEngArc53clone2"/>
         </PropertyValue>
       </Node>
 
-      <Arc id="MMSTLS1Arc61"
+      <NodeOR id="IED1_DERfailureOR"
         G_r="0.0"
-        G_ty="730.4434981486625"
-        G_tx="997.2478762198938"
+        G_ty="830.5"
+        G_tx="313.0"
         G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.MMSTLS1_DERfailure"
-        from="_root.RootSecuriDN.AG2.MMSTLS1_unauthCmdMsg"
-        G_order="6"
+        G_order="0"
         G_sy="100.0"
-        G_sx="100.0"
         G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
-        <PropertyValue id="G_segmentsP2" size="0">
-        </PropertyValue>
-        <PropertyValue id="G_segmentsP1" size="1">
-          <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="1075.502058641321"/>
-            <PropertyValue id="ctrlx2" value="1075.502058641321"/>
-            <PropertyValue id="x1" value="918.9936937984667"/>
-            <PropertyValue id="ctrlx1" value="918.9936937984667"/>
-            <PropertyValue id="y2" value="732.2759809610588"/>
-            <PropertyValue id="ctrly2" value="732.2759809610588"/>
-            <PropertyValue id="y1" value="731.611015336266"/>
-            <PropertyValue id="ctrly1" value="731.611015336266"/>
-          </PropertyValue>
-        </PropertyValue>
-      </Arc>
-
-      <Arc id="MMSTLS1Arc60"
-        G_r="0.0"
-        G_ty="653.3769630305325"
-        G_tx="993.2521423543932"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.MMSTLS1_spoofRepMsg"
-        from="_root.RootSecuriDN.AG2.MMSTLS1_AITM"
-        G_order="4"
-        G_sy="100.0"
         G_sx="100.0"
-        G_py="0.0"
         G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
-        <PropertyValue id="G_segmentsP2" size="0">
+        G_iconRef="_root.RootSecuriDN.AG2.G_NodeOR">
+        <PropertyValue id="G_fromConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.IED1_DERfailureORarc"/>
         </PropertyValue>
-        <PropertyValue id="G_segmentsP1" size="1">
-          <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="1064.5078963111405"/>
-            <PropertyValue id="ctrlx2" value="1064.5078963111405"/>
-            <PropertyValue id="x1" value="921.9963883976459"/>
-            <PropertyValue id="ctrlx1" value="921.9963883976459"/>
-            <PropertyValue id="y2" value="650.4595361617361"/>
-            <PropertyValue id="ctrly2" value="650.4595361617361"/>
-            <PropertyValue id="y1" value="651.2943898993287"/>
-            <PropertyValue id="ctrly1" value="651.2943898993287"/>
-          </PropertyValue>
+        <PropertyValue id="G_toConnections" size="2">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSTLS1Arc61clone0"/>
+          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.MMSclientArc58clone1"/>
         </PropertyValue>
-      </Arc>
+      </NodeOR>
 
       <G_iconDef id="G_NodeDefense"
         BBox_y="-19.5"
@@ -242,23 +207,6 @@
         </PropertyValue>
       </Analytics>
 
-      <NodeShared id="virtualEng_shell"
-        asset="execute"
-        G_r="0.0"
-        G_ty="624.0"
-        G_tx="803.5"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        G_sy="100.0"
-        G_order="1"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_NodeShared">
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.virtualEngArc53"/>
-        </PropertyValue>
-      </NodeShared>
-
       <G_iconDef id="G_Node"
         BBox_y="-12.0"
         BBox_x="-12.0"
@@ -305,23 +253,6 @@
         </GE_ellipse>
       </G_iconDef>
 
-      <Node id="MMSTLS2_AITM"
-        G_r="0.0"
-        G_ty="653.0"
-        G_tx="1237.0"
-        prob="0.0"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        G_sy="100.0"
-        G_order="0"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_Node">
-        <PropertyValue id="G_fromConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSTLS2Arc14"/>
-        </PropertyValue>
-      </Node>
-
       <G_Layer id="G_Layer1"
         Locked="false"
         Visible="true"
@@ -346,60 +277,60 @@
         </PropertyValue>
       </Analytics>
 
-      <Arc id="DMZArc35"
+      <Arc id="MMSTLS1Arc61clone0"
         G_r="0.0"
-        G_ty="391.7355452199848"
-        G_tx="149.25278383993407"
+        G_ty="730.4434981486625"
+        G_tx="997.2478762198938"
         G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.DMZ_scanVuln"
-        from="_root.RootSecuriDN.AG2.DMZ_scanIP"
-        G_order="2"
+        to="_root.RootSecuriDN.AG2.IED1_DERfailureOR"
+        from="_root.RootSecuriDN.AG2.MMSTLS1_unauthCmdMsg"
         G_sy="100.0"
-        G_sx="100.0"
+        G_order="6"
         G_py="0.0"
+        G_sx="100.0"
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
         <PropertyValue id="G_segmentsP2" size="0">
         </PropertyValue>
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="221.5057570454146"/>
-            <PropertyValue id="ctrlx2" value="221.5057570454146"/>
-            <PropertyValue id="x1" value="76.99981063445347"/>
-            <PropertyValue id="ctrlx1" value="76.99981063445347"/>
-            <PropertyValue id="y2" value="393.5385051064552"/>
-            <PropertyValue id="ctrly2" value="393.5385051064552"/>
-            <PropertyValue id="y1" value="389.93258533351434"/>
-            <PropertyValue id="ctrly1" value="389.93258533351434"/>
+            <PropertyValue id="x2" value="313.0"/>
+            <PropertyValue id="ctrlx2" value="313.0"/>
+            <PropertyValue id="x1" value="918.9936937984667"/>
+            <PropertyValue id="ctrlx1" value="918.9936937984667"/>
+            <PropertyValue id="y2" value="830.5"/>
+            <PropertyValue id="ctrly2" value="830.5"/>
+            <PropertyValue id="y1" value="731.611015336266"/>
+            <PropertyValue id="ctrly1" value="731.611015336266"/>
           </PropertyValue>
         </PropertyValue>
       </Arc>
 
-      <Arc id="virtualEngArc53"
+      <Arc id="workStationArc33clone0"
         G_r="0.0"
-        G_ty="623.3598457250395"
-        G_tx="694.7495481023292"
+        G_ty="67.87775739153"
+        G_tx="149.75119221457055"
         G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.virtualEng_shell"
-        from="_root.RootSecuriDN.AG2.virtualEng_escapeHost"
-        G_order="2"
+        to="_root.RootSecuriDN.AG2.DMZ_scanIP"
+        from="_root.RootSecuriDN.AG2.workStation_compromise"
         G_sy="100.0"
-        G_sx="100.0"
+        G_order="2"
         G_py="0.0"
+        G_sx="100.0"
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
         <PropertyValue id="G_segmentsP2" size="0">
         </PropertyValue>
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="785.0003205070642"/>
-            <PropertyValue id="ctrlx2" value="785.0003205070642"/>
-            <PropertyValue id="x1" value="604.498775697594"/>
-            <PropertyValue id="ctrlx1" value="604.498775697594"/>
-            <PropertyValue id="y2" value="623.8911025314732"/>
-            <PropertyValue id="ctrly2" value="623.8911025314732"/>
-            <PropertyValue id="y1" value="622.8285889186058"/>
-            <PropertyValue id="ctrly1" value="622.8285889186058"/>
+            <PropertyValue id="x2" value="65.0"/>
+            <PropertyValue id="ctrlx2" value="65.0"/>
+            <PropertyValue id="x1" value="70.49983724289461"/>
+            <PropertyValue id="ctrlx1" value="70.49983724289461"/>
+            <PropertyValue id="y2" value="390.0"/>
+            <PropertyValue id="ctrly2" value="390.0"/>
+            <PropertyValue id="y1" value="66.56249915230674"/>
+            <PropertyValue id="ctrly1" value="66.56249915230674"/>
           </PropertyValue>
         </PropertyValue>
       </Arc>
@@ -417,8 +348,8 @@
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_Node">
         <PropertyValue id="G_fromConnections" size="2">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.workStationArc33"/>
-          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.workStationArc34"/>
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.workStationArc34clone1"/>
+          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.workStationArc33clone0"/>
         </PropertyValue>
       </Node>
 
@@ -434,13 +365,42 @@
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_NodeOR">
         <PropertyValue id="G_fromConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianServerArc5"/>
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianServerArc5clone0"/>
         </PropertyValue>
         <PropertyValue id="G_toConnections" size="2">
           <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianServerArc3"/>
           <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.historianServerArc4"/>
         </PropertyValue>
       </NodeOR>
+
+      <Arc id="virtualEngArc53clone2"
+        G_r="0.0"
+        G_ty="623.3598457250395"
+        G_tx="694.7495481023292"
+        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
+        to="_root.RootSecuriDN.AG2.stationComputer_shell"
+        from="_root.RootSecuriDN.AG2.virtualEng_escapeHost"
+        G_sy="100.0"
+        G_order="2"
+        G_py="0.0"
+        G_sx="100.0"
+        G_px="0.0"
+        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
+        <PropertyValue id="G_segmentsP2" size="0">
+        </PropertyValue>
+        <PropertyValue id="G_segmentsP1" size="1">
+          <PropertyValue id="fap0">
+            <PropertyValue id="x2" value="283.0"/>
+            <PropertyValue id="ctrlx2" value="283.0"/>
+            <PropertyValue id="x1" value="604.498775697594"/>
+            <PropertyValue id="ctrlx1" value="604.498775697594"/>
+            <PropertyValue id="y2" value="616.0"/>
+            <PropertyValue id="ctrly2" value="616.0"/>
+            <PropertyValue id="y1" value="622.8285889186058"/>
+            <PropertyValue id="ctrly1" value="622.8285889186058"/>
+          </PropertyValue>
+        </PropertyValue>
+      </Arc>
 
       <Arc id="MMSTLS1Arc59"
         G_r="0.0"
@@ -487,6 +447,9 @@
           <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSclientArc54"/>
           <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.MMSclientArc10"/>
         </PropertyValue>
+        <PropertyValue id="G_toConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.stationComputerArc1clone1"/>
+        </PropertyValue>
       </Node>
 
       <Node id="MMSclient_spoofRepMsg"
@@ -502,8 +465,11 @@
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_Node">
         <PropertyValue id="G_fromConnections" size="2">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSclientArc58"/>
-          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.MMSclientArc11"/>
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSclientArc11"/>
+          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.MMSclientArc58clone1"/>
+        </PropertyValue>
+        <PropertyValue id="G_toConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSTLS1Arc60clone1"/>
         </PropertyValue>
       </Node>
 
@@ -522,6 +488,9 @@
         <PropertyValue id="G_fromConnections" size="1">
           <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianArc42"/>
         </PropertyValue>
+        <PropertyValue id="G_toConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.DMZArc35clone0"/>
+        </PropertyValue>
       </Node>
 
       <Node id="historian_remoteSrvc"
@@ -537,31 +506,10 @@
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_Node">
         <PropertyValue id="G_fromConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianArc43"/>
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianArc43clone0"/>
         </PropertyValue>
         <PropertyValue id="G_toConnections" size="1">
           <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianArc42"/>
-        </PropertyValue>
-      </Node>
-
-      <Node id="MMSTLS2_unauthCmdMsg"
-        G_r="0.0"
-        G_ty="736.0"
-        G_tx="1235.0"
-        prob="0.0"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        G_order="1"
-        G_sy="100.0"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_Node">
-        <PropertyValue id="G_fromConnections" size="2">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSTLS2Arc13"/>
-          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.MMSTLS2Arc15"/>
-        </PropertyValue>
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSTLS2Arc14"/>
         </PropertyValue>
       </Node>
 
@@ -594,55 +542,12 @@
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_Node">
         <PropertyValue id="G_fromConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.DMZArc35"/>
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.DMZArc35clone0"/>
+        </PropertyValue>
+        <PropertyValue id="G_toConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.workStationArc33clone0"/>
         </PropertyValue>
       </Node>
-
-      <NodeShared id="tomcatWebServer_escapeHost"
-        asset="execute"
-        G_r="0.0"
-        G_ty="498.5"
-        G_tx="767.0"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        G_sy="100.0"
-        G_order="1"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_NodeShared">
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.tomcatWebServerArc52"/>
-        </PropertyValue>
-      </NodeShared>
-
-      <Arc id="historianArc43"
-        G_r="0.0"
-        G_ty="343.29499000590715"
-        G_tx="354.2505052786547"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.historian_shell"
-        from="_root.RootSecuriDN.AG2.historian_remoteSrvc"
-        G_order="4"
-        G_sy="100.0"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
-        <PropertyValue id="G_segmentsP2" size="0">
-        </PropertyValue>
-        <PropertyValue id="G_segmentsP1" size="1">
-          <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="420.0018920028814"/>
-            <PropertyValue id="ctrlx2" value="420.0018920028814"/>
-            <PropertyValue id="x1" value="288.4991185544281"/>
-            <PropertyValue id="ctrlx1" value="288.4991185544281"/>
-            <PropertyValue id="y2" value="344.23542387308004"/>
-            <PropertyValue id="ctrly2" value="344.23542387308004"/>
-            <PropertyValue id="y1" value="342.3545561387342"/>
-            <PropertyValue id="ctrly1" value="342.3545561387342"/>
-          </PropertyValue>
-        </PropertyValue>
-      </Arc>
 
       <Arc id="historianArc42"
         G_r="0.0"
@@ -675,8 +580,8 @@
 
       <Node id="historianServer_remoteShell"
         G_r="0.0"
-        G_ty="530.5"
-        G_tx="282.0"
+        G_ty="580.5"
+        G_tx="332.0"
         prob="0.0"
         G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
         G_order="0"
@@ -690,7 +595,7 @@
           <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.historianServerArc12"/>
         </PropertyValue>
         <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianServerArc38"/>
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianServer_remoteShellORarc"/>
         </PropertyValue>
       </Node>
 
@@ -710,6 +615,26 @@
         </PropertyValue>
       </Analytics>
 
+      <NodeOR id="historianServer_remoteShellOR"
+        G_r="0.0"
+        G_ty="530.5"
+        G_tx="282.0"
+        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
+        G_order="0"
+        G_sy="100.0"
+        G_py="0.0"
+        G_sx="100.0"
+        G_px="0.0"
+        G_iconRef="_root.RootSecuriDN.AG2.G_NodeOR">
+        <PropertyValue id="G_fromConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianServer_remoteShellORarc"/>
+        </PropertyValue>
+        <PropertyValue id="G_toConnections" size="2">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianServerArc38"/>
+          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.workStationArc34clone1"/>
+        </PropertyValue>
+      </NodeOR>
+
       <Analytics id="MMSTLS1_cmdCoher"
         G_r="0.0"
         G_ty="806.0"
@@ -728,8 +653,8 @@
 
       <Node id="IED1_DERfailure"
         G_r="0.0"
-        G_ty="830.5"
-        G_tx="313.0"
+        G_ty="880.5"
+        G_tx="363.0"
         prob="0.0"
         G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
         G_sy="100.0"
@@ -738,6 +663,9 @@
         G_py="0.0"
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_Node">
+        <PropertyValue id="G_toConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.IED1_DERfailureORarc"/>
+        </PropertyValue>
       </Node>
 
       <Node id="MMSclient_modAuthProc"
@@ -756,7 +684,68 @@
           <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSclientArc55"/>
           <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.MMSclientArc13"/>
         </PropertyValue>
+        <PropertyValue id="G_toConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.stationComputerArc2clone1"/>
+        </PropertyValue>
       </Node>
+
+      <Arc id="MMSTLS1Arc60clone1"
+        G_r="0.0"
+        G_ty="653.3769630305325"
+        G_tx="993.2521423543932"
+        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
+        to="_root.RootSecuriDN.AG2.MMSclient_spoofRepMsg"
+        from="_root.RootSecuriDN.AG2.MMSTLS1_AITM"
+        G_sy="100.0"
+        G_order="4"
+        G_py="0.0"
+        G_sx="100.0"
+        G_px="0.0"
+        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
+        <PropertyValue id="G_segmentsP2" size="0">
+        </PropertyValue>
+        <PropertyValue id="G_segmentsP1" size="1">
+          <PropertyValue id="fap0">
+            <PropertyValue id="x2" value="1007.5"/>
+            <PropertyValue id="ctrlx2" value="1007.5"/>
+            <PropertyValue id="x1" value="921.9963883976459"/>
+            <PropertyValue id="ctrlx1" value="921.9963883976459"/>
+            <PropertyValue id="y2" value="688.0"/>
+            <PropertyValue id="ctrly2" value="688.0"/>
+            <PropertyValue id="y1" value="651.2943898993287"/>
+            <PropertyValue id="ctrly1" value="651.2943898993287"/>
+          </PropertyValue>
+        </PropertyValue>
+      </Arc>
+
+      <Arc id="historianArc43clone0"
+        G_r="0.0"
+        G_ty="343.29499000590715"
+        G_tx="354.2505052786547"
+        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
+        to="_root.RootSecuriDN.AG2.historianServer_shell"
+        from="_root.RootSecuriDN.AG2.historian_remoteSrvc"
+        G_sy="100.0"
+        G_order="4"
+        G_py="0.0"
+        G_sx="100.0"
+        G_px="0.0"
+        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
+        <PropertyValue id="G_segmentsP2" size="0">
+        </PropertyValue>
+        <PropertyValue id="G_segmentsP1" size="1">
+          <PropertyValue id="fap0">
+            <PropertyValue id="x2" value="281.0"/>
+            <PropertyValue id="ctrlx2" value="281.0"/>
+            <PropertyValue id="x1" value="288.4991185544281"/>
+            <PropertyValue id="ctrlx1" value="288.4991185544281"/>
+            <PropertyValue id="y2" value="380.5"/>
+            <PropertyValue id="ctrly2" value="380.5"/>
+            <PropertyValue id="y1" value="342.3545561387342"/>
+            <PropertyValue id="ctrly1" value="342.3545561387342"/>
+          </PropertyValue>
+        </PropertyValue>
+      </Arc>
 
       <Analytics id="tomcatWebServer_loginFrequency"
         G_r="0.0"
@@ -794,40 +783,6 @@
         </PropertyValue>
       </Node>
 
-      <NodeShared id="MMSTLS1_spoofRepMsg"
-        asset="communicate"
-        G_r="0.0"
-        G_ty="651.0"
-        G_tx="1083.0"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        G_sy="100.0"
-        G_order="3"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_NodeShared">
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSTLS1Arc60"/>
-        </PropertyValue>
-      </NodeShared>
-
-      <NodeShared id="historian_shell"
-        asset="execute"
-        G_r="0.0"
-        G_ty="344.5"
-        G_tx="438.5"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        G_sy="100.0"
-        G_order="3"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_NodeShared">
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianArc43"/>
-        </PropertyValue>
-      </NodeShared>
-
       <Node id="MMSTLS1_unauthCmdMsg"
         G_r="0.0"
         G_ty="732.0"
@@ -841,8 +796,8 @@
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_Node">
         <PropertyValue id="G_fromConnections" size="2">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSTLS1Arc61"/>
-          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.MMSTLS1Arc14"/>
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSTLS1Arc14"/>
+          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.MMSTLS1Arc61clone0"/>
         </PropertyValue>
         <PropertyValue id="G_toConnections" size="1">
           <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSTLS1Arc59"/>
@@ -854,7 +809,7 @@
         G_ty="491.0026047164468"
         G_tx="280.73030505098205"
         G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.historianServer_remoteShell"
+        to="_root.RootSecuriDN.AG2.historianServer_remoteShellOR"
         from="_root.RootSecuriDN.AG2.historianServer_addSSHkey"
         G_order="4"
         G_sy="100.0"
@@ -1012,48 +967,31 @@
         </PropertyValue>
       </Arc>
 
-      <NodeShared id="MMSclient_AITM"
-        asset="communicate"
+      <Arc id="historianServerArc5clone0"
         G_r="0.0"
-        G_ty="609.0"
-        G_tx="1165.5"
+        G_ty="464.66664591840345"
+        G_tx="515.7537481160757"
         G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
+        to="_root.RootSecuriDN.AG2.tomcatWebServer_bruteForce"
+        from="_root.RootSecuriDN.AG2.historianServer_NodeOR1"
         G_sy="100.0"
-        G_order="8"
-        G_sx="100.0"
+        G_order="9"
         G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_NodeShared">
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSclientArc57"/>
-        </PropertyValue>
-      </NodeShared>
-
-      <Arc id="tomcatWebServerArc52"
-        G_r="0.0"
-        G_ty="495.7198255785729"
-        G_tx="675.2542440929052"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.tomcatWebServer_escapeHost"
-        from="_root.RootSecuriDN.AG2.tomcatWebServer_bruteForce"
-        G_order="2"
-        G_sy="100.0"
         G_sx="100.0"
-        G_py="0.0"
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
         <PropertyValue id="G_segmentsP2" size="0">
         </PropertyValue>
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="748.5084881858104"/>
-            <PropertyValue id="ctrlx2" value="748.5084881858104"/>
-            <PropertyValue id="x1" value="602.0"/>
-            <PropertyValue id="ctrlx1" value="602.0"/>
-            <PropertyValue id="y2" value="497.93965115714576"/>
-            <PropertyValue id="ctrly2" value="497.93965115714576"/>
-            <PropertyValue id="y1" value="493.5"/>
-            <PropertyValue id="ctrly1" value="493.5"/>
+            <PropertyValue id="x2" value="590.0"/>
+            <PropertyValue id="ctrlx2" value="590.0"/>
+            <PropertyValue id="x1" value="470.96748015901835"/>
+            <PropertyValue id="ctrlx1" value="470.96748015901835"/>
+            <PropertyValue id="y2" value="493.5"/>
+            <PropertyValue id="ctrly2" value="493.5"/>
+            <PropertyValue id="y1" value="467.61715310302327"/>
+            <PropertyValue id="ctrly1" value="467.61715310302327"/>
           </PropertyValue>
         </PropertyValue>
       </Arc>
@@ -1071,23 +1009,12 @@
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_Node">
         <PropertyValue id="G_fromConnections" size="2">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.virtualEngArc53"/>
-          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.virtualEngArc8"/>
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.virtualEngArc8"/>
+          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.virtualEngArc53clone2"/>
         </PropertyValue>
-      </Node>
-
-      <Node id="IED2_DERfailure"
-        G_r="0.0"
-        G_ty="960.0"
-        G_tx="302.5"
-        prob="0.0"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        G_sy="100.0"
-        G_order="0"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_Node">
+        <PropertyValue id="G_toConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.tomcatWebServerArc52clone0"/>
+        </PropertyValue>
       </Node>
 
       <Analytics id="historianServer_rmtShellSession"
@@ -1119,7 +1046,7 @@
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_Node">
         <PropertyValue id="G_fromConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSclientArc57"/>
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSclientArc57clone1"/>
         </PropertyValue>
         <PropertyValue id="G_toConnections" size="1">
           <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSclientArc56"/>
@@ -1153,39 +1080,34 @@
         </PropertyValue>
       </Arc>
 
-      <NodeShared id="DMZ_scanVuln"
-        asset="connect_execute"
+      <Arc id="MMSclientArc58clone1"
         G_r="0.0"
-        G_ty="394.0"
-        G_tx="240.0"
+        G_ty="688.1221756112924"
+        G_tx="1087.2490177903665"
         G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
+        to="_root.RootSecuriDN.AG2.IED1_DERfailureOR"
+        from="_root.RootSecuriDN.AG2.MMSclient_spoofRepMsg"
         G_sy="100.0"
-        G_order="1"
-        G_sx="100.0"
+        G_order="11"
         G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_NodeShared">
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.DMZArc35"/>
-        </PropertyValue>
-      </NodeShared>
-
-      <NodeShared id="workStation_remoteShell"
-        asset="connect_connect_connect_connect"
-        G_r="0.0"
-        G_ty="200.5"
-        G_tx="262.5"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        G_sy="100.0"
-        G_order="3"
         G_sx="100.0"
-        G_py="0.0"
         G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_NodeShared">
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.workStationArc34"/>
+        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
+        <PropertyValue id="G_segmentsP2" size="0">
         </PropertyValue>
-      </NodeShared>
+        <PropertyValue id="G_segmentsP1" size="1">
+          <PropertyValue id="fap0">
+            <PropertyValue id="x2" value="313.0"/>
+            <PropertyValue id="ctrlx2" value="313.0"/>
+            <PropertyValue id="x1" value="1019.4980170205599"/>
+            <PropertyValue id="ctrlx1" value="1019.4980170205599"/>
+            <PropertyValue id="y2" value="830.5"/>
+            <PropertyValue id="ctrly2" value="830.5"/>
+            <PropertyValue id="y1" value="688.2181457640102"/>
+            <PropertyValue id="ctrly1" value="688.2181457640102"/>
+          </PropertyValue>
+        </PropertyValue>
+      </Arc>
 
       <Analytics id="stationComputer_shellExecution"
         G_r="0.0"
@@ -1202,64 +1124,6 @@
           <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.stationComputerArc9"/>
         </PropertyValue>
       </Analytics>
-
-      <Arc id="workStationArc34"
-        G_r="0.0"
-        G_ty="131.72157190891787"
-        G_tx="157.7797489665582"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.workStation_remoteShell"
-        from="_root.RootSecuriDN.AG2.workStation_compromise"
-        G_order="4"
-        G_sy="100.0"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
-        <PropertyValue id="G_segmentsP2" size="0">
-        </PropertyValue>
-        <PropertyValue id="G_segmentsP1" size="1">
-          <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="247.03689171726234"/>
-            <PropertyValue id="ctrlx2" value="247.03689171726234"/>
-            <PropertyValue id="x1" value="68.5226062158541"/>
-            <PropertyValue id="ctrlx1" value="68.5226062158541"/>
-            <PropertyValue id="y2" value="190.34410111135753"/>
-            <PropertyValue id="ctrly2" value="190.34410111135753"/>
-            <PropertyValue id="y1" value="73.0990427064782"/>
-            <PropertyValue id="ctrly1" value="73.0990427064782"/>
-          </PropertyValue>
-        </PropertyValue>
-      </Arc>
-
-      <Arc id="workStationArc33"
-        G_r="0.0"
-        G_ty="67.87775739153"
-        G_tx="149.75119221457055"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.workStation_scanIP"
-        from="_root.RootSecuriDN.AG2.workStation_compromise"
-        G_order="2"
-        G_sy="100.0"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
-        <PropertyValue id="G_segmentsP2" size="0">
-        </PropertyValue>
-        <PropertyValue id="G_segmentsP1" size="1">
-          <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="229.0025471862465"/>
-            <PropertyValue id="ctrlx2" value="229.0025471862465"/>
-            <PropertyValue id="x1" value="70.49983724289461"/>
-            <PropertyValue id="ctrlx1" value="70.49983724289461"/>
-            <PropertyValue id="y2" value="69.19301563075322"/>
-            <PropertyValue id="ctrly2" value="69.19301563075322"/>
-            <PropertyValue id="y1" value="66.56249915230674"/>
-            <PropertyValue id="ctrly1" value="66.56249915230674"/>
-          </PropertyValue>
-        </PropertyValue>
-      </Arc>
 
       <G_iconDef id="G_NodeOR"
         BBox_y="-12.0"
@@ -1332,23 +1196,6 @@
         </PropertyValue>
       </Arc>
 
-      <NodeShared id="stationComputer_modAuthProc"
-        asset="execute_execute"
-        G_r="0.0"
-        G_ty="710.0"
-        G_tx="409.0"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        G_sy="100.0"
-        G_order="3"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_NodeShared">
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.stationComputerArc2"/>
-        </PropertyValue>
-      </NodeShared>
-
       <G_iconDef id="G_NodeAND"
         BBox_y="-12.0"
         BBox_x="-12.0"
@@ -1391,6 +1238,62 @@
         </GE_image>
       </G_iconDef>
 
+      <Arc id="historianServer_remoteShellORarc"
+        G_r="0.0"
+        G_ty="530.5"
+        G_tx="282.0"
+        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
+        from="_root.RootSecuriDN.AG2.historianServer_remoteShellOR"
+        to="_root.RootSecuriDN.AG2.historianServer_remoteShell"
+        G_order="1"
+        G_sy="100.0"
+        G_py="0.0"
+        G_sx="100.0"
+        G_px="0.0"
+        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
+        <PropertyValue id="G_segmentsP1" size="1">
+          <PropertyValue id="fap0">
+            <PropertyValue id="x2" value="332.0"/>
+            <PropertyValue id="ctrlx2" value="332.0"/>
+            <PropertyValue id="x1" value="282.0"/>
+            <PropertyValue id="y2" value="580.5"/>
+            <PropertyValue id="ctrlx1" value="282.0"/>
+            <PropertyValue id="ctrly2" value="580.5"/>
+            <PropertyValue id="y1" value="530.5"/>
+            <PropertyValue id="ctrly1" value="530.5"/>
+          </PropertyValue>
+        </PropertyValue>
+      </Arc>
+
+      <Arc id="MMSclientArc57clone1"
+        G_r="0.0"
+        G_ty="609.6506436219581"
+        G_tx="1082.7497799932553"
+        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
+        to="_root.RootSecuriDN.AG2.MMSTLS1_AITM"
+        from="_root.RootSecuriDN.AG2.MMSclient_credAcc"
+        G_sy="100.0"
+        G_order="9"
+        G_py="0.0"
+        G_sx="100.0"
+        G_px="0.0"
+        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
+        <PropertyValue id="G_segmentsP2" size="0">
+        </PropertyValue>
+        <PropertyValue id="G_segmentsP1" size="1">
+          <PropertyValue id="fap0">
+            <PropertyValue id="x2" value="910.0"/>
+            <PropertyValue id="ctrlx2" value="910.0"/>
+            <PropertyValue id="x1" value="1018.4989881529557"/>
+            <PropertyValue id="ctrlx1" value="1018.4989881529557"/>
+            <PropertyValue id="y2" value="651.0"/>
+            <PropertyValue id="ctrly2" value="651.0"/>
+            <PropertyValue id="y1" value="610.1558310149735"/>
+            <PropertyValue id="ctrly1" value="610.1558310149735"/>
+          </PropertyValue>
+        </PropertyValue>
+      </Arc>
+
       <Arc id="historianServerArc12"
         G_r="0.0"
         G_ty="541.3431622134908"
@@ -1406,43 +1309,41 @@
         G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="419.5"/>
-            <PropertyValue id="ctrlx2" value="419.5"/>
-            <PropertyValue id="x1" value="293.88092209918767"/>
-            <PropertyValue id="ctrlx1" value="293.88092209918767"/>
+            <PropertyValue id="x2" value="442.0"/>
+            <PropertyValue id="ctrlx2" value="442.0"/>
+            <PropertyValue id="x1" value="332.0"/>
             <PropertyValue id="y2" value="550.5"/>
+            <PropertyValue id="ctrlx1" value="332.0"/>
             <PropertyValue id="ctrly2" value="550.5"/>
-            <PropertyValue id="y1" value="532.1863244269815"/>
-            <PropertyValue id="ctrly1" value="532.1863244269815"/>
+            <PropertyValue id="y1" value="580.5"/>
+            <PropertyValue id="ctrly1" value="580.5"/>
           </PropertyValue>
         </PropertyValue>
       </Arc>
 
-      <Arc id="MMSclientArc58"
+      <Arc id="stationComputerArc2clone1"
         G_r="0.0"
-        G_ty="688.1221756112924"
-        G_tx="1087.2490177903665"
+        G_ty="661.0007243214233"
+        G_tx="343.43635708059566"
         G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.MMSclient_DERfailure"
-        from="_root.RootSecuriDN.AG2.MMSclient_spoofRepMsg"
-        G_order="11"
+        to="_root.RootSecuriDN.AG2.MMSclient_modAuthProc"
+        from="_root.RootSecuriDN.AG2.stationComputer_shell"
         G_sy="100.0"
-        G_sx="100.0"
+        G_order="4"
         G_py="0.0"
+        G_sx="100.0"
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
-        <PropertyValue id="G_segmentsP2" size="0">
-        </PropertyValue>
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="1155.000018560173"/>
-            <PropertyValue id="ctrlx2" value="1155.000018560173"/>
-            <PropertyValue id="x1" value="1019.4980170205599"/>
-            <PropertyValue id="ctrlx1" value="1019.4980170205599"/>
-            <PropertyValue id="y2" value="688.0262054585745"/>
-            <PropertyValue id="ctrly2" value="688.0262054585745"/>
-            <PropertyValue id="y1" value="688.2181457640102"/>
-            <PropertyValue id="ctrly1" value="688.2181457640102"/>
+            <PropertyValue id="x2" value="1068.5"/>
+            <PropertyValue id="ctrlx2" value="1068.5"/>
+            <PropertyValue id="x1" value="292.69151124974974"/>
+            <PropertyValue id="ctrlx1" value="292.69151124974974"/>
+            <PropertyValue id="y2" value="473.0"/>
+            <PropertyValue id="ctrly2" value="473.0"/>
+            <PropertyValue id="y1" value="623.0763415474363"/>
+            <PropertyValue id="ctrly1" value="623.0763415474363"/>
           </PropertyValue>
         </PropertyValue>
       </Arc>
@@ -1488,35 +1389,6 @@
           G_px="0.0">
         </GE_image>
       </G_iconDef>
-
-      <Arc id="MMSclientArc57"
-        G_r="0.0"
-        G_ty="609.6506436219581"
-        G_tx="1082.7497799932553"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.MMSclient_AITM"
-        from="_root.RootSecuriDN.AG2.MMSclient_credAcc"
-        G_order="9"
-        G_sy="100.0"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
-        <PropertyValue id="G_segmentsP2" size="0">
-        </PropertyValue>
-        <PropertyValue id="G_segmentsP1" size="1">
-          <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="1147.000571833555"/>
-            <PropertyValue id="ctrlx2" value="1147.000571833555"/>
-            <PropertyValue id="x1" value="1018.4989881529557"/>
-            <PropertyValue id="ctrlx1" value="1018.4989881529557"/>
-            <PropertyValue id="y2" value="609.1454562289429"/>
-            <PropertyValue id="ctrly2" value="609.1454562289429"/>
-            <PropertyValue id="y1" value="610.1558310149735"/>
-            <PropertyValue id="ctrly1" value="610.1558310149735"/>
-          </PropertyValue>
-        </PropertyValue>
-      </Arc>
 
       <Arc id="MMSclientArc56"
         G_r="0.0"
@@ -1625,39 +1497,6 @@
         </PropertyValue>
       </Arc>
 
-      <Analytics id="MMSTLS2_cmdCoher"
-        G_r="0.0"
-        G_ty="829.0"
-        G_tx="1323.0"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        G_sy="100.0"
-        G_order="3"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_analyticsShape">
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSTLS2Arc15"/>
-        </PropertyValue>
-      </Analytics>
-
-      <NodeShared id="workStation_scanIP"
-        asset="connect_connect_connect"
-        G_r="0.0"
-        G_ty="69.5"
-        G_tx="247.5"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        G_sy="100.0"
-        G_order="1"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_NodeShared">
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.workStationArc33"/>
-        </PropertyValue>
-      </NodeShared>
-
       <Arc id="MMSTLS1Arc14"
         G_r="0.0"
         G_ty="772.7481702853265"
@@ -1727,23 +1566,6 @@
         </GE_image>
       </G_iconDef>
 
-      <NodeShared id="MMSTLS1_DERfailure"
-        asset="communicate_execute"
-        G_r="0.0"
-        G_ty="732.0"
-        G_tx="1094.0"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        G_sy="100.0"
-        G_order="5"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_NodeShared">
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSTLS1Arc61"/>
-        </PropertyValue>
-      </NodeShared>
-
       <Node id="historianServer_shell"
         G_r="0.0"
         G_ty="380.5"
@@ -1761,6 +1583,9 @@
           <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.historianServerArc3"/>
           <PropertyValue id="fap2" value="_root.RootSecuriDN.AG2.historianServerArc6"/>
         </PropertyValue>
+        <PropertyValue id="G_toConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianArc43clone0"/>
+        </PropertyValue>
       </Node>
 
       <Node id="tomcatWebServer_bruteForce"
@@ -1776,8 +1601,11 @@
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_Node">
         <PropertyValue id="G_fromConnections" size="2">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.tomcatWebServerArc52"/>
-          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.tomcatWebServerArc7"/>
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.tomcatWebServerArc7"/>
+          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.tomcatWebServerArc52clone0"/>
+        </PropertyValue>
+        <PropertyValue id="G_toConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianServerArc5clone0"/>
         </PropertyValue>
       </Node>
 
@@ -1811,9 +1639,68 @@
         G_iconRef="_root.RootSecuriDN.AG2.G_Node">
         <PropertyValue id="G_fromConnections" size="2">
           <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSTLS1Arc59"/>
-          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.MMSTLS1Arc60"/>
+          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.MMSTLS1Arc60clone1"/>
+        </PropertyValue>
+        <PropertyValue id="G_toConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSclientArc57clone1"/>
         </PropertyValue>
       </Node>
+
+      <Arc id="stationComputerArc1clone1"
+        G_r="0.0"
+        G_ty="619.6872741586171"
+        G_tx="341.2628460440301"
+        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
+        to="_root.RootSecuriDN.AG2.MMSclient_unsecCred"
+        from="_root.RootSecuriDN.AG2.stationComputer_shell"
+        G_sy="100.0"
+        G_order="2"
+        G_py="0.0"
+        G_sx="100.0"
+        G_px="0.0"
+        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
+        <PropertyValue id="G_segmentsP1" size="1">
+          <PropertyValue id="fap0">
+            <PropertyValue id="x2" value="907.5"/>
+            <PropertyValue id="ctrlx2" value="907.5"/>
+            <PropertyValue id="x1" value="294.9847758607999"/>
+            <PropertyValue id="ctrlx1" value="294.9847758607999"/>
+            <PropertyValue id="y2" value="467.0"/>
+            <PropertyValue id="ctrly2" value="467.0"/>
+            <PropertyValue id="y1" value="616.6042744131496"/>
+            <PropertyValue id="ctrly1" value="616.6042744131496"/>
+          </PropertyValue>
+        </PropertyValue>
+      </Arc>
+
+      <Arc id="DMZArc35clone0"
+        G_r="0.0"
+        G_ty="391.7355452199848"
+        G_tx="149.25278383993407"
+        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
+        to="_root.RootSecuriDN.AG2.historian_scanVuln"
+        from="_root.RootSecuriDN.AG2.DMZ_scanIP"
+        G_sy="100.0"
+        G_order="2"
+        G_py="0.0"
+        G_sx="100.0"
+        G_px="0.0"
+        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
+        <PropertyValue id="G_segmentsP2" size="0">
+        </PropertyValue>
+        <PropertyValue id="G_segmentsP1" size="1">
+          <PropertyValue id="fap0">
+            <PropertyValue id="x2" value="279.5"/>
+            <PropertyValue id="ctrlx2" value="279.5"/>
+            <PropertyValue id="x1" value="76.99981063445347"/>
+            <PropertyValue id="ctrlx1" value="76.99981063445347"/>
+            <PropertyValue id="y2" value="258.5"/>
+            <PropertyValue id="ctrly2" value="258.5"/>
+            <PropertyValue id="y1" value="389.93258533351434"/>
+            <PropertyValue id="ctrly1" value="389.93258533351434"/>
+          </PropertyValue>
+        </PropertyValue>
+      </Arc>
 
       <Arc id="stationComputerArc9"
         G_r="0.0"
@@ -1838,6 +1725,33 @@
             <PropertyValue id="ctrly2" value="766.0"/>
             <PropertyValue id="y1" value="627.633418485038"/>
             <PropertyValue id="ctrly1" value="627.633418485038"/>
+          </PropertyValue>
+        </PropertyValue>
+      </Arc>
+
+      <Arc id="IED1_DERfailureORarc"
+        G_r="0.0"
+        G_ty="830.5"
+        G_tx="313.0"
+        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
+        from="_root.RootSecuriDN.AG2.IED1_DERfailureOR"
+        to="_root.RootSecuriDN.AG2.IED1_DERfailure"
+        G_order="1"
+        G_sy="100.0"
+        G_py="0.0"
+        G_sx="100.0"
+        G_px="0.0"
+        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
+        <PropertyValue id="G_segmentsP1" size="1">
+          <PropertyValue id="fap0">
+            <PropertyValue id="x2" value="363.0"/>
+            <PropertyValue id="ctrlx2" value="363.0"/>
+            <PropertyValue id="x1" value="313.0"/>
+            <PropertyValue id="y2" value="880.5"/>
+            <PropertyValue id="ctrlx1" value="313.0"/>
+            <PropertyValue id="ctrly2" value="880.5"/>
+            <PropertyValue id="y1" value="830.5"/>
+            <PropertyValue id="ctrly1" value="830.5"/>
           </PropertyValue>
         </PropertyValue>
       </Arc>
@@ -1869,52 +1783,6 @@
         </PropertyValue>
       </Arc>
 
-      <NodeShared id="MMSclient_DERfailure"
-        asset="communicate_communicate_execute"
-        G_r="0.0"
-        G_ty="688.0"
-        G_tx="1173.5"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        G_sy="100.0"
-        G_order="10"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_NodeShared">
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSclientArc58"/>
-        </PropertyValue>
-      </NodeShared>
-
-      <Arc id="historianServerArc5"
-        G_r="0.0"
-        G_ty="464.66664591840345"
-        G_tx="515.7537481160757"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.historianServer_bruteForce"
-        from="_root.RootSecuriDN.AG2.historianServer_NodeOR1"
-        G_order="9"
-        G_sy="100.0"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
-        <PropertyValue id="G_segmentsP2" size="0">
-        </PropertyValue>
-        <PropertyValue id="G_segmentsP1" size="1">
-          <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="563.5400160731328"/>
-            <PropertyValue id="ctrlx2" value="563.5400160731328"/>
-            <PropertyValue id="x1" value="470.96748015901835"/>
-            <PropertyValue id="ctrlx1" value="470.96748015901835"/>
-            <PropertyValue id="y2" value="468.71613873378357"/>
-            <PropertyValue id="ctrly2" value="468.71613873378357"/>
-            <PropertyValue id="y1" value="467.61715310302327"/>
-            <PropertyValue id="ctrly1" value="467.61715310302327"/>
-          </PropertyValue>
-        </PropertyValue>
-      </Arc>
-
       <Arc id="historianServerArc4"
         G_r="0.0"
         G_ty="499.40938151156087"
@@ -1930,14 +1798,14 @@
         G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="447.6706316202377"/>
-            <PropertyValue id="ctrlx2" value="447.6706316202377"/>
-            <PropertyValue id="x1" value="293.26445743700333"/>
-            <PropertyValue id="ctrlx1" value="293.26445743700333"/>
-            <PropertyValue id="y2" value="472.45542818360315"/>
-            <PropertyValue id="ctrly2" value="472.45542818360315"/>
-            <PropertyValue id="y1" value="526.3633348395185"/>
-            <PropertyValue id="ctrly1" value="526.3633348395185"/>
+            <PropertyValue id="x2" value="459.0"/>
+            <PropertyValue id="ctrlx2" value="459.0"/>
+            <PropertyValue id="x1" value="332.0"/>
+            <PropertyValue id="y2" value="468.5"/>
+            <PropertyValue id="ctrlx1" value="332.0"/>
+            <PropertyValue id="ctrly2" value="468.5"/>
+            <PropertyValue id="y1" value="580.5"/>
+            <PropertyValue id="ctrly1" value="580.5"/>
           </PropertyValue>
         </PropertyValue>
       </Arc>
@@ -1969,193 +1837,63 @@
         </PropertyValue>
       </Arc>
 
-      <NodeShared id="MMSTLS2_DERfailure"
-        asset="communicate_execute"
+      <Arc id="tomcatWebServerArc52clone0"
         G_r="0.0"
-        G_ty="741.0"
-        G_tx="1443.0"
+        G_ty="495.7198255785729"
+        G_tx="675.2542440929052"
         G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
+        to="_root.RootSecuriDN.AG2.virtualEng_escapeHost"
+        from="_root.RootSecuriDN.AG2.tomcatWebServer_bruteForce"
         G_sy="100.0"
         G_order="2"
-        G_sx="100.0"
         G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_NodeShared">
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSTLS2Arc13"/>
-        </PropertyValue>
-      </NodeShared>
-
-      <Arc id="stationComputerArc2"
-        G_r="0.0"
-        G_ty="661.0007243214233"
-        G_tx="343.43635708059566"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.stationComputer_modAuthProc"
-        from="_root.RootSecuriDN.AG2.stationComputer_shell"
-        G_order="4"
-        G_sy="100.0"
         G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
-        <PropertyValue id="G_segmentsP1" size="1">
-          <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="394.1812029114416"/>
-            <PropertyValue id="ctrlx2" value="394.1812029114416"/>
-            <PropertyValue id="x1" value="292.69151124974974"/>
-            <PropertyValue id="ctrlx1" value="292.69151124974974"/>
-            <PropertyValue id="y2" value="698.9251070954103"/>
-            <PropertyValue id="ctrly2" value="698.9251070954103"/>
-            <PropertyValue id="y1" value="623.0763415474363"/>
-            <PropertyValue id="ctrly1" value="623.0763415474363"/>
-          </PropertyValue>
-        </PropertyValue>
-      </Arc>
-
-      <NodeShared id="historianServer_bruteForce"
-        asset="connect_connect_connect_connect_execute_execute"
-        G_r="0.0"
-        G_ty="467.5"
-        G_tx="582.0"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        G_sy="100.0"
-        G_order="5"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_NodeShared">
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianServerArc5"/>
-        </PropertyValue>
-      </NodeShared>
-
-      <Arc id="stationComputerArc1"
-        G_r="0.0"
-        G_ty="619.6872741586171"
-        G_tx="341.2628460440301"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.stationComputer_unsecCred"
-        from="_root.RootSecuriDN.AG2.stationComputer_shell"
-        G_order="2"
-        G_sy="100.0"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
-        <PropertyValue id="G_segmentsP1" size="1">
-          <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="387.54091622726025"/>
-            <PropertyValue id="ctrlx2" value="387.54091622726025"/>
-            <PropertyValue id="x1" value="294.9847758607999"/>
-            <PropertyValue id="ctrlx1" value="294.9847758607999"/>
-            <PropertyValue id="y2" value="622.7702739040847"/>
-            <PropertyValue id="ctrly2" value="622.7702739040847"/>
-            <PropertyValue id="y1" value="616.6042744131496"/>
-            <PropertyValue id="ctrly1" value="616.6042744131496"/>
-          </PropertyValue>
-        </PropertyValue>
-      </Arc>
-
-      <Arc id="MMSTLS2Arc15"
-        G_r="0.0"
-        G_ty="775.2880125959612"
-        G_tx="1283.1967782854088"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.MMSTLS2_cmdCoher"
-        from="_root.RootSecuriDN.AG2.MMSTLS2_unauthCmdMsg"
-        G_order="6"
-        G_sy="100.0"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
-        <PropertyValue id="G_segmentsP1" size="1">
-          <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="1323.0"/>
-            <PropertyValue id="ctrlx2" value="1323.0"/>
-            <PropertyValue id="x1" value="1243.3935565708175"/>
-            <PropertyValue id="ctrlx1" value="1243.3935565708175"/>
-            <PropertyValue id="y2" value="806.0"/>
-            <PropertyValue id="ctrly2" value="806.0"/>
-            <PropertyValue id="y1" value="744.5760251919223"/>
-            <PropertyValue id="ctrly1" value="744.5760251919223"/>
-          </PropertyValue>
-        </PropertyValue>
-      </Arc>
-
-      <Arc id="MMSTLS2Arc14"
-        G_r="0.0"
-        G_ty="694.4972152026874"
-        G_tx="1235.9061239010753"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.MMSTLS2_unauthCmdMsg"
-        from="_root.RootSecuriDN.AG2.MMSTLS2_AITM"
-        G_order="5"
-        G_sy="100.0"
-        G_sx="100.0"
-        G_py="0.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
-        <PropertyValue id="G_segmentsP1" size="1">
-          <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="1235.2619317292197"/>
-            <PropertyValue id="ctrlx2" value="1235.2619317292197"/>
-            <PropertyValue id="x1" value="1236.5503160729309"/>
-            <PropertyValue id="ctrlx1" value="1236.5503160729309"/>
-            <PropertyValue id="y2" value="724.0028590168646"/>
-            <PropertyValue id="ctrly2" value="724.0028590168646"/>
-            <PropertyValue id="y1" value="664.9915713885101"/>
-            <PropertyValue id="ctrly1" value="664.9915713885101"/>
-          </PropertyValue>
-        </PropertyValue>
-      </Arc>
-
-      <Arc id="MMSTLS2Arc13"
-        G_r="0.0"
-        G_ty="744.7806291823733"
-        G_tx="1308.2516961219296"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        to="_root.RootSecuriDN.AG2.MMSTLS2_DERfailure"
-        from="_root.RootSecuriDN.AG2.MMSTLS2_unauthCmdMsg"
-        G_order="4"
-        G_sy="100.0"
-        G_sx="100.0"
-        G_py="0.0"
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
         <PropertyValue id="G_segmentsP2" size="0">
         </PropertyValue>
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
-            <PropertyValue id="x2" value="1424.6223980965315"/>
-            <PropertyValue id="ctrlx2" value="1424.6223980965315"/>
-            <PropertyValue id="x1" value="1246.880994147328"/>
-            <PropertyValue id="ctrlx1" value="1246.880994147328"/>
-            <PropertyValue id="y2" value="738.8754416276257"/>
-            <PropertyValue id="ctrly2" value="738.8754416276257"/>
-            <PropertyValue id="y1" value="737.6858167371208"/>
-            <PropertyValue id="ctrly1" value="737.6858167371208"/>
+            <PropertyValue id="x2" value="592.5"/>
+            <PropertyValue id="ctrlx2" value="592.5"/>
+            <PropertyValue id="x1" value="602.0"/>
+            <PropertyValue id="ctrlx1" value="602.0"/>
+            <PropertyValue id="y2" value="623.0"/>
+            <PropertyValue id="ctrly2" value="623.0"/>
+            <PropertyValue id="y1" value="493.5"/>
+            <PropertyValue id="ctrly1" value="493.5"/>
           </PropertyValue>
         </PropertyValue>
       </Arc>
 
-      <NodeShared id="stationComputer_unsecCred"
-        asset="execute_execute"
+      <Arc id="workStationArc34clone1"
         G_r="0.0"
-        G_ty="624.0"
-        G_tx="406.0"
+        G_ty="131.72157190891787"
+        G_tx="157.7797489665582"
         G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
+        to="_root.RootSecuriDN.AG2.historianServer_remoteShellOR"
+        from="_root.RootSecuriDN.AG2.workStation_compromise"
         G_sy="100.0"
-        G_order="1"
-        G_sx="100.0"
+        G_order="4"
         G_py="0.0"
+        G_sx="100.0"
         G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_NodeShared">
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.stationComputerArc1"/>
+        G_iconRef="_root.RootSecuriDN.AG2.G_arcShape">
+        <PropertyValue id="G_segmentsP2" size="0">
         </PropertyValue>
-      </NodeShared>
+        <PropertyValue id="G_segmentsP1" size="1">
+          <PropertyValue id="fap0">
+            <PropertyValue id="x2" value="282.0"/>
+            <PropertyValue id="ctrlx2" value="282.0"/>
+            <PropertyValue id="x1" value="68.5226062158541"/>
+            <PropertyValue id="ctrlx1" value="68.5226062158541"/>
+            <PropertyValue id="y2" value="530.5"/>
+            <PropertyValue id="ctrly2" value="530.5"/>
+            <PropertyValue id="y1" value="73.0990427064782"/>
+            <PropertyValue id="ctrly1" value="73.0990427064782"/>
+          </PropertyValue>
+        </PropertyValue>
+      </Arc>
     </AG>
 
     <Arch id="Arch1"

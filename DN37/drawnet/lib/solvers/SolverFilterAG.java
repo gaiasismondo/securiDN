@@ -6,8 +6,11 @@ import drawnet.lib.ddl.propertyvalues.FloatPropertyValue;
 
 import java.util.Enumeration;
 
+import javax.swing.text.ElementIterator;
+
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Array;
 
 import com.google.gson.Gson;
 
@@ -69,6 +72,7 @@ public class SolverFilterAG extends SolverFilter
 				print(" ---> e' un AG");
 			}
 		}
+		print("\n");
 	}
 
 	private void agVisit()
@@ -79,6 +83,8 @@ public class SolverFilterAG extends SolverFilter
 		FloatPropertyValue prob;
 
 		enumeration = ag.subElementsEnum();
+
+
       		while (enumeration.hasMoreElements())
       		{
 			elementInstance = enumeration.nextElement();
@@ -97,6 +103,30 @@ public class SolverFilterAG extends SolverFilter
 		}
 	}
 
+	private void removeAnalytics()
+	{
+		Enumeration<ElementInstance> enumeration;
+		ElementInstance elementInstance;
+	  	ElementType elementType;
+
+		enumeration = ag.subElementsEnum();
+
+
+		while (enumeration.hasMoreElements()){
+			elementInstance = enumeration.nextElement();
+			elementType = elementInstance.getElementType();
+			
+			if(elementType.getId().equals("Analytics")){
+				ag.removeSubElement(elementInstance.getId());
+			}
+
+			print("\n" + elementType.getId());
+		
+		
+		}
+	}
+	
+
 	private void createJson(String filePath)
 	{
 		try(FileWriter writer = new FileWriter(filePath)){
@@ -110,6 +140,7 @@ public class SolverFilterAG extends SolverFilter
 	public boolean execute()
 	{
 		this.mainVisit();
+		this.removeAnalytics();
 		this.agVisit();
 		print("\nAG ---> JSON eseguito\n");
 		this.createJson("drawnet/lib/json/esempio.json");
