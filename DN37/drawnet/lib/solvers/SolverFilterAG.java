@@ -115,12 +115,22 @@ public class SolverFilterAG extends SolverFilter
 		while (enumeration.hasMoreElements()){
 			elementInstance = enumeration.nextElement();
 			elementType = elementInstance.getElementType();
+
+			print("\n" + elementType.getId());
 			
+			//vengono eliminati dal modello i nodi di tipo analytics
 			if(elementType.getId().equals("Analytics")){
 				ag.removeSubElement(elementInstance.getId());
 			}
 
-			print("\n" + elementType.getId());
+			//vengono eliminati dal modello gli archi entranti in nodi di tipo analytics
+			if(elementType.getId().equals("Arc")){
+				System.out.println("\nTO");
+				System.out.println(elementInstance.getPropertyValue("to"));
+				
+			}
+
+			
 		
 		
 		}
