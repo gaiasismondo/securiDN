@@ -4,6 +4,7 @@ import drawnet.lib.ddl.ElementInstance;
 import drawnet.lib.ddl.ElementType;
 import drawnet.lib.ddl.propertyvalues.FloatPropertyValue;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
 
 import javax.swing.text.ElementIterator;
@@ -108,34 +109,42 @@ public class SolverFilterAG extends SolverFilter
 		Enumeration<ElementInstance> enumeration;
 		ElementInstance elementInstance;
 	  	ElementType elementType;
+		ArrayList<String> analyticsNodes = new ArrayList<String>();
 
 		enumeration = ag.subElementsEnum();
 
-
 		while (enumeration.hasMoreElements()){
+
 			elementInstance = enumeration.nextElement();
 			elementType = elementInstance.getElementType();
-
-			print("\n" + elementType.getId());
-			
-			//vengono eliminati dal modello i nodi di tipo analytics
-			if(elementType.getId().equals("Analytics")){
-				ag.removeSubElement(elementInstance.getId());
-			}
-
+		
 			//vengono eliminati dal modello gli archi entranti in nodi di tipo analytics
 			if(elementType.getId().equals("Arc")){
-				System.out.println("\nTO");
-				System.out.println(elementInstance.getPropertyValue("to"));
-				
+				String destination_node_string = elementInstance.getPropertyValue("to").toString();
+				ElementInstance destination_node = ag.getSubElement(destination_node_string);
+				if(destination_node.getElementType().getId().equals("Analytics")){
+					ag.removeSubElement(elementInstance.getId());
+				}		
 			}
 
-			
+			//vengono eliminati dal modello i nodi di tipo analytics 
+			//(vengono salvati in un array e poi vengono eliminati alla fine per preservare puntatori)
+			if(elementType.getId().equals("Analytics")){
+				analyticsNodes.add(elementInstance.getId());
+			}
 		
-		
+		}
+
+		for (String s : analyticsNodes) {
+			ag.removeSubElement(s);
 		}
 	}
 	
+	private ElementInstance getRoot(){
+
+		return null;
+		
+	}
 
 	private void createJson(String filePath)
 	{
