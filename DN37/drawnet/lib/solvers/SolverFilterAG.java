@@ -5,6 +5,7 @@ import drawnet.lib.ddl.ElementType;
 import drawnet.lib.ddl.propertyvalues.FloatPropertyValue;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Enumeration;
 
 import javax.swing.text.ElementIterator;
@@ -53,6 +54,7 @@ public class SolverFilterAG extends SolverFilter
 		System.out.print(messaggio);
 	}
 
+
 	private void mainVisit()
 	{
 		Enumeration<ElementInstance> enumeration;
@@ -76,6 +78,7 @@ public class SolverFilterAG extends SolverFilter
 		print("\n");
 	}
 
+
 	private void agVisit()
 	{
 		Enumeration<ElementInstance> enumeration;
@@ -84,7 +87,6 @@ public class SolverFilterAG extends SolverFilter
 		FloatPropertyValue prob;
 
 		enumeration = ag.subElementsEnum();
-
 
       		while (enumeration.hasMoreElements())
       		{
@@ -104,6 +106,10 @@ public class SolverFilterAG extends SolverFilter
 		}
 	}
 
+	//vengono eliminati dal modello gli archi entranti in nodi di tipo analytics
+	//vengono eliminati dal modello i nodi di tipo analytics 
+	//vengono eliminati dal modello i nodi di tipo G_Layer e G_iconDef
+	//(vengono salvati in un array e poi vengono eliminati alla fine per preservare puntatori)
 	private void removeAnalytics()
 	{
 		Enumeration<ElementInstance> enumeration;
@@ -118,7 +124,6 @@ public class SolverFilterAG extends SolverFilter
 			elementInstance = enumeration.nextElement();
 			elementType = elementInstance.getElementType();
 		
-			//vengono eliminati dal modello gli archi entranti in nodi di tipo analytics
 			if(elementType.getId().equals("Arc")){
 				String destination_node_string = elementInstance.getPropertyValue("to").toString();
 				ElementInstance destination_node = ag.getSubElement(destination_node_string);
@@ -127,9 +132,7 @@ public class SolverFilterAG extends SolverFilter
 				}		
 			}
 
-			//vengono eliminati dal modello i nodi di tipo analytics 
-			//(vengono salvati in un array e poi vengono eliminati alla fine per preservare puntatori)
-			if(elementType.getId().equals("Analytics")){
+			if(elementType.getId().equals("Analytics")||elementType.getId().equals("G_Layer")||elementType.getId().equals("G_iconDef")){
 				analyticsNodes.add(elementInstance.getId());
 			}
 		
@@ -139,12 +142,48 @@ public class SolverFilterAG extends SolverFilter
 			ag.removeSubElement(s);
 		}
 	}
-	
-	private ElementInstance getRoot(){
 
-		return null;
-		
+	//Vengono catalogati come "non radice" tutti i nodi che hanno almeno un arco entrante
+	//I nodi rimanenti sono le radici del grafo e i loro Id vengono restituiti all'interno di un arrayList
+	private ArrayList<String> getRootNodes(){
+
+		Enumeration<ElementInstance> enumeration;
+		ElementInstance elementInstance;
+	  	ElementType elementType;
+		ArrayList<String> nonRootNodes = new ArrayList<String>();
+		ArrayList<String> allNodes = new ArrayList<String>();
+
+		enumeration = ag.subElementsEnum();
+
+		while (enumeration.hasMoreElements()){
+
+			elementInstance = enumeration.nextElement();
+			elementType = elementInstance.getElementType();
+
+			print("\n");
+			print("\n"+elementType.getId()+"   "+elementInstance.getId());
+
+
+			if(elementType.getId().equals("Arc")){
+				String destination_node_string = elementInstance.getPropertyValue("to").toString();
+				if(!nonRootNodes.contains(destination_node_string)){
+					nonRootNodes.add(destination_node_string);
+				}
+			}
+			
+			if(elementType.getId().equals("Node")||elementType.getId().equals("NodeOR")||elementType.getId().equals("NodeAND")){
+				if(!allNodes.contains(elementInstance.getId())){
+					allNodes.add(elementInstance.getId());
+				}
+			}
+
+		}
+
+		allNodes.removeAll(nonRootNodes);
+
+		return allNodes;
 	}
+
 
 	private void createJson(String filePath)
 	{
@@ -156,11 +195,13 @@ public class SolverFilterAG extends SolverFilter
 		}
 	}
 
+	
 	public boolean execute()
 	{
 		this.mainVisit();
 		this.removeAnalytics();
 		this.agVisit();
+		
 		print("\nAG ---> JSON eseguito\n");
 		this.createJson("drawnet/lib/json/esempio.json");
 
