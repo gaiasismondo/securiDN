@@ -146,6 +146,7 @@ public class SolverFilterAG extends SolverFilter
 		}
 	}
 
+
 	//scorre il grado e inserisce tutti i nodi nell'ArrayList nodes e tutti gli archi nell'arrayList edges
 	private void getEdgesAndNodes(){
 
@@ -188,35 +189,43 @@ public class SolverFilterAG extends SolverFilter
 		return nodes;
 	}
 
+	
+	//prende in input un nodo e una lista di archi e restituisce un array contenente gli archi uscenti da quel nodo
+	private ArrayList<String> getOutgoingEdges(String node, ArrayList<String> edges){
 
-	private ArrayList<String> getTopologicalOrder(ArrayList<String> rootNodes){
+		ArrayList<String> outgoingEdges = new ArrayList<String>();
 
-		ArrayList<String> edges = new ArrayList<String>();
-		ArrayList<String> nodes = new ArrayList<String>();
-		ArrayList<String> topologicalOrder = new ArrayList<String>();
+		for(String e: edges){
+			ElementInstance edge = ag.getSubElement(e);
+			String starting_node = edge.getPropertyValue("from").toString();
 
-		Enumeration<ElementInstance> enumeration;
-		ElementInstance elementInstance;
-	  	ElementType elementType;
-
-		enumeration = ag.subElementsEnum();
-
-		while (enumeration.hasMoreElements()){
-
-			elementInstance = enumeration.nextElement();
-			elementType = elementInstance.getElementType();
-
-			if(elementType.getId().equals("Arc")){
-				edges.add(elementInstance.getId());
-			}
-			else if(elementType.getId().equals("Node")||elementType.getId().equals("NodeOR")||elementType.getId().equals("NodeAND")){
-				nodes.add(elementInstance.getId());
+			if(starting_node.equals(node)){
+				outgoingEdges.add(e);
 			}
 		}
 
-		while(!rootNodes.isEmpty()){
-			String node = rootNodes.remove(0);
+		return outgoingEdges;
+	}
+
+
+	private ArrayList<String> getTopologicalOrder(){
+
+		this.getEdgesAndNodes();
+
+		@SuppressWarnings("unchecked")
+		ArrayList<String> edges = (ArrayList<String>)this.edges.clone();
+		@SuppressWarnings("unchecked")
+		ArrayList<String> nodes = (ArrayList<String>)this.nodes.clone();
+		
+		ArrayList<String> topologicalOrder = new ArrayList<String>();
+
+		ArrayList<String> nodesWithoutParents = getNodesWithoutParents(edges, nodes);
+
+		while(!nodesWithoutParents.isEmpty()){
+			String node = nodesWithoutParents.remove(0);
 			topologicalOrder.add(node);
+			
+			ArrayList<String> outgoingEdges = getOutgoingEdges(node, edges);
 		}
 
 		return topologicalOrder;
@@ -239,10 +248,8 @@ public class SolverFilterAG extends SolverFilter
 		this.mainVisit();
 		this.removeAnalytics();
 		this.agVisit();
-		this.getEdgesAndNodes();
-		@SuppressWarnings("unchecked")
-		ArrayList<String> nodesWithoutParents = getNodesWithoutParents((ArrayList<String>)edges.clone(), (ArrayList<String>)nodes.clone());
-		ArrayList<String> TopologicalOrder = this.getTopologicalOrder(nodesWithoutParents);
+		
+		ArrayList<String> TopologicalOrder = this.getTopologicalOrder();
 		
 		print("\nAG ---> JSON eseguito\n");
 		this.createJson("drawnet/lib/json/esempio.json");
