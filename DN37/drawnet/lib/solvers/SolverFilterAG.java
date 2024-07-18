@@ -189,7 +189,7 @@ public class SolverFilterAG extends SolverFilter
 		return nodes;
 	}
 
-	
+
 	//prende in input un nodo e una lista di archi e restituisce un array contenente gli archi uscenti da quel nodo
 	private ArrayList<String> getOutgoingEdges(String node, ArrayList<String> edges){
 
@@ -208,6 +208,37 @@ public class SolverFilterAG extends SolverFilter
 	}
 
 
+	//prende in input un nodo e una lista di archi e restituisce un array contenente gli archi entranti in quel nodo
+	private ArrayList<String> getIncomingEdges(String node, ArrayList<String> edges){
+
+		ArrayList<String> incomingEdges = new ArrayList<String>();
+
+		for(String e: edges){
+			ElementInstance edge = ag.getSubElement(e);
+			String destination_node = edge.getPropertyValue("to").toString();
+
+			if(destination_node.equals(node)){
+				incomingEdges.add(e);
+			}
+		}
+
+		return incomingEdges;
+	}
+
+	//Presa l'elenco degli archi uscenti da un nodo restituisce l'elenco dei figli
+	private ArrayList<String> getChildrenNodes(ArrayList<String> outgoingEdges){
+
+		ArrayList<String> childrenNodes = new ArrayList<String>();
+
+			for(String e: outgoingEdges){
+				ElementInstance edge = ag.getSubElement(e);
+				childrenNodes.add(edge.getPropertyValue("to").toString());
+			}
+
+		return childrenNodes;
+	}
+
+	
 	private ArrayList<String> getTopologicalOrder(){
 
 		this.getEdgesAndNodes();
@@ -222,11 +253,24 @@ public class SolverFilterAG extends SolverFilter
 		ArrayList<String> nodesWithoutParents = getNodesWithoutParents(edges, nodes);
 
 		while(!nodesWithoutParents.isEmpty()){
+
 			String node = nodesWithoutParents.remove(0);
 			topologicalOrder.add(node);
-			
+		
 			ArrayList<String> outgoingEdges = getOutgoingEdges(node, edges);
+			ArrayList<String> childrenNodes = getChildrenNodes(outgoingEdges);
+
+			for(int i=0; i<outgoingEdges.size();i++){
+				edges.remove(outgoingEdges.get(i));
+				ArrayList<String> incomingEdges = getIncomingEdges(childrenNodes.get(i), edges);
+				if(incomingEdges.isEmpty()){
+					nodesWithoutParents.add(childrenNodes.get(i));
+				}
+			}
+			
 		}
+
+		System.out.println(topologicalOrder);
 
 		return topologicalOrder;
 	}
