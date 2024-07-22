@@ -7,7 +7,9 @@ import drawnet.lib.ddl.propertyvalues.FloatPropertyValue;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Enumeration;
-import java.util.Queue;
+import java.util.Stack;
+import java.util.HashSet;
+import java.util.LinkedList;
 
 import javax.swing.text.ElementIterator;
 
@@ -242,8 +244,8 @@ public class SolverFilterAG extends SolverFilter
 		return incomingEdges;
 	}
 
-	
-	//Presa l'elenco degli archi uscenti da un nodo restituisce l'elenco dei figli
+
+	//Preso l'elenco degli archi uscenti da un nodo restituisce l'elenco dei figli
 	private ArrayList<String> getChildrenNodes(ArrayList<String> outgoingEdges){
 
 		ArrayList<String> childrenNodes = new ArrayList<String>();
@@ -256,79 +258,65 @@ public class SolverFilterAG extends SolverFilter
 		return childrenNodes;
 	}
 
+
+	//Preso l'elenco degli archi entanti in un nodo restituisce l'elenco dei genitori
+	private ArrayList<String> getParentsNodes(ArrayList<String> incomingEdges){
+
+		ArrayList<String> parentsNodes = new ArrayList<String>();
+
+			for(String e: incomingEdges){
+				ElementInstance edge = ag.getSubElement(e);
+				parentsNodes.add(edge.getPropertyValue("from").toString());
+			}
+
+		return parentsNodes;
+	}
 	
-	private ArrayList<String> getTopologicalOrder(){
 
-		this.getEdgesAndNodes();
+//restotuisce l'ordine topologico dell'attack graph
+private ArrayList<String> getTopologicalOrder() {
+    this.getEdgesAndNodes();
 
-		@SuppressWarnings("unchecked")
-		ArrayList<String> edges = (ArrayList<String>)this.edges.clone();
-		@SuppressWarnings("unchecked")
-		ArrayList<String> nodes = (ArrayList<String>)this.nodes.clone();
-		
-		ArrayList<String> topologicalOrder = new ArrayList<String>();
+    @SuppressWarnings("unchecked")
+    ArrayList<String> edges = (ArrayList<String>) this.edges.clone();
+    @SuppressWarnings("unchecked")
+    ArrayList<String> nodes = (ArrayList<String>) this.nodes.clone();
 
-		ArrayList<String> nodesWithoutParents = getNodesWithoutParents(edges, nodes);
+    String start = getNodesWithoutParents(edges, nodes).get(0);
 
-		while(!nodesWithoutParents.isEmpty()){
+    ArrayList<String> visited = new ArrayList<String>();
+    Stack<String> stack = new Stack<String>();
+    ArrayList<String> topologicalOrder = new ArrayList<String>();
 
-			String node = nodesWithoutParents.remove(0);
-			topologicalOrder.add(node);
-		
-			ArrayList<String> outgoingEdges = getOutgoingEdges(node, edges);
-			ArrayList<String> childrenNodes = getChildrenNodes(outgoingEdges);
+    stack.add(start);
 
-			for(int i=0; i<outgoingEdges.size();i++){
-				edges.remove(outgoingEdges.get(i));
-				ArrayList<String> incomingEdges = getIncomingEdges(childrenNodes.get(i), edges);
-				if(incomingEdges.isEmpty()){
-					nodesWithoutParents.add(childrenNodes.get(i));
-				}
-			}
-			
-		}
+    while (!stack.isEmpty()) {
+        String x = stack.peek(); 
 
-		System.out.println(topologicalOrder);
+        if (!visited.contains(x)) {
+            visited.add(x);
+            ArrayList<String> childrenNodes = getChildrenNodes(getOutgoingEdges(x, edges));
+            for (String node : childrenNodes) {
+                if (!visited.contains(node))  stack.add(node);
+            }
+        } else {
+            stack.pop(); // Rimuove l'elemento dopo aver visitato tutti i figli
+            if (!topologicalOrder.contains(x)) {
+                topologicalOrder.add(0,x); // Aggiunge alla pila dell'ordine topologico
+            }
+        }
+    }
 
-		return topologicalOrder;
-	}
+    return topologicalOrder;
+}
+	
+	
+	
+	
+	
+	
+  
 
-
-	private ArrayList<String> DFS(){
-
-		this.getEdgesAndNodes();
-
-		@SuppressWarnings("unchecked")
-		ArrayList<String> edges = (ArrayList<String>)this.edges.clone();
-		@SuppressWarnings("unchecked")
-		ArrayList<String> nodes = (ArrayList<String>)this.nodes.clone();
-
-		ArrayList<String> nodesWithoutParents = getNodesWithoutParents(edges, nodes);
-		String start = nodesWithoutParents.get(0);
-
-		ArrayList<String> visited = new ArrayList<String>();
-		ArrayList<String> stack = new ArrayList<String>();
-		
-		stack.add(start);
-
-		while(!stack.isEmpty()){
-
-			String x = stack.remove(stack.size()-1);
-			if(!visited.contains(x)){
-				visited.add(x);
-			}
-			ArrayList<String> outgoingEdges = getOutgoingEdges(x, edges);
-			ArrayList<String> childrenNodes = getChildrenNodes(outgoingEdges);
-
-			for(String node: childrenNodes){
-				if(!visited.contains(node)){
-					stack.add(node);
-				}
-			}
-		}
-		
-		return visited;
-	}
 
 
 	private void createJson()
@@ -347,13 +335,11 @@ public class SolverFilterAG extends SolverFilter
 		this.mainVisit();
 		this.removeAnalytics();
 		this.agVisit();
-		
-		ArrayList<String> TopologicalOrder = this.getTopologicalOrder();
-		ArrayList<String> DFS = this.DFS();
+	
+		ArrayList<String> topologicalOrder = this.getTopologicalOrder();
 
-		System.out.println("\n\nTopological order: \n"+TopologicalOrder);
-
-		System.out.println("\n\nDFS: \n"+DFS);
+		System.out.println("\n\nTopological Order: "+topologicalOrder);
+		System.out.println(topologicalOrder.size());
 		
 		print("\nAG ---> JSON eseguito\n");
 		this.createJson();
