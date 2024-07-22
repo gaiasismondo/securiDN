@@ -24,8 +24,8 @@ public class SolverFilterAG extends SolverFilter
 	private final String DESCR = "AG ---> JSON";
 
 	private ElementInstance ag = null;
-	ArrayList<String> edges = new ArrayList<String>();
-	ArrayList<String> nodes = new ArrayList<String>();
+	private ArrayList<String> edges = new ArrayList<String>();
+	private ArrayList<String> nodes = new ArrayList<String>();
 
 	/**
 	 * Constructor.
@@ -189,6 +189,23 @@ public class SolverFilterAG extends SolverFilter
 		return nodes;
 	}
 
+	//restituisce true se il nodo passato in input è un nodo di tipo AND, false altrimenti
+	private boolean isANDnode(String node){
+		ElementInstance n = ag.getSubElement(node);
+		if (n.getElementType().getId().equals("NodeAND")){
+			return true;
+		}
+		return false;
+	}
+
+	//restituisce true se il nodo passato in input è un nodo di tipo OR, false altrimenti
+	private boolean isORnode(String node){
+		ElementInstance n = ag.getSubElement(node);
+		if (n.getElementType().getId().equals("NodeOR")){
+			return true;
+		}
+		return false;
+	}
 
 	//prende in input un nodo e una lista di archi e restituisce un array contenente gli archi uscenti da quel nodo
 	private ArrayList<String> getOutgoingEdges(String node, ArrayList<String> edges){
@@ -225,6 +242,7 @@ public class SolverFilterAG extends SolverFilter
 		return incomingEdges;
 	}
 
+	
 	//Presa l'elenco degli archi uscenti da un nodo restituisce l'elenco dei figli
 	private ArrayList<String> getChildrenNodes(ArrayList<String> outgoingEdges){
 
@@ -276,9 +294,46 @@ public class SolverFilterAG extends SolverFilter
 	}
 
 
-	private void createJson(String filePath)
+	private ArrayList<String> DFS(){
+
+		this.getEdgesAndNodes();
+
+		@SuppressWarnings("unchecked")
+		ArrayList<String> edges = (ArrayList<String>)this.edges.clone();
+		@SuppressWarnings("unchecked")
+		ArrayList<String> nodes = (ArrayList<String>)this.nodes.clone();
+
+		ArrayList<String> nodesWithoutParents = getNodesWithoutParents(edges, nodes);
+		String start = nodesWithoutParents.get(0);
+
+		ArrayList<String> visited = new ArrayList<String>();
+		ArrayList<String> stack = new ArrayList<String>();
+		
+		stack.add(start);
+
+		while(!stack.isEmpty()){
+
+			String x = stack.remove(stack.size()-1);
+			if(!visited.contains(x)){
+				visited.add(x);
+			}
+			ArrayList<String> outgoingEdges = getOutgoingEdges(x, edges);
+			ArrayList<String> childrenNodes = getChildrenNodes(outgoingEdges);
+
+			for(String node: childrenNodes){
+				if(!visited.contains(node)){
+					stack.add(node);
+				}
+			}
+		}
+		
+		return visited;
+	}
+
+
+	private void createJson()
 	{
-		try(FileWriter writer = new FileWriter(filePath)){
+		try(FileWriter writer = new FileWriter("drawnet/lib/json/Attacks_flow.json")){
 			writer.write("{}");
 		}
 		catch (IOException e){
@@ -294,9 +349,14 @@ public class SolverFilterAG extends SolverFilter
 		this.agVisit();
 		
 		ArrayList<String> TopologicalOrder = this.getTopologicalOrder();
+		ArrayList<String> DFS = this.DFS();
+
+		System.out.println("\n\nTopological order: \n"+TopologicalOrder);
+
+		System.out.println("\n\nDFS: \n"+DFS);
 		
 		print("\nAG ---> JSON eseguito\n");
-		this.createJson("drawnet/lib/json/esempio.json");
+		this.createJson();
 
 
 		return true;
