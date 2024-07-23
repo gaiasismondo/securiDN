@@ -325,10 +325,25 @@ public class SolverFilterAG extends SolverFilter
 		return orderWithoutLogicalNodes;
 	}
 
+	//Prende in input un array di stringhe e restituisce un nuovo Array di stringhe 
+	//nel quale ogni elemento è costituito solo dalla parte che segue _
+	private ArrayList<String> removePrefix(ArrayList<String> topologicalOrder){
+
+		ArrayList<String> orderWithoutPrefix = new ArrayList<String>();
+
+		for(String node: topologicalOrder){
+			String [] splitted = node.split("_");
+			orderWithoutPrefix.add(splitted[1]);
+		}
+
+		return orderWithoutPrefix;
+
+	}
+
 
 	private void createJson()
 	{
-		try(FileWriter writer = new FileWriter("drawnet/lib/json/Attacks_flow.json")){
+		try(FileWriter writer = new FileWriter("Attacks_flow.json")){
 			writer.write("{}");
 		}
 		catch (IOException e){
@@ -353,9 +368,16 @@ public class SolverFilterAG extends SolverFilter
 
 		System.out.println("\n\nTopological Order: "+topologicalOrder);
 		System.out.println(topologicalOrder.size());
+
+		topologicalOrder = this.removePrefix(topologicalOrder);
+
+
+		System.out.println("\n\nTopological Order: "+topologicalOrder);
+		System.out.println(topologicalOrder.size());
 		
 		print("\nAG ---> JSON eseguito\n");
-		this.createJson();
+
+		//this.createJson();
 
 
 		return true;
