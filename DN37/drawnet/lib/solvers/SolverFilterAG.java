@@ -273,50 +273,57 @@ public class SolverFilterAG extends SolverFilter
 	}
 	
 
-//restotuisce l'ordine topologico dell'attack graph
-private ArrayList<String> getTopologicalOrder() {
-    this.getEdgesAndNodes();
+	//restotuisce l'ordine topologico dell'attack graph
+	private ArrayList<String> getTopologicalOrder() {
+		this.getEdgesAndNodes();
 
-    @SuppressWarnings("unchecked")
-    ArrayList<String> edges = (ArrayList<String>) this.edges.clone();
-    @SuppressWarnings("unchecked")
-    ArrayList<String> nodes = (ArrayList<String>) this.nodes.clone();
+		@SuppressWarnings("unchecked")
+		ArrayList<String> edges = (ArrayList<String>) this.edges.clone();
+		@SuppressWarnings("unchecked")
+		ArrayList<String> nodes = (ArrayList<String>) this.nodes.clone();
 
-    String start = getNodesWithoutParents(edges, nodes).get(0);
+		String start = getNodesWithoutParents(edges, nodes).get(0);
 
-    ArrayList<String> visited = new ArrayList<String>();
-    Stack<String> stack = new Stack<String>();
-    ArrayList<String> topologicalOrder = new ArrayList<String>();
+		ArrayList<String> visited = new ArrayList<String>();
+		Stack<String> stack = new Stack<String>();
+		ArrayList<String> topologicalOrder = new ArrayList<String>();
 
-    stack.add(start);
+		stack.add(start);
 
-    while (!stack.isEmpty()) {
-        String x = stack.peek(); 
+		while (!stack.isEmpty()) {
+			String x = stack.peek(); 
 
-        if (!visited.contains(x)) {
-            visited.add(x);
-            ArrayList<String> childrenNodes = getChildrenNodes(getOutgoingEdges(x, edges));
-            for (String node : childrenNodes) {
-                if (!visited.contains(node))  stack.add(node);
-            }
-        } else {
-            stack.pop(); // Rimuove l'elemento dopo aver visitato tutti i figli
-            if (!topologicalOrder.contains(x)) {
-                topologicalOrder.add(0,x); // Aggiunge alla pila dell'ordine topologico
-            }
-        }
-    }
+			if (!visited.contains(x)) {
+				visited.add(x);
+				ArrayList<String> childrenNodes = getChildrenNodes(getOutgoingEdges(x, edges));
+				for (String node : childrenNodes) {
+					if (!visited.contains(node))  stack.add(node);
+				}
+			} else {
+				stack.pop(); // Rimuove l'elemento dopo aver visitato tutti i figli
+				if (!topologicalOrder.contains(x)) {
+					topologicalOrder.add(0,x); // Aggiunge alla pila dell'ordine topologico
+				}
+			}
+		}
 
-    return topologicalOrder;
-}
+		return topologicalOrder;
+	}
+
 	
-	
-	
-	
-	
-	
-  
+	//Prende in input una lista di nodi e restituisce la stessa lista ma senza i nodi che sono operatori logici
+	private ArrayList<String> removeLogicalNodes(ArrayList<String> topologicalOrder) {
 
+		ArrayList<String> orderWithoutLogicalNodes = new ArrayList<String>();
+
+		for(String node: topologicalOrder){
+			if(!this.isANDnode(node) && !this.isORnode(node)){
+				orderWithoutLogicalNodes.add(node);
+			}
+		}
+
+		return orderWithoutLogicalNodes;
+	}
 
 
 	private void createJson()
@@ -337,6 +344,12 @@ private ArrayList<String> getTopologicalOrder() {
 		this.agVisit();
 	
 		ArrayList<String> topologicalOrder = this.getTopologicalOrder();
+		
+
+		System.out.println("\n\nTopological Order: "+topologicalOrder);
+		System.out.println(topologicalOrder.size());
+
+		topologicalOrder = this.removeLogicalNodes(topologicalOrder);
 
 		System.out.println("\n\nTopological Order: "+topologicalOrder);
 		System.out.println(topologicalOrder.size());
