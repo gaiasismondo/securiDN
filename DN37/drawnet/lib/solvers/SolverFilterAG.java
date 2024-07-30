@@ -14,14 +14,16 @@ import java.util.LinkedList;
 import javax.swing.text.ElementIterator;
 
 import java.io.FileWriter;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 
 
-public class SolverFilterAG extends SolverFilter
-{
+public class SolverFilterAG extends SolverFilter{
 
 	private final String DESCR = "AG ---> JSON";
 
@@ -341,19 +343,27 @@ public class SolverFilterAG extends SolverFilter
 	}
 
 
-	private void createJson()
-	{
-		try(FileWriter writer = new FileWriter("Attacks_flow.json")){
-			writer.write("{}");
+	private void writeJson(ArrayList<String> order, String filename){
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonObject jsonObject = new JsonObject();
+		jsonObject.add("attack_sequence", gson.toJsonTree(order));
+		String jsonString = gson.toJson(jsonObject);
+		
+		try(BufferedWriter writer = new BufferedWriter(new FileWriter(filename))){
+			writer.write(jsonString);
 		}
-		catch (IOException e){
+		catch(IOException e){
 			e.printStackTrace();
 		}
+	
 	}
 
 	
 	public boolean execute()
 	{
+
+		String filename = "Attack_sequence.json";
+
 		this.mainVisit();
 		this.removeAnalytics();
 		this.agVisit();
@@ -366,18 +376,18 @@ public class SolverFilterAG extends SolverFilter
 
 		topologicalOrder = this.removeLogicalNodes(topologicalOrder);
 
-		System.out.println("\n\nTopological Order: "+topologicalOrder);
+		System.out.println("\n\nTopological Order witthout logical nodes: "+topologicalOrder);
 		System.out.println(topologicalOrder.size());
 
 		topologicalOrder = this.removePrefix(topologicalOrder);
 
-
-		System.out.println("\n\nTopological Order: "+topologicalOrder);
+		System.out.println("\n\nTopological Order without prefix: "+topologicalOrder);
 		System.out.println(topologicalOrder.size());
 		
+
 		print("\nAG ---> JSON eseguito\n");
 
-		//this.createJson();
+		this.writeJson(topologicalOrder, filename);
 
 
 		return true;
