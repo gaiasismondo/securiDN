@@ -328,7 +328,7 @@ public class SolverFilterAG extends SolverFilter{
 	}
 
 	//Prende in input un array di stringhe e restituisce un nuovo Array di stringhe 
-	//nel quale ogni elemento è costituito solo dalla parte che segue _
+	//nel quale ogni elemento è costituito solo dalla parte che segue _ (underscore)
 	private ArrayList<String> removePrefix(ArrayList<String> topologicalOrder){
 
 		ArrayList<String> orderWithoutPrefix = new ArrayList<String>();
