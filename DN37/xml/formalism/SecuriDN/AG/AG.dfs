@@ -19,7 +19,10 @@
 		icon="xml/formalism/icons/PlaceIcon.png"
 		inPlane="model" 
 		derivesFrom="_root.AG.AGNode"/>
-		<propertyDef id="_root.AG.Node.@prob" label="Success Rate"
+		<propertyDef id="_root.AG.Node.@prob" label="mean time to compromise"
+			icon="xml/formalism/icons/PlaceIcon.png"
+			inPlane="model"/>
+		<propertyDef id="_root.AG.Node.@IP" label="IP address"
 			icon="xml/formalism/icons/PlaceIcon.png"
 			inPlane="model"/>
 

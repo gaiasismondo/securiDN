@@ -25,35 +25,38 @@
 	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
 		<propertyDef id="_root.Arch.Network.@observed" label="Observed"
 			icon="xml/formalism/icons/cloud.png"
-			inPlane="model"/>
+			inPlane="query"/>
 		<propertyDef id="_root.Arch.Network.@observations" label="Observations"
 			icon="xml/formalism/icons/cloud.png"
-			inPlane="model"/>
+			inPlane="query"/>
 		<propertyDef id="_root.Arch.Network.@query" label="Query"
 			icon="xml/formalism/icons/cloud.png"
-			inPlane="model"/>
+			inPlane="query"/>
 
 	<elementDef id="_root.Arch.ExecutionEnvironment" label="Execution Environment" icon="xml/formalism/icons/executionEnvironment.png" 
 	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
 		<propertyDef id="_root.Arch.ExecutionEnvironment.@observed" label="Observed"
 			icon="xml/formalism/icons/executionEnvironment.png"
-			inPlane="model"/>
+			inPlane="query"/>
 		<propertyDef id="_root.Arch.ExecutionEnvironment.@observations" label="Observations"
 			icon="xml/formalism/icons/executionEnvironment.png"
-			inPlane="model"/>
+			inPlane="query"/>
 		<propertyDef id="_root.Arch.ExecutionEnvironment.@query" label="Query"
 			icon="xml/formalism/icons/executionEnvironment.png"
-			inPlane="model"/>
+			inPlane="query"/>
 
 	<elementDef id="_root.Arch.Computer" label="Computer" icon="xml/formalism/icons/ApplicationServer.png" 
 	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
 		<propertyDef id="_root.Arch.Computer.@observed" label="Observed"
 			icon="xml/formalism/icons/ApplicationServer.png"
-			inPlane="model"/>
+			inPlane="query"/>
 		<propertyDef id="_root.Arch.Computer.@observations" label="Observations"
 			icon="xml/formalism/icons/ApplicationServer.png"
-			inPlane="model"/>
+			inPlane="query"/>
 		<propertyDef id="_root.Arch.Computer.@query" label="Query"
+			icon="xml/formalism/icons/ApplicationServer.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.Computer.@IP" label="IP address"
 			icon="xml/formalism/icons/ApplicationServer.png"
 			inPlane="model"/>
 
@@ -61,25 +64,25 @@
 	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
 		<propertyDef id="_root.Arch.Functional.@observed" label="Observed"
 			icon="xml/formalism/icons/functional.png"
-			inPlane="model"/>
+			inPlane="query"/>
 		<propertyDef id="_root.Arch.Functional.@observations" label="Observations"
 			icon="xml/formalism/icons/functional.png"
-			inPlane="model"/>
+			inPlane="query"/>
 		<propertyDef id="_root.Arch.Functional.@query" label="Query"
 			icon="xml/formalism/icons/functional.png"
-			inPlane="model"/>
+			inPlane="query"/>
 
 	<elementDef id="_root.Arch.Application" label="Application" icon="xml/formalism/icons/application.png" 
 	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
 		<propertyDef id="_root.Arch.Application.@observed" label="Observed"
 			icon="xml/formalism/icons/application.png"
-			inPlane="model"/>
+			inPlane="query"/>
 		<propertyDef id="_root.Arch.Application.@observations" label="Observations"
 			icon="xml/formalism/icons/application.png"
-			inPlane="model"/>
+			inPlane="query"/>
 		<propertyDef id="_root.Arch.Application.@query" label="Query"
 			icon="xml/formalism/icons/application.png"
-			inPlane="model"/>
+			inPlane="query"/>
 
 	<!-- <elementDef id="_root.Arch.Firewall" label="Firewall" icon="xml/formalism/icons/firewall.png" 
 	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
@@ -169,13 +172,13 @@
 	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
 		<propertyDef id="_root.Arch.IED.@observed" label="Observed"
 			icon="xml/formalism/icons/IED.png"
-			inPlane="model"/>
+			inPlane="query"/>
 		<propertyDef id="_root.Arch.IED.@observations" label="Observations"
 			icon="xml/formalism/icons/IED.png"
-			inPlane="model"/>
+			inPlane="query"/>
 		<propertyDef id="_root.Arch.IED.@query" label="Query"
 			icon="xml/formalism/icons/IED.png"
-			inPlane="model"/>
+			inPlane="query"/>
 
 	<!-- <elementDef id="_root.Arch.SCADA" label="SCADA" icon="xml/formalism/icons/user2.png" 
 	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
@@ -217,13 +220,13 @@
 	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
 		<propertyDef id="_root.Arch.Channel.@observed" label="Observed"
 			icon="xml/formalism/icons/channel.png"
-			inPlane="model"/>
+			inPlane="query"/>
 		<propertyDef id="_root.Arch.Channel.@observations" label="Observations"
 			icon="xml/formalism/icons/channel.png"
-			inPlane="model"/>
+			inPlane="query"/>
 		<propertyDef id="_root.Arch.Channel.@query" label="Query"
 			icon="xml/formalism/icons/channel.png"
-			inPlane="model"/>
+			inPlane="query"/>
 
 	<!-- <elementDef id="_root.Arch.DataFlow" label="Data Flow" icon="xml/formalism/icons/user3.png" 
 	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
@@ -241,13 +244,13 @@
 	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
 		<propertyDef id="_root.Arch.Asset.@observed" label="Observed"
 			icon="xml/formalism/icons/asset.png"
-			inPlane="model"/>
+			inPlane="query"/>
 		<propertyDef id="_root.Arch.Asset.@observations" label="Observations"
 			icon="xml/formalism/icons/asset.png"
-			inPlane="model"/>
+			inPlane="query"/>
 		<propertyDef id="_root.Arch.Asset.@query" label="Query"
 			icon="xml/formalism/icons/asset.png"
-			inPlane="model"/>
+			inPlane="query"/>
 
 	<elementDef id="_root.Arch.Attacker" label="Attacker" icon="xml/formalism/icons/attacker.png" 
 	 inPlane="model" derivesFrom="_root.Arch.Attack"/>
@@ -288,10 +291,10 @@
 		inPlane="model" 
 		derivesFrom="_root.Arch.AssetArc"/> 
 
-	<!-- <elementDef id="_root.Arch.Cross" label="Crosses" 
-		icon="xml/formalism/icons/FlushoutIcon.png" 
+	<elementDef id="_root.Arch.Cross" label="Crosses" 
+		icon="xml/formalism/icons/OrangeArcIcon.png" 
 		inPlane="model" 
-		derivesFrom="_root.Arch.AssetArc"/> -->
+		derivesFrom="_root.Arch.AssetArc"/> 
 
 	<!-- <elementDef id="_root.Arch.Contain" label="Contains" 
 		icon="xml/formalism/icons/GreenArcIcon.png" 

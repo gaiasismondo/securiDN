@@ -40,6 +40,9 @@
 			<propertyType name="prob" type="float" default="0">
 				<inPlane plane="model"/>
 			</propertyType>
+			<propertyType name="IP" type="string" default="">
+				<inPlane plane="model"/>
+			</propertyType>
 			<!-- <propertyType name="type" type="integer" default="1">
 				<inPlane plane="model"/>
 			</propertyType> -->

@@ -3,6 +3,7 @@ package drawnet.lib.solvers;
 import drawnet.lib.ddl.ElementInstance;
 import drawnet.lib.ddl.ElementType;
 import drawnet.lib.ddl.propertyvalues.FloatPropertyValue;
+import drawnet.lib.ddl.propertyvalues.StringPropertyValue;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -30,6 +31,10 @@ public class SolverFilterAG extends SolverFilter{
 	private ElementInstance ag = null;
 	private ArrayList<String> edges = new ArrayList<String>();
 	private ArrayList<String> nodes = new ArrayList<String>();
+
+	//TEST IP
+	private StringPropertyValue HISTORIAN_SERVER_IP = new StringPropertyValue("192.168.40.22");
+	//private String TOMCAT_WEB_SERVER_IP = "192.168.40.21";
 
 	/**
 	 * Constructor.
@@ -91,25 +96,29 @@ public class SolverFilterAG extends SolverFilter{
 		Enumeration<ElementInstance> enumeration;
 		ElementInstance elementInstance;
 	  	ElementType elementType;
-		FloatPropertyValue prob;
+		String ip;
 
 		enumeration = ag.subElementsEnum();
 
       		while (enumeration.hasMoreElements())
-      		{
-			elementInstance = enumeration.nextElement();
-			elementType = elementInstance.getElementType();
-			
-			print("\nagVisit " + elementInstance.getId() + ": " + elementType.getId());
-			
-			if (elementType.getId().equals("Node"))
 			{
-				print(" ---> e' una tecnica ");
+				elementInstance = enumeration.nextElement();
+				elementType = elementInstance.getElementType();
+				
+				print("\nagVisit " + elementInstance.getId() + ": " + elementType.getId());
+				
+				if (elementType.getId().equals("Node"))
+				{
+					String prefix = elementInstance.getId().split("_")[0];
+					if(prefix.equals("historianServer")){
+						
+						//System.out.println(elementInstance.getPropertyValue("IP").getPropertyType());
+						elementInstance.setPropertyValue("IP", HISTORIAN_SERVER_IP);
+					}
+					System.out.println("\n"+elementInstance.getPropertyValue("IP"));
 
-				prob = (FloatPropertyValue)elementInstance.getPropertyValue("prob");	
-				if (prob != null)
-					print("con probabilita' " + prob.toString());
-			}
+					
+				}
 		}
 	}
 
@@ -170,6 +179,7 @@ public class SolverFilterAG extends SolverFilter{
 			}
 			else if(elementType.getId().equals("Node")||elementType.getId().equals("NodeOR")||elementType.getId().equals("NodeAND")){
 				nodes.add(elementInstance.getId());
+				
 			}
 		}
 	}
@@ -369,15 +379,10 @@ public class SolverFilterAG extends SolverFilter{
 		this.agVisit();
 	
 		ArrayList<String> topologicalOrder = this.getTopologicalOrder();
-		
-
 		System.out.println("\n\nTopological Order: "+topologicalOrder);
-		System.out.println(topologicalOrder.size());
 
 		topologicalOrder = this.removeLogicalNodes(topologicalOrder);
-
 		System.out.println("\n\nTopological Order witthout logical nodes: "+topologicalOrder);
-		System.out.println(topologicalOrder.size());
 
 		topologicalOrder = this.removePrefix(topologicalOrder);
 

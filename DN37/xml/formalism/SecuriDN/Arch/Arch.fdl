@@ -73,6 +73,9 @@
 			<propertyType name="query" type="boolean" default="false">
         			<inPlane plane="query"/>
       			</propertyType>
+			<propertyType name="IP" type="string" default="">
+        			<inPlane plane="model"/>
+      			</propertyType>
       			<propertyType name="G_iconRef" type="elementRef" default="G_computerShape">
         			<inPlane plane="graph"/>
       			</propertyType>
@@ -507,7 +510,7 @@
 			</modelConstraint>
 		</elementType>
 
-		<!-- <elementType name="Cross" >
+		<elementType name="Cross" >
 			<parent ref="_root.GraphBased.Edge" />
 			<parent ref="_root.Arch.AssetArc" />
 			<inPlane plane="model"/>
@@ -519,8 +522,12 @@
                                         <check op="isOfKind" ref="from" kind="_root.Arch.Channel" />
                                         <check op="isOfKind" ref="to" kind="_root.Arch.Network" />
                         	</constraint>
+				<constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.Arch.Network" />
+                                        <check op="isOfKind" ref="to" kind="_root.Arch.Channel" />
+                        	</constraint>
 			</modelConstraint>
-		</elementType> -->
+		</elementType> 
 
 		<!-- <elementType name="Contain" >
 			<parent ref="_root.GraphBased.Edge" />
