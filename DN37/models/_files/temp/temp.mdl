@@ -208,6 +208,27 @@
         </PropertyValue>
       </Analytics>
 
+      <Node id="MMSTLS2_AITM"
+        IP=""
+        G_r="0.0"
+        G_ty="653.0"
+        G_tx="1246.0"
+        prob="0.0"
+        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
+        G_order="0"
+        G_sy="100.0"
+        G_py="0.0"
+        G_sx="100.0"
+        G_px="0.0"
+        G_iconRef="_root.RootSecuriDN.AG2.G_Node">
+        <PropertyValue id="G_fromConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSTLS2Arc14"/>
+        </PropertyValue>
+        <PropertyValue id="G_toConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSclientArc57clone0"/>
+        </PropertyValue>
+      </Node>
+
       <G_iconDef id="G_Node"
         BBox_y="-12.0"
         BBox_x="-12.0"
@@ -253,27 +274,6 @@
           strokeColor="000000">
         </GE_ellipse>
       </G_iconDef>
-
-      <Node id="MMSTLS2_AITM"
-        IP=""
-        G_r="0.0"
-        G_ty="653.0"
-        G_tx="1246.0"
-        prob="0.0"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        G_order="0"
-        G_sy="100.0"
-        G_py="0.0"
-        G_sx="100.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_Node">
-        <PropertyValue id="G_fromConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSTLS2Arc14"/>
-        </PropertyValue>
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSclientArc57clone0"/>
-        </PropertyValue>
-      </Node>
 
       <G_Layer id="G_Layer1"
         Locked="false"
@@ -454,11 +454,11 @@
         </PropertyValue>
       </Arc>
 
-      <Node id="MMSclient_unsecCred"
+      <Node id="historian_scanVuln"
         IP=""
         G_r="0.0"
-        G_ty="431.0"
-        G_tx="997.5"
+        G_ty="306.5"
+        G_tx="462.5"
         prob="0.0"
         G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
         G_order="0"
@@ -467,12 +467,11 @@
         G_sx="100.0"
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_Node">
-        <PropertyValue id="G_fromConnections" size="2">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSclientArc54"/>
-          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.MMSclientArc10"/>
+        <PropertyValue id="G_fromConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianArc42"/>
         </PropertyValue>
         <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.stationComputerArc1clone1"/>
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.DMZArc35clone0"/>
         </PropertyValue>
       </Node>
 
@@ -499,11 +498,11 @@
         </PropertyValue>
       </Node>
 
-      <Node id="historian_scanVuln"
+      <Node id="MMSclient_unsecCred"
         IP=""
         G_r="0.0"
-        G_ty="306.5"
-        G_tx="462.5"
+        G_ty="431.0"
+        G_tx="997.5"
         prob="0.0"
         G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
         G_order="0"
@@ -512,11 +511,12 @@
         G_sx="100.0"
         G_px="0.0"
         G_iconRef="_root.RootSecuriDN.AG2.G_Node">
-        <PropertyValue id="G_fromConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.historianArc42"/>
+        <PropertyValue id="G_fromConnections" size="2">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.MMSclientArc54"/>
+          <PropertyValue id="fap1" value="_root.RootSecuriDN.AG2.MMSclientArc10"/>
         </PropertyValue>
         <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.DMZArc35clone0"/>
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.stationComputerArc1clone1"/>
         </PropertyValue>
       </Node>
 
@@ -1052,6 +1052,24 @@
         </PropertyValue>
       </Arc>
 
+      <Node id="IED2_DERfailure"
+        IP=""
+        G_r="0.0"
+        G_ty="1055.0"
+        G_tx="475.5"
+        prob="0.0"
+        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
+        G_sy="100.0"
+        G_order="0"
+        G_py="0.0"
+        G_sx="100.0"
+        G_px="0.0"
+        G_iconRef="_root.RootSecuriDN.AG2.G_Node">
+        <PropertyValue id="G_toConnections" size="1">
+          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.IED2_DERfailureORarc"/>
+        </PropertyValue>
+      </Node>
+
       <Node id="virtualEng_escapeHost"
         IP=""
         G_r="0.0"
@@ -1071,24 +1089,6 @@
         </PropertyValue>
         <PropertyValue id="G_toConnections" size="1">
           <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.tomcatWebServerArc52clone0"/>
-        </PropertyValue>
-      </Node>
-
-      <Node id="IED2_DERfailure"
-        IP=""
-        G_r="0.0"
-        G_ty="1055.0"
-        G_tx="475.5"
-        prob="0.0"
-        G_inLayer="_root.RootSecuriDN.AG2.G_Layer1"
-        G_sy="100.0"
-        G_order="0"
-        G_py="0.0"
-        G_sx="100.0"
-        G_px="0.0"
-        G_iconRef="_root.RootSecuriDN.AG2.G_Node">
-        <PropertyValue id="G_toConnections" size="1">
-          <PropertyValue id="fap0" value="_root.RootSecuriDN.AG2.IED2_DERfailureORarc"/>
         </PropertyValue>
       </Node>
 
@@ -1639,26 +1639,6 @@
         </PropertyValue>
       </Arc>
 
-      <G_iconDef id="G_arcShape"
-        BBox_y="-10.0"
-        BBox_x="-10.0"
-        BBox_w="20.0"
-        BBox_type="box"
-        N_labelSets="0"
-        BBox_h="20.0">
-
-        <GE_edgeSpline id="Spline0"
-          startCapScale="100.0"
-          width="1.0"
-          endCapScale="100.0"
-          strokeColor="000000"
-          G_order="0"
-          endCap="arrow"
-          startCap="none"
-          strokeStyle="solid">
-        </GE_edgeSpline>
-      </G_iconDef>
-
       <Arc id="MMSclientArc54"
         G_r="0.0"
         G_ty="470.7169975437069"
@@ -1687,6 +1667,26 @@
           </PropertyValue>
         </PropertyValue>
       </Arc>
+
+      <G_iconDef id="G_arcShape"
+        BBox_y="-10.0"
+        BBox_x="-10.0"
+        BBox_w="20.0"
+        BBox_type="box"
+        N_labelSets="0"
+        BBox_h="20.0">
+
+        <GE_edgeSpline id="Spline0"
+          startCapScale="100.0"
+          width="1.0"
+          endCapScale="100.0"
+          strokeColor="000000"
+          G_order="0"
+          endCap="arrow"
+          startCap="none"
+          strokeStyle="solid">
+        </GE_edgeSpline>
+      </G_iconDef>
 
       <NodeOR id="IED2_DERfailureOR"
         G_r="0.0"

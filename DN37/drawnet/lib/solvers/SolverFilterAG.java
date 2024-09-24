@@ -32,9 +32,11 @@ public class SolverFilterAG extends SolverFilter{
 	private ArrayList<String> edges = new ArrayList<String>();
 	private ArrayList<String> nodes = new ArrayList<String>();
 
+	private ArrayList<String[]> nodes2 = new ArrayList<String[]>();
+
 	//TEST IP
 	private StringPropertyValue HISTORIAN_SERVER_IP = new StringPropertyValue("192.168.40.22");
-	//private String TOMCAT_WEB_SERVER_IP = "192.168.40.21";
+	private StringPropertyValue TOMCAT_WEB_SERVER_IP = new StringPropertyValue("192.168.40.21");
 
 	/**
 	 * Constructor.
@@ -91,13 +93,13 @@ public class SolverFilterAG extends SolverFilter{
 	}
 
 
-	private void agVisit()
+	//Vengono popolati gli IP dei Nodi con dei valori di test
+	private void setTestIP()
 	{
 		Enumeration<ElementInstance> enumeration;
 		ElementInstance elementInstance;
 	  	ElementType elementType;
-		String ip;
-
+	
 		enumeration = ag.subElementsEnum();
 
       		while (enumeration.hasMoreElements())
@@ -105,19 +107,15 @@ public class SolverFilterAG extends SolverFilter{
 				elementInstance = enumeration.nextElement();
 				elementType = elementInstance.getElementType();
 				
-				print("\nagVisit " + elementInstance.getId() + ": " + elementType.getId());
-				
 				if (elementType.getId().equals("Node"))
 				{
 					String prefix = elementInstance.getId().split("_")[0];
 					if(prefix.equals("historianServer")){
-						
-						//System.out.println(elementInstance.getPropertyValue("IP").getPropertyType());
 						elementInstance.setPropertyValue("IP", HISTORIAN_SERVER_IP);
 					}
-					System.out.println("\n"+elementInstance.getPropertyValue("IP"));
-
-					
+					else if(prefix.equals("tomcatWebServer")){
+						elementInstance.setPropertyValue("IP", TOMCAT_WEB_SERVER_IP);
+					}
 				}
 		}
 	}
@@ -179,7 +177,13 @@ public class SolverFilterAG extends SolverFilter{
 			}
 			else if(elementType.getId().equals("Node")||elementType.getId().equals("NodeOR")||elementType.getId().equals("NodeAND")){
 				nodes.add(elementInstance.getId());
-				
+				String[] tmp = new String[2];
+				tmp[0]=elementInstance.getId();
+				if(elementType.getId().equals("Node"))
+					tmp[1]=elementInstance.getPropertyValue("IP").toString();
+				else 
+					tmp[1]="";
+				nodes2.add(tmp);
 			}
 		}
 	}
@@ -293,6 +297,8 @@ public class SolverFilterAG extends SolverFilter{
 		ArrayList<String> edges = (ArrayList<String>) this.edges.clone();
 		@SuppressWarnings("unchecked")
 		ArrayList<String> nodes = (ArrayList<String>) this.nodes.clone();
+		@SuppressWarnings("unchecked")
+		ArrayList<String> nodes2 = (ArrayList<String>) this.nodes2.clone();
 
 		String start = getNodesWithoutParents(edges, nodes).get(0);
 
@@ -376,7 +382,7 @@ public class SolverFilterAG extends SolverFilter{
 
 		this.mainVisit();
 		this.removeAnalytics();
-		this.agVisit();
+		this.setTestIP();
 	
 		ArrayList<String> topologicalOrder = this.getTopologicalOrder();
 		System.out.println("\n\nTopological Order: "+topologicalOrder);
