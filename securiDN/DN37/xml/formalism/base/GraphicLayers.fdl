@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE fdl SYSTEM "fdl.dtd">
+<fdl main="GraphicLayers">
+    <plane name="graph" opt="1"/>
+
+    <elementType name="GraphicLayers">
+     	<inPlane plane="graph"/>		    
+	
+        <elementType name="G_Layer">
+     	    <inPlane plane="graph"/>		    
+
+            <propertyType name="Label" type="string" default="Layer"><inPlane plane="graph"/></propertyType>
+            <propertyType name="Order" type="integer" default="1"><inPlane plane="graph"/></propertyType>
+            <propertyType name="Visible" type="boolean" default="true"><inPlane plane="graph"/></propertyType>
+            <propertyType name="Locked" type="boolean" default="false"><inPlane plane="graph"/></propertyType>
+            <propertyType name="Solvable" type="boolean" default="true"><inPlane plane="graph"/></propertyType>
+     	</elementType>
+
+    </elementType>
+</fdl>

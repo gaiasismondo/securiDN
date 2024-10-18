@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE dfs SYSTEM "dfs.dtd">
+<dfs fdl="SecuriDN/SecuriDN.fdl">
+	
+	<!-- <planeDef id="model" label="Model"/>  -->
+
+	<!-- <planeDef id="model" label="Main" derivesFrom="_root.SecuriDN.Main"/> -->
+	<!-- <planeDef id="model" label="Events" derivesFrom="_root.DAT.Event"/>
+	<planeDef id="model" label="Gates" derivesFrom="_root.DAT.Gate"/>
+	<planeDef id="model" label="Arcs" derivesFrom="_root.GraphBased.Edge"/> -->
+
+	<planeDef id="model" label="Nodes" derivesFrom="_root.SecuriDN.secDN"/>
+
+	<planeDef id="model" label="Assets" derivesFrom="_root.Arch.AssetNode"/>
+	<planeDef id="model" label="Associations" derivesFrom="_root.Arch.AssetArc"/>
+	<!-- <planeDef id="model" label="Machine" derivesFrom="_root.Arch.Machine"/>
+	<planeDef id="model" label="Application" derivesFrom="_root.Arch.Application"/>
+	<planeDef id="model" label="Functional" derivesFrom="_root.Arch.Functional"/>
+	<planeDef id="model" label="Product" derivesFrom="_root.Arch.Product"/>
+	<planeDef id="model" label="Communication" derivesFrom="_root.Arch.Communication"/>-->
+	<planeDef id="model" label="Attack" derivesFrom="_root.Arch.Attack"/>
+
+	<planeDef id="model" label="AG Nodes" derivesFrom="_root.AG.AGNode"/>
+	<planeDef id="model" label="AG Arcs" derivesFrom="_root.AG.AGArc"/>
+
+	<planeDef id="model" label="DBN Nodes" derivesFrom="_root.DBN.DBNNode"/>
+	<planeDef id="model" label="DBN Arcs" derivesFrom="_root.DBN.DBNArc"/>
+	<!-- <planeDef id="results" label="Measures"/> -->
+	<planeDef id="query" label="Queries"/>
+
+	<!-- <planeDef id="model" label="Events" derivesFrom="_root.DAT.Event"/>
+	<planeDef id="model" label="Gates" derivesFrom="_root.DAT.Gate"/>
+	<planeDef id="model" label="Arcs" derivesFrom="_root.DAT.Arc"/> -->
+	
+	<elementDef id="_root.SecuriDN.Arch" label="Architecture" icon="xml/formalism/icons/architecture.png" 
+	 inPlane="model" derivesFrom="_root.SecuriDN.secDN"/>
+	<elementDef id="_root.SecuriDN.AG" label="Attack Graph" icon="xml/formalism/icons/attackGraph.png" 
+	 inPlane="model" derivesFrom="_root.SecuriDN.secDN"/>
+	<elementDef id="_root.SecuriDN.DBN" label="Dynamic Bayesian Network" icon="xml/formalism/icons/bayesianNetwork.png" 
+	 inPlane="model" derivesFrom="_root.SecuriDN.secDN"/>
+
+		<!-- <propertyDef id="_root.SecuriDN.DBN.@title" label="Titolo"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="model"/> -->
+		<propertyDef id="_root.SecuriDN.DBN.@inf_type" label="Algoritmo di Inferenza"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+		<propertyDef id="_root.SecuriDN.DBN.@inf_algorithm" label="Tipo di Algoritmo"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+		<propertyDef id="_root.SecuriDN.DBN.@clusters" label="Cluster"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+		<propertyDef id="_root.SecuriDN.DBN.@fully_factorized" label="Fully Factorized"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+		<propertyDef id="_root.SecuriDN.DBN.@time_slices" label="Time Slice"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+		<propertyDef id="_root.SecuriDN.DBN.@time_step" label="Time Step"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+		<propertyDef id="_root.SecuriDN.DBN.@query_all_nodes" label="All nodes query"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+		<propertyDef id="_root.SecuriDN.DBN.@use_default_CPT" label="Use default CPT"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="model"/>
+		<propertyDef id="_root.SecuriDN.DBN.@dump_net_info" label="Print DBN Info"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+		<propertyDef id="_root.SecuriDN.DBN.@output_file" label="Output File"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/> 
+
+	<include src="SecuriDN/Arch/Arch.dfs"/>
+	<include src="SecuriDN/AG/AG.dfs"/>
+	<include src="SecuriDN/DBN/DBN.dfs"/>
+
+</dfs>

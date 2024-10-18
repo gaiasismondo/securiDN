@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE dfs SYSTEM "dfs.dtd">
+<dfs fdl="SecuriDN/AG/AG.fdl">
+
+	<planeDef id="model" label="Nodes" derivesFrom="_root.AG.AGNode"/>
+	<planeDef id="model" label="Arcs" derivesFrom="_root.AG.AGArc"/>
+	<!-- <planeDef id="model" label="Submodels" derivesFrom="_root.GraphBased"/>  -->
+	<!-- <planeDef id="model" label="Model"/> -->
+	<planeDef id="results" label="Measures"/>
+	<planeDef id="query" label="Queries"/>
+
+	<!-- <elementDef id="_root.AG" label="AG model"
+		icon="xml/formalism/icons/Model.gif"
+		inPlane="model"
+		derivesFrom="_root.GraphBased"/>  -->
+
+	<!-- TIPO NODO -->	
+	<elementDef id="_root.AG.Node" label="Attack Step" 
+		icon="xml/formalism/icons/PlaceIcon.png"
+		inPlane="model" 
+		derivesFrom="_root.AG.AGNode"/>
+		<propertyDef id="_root.AG.Node.@prob" label="mean time to compromise"
+			icon="xml/formalism/icons/PlaceIcon.png"
+			inPlane="model"/>
+		<propertyDef id="_root.AG.Node.@IP" label="IP address"
+			icon="xml/formalism/icons/PlaceIcon.png"
+			inPlane="model"/>
+
+		<!-- <propertyDef id="_root.AG.Node.@type" label="Type"
+			icon="xml/formalism/icons/PlaceIcon.png"
+			inPlane="model"/>
+
+		<propertyDef id="_root.AG.Node.@size" label="size"
+			icon="xml/formalism/icons/PlaceIcon.png"
+			inPlane="model"/> -->
+	
+	<elementDef id="_root.AG.NodeOR" label="OR State" 
+		icon="xml/formalism/icons/BN/ORIcon.png"
+		inPlane="model" 
+		derivesFrom="_root.AG.AGNode"/>
+
+	<elementDef id="_root.AG.NodeAND" label="AND State" 
+		icon="xml/formalism/icons/BN/ANDIcon.png"
+		inPlane="model" 
+		derivesFrom="_root.AG.AGNode"/>
+
+	<elementDef id="_root.AG.NodeDefense" label="Defense" 
+		icon="xml/formalism/icons/ARPHA/sensor.png"
+		inPlane="model" 
+		derivesFrom="_root.AG.AGNode"/>
+
+	<!-- <elementDef id="_root.AG.NodeBegin" label="Begin" 
+		icon="xml/formalism/icons/ARPHA/action.png"
+		inPlane="model" 
+		derivesFrom="_root.AG.AGNode"/> -->
+
+	<!-- <elementDef id="_root.AG.NodeEnd" label="End" 
+		icon="xml/formalism/icons/ARPHA/anomaly.png"
+		inPlane="model" 
+		derivesFrom="_root.AG.AGNode"/> -->
+
+	<elementDef id="_root.AG.NodeShared" label="Shared Node" 
+		icon="xml/formalism/icons/FluidPlaceIcon.png"
+		inPlane="model" 
+		derivesFrom="_root.AG.AGNode"/>
+		<propertyDef id="_root.AG.NodeShared.@asset" label="Association Path"
+			icon="xml/formalism/icons/FluidPlaceIcon.png"
+			inPlane="model"/>
+		
+	<elementDef id="_root.AG.Analytics" label="Analytics" 
+		icon="xml/formalism/icons/ARPHA/plan.png" 
+		inPlane="model" 
+		derivesFrom="_root.AG.AGNode"/>
+
+	<elementDef id="_root.AG.Arc" label="Input Arc" 
+		icon="xml/formalism/icons/ArcIcon.png" 
+		inPlane="model" 
+		derivesFrom="_root.AG.AGArc"/>
+
+	<elementDef id="_root.AG.ArcDefense" label="Inhibitor Arc" 
+		icon="xml/formalism/icons/InhibitorArcIcon.png" 
+		inPlane="model" 
+		derivesFrom="_root.AG.AGArc"/>
+		<propertyDef id="_root.AG.ArcDefense.@prob" label="Defense probability"
+			icon="xml/formalism/icons/InhibitorArcIcon.png"
+			inPlane="model"/>
+
+</dfs>

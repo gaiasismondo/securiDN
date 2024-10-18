@@ -1,0 +1,1161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Channel id="RootChannel">
+
+    <G_Layer id="G_Labels"
+      Locked="true"
+      Visible="true"
+      Order="1"
+      Solvable="true"
+      Label="Labels">
+    </G_Layer>
+
+    <G_Layer id="G_Layer1"
+      Locked="false"
+      Visible="true"
+      Order="2"
+      Solvable="true"
+      Label="Model - Layer 1">
+    </G_Layer>
+
+	
+
+    <NodeBegin id="Begin"
+      G_r="0.0"
+      G_ty="298.0"
+      G_tx="83.0"
+      G_inLayer="G_Layer1"
+      G_sy="100.0"
+      G_order="0"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_NodeBegin">
+      <PropertyValue id="G_fromConnections" size="0">
+      </PropertyValue>
+    </NodeBegin>
+
+    <NodeEnd id="End"
+      G_r="0.0"
+      G_ty="16.0"
+      G_tx="89.0"
+      G_inLayer="G_Layer1"
+      G_sy="100.0"
+      G_order="20"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_NodeEnd">
+      <PropertyValue id="G_toConnections" size="1">
+        <PropertyValue id="fap0" value="Arc37"/>
+      </PropertyValue>
+    </NodeEnd>
+
+    <G_iconDef id="G_NodeDefense"
+      BBox_y="-19.5"
+      BBox_x="-18.0"
+      BBox_w="36.0"
+      BBox_type="oval"
+      N_labelSets="0"
+      BBox_h="39.0">
+
+      <GE_text id="Text1"
+        G_inLayer="_parent.G_Labels"
+        G_ty="16.0"
+        G_tx="10.0"
+        fontSize="18"
+        textType="dynamic"
+        fontStyle="plain"
+        G_r="0.0"
+        fillColor="000000"
+        G_order="1"
+        rot="0.0"
+        txt="%24%25ID"
+        G_labelSet="1"
+        G_py="0.0"
+        G_px="0.0"
+        G_sy="100.0"
+        G_sx="100.0"
+        outlineType="fill"
+        fontFace="SansSerif"
+        outlineColor="ffffff">
+      </GE_text>
+
+      <GE_image id="Image1"
+        src="icons/ARPHA/sensor.png"
+        G_r="0.0"
+        G_ty="-19.5"
+        G_tx="-18.0"
+        G_sy="39.0"
+        G_order="0"
+        G_py="0.0"
+        G_sx="36.0"
+        G_px="0.0">
+      </GE_image>
+    </G_iconDef>
+
+    <G_iconDef id="G_NodeBegin"
+      BBox_y="-16.5"
+      BBox_x="-22.5"
+      BBox_w="45.0"
+      BBox_type="oval"
+      N_labelSets="0"
+      BBox_h="33.0">
+
+      <GE_text id="Text1"
+        G_inLayer="_parent.G_Labels"
+        G_ty="16.0"
+        G_tx="0.0"
+        fontSize="18"
+        textType="dynamic"
+        fontStyle="plain"
+        G_r="0.0"
+        fillColor="000000"
+        G_order="1"
+        rot="0.0"
+        txt="%24%25ID"
+        G_labelSet="1"
+        G_py="0.0"
+        G_px="0.0"
+        G_sy="100.0"
+        G_sx="100.0"
+        outlineType="fill"
+        fontFace="SansSerif"
+        outlineColor="ffffff">
+      </GE_text>
+
+      <GE_image id="Image1"
+        src="icons/ARPHA/action.png"
+        G_r="0.0"
+        G_ty="-16.5"
+        G_tx="-22.5"
+        G_sy="33.0"
+        G_order="0"
+        G_py="0.0"
+        G_sx="45.0"
+        G_px="0.0">
+      </GE_image>
+    </G_iconDef>
+
+    <G_iconDef id="G_Node"
+      BBox_y="-12.0"
+      BBox_x="-12.0"
+      BBox_w="24.0"
+      BBox_type="oval"
+      N_labelSets="0"
+      BBox_h="24.0">
+
+      <GE_text id="Text1"
+        G_inLayer="_parent.G_Labels"
+        G_ty="10.0"
+        G_tx="10.0"
+        fontSize="18"
+        textType="dynamic"
+        fontStyle="plain"
+        G_r="0.0"
+        fillColor="000000"
+        G_order="1"
+        rot="0.0"
+        txt="%24%25ID"
+        G_labelSet="1"
+        G_py="0.0"
+        G_px="0.0"
+        G_sy="100.0"
+        G_sx="100.0"
+        outlineType="fill"
+        fontFace="SansSerif"
+        outlineColor="ffffff">
+      </GE_text>
+
+      <GE_ellipse id="Ellipse0"
+        fillColor="ffffff"
+        width="1.0"
+        G_r="0.0"
+        G_ty="-12.0"
+        G_tx="-12.0"
+        strokeStyle="solid"
+        G_order="0"
+        G_sy="24.0"
+        fillStyle="solid"
+        G_sx="24.0"
+        G_py="0.0"
+        G_px="0.0"
+        strokeColor="000000">
+      </GE_ellipse>
+    </G_iconDef>
+
+    <G_iconDef id="G_analyticsShape"
+      BBox_y="-23.0"
+      BBox_x="-22.5"
+      BBox_w="36.0"
+      BBox_type="box"
+      N_labelSets="0"
+      BBox_h="45.0">
+
+      <GE_text id="Text1"
+        G_inLayer="_parent.G_Labels"
+        G_ty="-14.0"
+        G_tx="22.5"
+        fontSize="16"
+        textType="dynamic"
+        fontStyle="plain"
+        G_r="0.0"
+        fillColor="000000"
+        G_order="1"
+        rot="0.0"
+        txt="%24%25ID"
+        G_labelSet="1"
+        G_py="0.0"
+        G_px="0.0"
+        G_sy="100.0"
+        G_sx="100.0"
+        outlineType="fill"
+        fontFace="SansSerif"
+        outlineColor="ffffff">
+      </GE_text>
+
+      <GE_image id="Image1"
+        src="icons/ARPHA/plan.png"
+        G_r="0.0"
+        G_ty="-22.5"
+        G_tx="-18.0"
+        G_sy="45.0"
+        G_order="0"
+        G_py="0.0"
+        G_sx="36.0"
+        G_px="0.0">
+      </GE_image>
+    </G_iconDef>
+
+    <NodeOR id="reaAcc"
+      G_r="0.0"
+      G_ty="125.0"
+      G_tx="273.0"
+      G_inLayer="G_Layer1"
+      G_sy="100.0"
+      G_order="7"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_NodeOR">
+      <PropertyValue id="G_fromConnections" size="1">
+        <PropertyValue id="fap0" value="Arc29"/>
+      </PropertyValue>
+      <PropertyValue id="G_toConnections" size="2">
+        <PropertyValue id="fap0" value="Arc27"/>
+        <PropertyValue id="fap1" value="Arc28"/>
+      </PropertyValue>
+    </NodeOR>
+
+    <Node id="netSni"
+      G_r="0.0"
+      G_ty="123.0"
+      G_tx="82.0"
+      G_inLayer="G_Layer1"
+      G_sy="100.0"
+      G_order="5"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_Node">
+      <PropertyValue id="G_fromConnections" size="2">
+        <PropertyValue id="fap0" value="Arc27"/>
+        <PropertyValue id="fap1" value="Arc35"/>
+      </PropertyValue>
+      <PropertyValue id="G_toConnections" size="3">
+        <PropertyValue id="fap0" value="Arc26"/>
+        <PropertyValue id="fap1" value="ArcDefense34"/>
+        <PropertyValue id="fap2" value="Arc6"/>
+      </PropertyValue>
+    </Node>
+
+    <ArcDefense id="ArcDefense25"
+      G_r="0.0"
+      G_ty="272.067028650362"
+      G_tx="131.9151684094948"
+      G_inLayer="G_Layer1"
+      to="advInTheMid"
+      from="tlsSet"
+      G_sy="100.0"
+      G_order="4"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_darcShape">
+      <PropertyValue id="G_segmentsP2" size="0">
+      </PropertyValue>
+      <PropertyValue id="G_segmentsP1" size="1">
+        <PropertyValue id="fap0">
+          <PropertyValue id="x2" value="68.0"/>
+          <PropertyValue id="ctrlx2" value="68.0"/>
+          <PropertyValue id="x1" value="28.0"/>
+          <PropertyValue id="y2" value="194.0"/>
+          <PropertyValue id="ctrlx1" value="28.0"/>
+          <PropertyValue id="ctrly2" value="194.0"/>
+          <PropertyValue id="y1" value="158.0"/>
+          <PropertyValue id="ctrly1" value="158.0"/>
+        </PropertyValue>
+      </PropertyValue>
+    </ArcDefense>
+
+    <NodeShared id="write"
+      asset="DataFlow"
+      G_r="0.0"
+      G_ty="19.0"
+      G_tx="421.0"
+      G_inLayer="G_Layer1"
+      G_sy="100.0"
+      G_order="15"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_NodeShared">
+      <PropertyValue id="G_toConnections" size="1">
+        <PropertyValue id="fap0" value="Arc32"/>
+      </PropertyValue>
+    </NodeShared>
+
+    <NodeShared id="access"
+      asset="Network"
+      G_r="0.0"
+      G_ty="261.0"
+      G_tx="194.0"
+      G_inLayer="G_Layer1"
+      G_sy="100.0"
+      G_order="26"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_NodeShared">
+      <PropertyValue id="G_fromConnections" size="2">
+        <PropertyValue id="fap0" value="Arc4"/>
+        <PropertyValue id="fap1" value="Arc6"/>
+      </PropertyValue>
+    </NodeShared>
+
+    <G_iconDef id="G_NodeShared"
+      BBox_y="-18.5"
+      BBox_x="-18.5"
+      BBox_w="37.0"
+      BBox_type="oval"
+      N_labelSets="0"
+      BBox_h="37.0">
+
+      <GE_text id="Text2"
+        G_ty="40.0"
+        G_tx="0.0"
+        fontSize="18"
+        textType="dynamic"
+        fontStyle="plain"
+        G_r="0.0"
+        fillColor="000000"
+        G_order="2"
+        rot="0.0"
+        txt="%24asset"
+        G_labelSet="0"
+        G_py="0.0"
+        G_px="0.0"
+        G_sy="100.0"
+        G_sx="100.0"
+        outlineType="fill"
+        fontFace="SansSerif"
+        outlineColor="ffffff">
+      </GE_text>
+
+      <GE_text id="Text1"
+        G_inLayer="_parent.G_Labels"
+        G_ty="20.0"
+        G_tx="0.0"
+        fontSize="18"
+        textType="dynamic"
+        fontStyle="plain"
+        G_r="0.0"
+        fillColor="000000"
+        G_order="1"
+        rot="0.0"
+        txt="%24%25ID"
+        G_labelSet="1"
+        G_py="0.0"
+        G_px="0.0"
+        G_sy="100.0"
+        G_sx="100.0"
+        outlineType="fill"
+        fontFace="SansSerif"
+        outlineColor="ffffff">
+      </GE_text>
+
+      <GE_image id="Image1"
+        src="xml/formalism/shapes/FluidPlace.png"
+        G_r="0.0"
+        G_ty="-18.5"
+        G_tx="-18.5"
+        G_sy="37.0"
+        G_order="0"
+        G_py="0.0"
+        G_sx="37.0"
+        G_px="0.0">
+      </GE_image>
+    </G_iconDef>
+
+    <G_iconDef id="G_arcShape"
+      BBox_y="-10.0"
+      BBox_x="-10.0"
+      BBox_w="20.0"
+      BBox_type="box"
+      N_labelSets="0"
+      BBox_h="20.0">
+
+      <GE_edgeSpline id="Spline0"
+        startCapScale="100.0"
+        width="1.0"
+        endCapScale="100.0"
+        strokeColor="000000"
+        G_order="0"
+        endCap="arrow"
+        startCap="none"
+        strokeStyle="solid">
+      </GE_edgeSpline>
+    </G_iconDef>
+
+    <Arc id="Arc37"
+      G_r="0.0"
+      G_ty="42.05376048275818"
+      G_tx="88.72440512515098"
+      G_inLayer="G_Layer1"
+      to="End"
+      from="Channel"
+      G_sy="100.0"
+      G_order="24"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_arcShape">
+      <PropertyValue id="G_segmentsP2" size="0">
+      </PropertyValue>
+      <PropertyValue id="G_segmentsP1" size="1">
+        <PropertyValue id="fap0">
+          <PropertyValue id="x2" value="87.0"/>
+          <PropertyValue id="ctrlx2" value="87.0"/>
+          <PropertyValue id="x1" value="86.01960622117942"/>
+          <PropertyValue id="y2" value="34.0"/>
+          <PropertyValue id="ctrlx1" value="86.01960622117942"/>
+          <PropertyValue id="ctrly2" value="34.0"/>
+          <PropertyValue id="y1" value="54.38612991854073"/>
+          <PropertyValue id="ctrly1" value="54.38612991854073"/>
+        </PropertyValue>
+      </PropertyValue>
+    </Arc>
+
+    <G_iconDef id="G_NodeEnd"
+      BBox_y="-20.5"
+      BBox_x="-20.0"
+      BBox_w="40.0"
+      BBox_type="oval"
+      N_labelSets="0"
+      BBox_h="41.0">
+
+      <GE_text id="Text1"
+        G_inLayer="_parent.G_Labels"
+        G_ty="20.0"
+        G_tx="10.0"
+        fontSize="18"
+        textType="dynamic"
+        fontStyle="plain"
+        G_r="0.0"
+        fillColor="000000"
+        G_order="1"
+        rot="0.0"
+        txt="%24%25ID"
+        G_labelSet="1"
+        G_py="0.0"
+        G_px="0.0"
+        G_sy="100.0"
+        G_sx="100.0"
+        outlineType="fill"
+        fontFace="SansSerif"
+        outlineColor="ffffff">
+      </GE_text>
+
+      <GE_image id="Image1"
+        src="icons/ARPHA/anomaly.png"
+        G_r="0.0"
+        G_ty="-20.5"
+        G_tx="-20.0"
+        G_sy="41.0"
+        G_order="0"
+        G_py="0.0"
+        G_sx="40.0"
+        G_px="0.0">
+      </GE_image>
+    </G_iconDef>
+
+    <Arc id="Arc36"
+      G_r="0.0"
+      G_ty="133.91378921485875"
+      G_tx="180.0614617019064"
+      G_inLayer="G_Layer1"
+      to="Channel"
+      from="advInTheMidOveTLS"
+      G_sy="100.0"
+      G_order="23"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_arcShape">
+      <PropertyValue id="G_segmentsP1" size="1">
+        <PropertyValue id="fap0">
+          <PropertyValue id="x2" value="92.83217408641659"/>
+          <PropertyValue id="x1" value="267.29074931739626"/>
+          <PropertyValue id="ctrlx2" value="92.83217408641659"/>
+          <PropertyValue id="ctrlx1" value="267.29074931739626"/>
+          <PropertyValue id="y2" value="72.87956050445072"/>
+          <PropertyValue id="y1" value="194.94801792526675"/>
+          <PropertyValue id="ctrly2" value="72.87956050445072"/>
+          <PropertyValue id="ctrly1" value="194.94801792526675"/>
+        </PropertyValue>
+      </PropertyValue>
+    </Arc>
+
+    <Arc id="Arc35"
+      G_r="0.0"
+      G_ty="94.5007026510016"
+      G_tx="82.10028937075259"
+      G_inLayer="G_Layer1"
+      to="Channel"
+      from="netSni"
+      G_sy="100.0"
+      G_order="22"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_arcShape">
+      <PropertyValue id="G_segmentsP1" size="1">
+        <PropertyValue id="fap0">
+          <PropertyValue id="x2" value="82.62137242310172"/>
+          <PropertyValue id="x1" value="81.57920631840346"/>
+          <PropertyValue id="ctrlx2" value="82.62137242310172"/>
+          <PropertyValue id="ctrlx1" value="81.57920631840346"/>
+          <PropertyValue id="y2" value="77.99402522750441"/>
+          <PropertyValue id="y1" value="111.0073800744988"/>
+          <PropertyValue id="ctrly2" value="77.99402522750441"/>
+          <PropertyValue id="ctrly1" value="111.0073800744988"/>
+        </PropertyValue>
+      </PropertyValue>
+    </Arc>
+
+    <G_iconDef id="G_NodeOR"
+      BBox_y="-12.0"
+      BBox_x="-12.0"
+      BBox_w="24.0"
+      BBox_type="oval"
+      N_labelSets="0"
+      BBox_h="24.0">
+
+      <GE_text id="Text1"
+        G_inLayer="_parent.G_Labels"
+        G_ty="16.0"
+        G_tx="0.0"
+        fontSize="18"
+        textType="dynamic"
+        fontStyle="plain"
+        G_r="0.0"
+        fillColor="000000"
+        G_order="1"
+        rot="0.0"
+        txt="%24%25ID"
+        G_labelSet="1"
+        G_py="0.0"
+        G_px="0.0"
+        G_sy="100.0"
+        G_sx="100.0"
+        outlineType="fill"
+        fontFace="SansSerif"
+        outlineColor="ffffff">
+      </GE_text>
+
+      <GE_image id="Image1"
+        src="icons/BN/ORNode.png"
+        G_r="0.0"
+        G_ty="-12.0"
+        G_tx="-12.0"
+        G_sy="24.0"
+        G_order="0"
+        G_py="0.0"
+        G_sx="24.0"
+        G_px="0.0">
+      </GE_image>
+    </G_iconDef>
+
+    <Arc id="Arc33"
+      G_r="0.0"
+      G_ty="76.52704237984861"
+      G_tx="299.49983464920547"
+      G_inLayer="G_Layer1"
+      to="delete"
+      from="wriDelAcc"
+      G_sy="100.0"
+      G_order="18"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_arcShape">
+      <PropertyValue id="G_segmentsP2" size="0">
+      </PropertyValue>
+      <PropertyValue id="G_segmentsP1" size="1">
+        <PropertyValue id="fap0">
+          <PropertyValue id="x2" value="522.0"/>
+          <PropertyValue id="ctrlx2" value="522.0"/>
+          <PropertyValue id="x1" value="188.9995798613541"/>
+          <PropertyValue id="y2" value="77.0"/>
+          <PropertyValue id="ctrlx1" value="188.9995798613541"/>
+          <PropertyValue id="ctrly2" value="77.0"/>
+          <PropertyValue id="y1" value="76.10041489423728"/>
+          <PropertyValue id="ctrly1" value="76.10041489423728"/>
+        </PropertyValue>
+      </PropertyValue>
+    </Arc>
+
+    <Arc id="Arc32"
+      G_r="0.0"
+      G_ty="45.547119050275775"
+      G_tx="299.5115487751257"
+      G_inLayer="G_Layer1"
+      to="write"
+      from="wriDelAcc"
+      G_sy="100.0"
+      G_order="17"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_arcShape">
+      <PropertyValue id="G_segmentsP2" size="0">
+      </PropertyValue>
+      <PropertyValue id="G_segmentsP1" size="1">
+        <PropertyValue id="fap0">
+          <PropertyValue id="x2" value="399.0"/>
+          <PropertyValue id="ctrlx2" value="399.0"/>
+          <PropertyValue id="x1" value="188.66648295554452"/>
+          <PropertyValue id="y2" value="20.0"/>
+          <PropertyValue id="ctrlx1" value="188.66648295554452"/>
+          <PropertyValue id="ctrly2" value="20.0"/>
+          <PropertyValue id="y1" value="73.19052043111377"/>
+          <PropertyValue id="ctrly1" value="73.19052043111377"/>
+        </PropertyValue>
+      </PropertyValue>
+    </Arc>
+
+    <Arc id="Arc31"
+      G_r="0.0"
+      G_ty="138.97610436547797"
+      G_tx="227.03027818013118"
+      G_inLayer="G_Layer1"
+      to="wriDelAcc"
+      from="advInTheMidOveTLS"
+      G_sy="100.0"
+      G_order="14"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_arcShape">
+      <PropertyValue id="G_segmentsP1" size="1">
+        <PropertyValue id="fap0">
+          <PropertyValue id="x2" value="184.46440110741327"/>
+          <PropertyValue id="x1" value="269.5961552528491"/>
+          <PropertyValue id="ctrlx2" value="184.46440110741327"/>
+          <PropertyValue id="ctrlx1" value="269.5961552528491"/>
+          <PropertyValue id="y2" value="85.39588825538317"/>
+          <PropertyValue id="y1" value="192.5563204755728"/>
+          <PropertyValue id="ctrly2" value="85.39588825538317"/>
+          <PropertyValue id="ctrly1" value="192.5563204755728"/>
+        </PropertyValue>
+      </PropertyValue>
+    </Arc>
+
+    <NodeShared id="read"
+      asset="DataFlow"
+      G_r="0.0"
+      G_ty="124.0"
+      G_tx="421.0"
+      G_inLayer="G_Layer1"
+      G_sy="100.0"
+      G_order="10"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_NodeShared">
+      <PropertyValue id="G_toConnections" size="1">
+        <PropertyValue id="fap0" value="Arc29"/>
+      </PropertyValue>
+    </NodeShared>
+
+    <Arc id="Arc30"
+      G_r="0.0"
+      G_ty="138.56186931512212"
+      G_tx="130.0810526127156"
+      G_inLayer="G_Layer1"
+      to="wriDelAcc"
+      from="advInTheMid"
+      G_sy="100.0"
+      G_order="13"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_arcShape">
+      <PropertyValue id="G_segmentsP1" size="1">
+        <PropertyValue id="fap0">
+          <PropertyValue id="x2" value="169.8002410650897"/>
+          <PropertyValue id="x1" value="90.36186416034155"/>
+          <PropertyValue id="ctrlx2" value="169.8002410650897"/>
+          <PropertyValue id="ctrlx1" value="90.36186416034155"/>
+          <PropertyValue id="y2" value="85.60018079408817"/>
+          <PropertyValue id="y1" value="191.5235578361561"/>
+          <PropertyValue id="ctrly2" value="85.60018079408817"/>
+          <PropertyValue id="ctrly1" value="191.5235578361561"/>
+        </PropertyValue>
+      </PropertyValue>
+    </Arc>
+
+    <G_iconDef id="G_darcShape"
+      BBox_y="-10.0"
+      BBox_x="-10.0"
+      BBox_w="20.0"
+      BBox_type="box"
+      N_labelSets="0"
+      BBox_h="20.0">
+
+      <GE_edgeSpline id="Spline0"
+        startCapScale="100.0"
+        width="1.0"
+        endCapScale="100.0"
+        strokeColor="000000"
+        G_order="0"
+        endCap="whiteCircle"
+        startCap="none"
+        strokeStyle="solid">
+      </GE_edgeSpline>
+    </G_iconDef>
+
+    <Node id="advInTheMid"
+      G_r="0.0"
+      G_ty="201.0"
+      G_tx="83.0"
+      G_inLayer="G_Layer1"
+      G_sy="100.0"
+      G_order="1"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_Node">
+      <PropertyValue id="G_fromConnections" size="2">
+        <PropertyValue id="fap0" value="Arc26"/>
+        <PropertyValue id="fap1" value="Arc30"/>
+      </PropertyValue>
+      <PropertyValue id="G_toConnections" size="2">
+        <PropertyValue id="fap0" value="ArcDefense25"/>
+        <PropertyValue id="fap1" value="Arc4"/>
+      </PropertyValue>
+    </Node>
+
+    <G_Layer id="G_Labels"
+      Locked="true"
+      Visible="true"
+      Order="1"
+      Solvable="true"
+      Label="Labels">
+    </G_Layer>
+
+    <Node id="advInTheMidOveTLS"
+      G_r="0.0"
+      G_ty="202.0"
+      G_tx="277.0"
+      G_inLayer="G_Layer1"
+      G_sy="100.0"
+      G_order="2"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_Node">
+      <PropertyValue id="G_fromConnections" size="3">
+        <PropertyValue id="fap0" value="Arc28"/>
+        <PropertyValue id="fap1" value="Arc31"/>
+        <PropertyValue id="fap2" value="Arc36"/>
+      </PropertyValue>
+      <PropertyValue id="G_toConnections" size="1">
+        <PropertyValue id="fap0" value="Arc1"/>
+      </PropertyValue>
+    </Node>
+
+    <G_iconDef id="G_NodeAND"
+      BBox_y="-12.0"
+      BBox_x="-12.0"
+      BBox_w="24.0"
+      BBox_type="oval"
+      N_labelSets="0"
+      BBox_h="24.0">
+
+      <GE_text id="Text1"
+        G_inLayer="_parent.G_Labels"
+        G_ty="16.0"
+        G_tx="0.0"
+        fontSize="18"
+        textType="dynamic"
+        fontStyle="plain"
+        G_r="0.0"
+        fillColor="000000"
+        G_order="1"
+        rot="0.0"
+        txt="%24%25ID"
+        G_labelSet="1"
+        G_py="0.0"
+        G_px="0.0"
+        G_sy="100.0"
+        G_sx="100.0"
+        outlineType="fill"
+        fontFace="SansSerif"
+        outlineColor="ffffff">
+      </GE_text>
+
+      <GE_image id="Image1"
+        src="icons/BN/ANDNode.png"
+        G_r="0.0"
+        G_ty="-12.0"
+        G_tx="-12.0"
+        G_sy="24.0"
+        G_order="0"
+        G_py="0.0"
+        G_sx="24.0"
+        G_px="0.0">
+      </GE_image>
+    </G_iconDef>
+
+    <Arc id="Arc6"
+      G_r="0.0"
+      G_ty="191.91099766663888"
+      G_tx="138.1120046428884"
+      G_inLayer="G_Layer1"
+      to="netSni"
+      from="access"
+      G_sy="100.0"
+      G_order="28"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_arcShape">
+      <PropertyValue id="G_segmentsP2" size="0">
+      </PropertyValue>
+      <PropertyValue id="G_segmentsP1" size="1">
+        <PropertyValue id="fap0">
+          <PropertyValue id="x2" value="89.57701573441172"/>
+          <PropertyValue id="ctrlx2" value="89.57701573441172"/>
+          <PropertyValue id="x1" value="180.0"/>
+          <PropertyValue id="y2" value="132.3053120614237"/>
+          <PropertyValue id="ctrlx1" value="180.0"/>
+          <PropertyValue id="ctrly2" value="132.3053120614237"/>
+          <PropertyValue id="y1" value="245.0"/>
+          <PropertyValue id="ctrly1" value="245.0"/>
+        </PropertyValue>
+      </PropertyValue>
+    </Arc>
+
+    <Arc id="Arc29"
+      G_r="0.0"
+      G_ty="127.45352177557261"
+      G_tx="347.998357706614"
+      G_inLayer="G_Layer1"
+      to="read"
+      from="reaAcc"
+      G_sy="100.0"
+      G_order="11"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_arcShape">
+      <PropertyValue id="G_segmentsP2" size="0">
+      </PropertyValue>
+      <PropertyValue id="G_segmentsP1" size="1">
+        <PropertyValue id="fap0">
+          <PropertyValue id="x2" value="398.0"/>
+          <PropertyValue id="ctrlx2" value="398.0"/>
+          <PropertyValue id="x1" value="284.9907834087785"/>
+          <PropertyValue id="y2" value="124.0"/>
+          <PropertyValue id="ctrlx1" value="284.9907834087785"/>
+          <PropertyValue id="ctrly2" value="124.0"/>
+          <PropertyValue id="y1" value="124.52977319965575"/>
+          <PropertyValue id="ctrly1" value="124.52977319965575"/>
+        </PropertyValue>
+      </PropertyValue>
+    </Arc>
+
+    <NodeOR id="Channel"
+      G_r="0.0"
+      G_ty="66.0"
+      G_tx="83.0"
+      G_inLayer="G_Layer1"
+      G_sy="100.0"
+      G_order="21"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_NodeOR">
+      <PropertyValue id="G_fromConnections" size="1">
+        <PropertyValue id="fap0" value="Arc37"/>
+      </PropertyValue>
+      <PropertyValue id="G_toConnections" size="2">
+        <PropertyValue id="fap0" value="Arc35"/>
+        <PropertyValue id="fap1" value="Arc36"/>
+      </PropertyValue>
+    </NodeOR>
+
+    <Arc id="Arc4"
+      G_r="0.0"
+      G_ty="233.46151479852884"
+      G_tx="65.42773221061954"
+      G_inLayer="G_Layer1"
+      to="advInTheMid"
+      from="access"
+      G_sy="100.0"
+      G_order="29"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_arcShape">
+      <PropertyValue id="G_segmentsP2" size="0">
+      </PropertyValue>
+      <PropertyValue id="G_segmentsP1" size="1">
+        <PropertyValue id="fap0">
+          <PropertyValue id="x2" value="91.0"/>
+          <PropertyValue id="ctrlx2" value="91.0"/>
+          <PropertyValue id="x1" value="177.0"/>
+          <PropertyValue id="y2" value="212.0"/>
+          <PropertyValue id="ctrlx1" value="177.0"/>
+          <PropertyValue id="ctrly2" value="212.0"/>
+          <PropertyValue id="y1" value="256.0"/>
+          <PropertyValue id="ctrly1" value="256.0"/>
+        </PropertyValue>
+      </PropertyValue>
+    </Arc>
+
+    <Arc id="Arc28"
+      G_r="0.0"
+      G_ty="166.02125424129855"
+      G_tx="273.3037998496564"
+      G_inLayer="G_Layer1"
+      to="reaAcc"
+      from="advInTheMidOveTLS"
+      G_sy="100.0"
+      G_order="9"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_arcShape">
+      <PropertyValue id="G_segmentsP2" size="0">
+      </PropertyValue>
+      <PropertyValue id="G_segmentsP1" size="1">
+        <PropertyValue id="fap0">
+          <PropertyValue id="x2" value="274.0960165143833"/>
+          <PropertyValue id="x1" value="275.5115831849295"/>
+          <PropertyValue id="ctrlx2" value="274.0960165143833"/>
+          <PropertyValue id="ctrlx1" value="275.5115831849295"/>
+          <PropertyValue id="y2" value="136.94984300316113"/>
+          <PropertyValue id="y1" value="190.092665479436"/>
+          <PropertyValue id="ctrly2" value="136.94984300316113"/>
+          <PropertyValue id="ctrly1" value="190.092665479436"/>
+        </PropertyValue>
+      </PropertyValue>
+    </Arc>
+
+    <Arc id="Arc27"
+      G_r="0.0"
+      G_ty="126.40083072078795"
+      G_tx="176.00297633140923"
+      G_inLayer="G_Layer1"
+      to="reaAcc"
+      from="netSni"
+      G_sy="100.0"
+      G_order="8"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_arcShape">
+      <PropertyValue id="G_segmentsP2" size="0">
+      </PropertyValue>
+      <PropertyValue id="G_segmentsP1" size="1">
+        <PropertyValue id="fap0">
+          <PropertyValue id="x2" value="261.00878719693145"/>
+          <PropertyValue id="x1" value="93.997165465887"/>
+          <PropertyValue id="ctrlx2" value="261.00878719693145"/>
+          <PropertyValue id="ctrlx1" value="93.997165465887"/>
+          <PropertyValue id="y2" value="124.54085349666533"/>
+          <PropertyValue id="y1" value="123.26080794491058"/>
+          <PropertyValue id="ctrly2" value="124.54085349666533"/>
+          <PropertyValue id="ctrly1" value="123.26080794491058"/>
+        </PropertyValue>
+      </PropertyValue>
+    </Arc>
+
+    <Arc id="Arc26"
+      G_r="0.0"
+      G_ty="162.0013931324557"
+      G_tx="82.42008623693773"
+      G_inLayer="G_Layer1"
+      to="netSni"
+      from="advInTheMid"
+      G_sy="100.0"
+      G_order="6"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_arcShape">
+      <PropertyValue id="G_segmentsP1" size="1">
+        <PropertyValue id="fap0">
+          <PropertyValue id="x2" value="82.1292451895769"/>
+          <PropertyValue id="x1" value="82.71092728429856"/>
+          <PropertyValue id="ctrlx2" value="82.1292451895769"/>
+          <PropertyValue id="ctrlx1" value="82.71092728429856"/>
+          <PropertyValue id="y2" value="134.99930396652118"/>
+          <PropertyValue id="y1" value="189.00348229839022"/>
+          <PropertyValue id="ctrly2" value="134.99930396652118"/>
+          <PropertyValue id="ctrly1" value="189.00348229839022"/>
+        </PropertyValue>
+      </PropertyValue>
+    </Arc>
+
+    <Arc id="Arc1"
+      G_r="0.0"
+      G_ty="249.52117304558803"
+      G_tx="293.4398339147091"
+      G_inLayer="G_Layer1"
+      to="advInTheMidOveTLS"
+      from="modAutPro"
+      G_sy="100.0"
+      G_order="27"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_arcShape">
+      <PropertyValue id="G_segmentsP2" size="0">
+      </PropertyValue>
+      <PropertyValue id="G_segmentsP1" size="1">
+        <PropertyValue id="fap0">
+          <PropertyValue id="x2" value="280.9232376301179"/>
+          <PropertyValue id="ctrlx2" value="280.9232376301179"/>
+          <PropertyValue id="x1" value="302.0"/>
+          <PropertyValue id="y2" value="213.34055582842512"/>
+          <PropertyValue id="ctrlx1" value="302.0"/>
+          <PropertyValue id="ctrly2" value="213.34055582842512"/>
+          <PropertyValue id="y1" value="257.0"/>
+          <PropertyValue id="ctrly1" value="257.0"/>
+        </PropertyValue>
+      </PropertyValue>
+    </Arc>
+
+    <NodeShared id="delete"
+      asset="DataFlow"
+      G_r="0.0"
+      G_ty="77.0"
+      G_tx="540.0"
+      G_inLayer="G_Layer1"
+      G_sy="100.0"
+      G_order="16"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_NodeShared">
+      <PropertyValue id="G_toConnections" size="1">
+        <PropertyValue id="fap0" value="Arc33"/>
+      </PropertyValue>
+    </NodeShared>
+
+    <G_Layer id="G_Layer1"
+      Locked="false"
+      Visible="true"
+      Order="2"
+      Solvable="true"
+      Label="Model - Layer 1">
+    </G_Layer>
+
+    <NodeDefense id="tlsSet"
+      G_r="0.0"
+      G_ty="147.0"
+      G_tx="15.0"
+      G_inLayer="G_Layer1"
+      G_sy="100.0"
+      G_order="3"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_NodeDefense">
+      <PropertyValue id="G_fromConnections" size="2">
+        <PropertyValue id="fap0" value="ArcDefense25"/>
+        <PropertyValue id="fap1" value="ArcDefense34"/>
+      </PropertyValue>
+    </NodeDefense>
+
+    <NodeOR id="wriDelAcc"
+      G_r="0.0"
+      G_ty="76.0"
+      G_tx="177.0"
+      G_inLayer="G_Layer1"
+      G_sy="100.0"
+      G_order="12"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_NodeOR">
+      <PropertyValue id="G_fromConnections" size="2">
+        <PropertyValue id="fap0" value="Arc32"/>
+        <PropertyValue id="fap1" value="Arc33"/>
+      </PropertyValue>
+      <PropertyValue id="G_toConnections" size="2">
+        <PropertyValue id="fap0" value="Arc30"/>
+        <PropertyValue id="fap1" value="Arc31"/>
+      </PropertyValue>
+    </NodeOR>
+
+    <ArcDefense id="ArcDefense34"
+      G_r="0.0"
+      G_ty="134.9825472743753"
+      G_tx="48.49372809953695"
+      G_inLayer="G_Layer1"
+      to="netSni"
+      from="tlsSet"
+      G_sy="100.0"
+      G_order="19"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_darcShape">
+      <PropertyValue id="G_segmentsP2" size="0">
+      </PropertyValue>
+      <PropertyValue id="G_segmentsP1" size="1">
+        <PropertyValue id="fap0">
+          <PropertyValue id="x2" value="70.70080940277356"/>
+          <PropertyValue id="ctrlx2" value="70.70080940277356"/>
+          <PropertyValue id="x1" value="32.0"/>
+          <PropertyValue id="y2" value="127.04082811408128"/>
+          <PropertyValue id="ctrlx1" value="32.0"/>
+          <PropertyValue id="ctrly2" value="127.04082811408128"/>
+          <PropertyValue id="y1" value="139.0"/>
+          <PropertyValue id="ctrly1" value="139.0"/>
+        </PropertyValue>
+      </PropertyValue>
+    </ArcDefense>
+
+    <NodeShared id="modAutPro"
+      asset="Network.IED"
+      G_r="0.0"
+      G_ty="275.0"
+      G_tx="309.0"
+      G_inLayer="G_Layer1"
+      G_sy="100.0"
+      G_order="25"
+      G_py="0.0"
+      G_sx="100.0"
+      G_px="0.0"
+      G_iconRef="G_NodeShared">
+      <PropertyValue id="G_fromConnections" size="1">
+        <PropertyValue id="fap0" value="Arc1"/>
+      </PropertyValue>
+    </NodeShared>
+ 
+
+</Channel>

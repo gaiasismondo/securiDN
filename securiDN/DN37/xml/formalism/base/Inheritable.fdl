@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE fdl SYSTEM "fdl.dtd">
+<fdl>
+	<plane name="object" opt="1"/>
+
+	<elementType name="Inheritable" type="abstract">
+	     <inPlane plane="object"/>
+	     
+	     <elementType name="use" type="abstract">
+	         <inPlane plane="object"/>
+		 <propertyType name="class" type="modelRef" />
+		 <elementType name="actualParameter">
+		     <propertyType name="param" type="elementRef" />
+		     <propertyType name="value" type="any" />
+		 </elementType>
+	     </elementPointer> 
+
+	     <elementType name="interface" type="abstract">
+		    <propertyType name="add" type="elementRef" />
+		    <propertyType name="rename" type="string" />
+	     </elementType>
+	     
+	     <elementType name="parameter" type="abstract">
+		      <propertyType name="name" type="string" />
+		      <propertyType name="default" type="any" />
+
+	     	      <elementType name="assign">
+		    	   <propertyType name="obj" type="elementRef" />
+	     	           <propertyType name="property" type="string" />
+	     	      </elementType>
+	     </elementType>
+	</elementType>
+</fdl>

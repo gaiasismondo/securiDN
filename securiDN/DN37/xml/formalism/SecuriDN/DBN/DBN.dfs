@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE dfs SYSTEM "dfs.dtd">
+<dfs fdl="SecuriDN/DBN/DBN.fdl">
+
+	<planeDef id="model" label="Nodes" derivesFrom="_root.DBN.DBNNode"/>
+	<planeDef id="model" label="Arcs" derivesFrom="_root.DBN.DBNArc"/>
+	<!-- <planeDef id="model" label="Submodels" derivesFrom="_root.GraphBased"/>  -->
+	<!-- <planeDef id="model" label="Model"/> -->
+	<planeDef id="results" label="Measures"/>
+	<planeDef id="query" label="Queries"/>
+
+	<!-- <elementDef id="_root.DBN" label="DBN model"
+		icon="xml/formalism/icons/Model.gif"
+		inPlane="model"
+		derivesFrom="_root.GraphBased"/>  -->
+
+		<!-- <propertyDef id="_root.DBN.@title" label="Titolo"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="model"/> -->
+		<propertyDef id="_root.DBN.@inf_type" label="Algoritmo di Inferenza"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+		<propertyDef id="_root.DBN.@inf_algorithm" label="Tipo di Algoritmo"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+		<propertyDef id="_root.DBN.@clusters" label="Cluster"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+		<propertyDef id="_root.DBN.@fully_factorized" label="Fully Factorized"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+		<propertyDef id="_root.DBN.@time_slices" label="Time Slice"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+		<propertyDef id="_root.DBN.@time_step" label="Time Step"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+		<propertyDef id="_root.DBN.@query_all_nodes" label="All nodes query"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+		<propertyDef id="_root.DBN.@use_default_CPT" label="Use default CPT"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="model"/>
+		<propertyDef id="_root.DBN.@dump_net_info" label="Print DBN Info"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+		<propertyDef id="_root.DBN.@output_file" label="Output File"
+			icon="xml/formalism/icons/bayesianNetwork.png"
+			inPlane="query"/>
+
+	<!-- TIPO NODO -->	
+	<elementDef id="_root.DBN.Node" label="Node" 
+		icon="xml/formalism/icons/PlaceIcon.png"
+		inPlane="model" 
+		derivesFrom="_root.DBN.DBNNode"/>
+
+		<!-- <propertyDef id="_root.DBN.Node.@type" label="Type"
+			icon="xml/formalism/icons/PlaceIcon.png"
+			inPlane="model"/>
+
+		<propertyDef id="_root.DBN.Node.@size" label="size"
+			icon="xml/formalism/icons/PlaceIcon.png"
+			inPlane="model"/> -->
+			
+		<propertyDef id="_root.DBN.Node.@CPT" label="mean time to compromise"
+			icon="xml/formalism/icons/PlaceIcon.png"
+			inPlane="model"/>
+			
+		<propertyDef id="_root.DBN.Node.@observed" label="Observed"
+			icon="xml/formalism/icons/PlaceIcon.png"
+			inPlane="query"/>
+
+		<propertyDef id="_root.DBN.Node.@obsValues" label="Observations"
+			icon="xml/formalism/icons/PlaceIcon.png"
+			inPlane="query"/>
+		
+		<propertyDef id="_root.DBN.Node.@query" label="Query"
+			icon="xml/formalism/icons/PlaceIcon.png"
+			inPlane="query"/>
+			
+		<propertyDef id="_root.DBN.Node.@parent" label="parent"
+			icon="xml/formalism/icons/PlaceIcon.png"
+			inPlane="model"/>	
+
+		<!-- <propertyDef id="_root.DBN.Node.@slice" label="Slice"
+			icon="xml/formalism/icons/PlaceIcon.png"
+			inPlane="model"/> -->
+	
+	<elementDef id="_root.DBN.NodeOR" label="Node OR" 
+		icon="xml/formalism/icons/BN/ORIcon.png"
+		inPlane="model" 
+		derivesFrom="_root.DBN.DBNNode"/>
+
+		<!-- <propertyDef id="_root.DBN.NodeOR.@type" label="Type"
+			icon="xml/formalism/icons/BN/ORIcon.png"
+			inPlane="model"/>
+
+		<propertyDef id="_root.DBN.NodeOR.@size" label="size"
+			icon="xml/formalism/icons/BN/ORIcon.png"
+			inPlane="model"/>
+			
+		<propertyDef id="_root.DBN.NodeOR.@CPT" label="CPT"
+			icon="xml/formalism/icons/BN/ORIcon.png"
+			inPlane="model"/> -->
+			
+		<propertyDef id="_root.DBN.NodeOR.@observed" label="Observed"
+			icon="xml/formalism/icons/BN/ORIcon.png"
+			inPlane="query"/>
+
+		<propertyDef id="_root.DBN.NodeOR.@obsValues" label="Observations"
+			icon="xml/formalism/icons/BN/ORIcon.png"
+			inPlane="query"/>
+		
+		<propertyDef id="_root.DBN.NodeOR.@query" label="Query"
+			icon="xml/formalism/icons/BN/ORIcon.png"
+			inPlane="query"/>
+			
+		<propertyDef id="_root.DBN.NodeOR.@parent" label="parent"
+			icon="xml/formalism/icons/BN/ORIcon.png"
+			inPlane="model"/>
+
+		<!-- <propertyDef id="_root.DBN.NodeOR.@slice" label="Slice"
+			icon="xml/formalism/icons/BN/ORIcon.png"
+			inPlane="model"/> -->
+		
+	<!-- <elementDef id="_root.DBN.NodeXOR" label="Node XOR" 
+		icon="xml/formalism/icons/BN/XORIcon.png"
+		inPlane="model" 
+		derivesFrom="_root.DBN.DBNNode"/>
+			
+		<propertyDef id="_root.DBN.NodeXOR.@observed" label="Observed"
+			icon="xml/formalism/icons/BN/XORIcon.png"
+			inPlane="query"/>
+
+		<propertyDef id="_root.DBN.NodeXOR.@obsValues" label="Observations"
+			icon="xml/formalism/icons/BN/XORIcon.png"
+			inPlane="query"/>
+		
+		<propertyDef id="_root.DBN.NodeXOR.@query" label="Query"
+			icon="xml/formalism/icons/BN/XORIcon.png"
+			inPlane="query"/>
+			
+		<propertyDef id="_root.DBN.NodeXOR.@parent" label="parent"
+			icon="xml/formalism/icons/BN/XORIcon.png"
+			inPlane="model"/>	-->
+
+
+	<elementDef id="_root.DBN.NodeAND" label="Node AND" 
+		icon="xml/formalism/icons/BN/ANDIcon.png"
+		inPlane="model" 
+		derivesFrom="_root.DBN.DBNNode"/>
+
+		<!-- <propertyDef id="_root.DBN.NodeAND.@type" label="Type"
+			icon="xml/formalism/icons/BN/ANDIcon.png"
+			inPlane="model"/>
+
+		<propertyDef id="_root.DBN.NodeAND.@size" label="size"
+			icon="xml/formalism/icons/BN/ANDIcon.png"
+			inPlane="model"/>
+			
+		<propertyDef id="_root.DBN.NodeAND.@CPT" label="CPT"
+			icon="xml/formalism/icons/BN/ANDIcon.png"
+			inPlane="model"/> -->
+			
+		<propertyDef id="_root.DBN.NodeAND.@observed" label="Observed"
+			icon="xml/formalism/icons/BN/ANDIcon.png"
+			inPlane="query"/>
+
+		<propertyDef id="_root.DBN.NodeAND.@obsValues" label="Observations"
+			icon="xml/formalism/icons/BN/ANDIcon.png"
+			inPlane="query"/>
+		
+		<propertyDef id="_root.DBN.NodeAND.@query" label="Query"
+			icon="xml/formalism/icons/BN/ANDIcon.png"
+			inPlane="query"/>
+			
+		<propertyDef id="_root.DBN.NodeAND.@parent" label="parent"
+			icon="xml/formalism/icons/BN/ANDIcon.png"
+			inPlane="model"/>
+
+		<!-- <propertyDef id="_root.DBN.NodeAND.@slice" label="Slice"
+			icon="xml/formalism/icons/BN/ANDIcon.png"
+			inPlane="model"/> -->
+
+		
+	<!-- <elementDef id="_root.DBN.NodeNoisyOR" label="Node Noisy OR" 
+		icon="xml/formalism/icons/BN/NoisyORIcon.png"
+		inPlane="model" 
+		derivesFrom="_root.DBN.DBNNode"/>
+			
+		<propertyDef id="_root.DBN.NodeNoisyOR.@observed" label="Observed"
+			icon="xml/formalism/icons/BN/NoisyORIcon.png"
+			inPlane="query"/>
+
+		<propertyDef id="_root.DBN.NodeNoisyOR.@obsValues" label="Observations"
+			icon="xml/formalism/icons/BN/NoisyORIcon.png"
+			inPlane="query"/>
+		
+		<propertyDef id="_root.DBN.NodeNoisyOR.@query" label="Query"
+			icon="xml/formalism/icons/BN/NoisyORIcon.png"
+			inPlane="query"/>
+			
+		<propertyDef id="_root.DBN.NodeNoisyOR.@parent" label="parent"
+			icon="xml/formalism/icons/BN/NoisyORIcon.png"
+			inPlane="model"/>	 -->
+
+
+		
+	<!-- <elementDef id="_root.DBN.NodeKN" label="Node KN" 
+		icon="xml/formalism/icons/BN/KNIcon.png"
+		inPlane="model" 
+		derivesFrom="_root.DBN.DBNNode"/>
+		
+		<propertyDef id="_root.DBN.NodeKN.@K" label="K"
+			icon="xml/formalism/icons/BN/KNIcon.png"
+			inPlane="model"/>
+			
+		<propertyDef id="_root.DBN.NodeKN.@observed" label="Observed"
+			icon="xml/formalism/icons/BN/KNIcon.png"
+			inPlane="query"/>
+
+		<propertyDef id="_root.DBN.NodeKN.@obsValues" label="Observations"
+			icon="xml/formalism/icons/BN/KNIcon.png"
+			inPlane="query"/>
+		
+		<propertyDef id="_root.DBN.NodeKN.@query" label="Query"
+			icon="xml/formalism/icons/BN/KNIcon.png"
+			inPlane="query"/>
+			
+		<propertyDef id="_root.DBN.NodeKN.@parent" label="parent"
+			icon="xml/formalism/icons/BN/KNIcon.png"
+			inPlane="model"/> -->	
+		
+	<elementDef id="_root.DBN.Arc" label="Arc" 
+		icon="xml/formalism/icons/ArcIcon.png" 
+		inPlane="model" 
+		derivesFrom="_root.DBN.DBNArc"/>
+
+	<elementDef id="_root.DBN.TemporalArc" label="Temporal Arc" 
+		icon="xml/formalism/icons/BlueArcIcon.png" 
+		inPlane="model" 
+		derivesFrom="_root.DBN.DBNArc"/>
+
+</dfs>

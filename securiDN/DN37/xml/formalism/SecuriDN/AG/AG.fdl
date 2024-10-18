@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE fdl SYSTEM '../../dtd/fdl.dtd'>
+<fdl main="AG">
+	<include src="base/GraphBased.fdl" />
+	<include src="base/Instantiable.fdl" />
+
+
+	<plane name="model" opt="1" default="yes"/>
+	<plane name="graph" opt="1"/>
+	<plane name="query" opt="1"/>
+	<plane name="results" opt="+" default="yes"/>
+	<plane name="parameters" opt="+"/>
+
+
+	<elementType name="AG" >
+		<inPlane plane="query"/>
+		<parent ref="_root.GraphBased" />
+		<parent ref="_root.Instantiable" />
+	
+		
+		<defaultInstance src="SecuriDN/AG/AG.fdli"/>
+	
+		<!-- <propertyType name="G_iconRef" type="elementRef" default="_self.G_submodelShape">
+			<inPlane plane="graph"/>
+		</propertyType>  -->
+
+		
+		
+		<elementType name="AGNode" type="abstract">
+		</elementType>	
+		<elementType name="NodeLogic" type="abstract">
+		</elementType>
+		<elementType name="AGArc" type="abstract">
+		</elementType>	
+
+		<elementType name="Node" >
+			<parent ref="_root.GraphBased.Node"/>
+			<parent ref="_root.AG.AGNode"/>
+			<inPlane plane="model"/>
+			<propertyType name="prob" type="float" default="0">
+				<inPlane plane="model"/>
+			</propertyType>
+			<propertyType name="IP" type="string" default="">
+				<inPlane plane="model"/>
+			</propertyType>
+			<!-- <propertyType name="type" type="integer" default="1">
+				<inPlane plane="model"/>
+			</propertyType> -->
+			<propertyType name="G_iconRef" type="elementRef" default="G_Node">
+				<inPlane plane="graph"/>
+			</propertyType>
+		</elementType>
+	
+		<elementType name="NodeOR" >
+			<parent ref="_root.GraphBased.Node"/>
+			<parent ref="_root.AG.AGNode"/>
+			<parent ref="_root.AG.NodeLogic"/>
+			<inplane plane="model"/>
+			<!-- <propertyType name="type" type="integer" default="1">
+				<inPlane plane="model"/>
+			</propertyType> -->
+			<propertyType name="G_iconRef" type="elementRef" default="G_NodeOR">
+				<inPlane plane="graph"/>
+			</propertyType>
+		</elementType>
+		
+		<elementType name="NodeAND" >
+			<parent ref="_root.GraphBased.Node"/>
+			<parent ref="_root.AG.AGNode"/>
+			<parent ref="_root.AG.NodeLogic"/>
+			<inplane plane="model"/>
+			<!-- <propertyType name="type" type="integer" default="1">
+				<inPlane plane="model"/>
+			</propertyType> -->
+			<propertyType name="G_iconRef" type="elementRef" default="G_NodeAND">
+				<inPlane plane="graph"/>
+			</propertyType>
+		</elementType>
+
+		<elementType name="NodeDefense" >
+			<parent ref="_root.GraphBased.Node"/>
+			<parent ref="_root.AG.AGNode"/>
+			<inplane plane="model"/>
+			<!-- <propertyType name="type" type="integer" default="1">
+				<inPlane plane="model"/>
+			</propertyType> -->
+			<propertyType name="G_iconRef" type="elementRef" default="G_NodeDefense">
+				<inPlane plane="graph"/>
+			</propertyType>
+		</elementType>
+
+		<!-- <elementType name="NodeBegin" >
+			<parent ref="_root.GraphBased.Node"/>
+			<parent ref="_root.AG.AGNode"/>
+			<inplane plane="model"/>
+			<propertyType name="type" type="integer" default="1">
+				<inPlane plane="model"/>
+			</propertyType>
+			<propertyType name="G_iconRef" type="elementRef" default="G_NodeBegin">
+				<inPlane plane="graph"/>
+			</propertyType>
+		</elementType> -->
+
+		<!-- <elementType name="NodeEnd" >
+			<parent ref="_root.GraphBased.Node"/>
+			<parent ref="_root.AG.AGNode"/>
+			<inplane plane="model"/>
+			<propertyType name="type" type="integer" default="1">
+				<inPlane plane="model"/>
+			</propertyType>
+			<propertyType name="G_iconRef" type="elementRef" default="G_NodeEnd">
+				<inPlane plane="graph"/>
+			</propertyType>
+		</elementType> -->
+
+		<elementType name="NodeShared" >
+			<parent ref="_root.GraphBased.Node"/>
+			<parent ref="_root.AG.AGNode"/>
+			<inplane plane="model"/>
+			<propertyType name="asset" type="string" default="path">
+				<inPlane plane="model"/>
+			</propertyType> 
+			<propertyType name="G_iconRef" type="elementRef" default="G_NodeShared">
+				<inPlane plane="graph"/>
+			</propertyType>
+		</elementType>
+
+		<elementType name="Analytics" >
+			<parent ref="_root.GraphBased.Node"/>
+			<parent ref="_root.AG.AGNode"/>
+			<inPlane plane="model"/>
+			<propertyType name="G_iconRef" type="elementRef" default="G_analyticsShape">
+				<inPlane plane="graph"/>
+			</propertyType>
+		</elementType>
+		
+		<elementType name="Arc" >
+			<parent ref="_root.GraphBased.Edge" />
+			<parent ref="_root.AG.AGArc" />
+			<inplane plane="model"/>
+			<propertyType name="G_iconRef" type="elementRef" default="G_arcShape">
+				<inPlane plane="graph"/>
+			</propertyType>
+			<modelConstraint>
+                                <constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.AG.Node" />
+                                        <check op="isOfKind" ref="to" kind="_root.AG.Analytics" />
+                                </constraint>
+				<constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.AG.Node" />
+                                        <check op="isOfKind" ref="to" kind="_root.AG.Node" />
+                                </constraint>
+				<constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.AG.Node" />
+                                        <check op="isOfKind" ref="to" kind="_root.AG.NodeLogic" />
+                                </constraint>
+				<constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.AG.NodeLogic" />
+                                        <check op="isOfKind" ref="to" kind="_root.AG.Node" />
+                                </constraint>
+				<constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.AG.NodeLogic" />
+                                        <check op="isOfKind" ref="to" kind="_root.AG.NodeLogic" />
+                                </constraint>
+				<!-- <constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.AG.NodeBegin" />
+                                        <check op="isOfKind" ref="to" kind="_root.AG.Node" />
+                                </constraint> -->
+				<!-- <constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.AG.Node" />
+                                        <check op="isOfKind" ref="to" kind="_root.AG.NodeEnd" />
+                                </constraint> -->
+				<!-- <constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.AG.NodeLogic" />
+                                        <check op="isOfKind" ref="to" kind="_root.AG.NodeEnd" />
+                                </constraint> -->
+				<!-- <constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.AG.NodeShared" />
+                                        <check op="isOfKind" ref="to" kind="_root.AG.Node" />
+                                </constraint> -->
+				<constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.AG.NodeLogic" />
+                                        <check op="isOfKind" ref="to" kind="_root.AG.NodeShared" />
+                                </constraint>
+				<constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.AG.Node" />
+                                        <check op="isOfKind" ref="to" kind="_root.AG.NodeShared" />
+                                </constraint>
+				<constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.AG.NodeDefense" />
+                                        <check op="isOfKind" ref="to" kind="_root.AG.Node" />
+                                </constraint>
+                        </modelConstraint>
+		</elementType>
+
+		<!-- <elementType name="ArcDefense" >
+			<parent ref="_root.GraphBased.Edge" />
+			<parent ref="_root.AG.AGArc" />
+			<inplane plane="model"/>
+			<propertyType name="prob" type="float" default="0">
+				<inPlane plane="model"/>
+			</propertyType>
+			<propertyType name="G_iconRef" type="elementRef" default="G_darcShape">
+				<inPlane plane="graph"/>
+			</propertyType>
+			<modelConstraint>
+                                <constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.AG.NodeDefense" />
+                                        <check op="isOfKind" ref="to" kind="_root.AG.Node" />
+                                </constraint>
+                        </modelConstraint> 
+		</elementType> -->
+
+		<!-- <elementTypeRef ref="_root.DBN"/> -->
+
+	</elementType>
+</fdl>

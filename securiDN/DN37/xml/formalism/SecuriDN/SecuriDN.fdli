@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SecuriDN id="RootSecuriDN">
+
+    <!-- <G_Layer id="G_Labels"
+      Locked="true"
+      Visible="true"
+      Order="1"
+      Solvable="true"
+      Label="Labels">
+    </G_Layer>
+
+    <G_Layer id="G_Layer1"
+      Locked="false"
+      Visible="true"
+      Order="2"
+      Solvable="true"
+      Label="Model - Layer 1">
+    </G_Layer> -->
+
+	<!-- <G_iconDef id="G_submodelShape">
+    		<GE_image id="Image1"
+      		src="xml/formalism/icons/ApplicationServer.png"
+      		G_r="0.0"
+      		G_ty="-10.0"
+      		G_tx="-10.0"
+      		G_order="0"
+      		G_sy="20.0"
+      		G_py="0.0"
+      		G_sx="20.0"
+      		G_px="0.0"/>
+  	</G_iconDef> -->
+
+	<G_iconDef id="G_archShape">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/architecture.png"
+      		G_r="0.0"
+      		G_ty="-50.0"
+      		G_tx="-50.0"
+      		G_order="0"
+      		G_sy="100.0"
+      		G_py="0.0"
+      		G_sx="100.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="50.0" G_tx="50.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1"/>
+  	</G_iconDef>
+
+	<G_iconDef id="G_AGShape">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/attackGraph.png"
+      		G_r="0.0"
+      		G_ty="-50.0"
+      		G_tx="-50.0"
+      		G_order="0"
+      		G_sy="100.0"
+      		G_py="0.0"
+      		G_sx="100.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="40.0" G_tx="40.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef>
+
+	<G_iconDef id="G_DBNShape">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/bayesianNetwork.png"
+      		G_r="0.0"
+      		G_ty="-50.0"
+      		G_tx="-50.0"
+      		G_order="0"
+      		G_sy="100.0"
+      		G_py="0.0"
+      		G_sx="100.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="40.0" G_tx="40.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1"/>
+  	</G_iconDef>
+
+</SecuriDN>

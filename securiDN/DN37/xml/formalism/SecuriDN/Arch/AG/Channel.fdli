@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Channel id="RootAG">
+
+<!-- <G_Layer id="G_Labels"
+      Locked="true"
+      Visible="true"
+      Order="1"
+      Solvable="true"
+      Label="Labels">
+    </G_Layer>
+
+    <G_Layer id="G_Layer1"
+      Locked="false"
+      Visible="true"
+      Order="2"
+      Solvable="true"
+      Label="Model - Layer 1">
+    </G_Layer> -->
+
+	<!-- ICONA NODO-->
+	<G_iconDef id="G_Node"
+    	 BBox_type="oval"
+    	 BBox_x="-12.0" BBox_y="-12.0"
+    	 BBox_w="24.0" BBox_h="24">
+	<GE_ellipse id="Ellipse0"
+		fillColor="ffffff"
+		width="1.0"
+		strokeStyle="solid"
+		fillStyle="solid"
+		strokeColor="000000"
+		G_ty="-12.0"
+		G_tx="-12.0"
+		G_py="0.0"
+		G_px="0.0"
+		G_r="0.0"
+		G_sy="24.0"
+		G_sx="24.0"
+		G_order="0"/>
+	<GE_text id="Text1"
+              G_ty="10.0" G_tx="10.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              txt="%24%25ID" G_order="1" G_labelSet="1" />
+	<GE_text id="Text2"
+              G_ty="30.0" G_tx="10.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              txt="%24prob" G_order="2" G_labelSet="0" /> 
+	<!-- <GE_text id="Text3"
+              G_ty="32.0" G_tx="0.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              txt="%24slice" G_order="2" G_labelSet="0" />  -->
+    </G_iconDef>
+
+    <G_iconDef id="G_NodeOR"
+    	 BBox_type="oval"
+    	 BBox_x="-12.0" BBox_y="-12.0"
+    	 BBox_w="24.0" BBox_h="24">
+	<GE_image id="Image1"
+                        src="icons/BN/ORNode.png"
+                        G_r="0.0"
+                        G_ty="-12.0"
+                        G_tx="-12.0"
+                        G_order="0"
+                        G_sy="24.0"
+                        G_py="0.0"
+                        G_sx="24.0"
+                        G_px="0.0"/>
+	<GE_text id="Text1"
+              G_ty="16.0" G_tx="10.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              txt="%24%25ID" G_order="1" G_labelSet="1" />
+	<!-- <GE_text id="Text3"
+              G_ty="32.0" G_tx="0.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              txt="%24slice" G_order="2" G_labelSet="0" />  -->
+    </G_iconDef>
+
+    <G_iconDef id="G_NodeAND"
+    	 BBox_type="oval"
+    	 BBox_x="-12.0" BBox_y="-12.0"
+    	 BBox_w="24.0" BBox_h="24">
+	<GE_image id="Image1"
+                        src="icons/BN/ANDNode.png"
+                        G_r="0.0"
+                        G_ty="-12.0"
+                        G_tx="-12.0"
+                        G_order="0"
+                        G_sy="24.0"
+                        G_py="0.0"
+                        G_sx="24.0"
+                        G_px="0.0"/>
+	<GE_text id="Text1"
+              G_ty="16.0" G_tx="10.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              txt="%24%25ID" G_order="1" G_labelSet="1" />
+	<!-- <GE_text id="Text3"
+              G_ty="32.0" G_tx="0.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              txt="%24slice" G_order="2" G_labelSet="0" /> -->
+    </G_iconDef>
+
+    <!-- <G_iconDef id="G_NodeBegin"
+    	 BBox_type="oval"
+    	 BBox_x="-22.5" BBox_y="-16.5"
+    	 BBox_w="45.0" BBox_h="33">
+	<GE_image id="Image1"
+                        src="icons/ARPHA/action.png"
+                        G_r="0.0"
+                        G_ty="-16.5"
+                        G_tx="-22.5"
+                        G_order="0"
+                        G_sy="33.0"
+                        G_py="0.0"
+                        G_sx="45.0"
+                        G_px="0.0"/>
+	<GE_text id="Text1"
+              G_ty="16.0" G_tx="0.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              txt="%24%25ID" G_order="1" G_labelSet="1" G_inLayer="_parent.G_Labels"/>
+    </G_iconDef> -->
+ 
+    <!-- <G_iconDef id="G_NodeEnd"
+    	 BBox_type="oval"
+    	 BBox_x="-20.0" BBox_y="-20.5"
+    	 BBox_w="40.0" BBox_h="41">
+	<GE_image id="Image1"
+                        src="icons/ARPHA/anomaly.png"
+                        G_r="0.0"
+                        G_ty="-20.5"
+                        G_tx="-20.0"
+                        G_order="0"
+                        G_sy="41.0"
+                        G_py="0.0"
+                        G_sx="40.0"
+                        G_px="0.0"/>
+	<GE_text id="Text1"
+              G_ty="20.0" G_tx="10.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              txt="%24%25ID" G_order="1" G_labelSet="1" G_inLayer="_parent.G_Labels"/>
+    </G_iconDef> -->
+ 
+    <G_iconDef id="G_NodeDefense"
+    	 BBox_type="oval"
+    	 BBox_x="-18.0" BBox_y="-19.5"
+    	 BBox_w="36.0" BBox_h="39">
+	<GE_image id="Image1"
+                        src="icons/ARPHA/sensor.png"
+                        G_r="0.0"
+                        G_ty="-19.5"
+                        G_tx="-18.0"
+                        G_order="0"
+                        G_sy="39.0"
+                        G_py="0.0"
+                        G_sx="36.0"
+                        G_px="0.0"/>
+	<GE_text id="Text1"
+              G_ty="16.0" G_tx="10.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              txt="%24%25ID" G_order="1" G_labelSet="1" />
+    </G_iconDef>
+
+    <G_iconDef id="G_NodeShared"
+    	 BBox_type="oval"
+    	 BBox_x="-18.5" BBox_y="-18.5"
+    	 BBox_w="37.0" BBox_h="37">
+	<GE_image id="Image1"
+                        src="xml/formalism/shapes/FluidPlace.png"
+                        G_r="0.0"
+                        G_ty="-18.5"
+                        G_tx="-18.5"
+                        G_order="0"
+                        G_sy="37.0"
+                        G_py="0.0"
+                        G_sx="37.0"
+                        G_px="0.0"/>
+	<GE_text id="Text1"
+              G_ty="20.0" G_tx="0.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              txt="%24%25ID" G_order="1" G_labelSet="1" />
+	<GE_text id="Text2"
+              G_ty="40.0" G_tx="0.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              txt="%24asset" G_order="2" G_labelSet="0" />  
+    </G_iconDef>
+	
+	<G_iconDef id="G_analyticsShape" BBox_type="box" BBox_x="-22.5"
+                BBox_y="-23.0" BBox_w="36.0" BBox_h="45">
+		<GE_image id="Image1" 	
+			src="icons/ARPHA/plan.png" 		
+			G_r="0.0"
+ 			G_ty="-22.5"
+ 			G_tx="-18.0"
+			G_order="0"
+			G_sy="45.0"
+			G_py="0.0"
+			G_sx="36.0"
+			G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="-14.0" G_tx="22.5" fontSize="16" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+	</G_iconDef>
+
+	<!-- ICONA ARCO-->
+	<G_iconDef id="G_arcShape">
+		<GE_edgeSpline id="Spline0"
+			width="1.0"
+			strokeColor="000000"
+			endCap="arrow"
+			endCapScale="100.0"
+			startCap="none"
+			startCapScale="100.0"
+			strokeStyle="solid"
+			G_order="0"/>
+	</G_iconDef>
+	
+	<!-- <G_iconDef id="G_darcShape">
+		<GE_edgeSpline id="Spline0"
+			width="1.0"
+			strokeColor="000000"
+			endCap="whiteCircle"
+			endCapScale="100.0"
+			startCap="none"
+			startCapScale="100.0"
+			strokeStyle="solid"
+			G_order="0"/>
+		<GE_text id="Text2"
+              	G_ty="30.0" G_tx="10.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              	G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              	G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              	txt="%24prob" G_order="2" G_labelSet="0" /> 
+	</G_iconDef> -->
+	
+	<!-- <G_iconDef id="G_submodelShape">
+		<GE_image id="Image1" 	
+			src="icons/ARPHA/DBN_ARPHA.png" 		
+			G_r="0.0"
+ 			G_ty="-27.0"
+ 			G_tx="-30.0"
+			G_order="0"
+			G_sy="54.0"
+			G_py="0.0"
+			G_sx="60.0"
+			G_px="0.0"/>
+	</G_iconDef> -->
+
+</Channel>

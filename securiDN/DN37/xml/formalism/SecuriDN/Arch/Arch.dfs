@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE dfs SYSTEM "dfs.dtd">
+<dfs fdl="SecuriDN/Arch/Arch.fdl">
+	
+	<!-- <planeDef id="results" label="Measures"/> -->
+	<!-- <planeDef id="query" label="Queries"/> -->
+
+	<planeDef id="model" label="Assets" derivesFrom="_root.Arch.AssetNode"/>
+	<planeDef id="model" label="Associations" derivesFrom="_root.Arch.AssetArc"/>
+	<!-- <planeDef id="model" label="Machine" derivesFrom="_root.Arch.Machine"/>
+	<planeDef id="model" label="Application" derivesFrom="_root.Arch.Application"/>
+	<planeDef id="model" label="Functional" derivesFrom="_root.Arch.Functional"/>
+	<planeDef id="model" label="Product" derivesFrom="_root.Arch.Product"/>
+	<planeDef id="model" label="Communication" derivesFrom="_root.Arch.Communication"/>-->
+	<planeDef id="model" label="Attack" derivesFrom="_root.Arch.Attack"/>
+	
+	<!-- <planeDef id="model" label="Events" derivesFrom="_root.DAT.Event"/>
+	<planeDef id="model" label="Gates" derivesFrom="_root.DAT.Gate"/>
+	<planeDef id="model" label="Arcs" derivesFrom="_root.DAT.Arc"/> -->
+
+	<!-- <planeDef id="model" label="Nodes" derivesFrom="_root.AG.AGNode"/> -->
+	<!-- <planeDef id="model" label="Arcs" derivesFrom="_root.AG.AGArc"/> -->
+
+	<elementDef id="_root.Arch.Network" label="Network" icon="xml/formalism/icons/cloud.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.Network.@observed" label="Observed"
+			icon="xml/formalism/icons/cloud.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.Network.@observations" label="Observations"
+			icon="xml/formalism/icons/cloud.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.Network.@query" label="Query"
+			icon="xml/formalism/icons/cloud.png"
+			inPlane="query"/>
+
+	<elementDef id="_root.Arch.ExecutionEnvironment" label="Execution Environment" icon="xml/formalism/icons/executionEnvironment.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.ExecutionEnvironment.@observed" label="Observed"
+			icon="xml/formalism/icons/executionEnvironment.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.ExecutionEnvironment.@observations" label="Observations"
+			icon="xml/formalism/icons/executionEnvironment.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.ExecutionEnvironment.@query" label="Query"
+			icon="xml/formalism/icons/executionEnvironment.png"
+			inPlane="query"/>
+
+	<elementDef id="_root.Arch.Computer" label="Computer" icon="xml/formalism/icons/ApplicationServer.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.Computer.@observed" label="Observed"
+			icon="xml/formalism/icons/ApplicationServer.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.Computer.@observations" label="Observations"
+			icon="xml/formalism/icons/ApplicationServer.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.Computer.@query" label="Query"
+			icon="xml/formalism/icons/ApplicationServer.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.Computer.@IP" label="IP address"
+			icon="xml/formalism/icons/ApplicationServer.png"
+			inPlane="model"/>
+
+	<elementDef id="_root.Arch.Functional" label="Functional" icon="xml/formalism/icons/functional.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.Functional.@observed" label="Observed"
+			icon="xml/formalism/icons/functional.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.Functional.@observations" label="Observations"
+			icon="xml/formalism/icons/functional.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.Functional.@query" label="Query"
+			icon="xml/formalism/icons/functional.png"
+			inPlane="query"/>
+
+	<elementDef id="_root.Arch.Application" label="Application" icon="xml/formalism/icons/application.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.Application.@observed" label="Observed"
+			icon="xml/formalism/icons/application.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.Application.@observations" label="Observations"
+			icon="xml/formalism/icons/application.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.Application.@query" label="Query"
+			icon="xml/formalism/icons/application.png"
+			inPlane="query"/>
+
+	<!-- <elementDef id="_root.Arch.Firewall" label="Firewall" icon="xml/formalism/icons/firewall.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.Network.@observed" label="Observed"
+			icon="xml/formalism/icons/WebServer.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.Network.@observations" label="Observations"
+			icon="xml/formalism/icons/WebServer.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.Network.@query" label="Query"
+			icon="xml/formalism/icons/WebServer.png"
+			inPlane="model"/> -->
+
+	<!-- <elementDef id="_root.Arch.WebServer" label="Web Server" icon="xml/formalism/icons/web.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.Network.@observed" label="Observed"
+			icon="xml/formalism/icons/WebServer.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.Network.@observations" label="Observations"
+			icon="xml/formalism/icons/WebServer.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.Network.@query" label="Query"
+			icon="xml/formalism/icons/WebServer.png"
+			inPlane="model"/> -->
+
+	<!-- <elementDef id="_root.Arch.SMTPServer" label="SMTP Server" icon="xml/formalism/icons/smtp.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.Network.@observed" label="Observed"
+			icon="xml/formalism/icons/WebServer.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.Network.@observations" label="Observations"
+			icon="xml/formalism/icons/WebServer.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.Network.@query" label="Query"
+			icon="xml/formalism/icons/WebServer.png"
+			inPlane="model"/> -->
+
+	<!-- <elementDef id="_root.Arch.SMTPClient" label="SMTP Client" icon="xml/formalism/icons/smtpClient.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.Network.@observed" label="Observed"
+			icon="xml/formalism/icons/WebServer.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.Network.@observations" label="Observations"
+			icon="xml/formalism/icons/WebServer.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.Network.@query" label="Query"
+			icon="xml/formalism/icons/WebServer.png"
+			inPlane="model"/> -->
+
+	<!-- <elementDef id="_root.Arch.Substation" label="Substation" icon="xml/formalism/icons/Const.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.Substation.@observed" label="Observed"
+			icon="xml/formalism/icons/Const.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.Substation.@observations" label="Observations"
+			icon="xml/formalism/icons/Const.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.Substation.@query" label="Query"
+			icon="xml/formalism/icons/Const.png"
+			inPlane="model"/> -->
+
+	<!-- <elementDef id="_root.Arch.ControlCenter" label="Control Center" icon="xml/formalism/icons/user.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.ControlCenter.@observed" label="Observed"
+			icon="xml/formalism/icons/user.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.ControlCenter.@observations" label="Observations"
+			icon="xml/formalism/icons/user.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.ControlCenter.@query" label="Query"
+			icon="xml/formalism/icons/user.png"
+			inPlane="model"/> -->
+
+	<!-- <elementDef id="_root.Arch.PowerSystem" label="Power System" icon="xml/formalism/icons/ARPHA/failure.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.PowerSystem.@observed" label="Observed"
+			icon="xml/formalism/icons/ARPHA/failure.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.PowerSystem.@observations" label="Observations"
+			icon="xml/formalism/icons/ARPHA/failure.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.PowerSystem.@query" label="Query"
+			icon="xml/formalism/icons/ARPHA/failure.png"
+			inPlane="model"/> -->
+
+	<elementDef id="_root.Arch.IED" label="Intelligent Electronic Device" icon="xml/formalism/icons/IED.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.IED.@observed" label="Observed"
+			icon="xml/formalism/icons/IED.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.IED.@observations" label="Observations"
+			icon="xml/formalism/icons/IED.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.IED.@query" label="Query"
+			icon="xml/formalism/icons/IED.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.IED.@IP" label="IP address"
+			icon="xml/formalism/icons/ApplicationServer.png"
+			inPlane="model"/>
+
+	<!-- <elementDef id="_root.Arch.SCADA" label="SCADA" icon="xml/formalism/icons/user2.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.SCADA.@observed" label="Observed"
+			icon="xml/formalism/icons/user2.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.SCADA.@observations" label="Observations"
+			icon="xml/formalism/icons/user2.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.SCADA.@query" label="Query"
+			icon="xml/formalism/icons/user2.png"
+			inPlane="model"/> -->
+
+	<!-- <elementDef id="_root.Arch.MMSClient" label="MMS Client" icon="xml/formalism/icons/mmsClient.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.MMSClient.@observed" label="Observed"
+			icon="xml/formalism/icons/database.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.MMSClient.@observations" label="Observations"
+			icon="xml/formalism/icons/database.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.MMSClient.@query" label="Query"
+			icon="xml/formalism/icons/database.png"
+			inPlane="model"/> -->
+
+	<!-- <elementDef id="_root.Arch.MMSServer" label="MMS Server" icon="xml/formalism/icons/mmsServer.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.MMSServer.@observed" label="Observed"
+			icon="xml/formalism/icons/ApplicationServer.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.MMSServer.@observations" label="Observations"
+			icon="xml/formalism/icons/ApplicationServer.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.MMSServer.@query" label="Query"
+			icon="xml/formalism/icons/ApplicationServer.png"
+			inPlane="model"/> -->
+
+	<elementDef id="_root.Arch.Channel" label="Channel" icon="xml/formalism/icons/channel.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.Channel.@observed" label="Observed"
+			icon="xml/formalism/icons/channel.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.Channel.@observations" label="Observations"
+			icon="xml/formalism/icons/channel.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.Channel.@query" label="Query"
+			icon="xml/formalism/icons/channel.png"
+			inPlane="query"/>
+
+	<!-- <elementDef id="_root.Arch.DataFlow" label="Data Flow" icon="xml/formalism/icons/user3.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.DataFlow.@observed" label="Observed"
+			icon="xml/formalism/icons/user3.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.DataFlow.@observations" label="Observations"
+			icon="xml/formalism/icons/user3.png"
+			inPlane="model"/>
+		<propertyDef id="_root.Arch.DataFlow.@query" label="Query"
+			icon="xml/formalism/icons/user3.png"
+			inPlane="model"/> -->
+
+	<elementDef id="_root.Arch.Asset" label="Asset" icon="xml/formalism/icons/asset.png" 
+	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
+		<propertyDef id="_root.Arch.Asset.@observed" label="Observed"
+			icon="xml/formalism/icons/asset.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.Asset.@observations" label="Observations"
+			icon="xml/formalism/icons/asset.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.Asset.@query" label="Query"
+			icon="xml/formalism/icons/asset.png"
+			inPlane="query"/>
+
+	<elementDef id="_root.Arch.Attacker" label="Attacker" icon="xml/formalism/icons/attacker.png" 
+	 inPlane="model" derivesFrom="_root.Arch.Attack"/>
+
+		<propertyDef id="_root.Arch.Attacker.@step" label="Initial attack step"
+			icon="xml/formalism/icons/attacker.png"
+			inPlane="model"/>
+
+	<elementDef id="_root.Arch.Goal" label="Goal" icon="xml/formalism/icons/goal.png" 
+	 inPlane="model" derivesFrom="_root.Arch.Attack"/>
+	
+		<propertyDef id="_root.Arch.Goal.@step" label="Final attack step"
+			icon="xml/formalism/icons/goal.png"
+			inPlane="model"/>
+
+	<elementDef id="_root.Arch.AttackArc" label="Attacks" 
+		icon="xml/formalism/icons/InhibitorArcIcon.png" 
+		inPlane="model" 
+		derivesFrom="_root.Arch.Attack"/>
+
+	<elementDef id="_root.Arch.Arc" label="Association" 
+		icon="xml/formalism/icons/ArcIcon.png" 
+		inPlane="model" 
+		derivesFrom="_root.Arch.AssetArc"/>
+
+	<elementDef id="_root.Arch.Execute" label="Executes" 
+		icon="xml/formalism/icons/GreenArcIcon.png" 
+		inPlane="model" 
+		derivesFrom="_root.Arch.AssetArc"/>
+
+	<elementDef id="_root.Arch.Connect" label="Connects" 
+		icon="xml/formalism/icons/RedArcIcon.png" 
+		inPlane="model" 
+		derivesFrom="_root.Arch.AssetArc"/> -->
+
+	<elementDef id="_root.Arch.In" label="In" 
+		icon="xml/formalism/icons/BlueArcIcon.png" 
+		inPlane="model" 
+		derivesFrom="_root.Arch.AssetArc"/> 
+
+	<elementDef id="_root.Arch.Cross" label="Crosses" 
+		icon="xml/formalism/icons/OrangeArcIcon.png" 
+		inPlane="model" 
+		derivesFrom="_root.Arch.AssetArc"/> 
+
+	<!-- <elementDef id="_root.Arch.Contain" label="Contains" 
+		icon="xml/formalism/icons/GreenArcIcon.png" 
+		inPlane="model" 
+		derivesFrom="_root.Arch.AssetArc"/> -->
+
+	<elementDef id="_root.Arch.Client" label="Communicates" 
+		icon="xml/formalism/icons/YellowArcIcon.png" 
+		inPlane="model" 
+		derivesFrom="_root.Arch.AssetArc"/>
+
+	<!-- <elementDef id="_root.Arch.Server" label="Server" 
+		icon="xml/formalism/icons/FluidArcIcon.png" 
+		inPlane="model" 
+		derivesFrom="_root.Arch.AssetArc"/>  -->
+
+	<include src="SecuriDN/AG/AG.dfs"/>
+
+</dfs>
+

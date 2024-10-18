@@ -1,0 +1,110 @@
+<!ELEMENT fdl     (elementType|include|plane|phase)*>
+<!ATTLIST fdl
+  main	      CDATA     #IMPLIED>
+
+
+<!ELEMENT elementType   (defaultInstance|parent|propertyType|runConstraint|modelConstraint|elementType|elementTypeRef|inPlane)*>
+<!ATTLIST elementType
+  name        ID        #REQUIRED
+  type        CDATA	"concrete public">
+
+
+<!ELEMENT parent        EMPTY>
+<!ATTLIST parent
+  ref         CDATA     #REQUIRED>
+
+
+<!ELEMENT propertyType  (enumerationValue|propertyType|size|level|inPlane)*>
+<!ATTLIST propertyType
+  name        ID        #REQUIRED
+  default     CDATA     #IMPLIED
+  type        (integer|float|string|boolean|enumeration|elementRef|any|struct|fixedArray|assocArray)	#REQUIRED >
+  
+
+<!ELEMENT enumerationValue EMPTY>
+<!ATTLIST enumerationValue
+  value       CDATA     #REQUIRED>
+
+
+<!ELEMENT size  EMPTY>
+<!ATTLIST size
+  value       CDATA     #REQUIRED>
+
+
+<!ELEMENT level  EMPTY>
+<!ATTLIST level
+  value       CDATA     #REQUIRED>
+  
+
+<!ELEMENT inPlane        EMPTY>
+<!ATTLIST inPlane
+  plane       CDATA     #REQUIRED>
+
+<!ELEMENT runConstraint    (constraint)*>
+
+<!ELEMENT modelConstraint    (constraint)*>
+
+<!ELEMENT constraint    (constraint|expression|check)*>
+<!ATTLIST constraint
+  type             (and|or|not)   "and"
+  description      CDATA #IMPLIED>
+
+
+<!ELEMENT expression    (evaluate, evaluate)>
+<!ATTLIST expression
+  op               (eq|ne|lt|le|gt|ge) #REQUIRED>
+  
+
+<!ELEMENT evaluate       (evaluate|propertyValue)*>
+<!ATTLIST evaluate
+  op		   (sum|sub|mul|div|
+                    const|propertyValue|
+                    numberOfReferencesOfKind|numberOfReferences)   #REQUIRED
+  value            CDATA                               #IMPLIED
+  ref              IDREF                               #IMPLIED
+  kind		   IDREF			       #IMPLIED>
+
+<!ELEMENT propertyValue  EMPTY>
+<!ATTLIST propertyValue
+  value       CDATA	#REQUIRED
+  type        (integer|float|string)	#REQUIRED>
+  
+<!ELEMENT check         EMPTY>
+<!ATTLIST check
+  op               (isOfKind|isReferredFrom)  #REQUIRED	   
+  kind             IDREF   #IMPLIED
+  ref		   IDREF   #IMPLIED
+  mode             (derived|exactly) "derived">
+
+
+<!ELEMENT elementTypeRef EMPTY>
+<!ATTLIST elementTypeRef
+  ref         IDREF     #REQUIRED>
+  
+
+<!ELEMENT include       EMPTY>
+<!ATTLIST include
+  src		CDATA #REQUIRED>
+
+  
+<!ELEMENT defaultInstance   EMPTY>
+<!ATTLIST defaultInstance
+  src		CDATA #REQUIRED>
+
+<!ELEMENT plane  (readPhase|writePhase)*>
+<!ATTLIST plane
+  name        ID        #REQUIRED
+  default     (yes|no)  "no"
+  opt         CDATA	#REQUIRED>
+
+<!ELEMENT phase		EMPTY>
+<!ATTLIST phase
+  name        ID        #REQUIRED>
+
+<!ELEMENT readPhase	EMPTY>
+<!ATTLIST readPhase
+  name        ID        #REQUIRED>
+
+<!ELEMENT writePhase	EMPTY>
+<!ATTLIST writePhase
+  name        ID        #REQUIRED>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE fdl SYSTEM "fdl.dtd">
+<fdl main="Solvable">
+    <plane name="graph" opt="1"/>
+
+    <elementType name="Solvable">
+     	<inPlane plane="graph"/>		    
+	
+        <elementType name="G_SolverProperties">
+     	    <inPlane plane="graph"/>		    
+
+            <propertyType name="Value" type="string" default=""><inPlane plane="graph"/></propertyType>
+     	</elementType>
+
+    </elementType>
+</fdl>

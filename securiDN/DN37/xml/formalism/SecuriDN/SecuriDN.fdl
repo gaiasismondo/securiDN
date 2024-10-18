@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE fdl SYSTEM "fdl.dtd">
+<fdl main="SecuriDN">
+	<include src="base/GraphBased.fdl"/>
+	<include src="base/Instantiable.fdl"/>
+  	<include src="SecuriDN/Arch/Arch.fdl"/>
+	<include src="SecuriDN/AG/AG.fdl"/>
+	<include src="SecuriDN/DBN/DBN.fdl"/>
+  	<plane name="model" opt="1" default="yes"/>
+	<plane name="graph" opt="1"/>
+  	<plane name="query" opt="1"/>
+  	<plane name="results" opt="+" default="yes"/>
+  	<plane name="parameters" opt="+"/>
+	
+  	<elementType name="SecuriDN" type="private">
+    		<parent ref="_root.GraphBased"/>
+    		<parent ref="_root.Instantiable"/>
+    		<inPlane plane="model"/>
+    
+    		<defaultInstance src="SecuriDN/SecuriDN.fdli"/>
+		
+		<!-- <propertyType name="G_iconRef" type="elementRef" default="_self.G_submodelShape">
+      			<inPlane plane="graph"/>
+    		</propertyType> -->
+
+		<elementType name="secDN" type="abstract">
+		</elementType>
+
+    		<elementType name="Arch">
+			<parent ref="_root.SecuriDN.secDN"/>
+      			<parent ref="_root.Arch"/>
+			<defaultInstance src="SecuriDN/Arch/Arch.fdli"/>
+      			<propertyType name="G_iconRef" type="elementRef" default="G_archShape">
+        			<inPlane plane="graph"/>
+      			</propertyType>	
+			<!-- <propertyType name="G_iconRef" type="elementRef" default="_self.G_submodelShape">
+        			<inPlane plane="graph"/>
+      			</propertyType> -->
+    		</elementType>
+
+		<elementType name="AG">
+			<parent ref="_root.SecuriDN.secDN"/>
+      			<parent ref="_root.AG"/>
+			<defaultInstance src="SecuriDN/AG/AG.fdli"/>
+      			<propertyType name="G_iconRef" type="elementRef" default="G_AGShape">
+        			<inPlane plane="graph"/>
+      			</propertyType>			
+    		</elementType>
+
+		<elementType name="DBN">
+			<parent ref="_root.SecuriDN.secDN"/>
+      			<parent ref="_root.DBN"/>
+			<defaultInstance src="SecuriDN/DBN/DBN.fdli"/>
+      			<propertyType name="G_iconRef" type="elementRef" default="G_DBNShape">
+        			<inPlane plane="graph"/>
+      			</propertyType>	
+			<!-- <propertyType name="title" type="string" default="">
+				<inPlane plane="model"/>
+			</propertyType> -->
+			<propertyType name="inf_type" type="string" default="filtering">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="inf_algorithm" type="string" default="BK">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="clusters" type="string" default="">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="fully_factorized" type="string" default="true">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="time_slices" type="integer" default="1">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="time_step" type="integer" default="1">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="query_all_nodes" type="string" default="false">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="use_default_CPT" type="string" default="false">
+				<inPlane plane="model"/>
+			</propertyType>
+			<propertyType name="dump_net_info" type="string" default="false">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="output_file" type="string" default="">
+				<inPlane plane="query"/>
+			</propertyType> 	 	
+    		</elementType>
+
+	</elementType>
+
+</fdl>

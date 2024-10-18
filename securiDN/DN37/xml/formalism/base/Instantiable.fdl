@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE fdl SYSTEM "fdl.dtd">
+<fdl>
+	<elementType name="Instantiable" type="abstract">
+	     
+	     <elementPointer name="use" pointerAttr="class" type="abstract">
+		  <elementType name="parameter">
+		      <propertyType name="name" type="string" />
+		      <propertyType name="val" type="any" />
+		  </elementType>
+	     </elementPointer> 
+
+	     <elementType name="interface" type="abstract">
+		    <propertyType name="add" type="elementRef" />
+		    <propertyType name="rename" type="string" />
+	     </elementType>
+	     
+	     <elementType name="parameter" type="abstract">
+		      <propertyType name="name" type="string" />
+		      <propertyType name="default" type="any" />
+
+	     	      <elementType name="assign">
+		    	   <propertyType name="obj" type="elementRef" />
+	     	           <propertyType name="property" type="string" />
+	     	      </elementType>
+	     </elementType>
+	</elementType>
+</fdl>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE fdl SYSTEM "fidx.dtd">
+<fidx>
+
+      <!-- <folder name="Securi-Draw-Net" closedIcon="images/closedMFolder.png" openIcon="images/openMFolder.png"> -->
+	<item name="SecuriDN" index="SecuriDN/SecuriDN.dfs" icon="images/Mdocument.png"/>
+	<item name="Architecture" index="SecuriDN/Arch/Arch.dfs" icon="images/Mdocument.png"/>
+	<item name="Attack Graph" index="SecuriDN/AG/AG.dfs" icon="images/Mdocument.png"/>
+	<item name="Dynamic Bayesian Network" index="SecuriDN/DBN/DBN.dfs" icon="images/Mdocument.png"/>
+      <!-- </folder> -->
+
+</fidx>

@@ -1,0 +1,27 @@
+<!ELEMENT solversDB ( solver* ) >
+
+<!ELEMENT solver ( formalism, type, class, description?, command* , commandPath* , commandLine* , parameter* ) >
+
+<!ELEMENT formalism ( #PCDATA ) >
+
+<!ELEMENT type ( #PCDATA ) >
+
+<!ELEMENT class ( #PCDATA ) >
+
+<!ELEMENT description ( #PCDATA ) >
+
+<!ELEMENT command ( #PCDATA ) >
+<!ATTLIST command
+          id CDATA #REQUIRED >
+
+<!ELEMENT commandPath ( #PCDATA ) >
+<!ATTLIST commandPath
+          id CDATA #REQUIRED >
+
+<!ELEMENT commandLine ( #PCDATA ) >
+<!ATTLIST commandLine
+          id CDATA #REQUIRED >
+
+<!ELEMENT parameter ( #PCDATA ) >
+<!ATTLIST parameter
+          id CDATA #REQUIRED >

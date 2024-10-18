@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE fdl SYSTEM '../../dtd/fdl.dtd'>
+<fdl main="DBN">
+	<include src="base/GraphBased.fdl" />
+	<include src="base/Instantiable.fdl" />
+
+
+	<plane name="model" opt="1" default="yes"/>
+	<plane name="graph" opt="1"/>
+	<plane name="query" opt="1"/>
+	<plane name="results" opt="+" default="yes"/>
+	<plane name="parameters" opt="+"/>
+
+
+	<elementType name="DBN" >
+		<inPlane plane="query"/>
+		<parent ref="_root.GraphBased" />
+		<parent ref="_root.Instantiable" />
+	
+		
+		<defaultInstance src="SecuriDN/DBN/DBN.fdli"/>
+	
+		<!-- <propertyType name="G_iconRef" type="elementRef" default="_self.G_submodelShape">
+			<inPlane plane="graph"/>
+		</propertyType>  -->
+
+			<!-- <propertyType name="title" type="string" default="">
+				<inPlane plane="model"/>
+			</propertyType> -->
+			<propertyType name="inf_type" type="string" default="filtering">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="inf_algorithm" type="string" default="BK">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="clusters" type="string" default="">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="fully_factorized" type="string" default="true">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="time_slices" type="integer" default="1">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="time_step" type="integer" default="1">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="query_all_nodes" type="string" default="false">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="use_default_CPT" type="string" default="false">
+				<inPlane plane="model"/>
+			</propertyType>
+			<propertyType name="dump_net_info" type="string" default="false">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="output_file" type="string" default="">
+				<inPlane plane="query"/>
+			</propertyType> 		
+
+		
+		<elementType name="DBNNode" type="abstract">
+		</elementType>	
+		<elementType name="DBNArc" type="abstract">
+		</elementType>	
+
+		<elementType name="Node" >
+			<parent ref="_root.GraphBased.Node"/>
+			<parent ref="_root.DBN.DBNNode"/>
+			<inPlane plane="model"/>
+			<!-- <propertyType name="type" type="integer" default="1">
+				<inPlane plane="model"/>
+			</propertyType> -->
+			<propertyType name="size" type="integer" default="2">
+				<inPlane plane="model"/>
+			</propertyType>
+			<propertyType name="CPT" type="string" default="">
+				<inPlane plane="model"/>
+			</propertyType>
+			<propertyType name="observed" type="string" default="false">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="obsValues" type="string" default="">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="query" type="string" default="false">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="parent" type="string" default="">
+				<inPlane plane="model"/>
+			</propertyType>
+			<!-- <propertyType name="slice" type="integer" default="0" >
+				<inplane plane="model"/>
+			</propertyType> -->
+			<propertyType name="G_iconRef" type="elementRef" default="G_Node">
+				<inPlane plane="graph"/>
+			</propertyType>
+		</elementType>
+	
+		<elementType name="NodeOR" >
+			<parent ref="_root.GraphBased.Node"/>
+			<parent ref="_root.DBN.DBNNode"/>
+			<inplane plane="model"/>
+			<!-- <propertyType name="type" type="integer" default="1">
+				<inPlane plane="model"/>
+			</propertyType> -->
+			<!-- <propertyType name="size" type="integer" default="2">
+				<inPlane plane="model"/>
+			</propertyType> -->
+			<!-- <propertyType name="CPT" type="string" default="">
+				<inPlane plane="model"/>
+			</propertyType> -->
+			<propertyType name="observed" type="string" default="false">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="obsValues" type="string" default="">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="query" type="string" default="false">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="parent" type="string" default="">
+				<inPlane plane="model"/>
+			</propertyType>
+			<!-- <propertyType name="slice" type="integer" default="0" >
+				<inplane plane="model"/>
+			</propertyType> -->
+
+			<propertyType name="G_iconRef" type="elementRef" default="G_NodeOR">
+				<inPlane plane="graph"/>
+			</propertyType>
+		</elementType>
+		
+		<!-- <elementType name="NodeXOR" >
+			<parent ref="_root.GraphBased.Node"/>
+			<parent ref="_root.DBN.DBNNode"/>
+			<inplane plane="model"/>
+			<propertyType name="observed" type="string" default="false">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="obsValues" type="string" default="">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="query" type="string" default="false">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="parent" type="string" default="">
+				<inPlane plane="model"/>
+			</propertyType>
+
+			<propertyType name="G_iconRef" type="elementRef" default="G_NodeXOR">
+				<inPlane plane="graph"/>
+			</propertyType>
+		</elementType> -->
+		
+		<elementType name="NodeAND" >
+			<parent ref="_root.GraphBased.Node"/>
+			<parent ref="_root.DBN.DBNNode"/>
+			<inplane plane="model"/>
+			
+			<!-- <propertyType name="type" type="integer" default="1">
+				<inPlane plane="model"/>
+			</propertyType> -->
+			<!-- <propertyType name="size" type="integer" default="2">
+				<inPlane plane="model"/>
+			</propertyType> -->
+			<!-- <propertyType name="CPT" type="string" default="">
+				<inPlane plane="model"/>
+			</propertyType> -->
+			<propertyType name="observed" type="string" default="false">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="obsValues" type="string" default="">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="query" type="string" default="false">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="parent" type="string" default="">
+				<inPlane plane="model"/>
+			</propertyType>
+			<!-- <propertyType name="slice" type="integer" default="0" >
+				<inplane plane="model"/>
+			</propertyType> -->
+
+			<propertyType name="G_iconRef" type="elementRef" default="G_NodeAND">
+				<inPlane plane="graph"/>
+			</propertyType>
+		</elementType>
+		
+		<!-- <elementType name="NodeNoisyOR" >
+			<parent ref="_root.GraphBased.Node"/>
+			<parent ref="_root.DBN.DBNNode"/>
+			<inplane plane="model"/>
+			<propertyType name="observed" type="string" default="false">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="obsValues" type="string" default="">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="query" type="string" default="false">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="parent" type="string" default="">
+				<inPlane plane="model"/>
+			</propertyType>
+
+			<propertyType name="G_iconRef" type="elementRef" default="G_NodeNoisyOR">
+				<inPlane plane="graph"/>
+			</propertyType>
+		</elementType> -->
+
+		<!-- <elementType name="NodeKN" >
+			<parent ref="_root.GraphBased.Node"/>
+			<parent ref="_root.DBN.DBNNode"/>
+			<inplane plane="model"/>
+			
+			<propertyType name="observed" type="string" default="false">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="obsValues" type="string" default="">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="query" type="string" default="false">
+				<inPlane plane="query"/>
+			</propertyType>
+			<propertyType name="parent" type="string" default="">
+				<inPlane plane="model"/>
+			</propertyType>
+			
+
+			<propertyType name="K" type="integer" default="0" >
+				<inplane plane="model"/>
+			</propertyType>
+
+			<propertyType name="G_iconRef" type="elementRef" default="G_NodeKN">
+				<inPlane plane="graph"/>
+			</propertyType>
+		</elementType> -->
+		
+		<elementType name="Arc" >
+			<parent ref="_root.GraphBased.Edge" />
+			<parent ref="_root.DBN.DBNArc" />
+			<inplane plane="model"/>
+			<propertyType name="G_iconRef" type="elementRef" default="G_arcShape">
+				<inPlane plane="graph"/>
+			</propertyType>
+		</elementType>
+
+		<elementType name="TemporalArc" >
+			<parent ref="_root.GraphBased.Edge" />
+			<parent ref="_root.DBN.DBNArc" />
+			<inplane plane="model"/>
+			<propertyType name="G_iconRef" type="elementRef" default="G_tarcShape">
+				<inPlane plane="graph"/>
+			</propertyType>
+			<modelConstraint>
+                                <constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.DBN.Node" />
+                                        <check op="isOfKind" ref="to" kind="_root.DBN.Node" />
+                                </constraint>
+                        </modelConstraint>
+		</elementType>
+
+		<!-- <elementTypeRef ref="_root.DBN"/> -->
+
+	</elementType>
+</fdl>

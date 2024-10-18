@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE fdl SYSTEM "fdl.dtd">
+<fdl main="GraphicElements">
+    <plane name="graph" opt="1"/>
+
+    <elementType name="GraphicElements">
+     	<inPlane plane="graph"/>
+     	
+        <elementType name="GraphicElement" type="abstract">
+     	    <inPlane plane="graph"/>
+	    <propertyType name="G_inLayer" type="elementRef"><inPlane plane="graph"/></propertyType>
+	    <propertyType name="G_order" type="integer"><inPlane plane="graph"/></propertyType>
+	    <propertyType name="G_labelSet" type="integer" default="0"><inPlane plane="graph"/></propertyType>
+
+	    <propertyType name="G_tx" type="float" default="0.0"><inPlane plane="graph"/></propertyType>
+	    <propertyType name="G_ty" type="float" default="0.0"><inPlane plane="graph"/></propertyType>
+	    <propertyType name="G_r" type="float" default="0.0"><inPlane plane="graph"/></propertyType>
+	    <propertyType name="G_sx" type="float" default="0.0"><inPlane plane="graph"/></propertyType>
+	    <propertyType name="G_sy" type="float" default="0.0"><inPlane plane="graph"/></propertyType>
+	    <propertyType name="G_px" type="float" default="0.0"><inPlane plane="graph"/></propertyType>
+	    <propertyType name="G_py" type="float" default="0.0"><inPlane plane="graph"/></propertyType>
+     	</elementType>
+
+	<elementType name="GEC_stroke" type="abstract">
+     	    <inPlane plane="graph"/>		    
+            <propertyType name="width" type="float" default="1.0"><inPlane plane="graph"/></propertyType>
+            <propertyType name="strokeColor" type="string" default="ffffff"><inPlane plane="graph"/></propertyType>		    
+            <propertyType name="strokeStyle" type="enumeration" default="solid">
+            	<inPlane plane="graph"/>
+            	<enumerationValue value="none"/>
+            	<enumerationValue value="solid"/>
+            	<enumerationValue value="dash"/>
+            	<enumerationValue value="dot"/>
+            	<enumerationValue value="dashDot"/>
+            	<enumerationValue value="dashDotDot"/>
+            	<enumerationValue value="smallDot"/>
+            </propertyType>		    
+	</elementType>
+	<elementType name="GEC_caps" type="abstract">
+     	    <inPlane plane="graph"/>		    
+            <propertyType name="endCap" type="enumeration" default="none">
+            	<inPlane plane="graph"/>
+            	<enumerationValue value="none"/>
+            	<enumerationValue value="blackTri"/>
+            	<enumerationValue value="whiteTri"/>
+            	<enumerationValue value="arrow"/>
+            	<enumerationValue value="doubleArrow"/>
+            	<enumerationValue value="blackCircle"/>
+            	<enumerationValue value="whiteCircle"/>
+            	<enumerationValue value="blackSquare"/>
+            	<enumerationValue value="whiteSquare"/>
+            	<enumerationValue value="blackTriRev"/>
+            	<enumerationValue value="whiteTriRev"/>
+            	<enumerationValue value="blackTriWing"/>
+            	<enumerationValue value="whiteTriWing"/>
+            	<enumerationValue value="blackDiamond"/>
+            	<enumerationValue value="whiteDiamond"/>
+            	<enumerationValue value="arrowRev"/>
+            	<enumerationValue value="doubleArrowRev"/>
+            	<enumerationValue value="arrowLine"/>
+            	<enumerationValue value="line"/>
+            </propertyType>		    
+            <propertyType name="endCapScale" type="float" default="100.0"><inPlane plane="graph"/></propertyType>
+            <propertyType name="startCap" type="enumeration" default="none">
+            	<inPlane plane="graph"/>
+            	<enumerationValue value="none"/>
+            	<enumerationValue value="blackTri"/>
+            	<enumerationValue value="whiteTri"/>
+            	<enumerationValue value="arrow"/>
+            	<enumerationValue value="doubleArrow"/>
+            	<enumerationValue value="blackCircle"/>
+            	<enumerationValue value="whiteCircle"/>
+            	<enumerationValue value="blackSquare"/>
+            	<enumerationValue value="whiteSquare"/>
+            	<enumerationValue value="blackTriRev"/>
+            	<enumerationValue value="whiteTriRev"/>
+            	<enumerationValue value="blackTriWing"/>
+            	<enumerationValue value="whiteTriWing"/>
+            	<enumerationValue value="blackDiamond"/>
+            	<enumerationValue value="whiteDiamond"/>
+            	<enumerationValue value="arrowRev"/>
+            	<enumerationValue value="doubleArrowRev"/>
+            	<enumerationValue value="arrowLine"/>
+            	<enumerationValue value="line"/>
+            </propertyType>		    
+            <propertyType name="startCapScale" type="float" default="100.0"><inPlane plane="graph"/></propertyType>
+	</elementType>
+	<elementType name="GEC_cutCaps" type="abstract">
+     	    <inPlane plane="graph"/>		    
+            <propertyType name="endPart1Cap" type="enumeration" default="none">
+            	<inPlane plane="graph"/>
+            	<enumerationValue value="none"/>
+            	<enumerationValue value="blackTri"/>
+            	<enumerationValue value="whiteTri"/>
+            	<enumerationValue value="arrow"/>
+            	<enumerationValue value="doubleArrow"/>
+            	<enumerationValue value="blackCircle"/>
+            	<enumerationValue value="whiteCircle"/>
+            	<enumerationValue value="blackSquare"/>
+            	<enumerationValue value="whiteSquare"/>
+            	<enumerationValue value="blackTriRev"/>
+            	<enumerationValue value="whiteTriRev"/>
+            	<enumerationValue value="blackTriWing"/>
+            	<enumerationValue value="whiteTriWing"/>
+            	<enumerationValue value="blackDiamond"/>
+            	<enumerationValue value="whiteDiamond"/>
+            	<enumerationValue value="arrowRev"/>
+            	<enumerationValue value="doubleArrowRev"/>
+            	<enumerationValue value="arrowLine"/>
+            	<enumerationValue value="line"/>
+            </propertyType>		    
+            <propertyType name="endPart1CapScale" type="float" default="100.0"><inPlane plane="graph"/></propertyType>
+            <propertyType name="startPart2Cap" type="enumeration" default="none">
+            	<inPlane plane="graph"/>
+            	<enumerationValue value="none"/>
+            	<enumerationValue value="blackTri"/>
+            	<enumerationValue value="whiteTri"/>
+            	<enumerationValue value="arrow"/>
+            	<enumerationValue value="doubleArrow"/>
+            	<enumerationValue value="blackCircle"/>
+            	<enumerationValue value="whiteCircle"/>
+            	<enumerationValue value="blackSquare"/>
+            	<enumerationValue value="whiteSquare"/>
+            	<enumerationValue value="blackTriRev"/>
+            	<enumerationValue value="whiteTriRev"/>
+            	<enumerationValue value="blackTriWing"/>
+            	<enumerationValue value="whiteTriWing"/>
+            	<enumerationValue value="blackDiamond"/>
+            	<enumerationValue value="whiteDiamond"/>
+            	<enumerationValue value="arrowRev"/>
+            	<enumerationValue value="doubleArrowRev"/>
+            	<enumerationValue value="arrowLine"/>
+            	<enumerationValue value="line"/>
+            </propertyType>		    
+            <propertyType name="startPart2CapScale" type="float" default="100.0"><inPlane plane="graph"/></propertyType>
+	</elementType>
+	<elementType name="GEC_fill" type="abstract">
+     	    <inPlane plane="graph"/>		    
+            <propertyType name="fillColor" type="string" default="ffffff"><inPlane plane="graph"/></propertyType>		    
+            <propertyType name="fillStyle" type="enumeration" default="solid">
+            	<inPlane plane="graph"/>
+            	<enumerationValue value="none"/>
+            	<enumerationValue value="solid"/>
+            </propertyType>		    
+	</elementType>
+	
+	<elementType name="GE_image">
+     	    <inPlane plane="graph"/>		    
+     	    <parent ref="GraphicElement"/>		    
+	    <propertyType name="src" type="string"><inPlane plane="graph"/></propertyType>
+	</elementType>
+	<elementType name="GE_line">
+     	    <inPlane plane="graph"/>
+     	    <parent ref="GraphicElement"/>		    
+     	    <parent ref="GEC_stroke"/>		    
+     	    <parent ref="GEC_caps"/>		    
+	</elementType>
+	<elementType name="GE_rect">
+     	    <inPlane plane="graph"/>
+     	    <parent ref="GraphicElement"/>		    
+     	    <parent ref="GEC_stroke"/>		    
+     	    <parent ref="GEC_fill"/>		    
+	</elementType>
+	<elementType name="GE_roundRect">
+     	    <inPlane plane="graph"/>
+     	    <parent ref="GE_rect"/>		    
+            <propertyType name="rx" type="float" default="4.0"><inPlane plane="graph"/></propertyType>
+            <propertyType name="ry" type="float" default="4.0"><inPlane plane="graph"/></propertyType>
+	</elementType>
+	<elementType name="GE_ellipse">
+     	    <inPlane plane="graph"/>
+     	    <parent ref="GraphicElement"/>		    
+     	    <parent ref="GEC_stroke"/>		    
+     	    <parent ref="GEC_fill"/>		    
+	</elementType>
+	<elementType name="GE_splineAttr" type="abstract">
+     	    <inPlane plane="graph"/>
+     	    <parent ref="GraphicElement"/>		    
+     	    <parent ref="GEC_stroke"/>		    
+     	    <parent ref="GEC_caps"/>		    
+	</elementType>
+	<elementType name="GE_spline">
+     	    <inPlane plane="graph"/>
+     	    <parent ref="GE_splineAttr"/>		    
+            <propertyType name="segments" type="fixedArray" level="model">
+            	<inPlane plane="graph"/>
+		<propertyType name="v" type="struct" level="model">
+		     <propertyType name="x1" type="float" default="0.0"/>
+		     <propertyType name="y1" type="float" default="0.0"/>
+		     <propertyType name="ctrlx1" type="float" default="0.0"/>
+		     <propertyType name="ctrly1" type="float" default="0.0"/>
+		     <propertyType name="ctrlx2" type="float" default="0.0"/>
+		     <propertyType name="ctrly2" type="float" default="0.0"/>
+		     <propertyType name="x2" type="float" default="0.0"/>
+		     <propertyType name="y2" type="float" default="0.0"/>
+		</propertyType>
+            </propertyType>
+	</elementType>
+	<elementType name="GE_edgeSpline">
+     	    <inPlane plane="graph"/>
+     	    <parent ref="GE_splineAttr"/>		    
+     	    <parent ref="GEC_cutCaps"/>		    
+	</elementType>
+	<elementType name="GE_text">
+     	    <inPlane plane="graph"/>		    
+     	    <parent ref="GraphicElement"/>		    
+	    <propertyType name="txt" type="string"><inPlane plane="graph"/></propertyType>
+            <propertyType name="textType" type="enumeration" default="static">
+            	<inPlane plane="graph"/>
+            	<enumerationValue value="static"/>
+            	<enumerationValue value="dynamic"/>
+            </propertyType>
+            <propertyType name="fontFace" type="enumeration" default="SansSerif">
+            	<inPlane plane="graph"/>
+            	<enumerationValue value="Monospaced"/>
+            	<enumerationValue value="Serif"/>
+            	<enumerationValue value="SansSerif"/>
+            	<enumerationValue value="Symbol"/>
+            </propertyType>
+            <propertyType name="outlineType" type="enumeration" default="fill">
+            	<inPlane plane="graph"/>
+            	<enumerationValue value="none"/>
+            	<enumerationValue value="fill"/>
+            	<enumerationValue value="outline"/>
+            	<enumerationValue value="both"/>
+            </propertyType>
+            <propertyType name="fontSize" type="integer" default="12"><inPlane plane="graph"/></propertyType>
+            <propertyType name="fillColor" type="string" default="000000"><inPlane plane="graph"/></propertyType>		    
+            <propertyType name="outlineColor" type="string" default="ffffff"><inPlane plane="graph"/></propertyType>		    
+            <propertyType name="fontStyle" type="enumeration" default="plain">
+            	<inPlane plane="graph"/>
+            	<enumerationValue value="plain"/>
+            	<enumerationValue value="bold"/>
+            	<enumerationValue value="italic"/>
+            	<enumerationValue value="boldItalic"/>
+            </propertyType>
+            <propertyType name="rot" type="float" default="0.0"><inPlane plane="graph"/></propertyType>
+	</elementType>
+	<elementType name="GE_Node" type="abstract">
+     	    <inPlane plane="graph"/>		    
+     	    <parent ref="GraphicElement"/>
+	    
+	    <propertyType name="G_iconRef" type="elementRef"><inPlane plane="graph"/></propertyType>
+	    <propertyType name="G_labels"  type="fixedArray" level="model">
+	    	<inPlane plane="graph"/>
+			<propertyType name="v" type="struct" level="model">
+			     <propertyType name="sx" type="float" default="0.0"/>
+			     <propertyType name="sy" type="float" default="0.0"/>
+			     <propertyType name="x" type="float" default="0.0"/>
+			     <propertyType name="y" type="float" default="0.0"/>
+			</propertyType>
+	    </propertyType>
+
+	    <propertyType name="G_toConnections" type="fixedArray" level="model">
+	        <inPlane plane="graph"/>
+			<propertyType name="v" type="elementRef"/>
+	    </propertyType>
+	    <propertyType name="G_fromConnections" type="fixedArray" level="model">
+	        <inPlane plane="graph"/>
+			<propertyType name="v" type="elementRef"/>
+	    </propertyType>
+	</elementType>
+	<elementType name="GE_Edge" type="abstract">
+     	    <inPlane plane="graph"/>
+     	    <parent ref="GE_Node"/>
+            <propertyType name="G_segmentsP1" type="fixedArray" level="model">
+            	<inPlane plane="graph"/>
+		<propertyType name="v" type="struct" level="model">
+		     <propertyType name="x1" type="float" default="0.0"/>
+		     <propertyType name="y1" type="float" default="0.0"/>
+		     <propertyType name="ctrlx1" type="float" default="0.0"/>
+		     <propertyType name="ctrly1" type="float" default="0.0"/>
+		     <propertyType name="ctrlx2" type="float" default="0.0"/>
+		     <propertyType name="ctrly2" type="float" default="0.0"/>
+		     <propertyType name="x2" type="float" default="0.0"/>
+		     <propertyType name="y2" type="float" default="0.0"/>
+		</propertyType>
+            </propertyType>
+            <propertyType name="G_segmentsP2" type="fixedArray" level="model">
+            	<inPlane plane="graph"/>
+		<propertyType name="v" type="struct" level="model">
+		     <propertyType name="x1" type="float" default="0.0"/>
+		     <propertyType name="y1" type="float" default="0.0"/>
+		     <propertyType name="ctrlx1" type="float" default="0.0"/>
+		     <propertyType name="ctrly1" type="float" default="0.0"/>
+		     <propertyType name="ctrlx2" type="float" default="0.0"/>
+		     <propertyType name="ctrly2" type="float" default="0.0"/>
+		     <propertyType name="x2" type="float" default="0.0"/>
+		     <propertyType name="y2" type="float" default="0.0"/>
+		</propertyType>
+            </propertyType>
+	</elementType>
+
+	<elementType name="GE_null">	<!-- To support arc connecting primitives -->
+     	    <inPlane plane="graph"/>
+     	    <parent ref="GE_Node"/>
+	</elementType>
+    </elementType>
+    
+    <elementType name="G_iconDef">
+        <inPlane plane="graph"/>
+        <parent ref="GraphicElements"/>
+
+        <propertyType name="BBox_type" type="enumeration" default="box">
+            <inPlane plane="graph"/>
+            <enumerationValue value="box"/>
+            <enumerationValue value="oval"/>
+        </propertyType>
+		<propertyType name="BBox_x" type="float" default="-10.0"/>
+		<propertyType name="BBox_y" type="float" default="-10.0"/>
+		<propertyType name="BBox_w" type="float" default="20.0"/>
+		<propertyType name="BBox_h" type="float" default="20.0"/>
+		<propertyType name="N_labelSets" type="integer" default="0"/>
+    </elementType>
+
+
+</fdl>

@@ -1,0 +1,13 @@
+<!ELEMENT fidx     (folder|item)*>
+
+<!ELEMENT folder   (folder|item)*>
+<!ATTLIST folder
+  openIcon    CDATA     "images/openFolder.png"
+  closedIcon  CDATA     "images/closedFolder.png"
+  name        CDATA     #REQUIRED>
+
+<!ELEMENT item        EMPTY>
+<!ATTLIST item
+  name         CDATA     #REQUIRED
+  icon         CDATA     "images/document.png"
+  index        CDATA     #REQUIRED>

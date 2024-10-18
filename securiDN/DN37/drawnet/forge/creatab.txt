@@ -1,0 +1,132 @@
+package ForGe;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+
+import DDL.ElementType;
+import DDL.Formalism;
+//import per fare l'alberello
+import javax.swing.JTree;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeSelectionModel;
+import javax.swing.tree.TreeCellRenderer;
+
+
+import java.io.File;
+import java.util.*;
+import java.util.List;
+
+
+import javax.swing.JTabbedPane;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JFrame;
+import javax.swing.JComponent;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
+
+
+import javax.swing.plaf.basic.BasicButtonUI;
+
+	public class creatab
+	{
+	private JPanel content = new JPanel();
+	private ImageIcon closeXIcon;
+	private Dimension closeButtonSize;
+	private int contenutospeciale=0;
+	private Formalism f;
+	private JPanel panello;
+        //  Create a panel that represents the tab and ensure that it
+        //  is transparent.
+   
+		//araylist per capire quale piano visualizzare sull'albero.
+		private String percorsoGrezzo;
+		private JPanel panel2;		
+				
+		public creatab(JTabbedPane ta,int tabCounter, Contenitore conte, JPanel Pannello)
+		{
+		final Contenitore contenitore = conte;
+		panel2 = Pannello;
+		contenutospeciale++;
+		 closeXIcon = new ImageIcon("close.JPG");
+        //  Create a Dimension that can be used to size the close
+        //  buttons.
+        closeButtonSize = new Dimension(
+                closeXIcon.getIconWidth()+1,
+                closeXIcon.getIconHeight());
+		
+		
+		final JTabbedPane tabbedPaneFormalism = ta;
+        JPanel tab = new JPanel();
+        tab.setOpaque(false);
+        
+        //  Create a label and a Close button for the tab. Be sure to
+        //  set its preferred size to nearly the size of the icon, and
+        //  create an action listener that will locate the tab and 
+        //  remote it from the tabbed pane.
+        
+        JLabel tabLabel = new JLabel(conte.getFormalismo().getMainId() );
+       
+		final JScrollPane scrollpane= new JScrollPane(conte.getjTree());
+		
+        JButton tabCloseButton = new JButton(closeXIcon);
+        tabCloseButton.setPreferredSize(closeButtonSize);
+        tabCloseButton.addActionListener(new ActionListener() {
+            
+            public void actionPerformed(ActionEvent e) {
+			
+			try {
+				System.out.println("devo chiudereeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+                int closeTabNumber = tabbedPaneFormalism.indexOfComponent(scrollpane);
+				System.out.println("il numero del pannello è il seguente"+closeTabNumber);
+				//primo caso, formalismo saltavo e non modificato... cioè aperto in lettura.
+				if ((contenitore.getSalvato()==true) && (contenitore.getModificato()==false))
+				{
+				tabbedPaneFormalism.removeTabAt(closeTabNumber);
+				System.out.println("chiamo il metodo per la chiusura");
+				NuovaGrafica.rimuovielemento(closeTabNumber);
+				}
+				//qui bisogna gestire bene come e cosa eliminare
+				//va innnanzi tutto eliminato l'elemento nel contenitore dei formalismi
+				}
+			catch (ArrayIndexOutOfBoundsException ex)
+			{
+			System.out.println("chiamo il metodo per la chiura dalla catch");
+			NuovaGrafica.rimuovielemento(0);
+			}	
+            }
+            
+        });
+        
+       tab.add(tabLabel, BorderLayout.WEST);
+       tab.add(tabCloseButton, BorderLayout.EAST);
+	   
+	   //conte.setModel(treeModel);
+	   
+	
+        tabbedPaneFormalism.addTab("Formalism", null, scrollpane,
+                "Show the tree of the Formalism");
+        
+        //  Instead of using a String/Icon combination for the tab,
+        //  use our panel instead.
+        
+        tabbedPaneFormalism.setTabComponentAt(tabbedPaneFormalism.getTabCount()-1, tab);
+    ////tabbedPaneFormalism.getSelectedComponent().requestFocusInWindow();
+
+		}
+		
+		
+		
+		
+		
+	
+		
+}

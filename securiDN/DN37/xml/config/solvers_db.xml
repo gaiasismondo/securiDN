@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE solversDB SYSTEM "solvers_db.dtd" >
+<solversDB>
+	<solver>
+		<formalism>SecuriDN</formalism>
+		<type>filter</type>
+		<class>SolverFilterSecuriDN</class>
+	</solver>
+	<solver>
+		<formalism>SecuriDN</formalism>
+		<type>filter</type>
+		<class>SolverFilterAGimport</class>
+	</solver>
+	<solver>
+		<formalism>SecuriDN</formalism>
+		<type>filter</type>
+		<class>SolverFilterAGexport</class>
+	</solver>
+	<solver>
+		<formalism>SecuriDN</formalism>
+		<type>filter</type>
+		<class>SolverFilterDBN2</class>
+	</solver>
+	<solver>
+		<formalism>SecuriDN</formalism>
+		<type>filter</type>
+		<class>SolverFilterAG</class>
+	</solver>
+	<solver>
+		<formalism>DBN</formalism>
+		<type>filter</type>
+		<class>SolverFilterDBN</class>
+	</solver>
+</solversDB>

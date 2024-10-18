@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Arch id="RootArch">
+
+	<!--<G_iconDef id="G_submodelShape">
+    		<GE_image id="Image1"
+      		src="xml/formalism/icons/ApplicationServer.png"
+      		G_r="0.0"
+      		G_ty="-10.0"
+      		G_tx="-10.0"
+      		G_order="0"
+      		G_sy="20.0"
+      		G_py="0.0"
+      		G_sx="20.0"
+      		G_px="0.0"/>
+  	</G_iconDef> -->
+
+	<G_iconDef id="G_executionEnvironmentShape" BBox_type="box" BBox_x="-25.0"
+                BBox_y="-25.0" BBox_w="50.0" BBox_h="50.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/executionEnvironment.png"
+      		G_r="0.0"
+      		G_ty="-25.0"
+      		G_tx="-25.0"
+      		G_order="0"
+      		G_sy="50.0"
+      		G_py="0.0"
+      		G_sx="50.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="20.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef> 
+
+	<G_iconDef id="G_computerShape" BBox_type="box" BBox_x="-21.25"
+                BBox_y="-24.0" BBox_w="42.5" BBox_h="48.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/ApplicationServer.png"
+      		G_r="0.0"
+      		G_ty="-24.0"
+      		G_tx="-21.25"
+      		G_order="0"
+      		G_sy="48.0"
+      		G_py="0.0"
+      		G_sx="42.5"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="20.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef> 
+
+	<G_iconDef id="G_applicationShape" BBox_type="box" BBox_x="-25.0"
+                BBox_y="-25.0" BBox_w="50.0" BBox_h="50.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/application.png"
+      		G_r="0.0"
+      		G_ty="-25.0"
+      		G_tx="-25.0"
+      		G_order="0"
+      		G_sy="50.0"
+      		G_py="0.0"
+      		G_sx="50.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="20.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef> 
+
+	<!-- <G_iconDef id="G_firewallShape" BBox_type="box" BBox_x="-25.0"
+                BBox_y="-25.0" BBox_w="50.0" BBox_h="50.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/firewall.png"
+      		G_r="0.0"
+      		G_ty="-25.0"
+      		G_tx="-25.0"
+      		G_order="0"
+      		G_sy="50.0"
+      		G_py="0.0"
+      		G_sx="50.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="20.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef>  -->
+
+	<!-- <G_iconDef id="G_webServerShape" BBox_type="box" BBox_x="-25.0"
+                BBox_y="-25.0" BBox_w="50.0" BBox_h="50.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/web.png"
+      		G_r="0.0"
+      		G_ty="-25.0"
+      		G_tx="-25.0"
+      		G_order="0"
+      		G_sy="50.0"
+      		G_py="0.0"
+      		G_sx="50.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="20.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef>  -->
+
+	<!-- <G_iconDef id="G_SMTPServerShape" BBox_type="box" BBox_x="-25.0"
+                BBox_y="-25.0" BBox_w="50.0" BBox_h="50.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/smtp.png"
+      		G_r="0.0"
+      		G_ty="-25.0"
+      		G_tx="-25.0"
+      		G_order="0"
+      		G_sy="50.0"
+      		G_py="0.0"
+      		G_sx="50.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="20.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef>  -->
+
+	<!-- <G_iconDef id="G_SMTPClientShape" BBox_type="box" BBox_x="-25.0"
+                BBox_y="-25.0" BBox_w="50.0" BBox_h="50.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/smtpClient.png"
+      		G_r="0.0"
+      		G_ty="-25.0"
+      		G_tx="-25.0"
+      		G_order="0"
+      		G_sy="50.0"
+      		G_py="0.0"
+      		G_sx="50.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="20.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef>  -->
+
+	<G_iconDef id="G_networkShape" BBox_type="box" BBox_x="-25.0"
+                BBox_y="-25.0" BBox_w="50.0" BBox_h="50.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/cloud.png"
+      		G_r="0.0"
+      		G_ty="-25.0"
+      		G_tx="-25.0"
+      		G_order="0"
+      		G_sy="50.0"
+      		G_py="0.0"
+      		G_sx="50.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="20.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef> 
+
+	<!-- <G_iconDef id="G_substationShape" BBox_type="box" BBox_x="-10.0"
+                BBox_y="-10.0" BBox_w="20.0" BBox_h="20.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/icons/Const.png"
+      		G_r="0.0"
+      		G_ty="-10.0"
+      		G_tx="-10.0"
+      		G_order="0"
+      		G_sy="20.0"
+      		G_py="0.0"
+      		G_sx="20.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="0.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef> -->
+
+	<!-- <G_iconDef id="G_controlCenterShape" BBox_type="box" BBox_x="-48.0"
+                BBox_y="-48.0" BBox_w="96.0" BBox_h="96.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/user.png"
+      		G_r="0.0"
+      		G_ty="-48.0"
+      		G_tx="-48.0"
+      		G_order="0"
+      		G_sy="96.0"
+      		G_py="0.0"
+      		G_sx="96.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="50.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef>  -->
+
+	<!-- <G_iconDef id="G_powerSystemShape" BBox_type="box" BBox_x="-22.5"
+                BBox_y="-20.0" BBox_w="45.0" BBox_h="40.0">
+    		<GE_image id="Image1"
+      		src="icons/ARPHA/failure.png"
+      		G_r="0.0"
+      		G_ty="-20.0"
+      		G_tx="-22.5"
+      		G_order="0"
+      		G_sy="40.0"
+      		G_py="0.0"
+      		G_sx="45.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="0.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef>  -->
+
+	<G_iconDef id="G_IEDShape" BBox_type="box" BBox_x="-25.0"
+                BBox_y="-25.0" BBox_w="50.0" BBox_h="50.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/IED.png"
+      		G_r="0.0"
+      		G_ty="-25.0"
+      		G_tx="-25.0"
+      		G_order="0"
+      		G_sy="50.0"
+      		G_py="0.0"
+      		G_sx="50.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="20.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef> 
+
+	<G_iconDef id="G_functionalShape" BBox_type="box" BBox_x="-25.0"
+                BBox_y="-25.0" BBox_w="50.0" BBox_h="50.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/functional.png"
+      		G_r="0.0"
+      		G_ty="-25.0"
+      		G_tx="-25.5"
+      		G_order="0"
+      		G_sy="50.0"
+      		G_py="0.0"
+      		G_sx="50.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="20.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef> 
+
+	<!-- <G_iconDef id="G_MMSClientShape" BBox_type="box" BBox_x="-25.0"
+                BBox_y="-25.0" BBox_w="50.0" BBox_h="50.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/mmsClient.png"
+      		G_r="0.0"
+      		G_ty="-25.0"
+      		G_tx="-25.0"
+      		G_order="0"
+      		G_sy="50.0"
+      		G_py="0.0"
+      		G_sx="50.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="20.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef> -->
+
+	<!-- <G_iconDef id="G_MMSServerShape" BBox_type="box" BBox_x="-25.0"
+                BBox_y="-25.0" BBox_w="50.0" BBox_h="50.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/mmsServer.png"
+      		G_r="0.0"
+      		G_ty="-25.0"
+      		G_tx="-25.0"
+      		G_order="0"
+      		G_sy="50.0"
+      		G_py="0.0"
+      		G_sx="50.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="20.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef>  -->
+
+	<G_iconDef id="G_channelShape" BBox_type="box" BBox_x="-25.0"
+                BBox_y="-25.0" BBox_w="50.0" BBox_h="50.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/channel.png"
+      		G_r="0.0"
+      		G_ty="-25.0"
+      		G_tx="-25.0"
+      		G_order="0"
+      		G_sy="50.0"
+      		G_py="0.0"
+      		G_sx="50.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="20.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef> 
+
+	<!-- <G_iconDef id="G_dataFlowShape" BBox_type="box" BBox_x="-48.0"
+                BBox_y="-44.5" BBox_w="96.0" BBox_h="87.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/user3.png"
+      		G_r="0.0"
+      		G_ty="-44.5"
+      		G_tx="-48.0"
+      		G_order="0"
+      		G_sy="87.0"
+      		G_py="0.0"
+      		G_sx="96.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="30.0" G_tx="45.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef>  -->
+
+	<G_iconDef id="G_assetShape" BBox_type="box" BBox_x="-25.0"
+                BBox_y="-25.0" BBox_w="50.0" BBox_h="50.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/asset.png"
+      		G_r="0.0"
+      		G_ty="-25.0"
+      		G_tx="-25.0"
+      		G_order="0"
+      		G_sy="50.0"
+      		G_py="0.0"
+      		G_sx="50.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="20.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+  	</G_iconDef> 
+
+	<G_iconDef id="G_attackerShape" BBox_type="box" BBox_x="-25.0"
+                BBox_y="-25.0" BBox_w="50.0" BBox_h="50.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/attacker.png"
+      		G_r="0.0"
+      		G_ty="-25.0"
+      		G_tx="-25.0"
+      		G_order="0"
+      		G_sy="50.0"
+      		G_py="0.0"
+      		G_sx="50.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="20.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+		<GE_text id="Text2"
+              		G_ty="40.0" G_tx="20" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24step" G_order="2" G_labelSet="0" /> 
+  	</G_iconDef> 
+
+	<G_iconDef id="G_goalShape" BBox_type="box" BBox_x="-25.0"
+                BBox_y="-25.0" BBox_w="50.0" BBox_h="50.0">
+    		<GE_image id="Image1"
+      		src="xml/formalism/shapes/goal.png"
+      		G_r="0.0"
+      		G_ty="-25.0"
+      		G_tx="-25.0"
+      		G_order="0"
+      		G_sy="50.0"
+      		G_py="0.0"
+      		G_sx="50.0"
+      		G_px="0.0"/>
+		<GE_text id="Text1"
+              		G_ty="20.0" G_tx="10.0" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24%25ID" G_order="1" G_labelSet="1" />
+		<GE_text id="Text2"
+              		G_ty="40.0" G_tx="20" fontSize="18" textType="dynamic" fontStyle="plain"
+              		G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+              		G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+              		txt="%24step" G_order="2" G_labelSet="0" /> 
+  	</G_iconDef> 
+
+	<G_iconDef id="G_attackArcShape">
+		<GE_edgeSpline id="Spline0"
+		width="3.0"
+                strokeColor="000000"
+                endCap="whiteCircle"
+                endCapScale="100.0"
+                startCap="none"
+                startCapScale="100.0"
+                endPart1Cap="none"
+                endPart1CapScale="100.0"
+                startPart2Cap="none"
+                startPart2CapScale="100.0"
+                strokeStyle="solid"
+                G_order="0"/>
+		<GE_text id="Text1"
+                        G_ty="-10.0" G_tx="16.0" fontSize="12" textType="dynamic" fontStyle="plain"
+                        G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+                        G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+                        txt="%24%25ID" G_order="1" G_labelSet="1" />
+	</G_iconDef>
+
+	<G_iconDef id="G_arcShape">
+		<GE_edgeSpline id="Spline0"
+		width="3.0"
+                strokeColor="000000"
+                endCap="none"
+                endCapScale="100.0"
+                startCap="none"
+                startCapScale="100.0"
+                endPart1Cap="none"
+                endPart1CapScale="100.0"
+                startPart2Cap="none"
+                startPart2CapScale="100.0"
+                strokeStyle="solid"
+                G_order="0"/>
+		<GE_text id="Text1"
+                        G_ty="-10.0" G_tx="16.0" fontSize="12" textType="dynamic" fontStyle="plain"
+                        G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+                        G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+                        txt="%24%25ID" G_order="1" G_labelSet="1" />
+	</G_iconDef>
+
+	<G_iconDef id="G_executeShape">
+		<GE_edgeSpline id="Spline0"
+		width="3.0"
+                strokeColor="33FF33"
+                endCap="none"
+                endCapScale="100.0"
+                startCap="none"
+                startCapScale="100.0"
+                endPart1Cap="none"
+                endPart1CapScale="100.0"
+                startPart2Cap="none"
+                startPart2CapScale="100.0"
+                strokeStyle="solid"
+                G_order="0"/>
+		<GE_text id="Text1"
+                        G_ty="-10.0" G_tx="16.0" fontSize="12" textType="dynamic" fontStyle="plain"
+                        G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+                        G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+                        txt="%24%25ID" G_order="1" G_labelSet="1" />
+	</G_iconDef>
+
+	<G_iconDef id="G_connectShape">
+		<GE_edgeSpline id="Spline0"
+		width="3.0"
+                strokeColor="FF0000"
+                endCap="none"
+                endCapScale="100.0"
+                startCap="none"
+                startCapScale="100.0"
+                endPart1Cap="none"
+                endPart1CapScale="100.0"
+                startPart2Cap="none"
+                startPart2CapScale="100.0"
+                strokeStyle="solid"
+                G_order="0"/>
+		<GE_text id="Text1"
+                        G_ty="-10.0" G_tx="16.0" fontSize="12" textType="dynamic" fontStyle="plain"
+                        G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+                        G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+                        txt="%24%25ID" G_order="1" G_labelSet="1" />
+	</G_iconDef>
+
+	<G_iconDef id="G_inShape">
+		<GE_edgeSpline id="Spline0"
+		width="3.0"
+                strokeColor="0000FF"
+                endCap="none"
+                endCapScale="100.0"
+                startCap="none"
+                startCapScale="100.0"
+                endPart1Cap="none"
+                endPart1CapScale="100.0"
+                startPart2Cap="none"
+                startPart2CapScale="100.0"
+                strokeStyle="solid"
+                G_order="0"/>
+		<GE_text id="Text1"
+                        G_ty="-10.0" G_tx="16.0" fontSize="12" textType="dynamic" fontStyle="plain"
+                        G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+                        G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+                        txt="%24%25ID" G_order="1" G_labelSet="1" />
+	</G_iconDef>
+
+	<!-- <G_iconDef id="G_crossShape">
+		<GE_edgeSpline id="Spline0"
+		width="5.0"
+                strokeColor="000000"
+                endCap="blackTri"
+                endCapScale="100.0"
+                startCap="none"
+                startCapScale="100.0"
+                endPart1Cap="none"
+                endPart1CapScale="100.0"
+                startPart2Cap="none"
+                startPart2CapScale="100.0"
+                strokeStyle="solid"
+                G_order="0"/>
+		<GE_text id="Text1"
+                        G_ty="-10.0" G_tx="16.0" fontSize="12" textType="dynamic" fontStyle="plain"
+                        G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+                        G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+                        txt="%24%25ID" G_order="1" G_labelSet="1" />
+	</G_iconDef> -->
+
+	<!-- <G_iconDef id="G_containShape">
+		<GE_edgeSpline id="Spline0"
+		width="5.0"
+                strokeColor="00FF00"
+                endCap="blackTri"
+                endCapScale="100.0"
+                startCap="none"
+                startCapScale="100.0"
+                endPart1Cap="none"
+                endPart1CapScale="100.0"
+                startPart2Cap="none"
+                startPart2CapScale="100.0"
+                strokeStyle="solid"
+                G_order="0"/>
+		<GE_text id="Text1"
+                        G_ty="-10.0" G_tx="16.0" fontSize="12" textType="dynamic" fontStyle="plain"
+                        G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+                        G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+                        txt="%24%25ID" G_order="1" G_labelSet="1" />
+	</G_iconDef> -->
+
+	<G_iconDef id="G_clientShape">
+		<GE_edgeSpline id="Spline0"
+		width="3.0"
+                strokeColor="FFC300"
+                endCap="none"
+                endCapScale="100.0"
+                startCap="none"
+                startCapScale="100.0"
+                endPart1Cap="none"
+                endPart1CapScale="100.0"
+                startPart2Cap="none"
+                startPart2CapScale="100.0"
+                strokeStyle="solid"
+                G_order="0"/>
+		<GE_text id="Text1"
+                        G_ty="-10.0" G_tx="16.0" fontSize="12" textType="dynamic" fontStyle="plain"
+                        G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+                        G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+                        txt="%24%25ID" G_order="1" G_labelSet="1" />
+	</G_iconDef> -->
+
+	<!-- <G_iconDef id="G_serverShape">
+		<GE_edgeSpline id="Spline0"
+		width="10.0"
+                strokeColor="000000"
+                endCap="none"
+                endCapScale="100.0"
+                startCap="none"
+                startCapScale="100.0"
+                endPart1Cap="none"
+                endPart1CapScale="100.0"
+                startPart2Cap="none"
+                startPart2CapScale="100.0"
+                strokeStyle="solid"
+                G_order="0"/>
+		<GE_text id="Text1"
+                        G_ty="-10.0" G_tx="16.0" fontSize="12" textType="dynamic" fontStyle="plain"
+                        G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
+                        G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
+                        txt="%24%25ID" G_order="1" G_labelSet="1" />
+	</G_iconDef> -->
+
+</Arch>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE fdl SYSTEM "fdl.dtd">
+<fdl main="GraphBased">
+	<include src="base/GraphicElements.fdl" />
+	<include src="base/GraphicLayers.fdl" />
+	<include src="base/Solvable.fdl" />					<!-- to use solvers -->
+
+	<plane name="model" opt="1" default="yes"/>
+	<plane name="graph" opt="1"/>
+	<plane name="results" opt="+" default="yes"/>
+
+	<elementType name="GraphBased" type="abstract">
+	     	<parent ref="_root.GraphicLayers"/> 		<!-- Can use graphics layers -->
+	     	<parent ref="_root.Solvable"/> 		<!-- Can use graphics layers -->
+		<parent ref="_root.GraphicElements.GE_Node"/>   <!-- It is represented as a NODE -->
+	        <parent ref="_root.GraphicElements"/>		<!-- It can contain graphic primitives -->
+
+	     	<elementTypeRef ref="_root.G_iconDef" />	<!-- It can contain icon definitions -->
+	     	
+	     	<inPlane plane="model"/>
+	     	<inPlane plane="graph"/>	
+	     	<inPlane plane="results"/>	
+		
+		<elementType name="Edge" type="abstract">
+		    <parent ref="_root.GraphicElements.GE_Edge"/>
+		    
+	     	    <inPlane plane="model"/>
+	     	    <inPlane plane="graph"/>
+		    
+		    <propertyType name="from" type="elementRef"><inPlane plane="model"/></propertyType>
+		    <propertyType name="to" type="elementRef"><inPlane plane="model"/></propertyType>
+		</elementType>
+
+		<elementType name="Node" type="abstract">
+		    <parent ref="_root.GraphicElements.GE_Node"/>
+
+	     	    <inPlane plane="model"/>
+	     	    <inPlane plane="graph"/>
+	     	</elementType>
+
+		<elementType name="Measure" type="abstract">
+		    <parent ref="_root.GraphicElements.GE_Node"/>
+
+	     	    <inPlane plane="results"/>
+	     	    <inPlane plane="graph"/>
+	     	</elementType>
+
+	</elementType>
+</fdl>

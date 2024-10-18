@@ -1,0 +1,41 @@
+<!ELEMENT IEtab     (tool|formalism|filter)*>
+
+
+
+<!ELEMENT tool   (extension)*>
+<!ATTLIST tool
+  name         ID        #REQUIRED
+  description  CDATA     #REQUIRED
+>
+  
+<!ELEMENT extension   EMPTY>
+<!ATTLIST tool
+  ext         CDATA     #REQUIRED
+>
+
+
+
+<!ELEMENT formalism   (import|export)*>
+<!ATTLIST formalism
+  description  CDATA     #REQUIRED
+  path         CDATA     #REQUIRED
+  allowSubFormalisms (yes|no)  "no"
+>
+
+<!ELEMENT import   (parameter)*>
+<!ATTLIST import
+  toolref      CDATA     #REQUIRED
+  class        CDATA     #REQUIRED
+>
+
+<!ELEMENT export   (parameter)*>
+<!ATTLIST export
+  toolref      CDATA     #REQUIRED
+  class        CDATA     #REQUIRED
+>
+
+<!ELEMENT parameter   EMPTY>
+<!ATTLIST parameter
+  type         (boolean|double|integer|string)     #REQUIRED
+  value        CDATA     #REQUIRED
+>
