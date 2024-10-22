@@ -91,34 +91,7 @@ public class SolverFilterAG extends SolverFilter{
 		}
 		print("\n");
 	}
-
-
-	//Vengono popolati gli IP dei Nodi con dei valori di test (historianServer e tomcatWebServer)
-	private void setTestIPs()
-	{
-		Enumeration<ElementInstance> enumeration;
-		ElementInstance elementInstance;
-	  	ElementType elementType;
 	
-		enumeration = ag.subElementsEnum();
-
-      		while (enumeration.hasMoreElements())
-			{
-				elementInstance = enumeration.nextElement();
-				elementType = elementInstance.getElementType();
-				
-				if (elementType.getId().equals("Node"))
-				{
-					String prefix = elementInstance.getId().split("_")[0];
-					if(prefix.equals("historianServer")){
-						elementInstance.setPropertyValue("IP", HISTORIAN_SERVER_IP);
-					}
-					else if(prefix.equals("tomcatWebServer")){
-						elementInstance.setPropertyValue("IP", TOMCAT_WEB_SERVER_IP);
-					}
-				}
-		}
-	}
 
 	//vengono eliminati dal modello gli archi entranti in nodi di tipo analytics
 	//vengono eliminati dal modello i nodi di tipo analytics 
@@ -413,11 +386,10 @@ public class SolverFilterAG extends SolverFilter{
 	public boolean execute()
 	{
 
-		String filename = "Attack_sequence2.json";
+		String filename = "Attack_sequence.json";
 
 		this.mainVisit();
 		this.removeAnalytics();
-		this.setTestIPs();
 
 		ArrayList<String[]> topologicalOrder = this.getTopologicalOrder();
 		topologicalOrder = this.removeLogicalNodes(topologicalOrder);
