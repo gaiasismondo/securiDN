@@ -108,7 +108,7 @@
       G_iconRef="_root.RootSecuriDN.G_AGShape">
 
       <Node id="stationComputer_shell"
-        IP="3.3.3.3"
+        IP="192.168.40.21"
         G_r="0.0"
         G_ty="616.0"
         G_tx="283.0"
@@ -434,7 +434,7 @@
       </Arc>
 
       <Node id="MMSclient_unsecCred"
-        IP="3.3.3.3"
+        IP="192.168.40.21"
         G_r="0.0"
         G_ty="467.0"
         G_tx="907.5"
@@ -456,7 +456,7 @@
       </Node>
 
       <Node id="MMSclient_spoofRepMsg"
-        IP="3.3.3.3"
+        IP="192.168.40.21"
         G_r="0.0"
         G_ty="688.0"
         G_tx="1007.5"
@@ -478,7 +478,7 @@
       </Node>
 
       <Node id="historian_scanVuln"
-        IP="2.2.2.2"
+        IP="192.168.40.22"
         G_r="0.0"
         G_ty="258.5"
         G_tx="279.5"
@@ -499,7 +499,7 @@
       </Node>
 
       <Node id="historian_remoteSrvc"
-        IP="2.2.2.2"
+        IP="192.168.40.22"
         G_r="0.0"
         G_ty="342.5"
         G_tx="276.5"
@@ -586,7 +586,7 @@
       </Arc>
 
       <Node id="historianServer_remoteShell"
-        IP="2.2.2.2"
+        IP="192.168.40.22"
         G_r="0.0"
         G_ty="580.5"
         G_tx="332.0"
@@ -678,7 +678,7 @@
       </Node>
 
       <Node id="MMSclient_modAuthProc"
-        IP="3.3.3.3"
+        IP="192.168.40.21"
         G_r="0.0"
         G_ty="473.0"
         G_tx="1068.5"
@@ -774,7 +774,7 @@
       </Analytics>
 
       <Node id="historianServer_addSSHkey"
-        IP="2.2.2.2"
+        IP="192.168.40.22"
         G_r="0.0"
         G_ty="451.5"
         G_tx="280.0"
@@ -1009,7 +1009,7 @@
       </Arc>
 
       <Node id="virtualEng_escapeHost"
-        IP="3.3.3.3"
+        IP="192.168.40.21"
         G_r="0.0"
         G_ty="623.0"
         G_tx="592.5"
@@ -1047,7 +1047,7 @@
       </Analytics>
 
       <Node id="MMSclient_credAcc"
-        IP="3.3.3.3"
+        IP="192.168.40.21"
         G_r="0.0"
         G_ty="610.0"
         G_tx="1006.5"
@@ -1581,7 +1581,7 @@
       </G_iconDef>
 
       <Node id="historianServer_shell"
-        IP="2.2.2.2"
+        IP="192.168.40.22"
         G_r="0.0"
         G_ty="380.5"
         G_tx="281.0"
@@ -1604,7 +1604,7 @@
       </Node>
 
       <Node id="tomcatWebServer_bruteForce"
-        IP="3.3.3.3"
+        IP="192.168.40.21"
         G_r="0.0"
         G_ty="493.5"
         G_tx="590.0"
@@ -1998,13 +1998,34 @@
           <PropertyValue id="fap1" value="_root.RootSecuriDN.Arch1.AttackArc1"/>
         </PropertyValue>
 
-        <G_Layer id="G_Layer1"
-          Locked="false"
-          Visible="true"
-          Order="1"
-          Solvable="true"
-          Label="Layer 1">
-        </G_Layer>
+        <Arc id="Arc34"
+          G_r="0.0"
+          G_ty="88.22157190891787"
+          G_tx="123.2797489665582"
+          G_inLayer="_root.RootSecuriDN.Arch1.workStation.G_Layer1"
+          to="_root.RootSecuriDN.Arch1.workStation.remoteShell"
+          from="_root.RootSecuriDN.Arch1.workStation.compromise"
+          G_sy="100.0"
+          G_order="4"
+          G_py="0.0"
+          G_sx="100.0"
+          G_px="0.0"
+          G_iconRef="_root.RootSecuriDN.Arch1.workStation.G_arcShape">
+          <PropertyValue id="G_segmentsP2" size="0">
+          </PropertyValue>
+          <PropertyValue id="G_segmentsP1" size="1">
+            <PropertyValue id="fap0">
+              <PropertyValue id="x2" value="212.53689171726234"/>
+              <PropertyValue id="ctrlx2" value="212.53689171726234"/>
+              <PropertyValue id="x1" value="34.0226062158541"/>
+              <PropertyValue id="y2" value="146.84410111135753"/>
+              <PropertyValue id="ctrlx1" value="34.0226062158541"/>
+              <PropertyValue id="ctrly2" value="146.84410111135753"/>
+              <PropertyValue id="y1" value="29.5990427064782"/>
+              <PropertyValue id="ctrly1" value="29.5990427064782"/>
+            </PropertyValue>
+          </PropertyValue>
+        </Arc>
 
         <Node id="compromise"
           IP=""
@@ -2067,34 +2088,13 @@
           </GE_image>
         </G_iconDef>
 
-        <Arc id="Arc34"
-          G_r="0.0"
-          G_ty="88.22157190891787"
-          G_tx="123.2797489665582"
-          G_inLayer="_root.RootSecuriDN.Arch1.workStation.G_Layer1"
-          to="_root.RootSecuriDN.Arch1.workStation.remoteShell"
-          from="_root.RootSecuriDN.Arch1.workStation.compromise"
-          G_sy="100.0"
-          G_order="4"
-          G_py="0.0"
-          G_sx="100.0"
-          G_px="0.0"
-          G_iconRef="_root.RootSecuriDN.Arch1.workStation.G_arcShape">
-          <PropertyValue id="G_segmentsP2" size="0">
-          </PropertyValue>
-          <PropertyValue id="G_segmentsP1" size="1">
-            <PropertyValue id="fap0">
-              <PropertyValue id="x2" value="212.53689171726234"/>
-              <PropertyValue id="x1" value="34.0226062158541"/>
-              <PropertyValue id="ctrlx2" value="212.53689171726234"/>
-              <PropertyValue id="ctrlx1" value="34.0226062158541"/>
-              <PropertyValue id="y2" value="146.84410111135753"/>
-              <PropertyValue id="y1" value="29.5990427064782"/>
-              <PropertyValue id="ctrly2" value="146.84410111135753"/>
-              <PropertyValue id="ctrly1" value="29.5990427064782"/>
-            </PropertyValue>
-          </PropertyValue>
-        </Arc>
+        <G_Layer id="G_Layer1"
+          Locked="false"
+          Visible="true"
+          Order="1"
+          Solvable="true"
+          Label="Layer 1">
+        </G_Layer>
 
         <Arc id="Arc33"
           G_r="0.0"
@@ -2114,12 +2114,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="194.5025471862465"/>
-              <PropertyValue id="x1" value="35.999837242894614"/>
               <PropertyValue id="ctrlx2" value="194.5025471862465"/>
-              <PropertyValue id="ctrlx1" value="35.999837242894614"/>
+              <PropertyValue id="x1" value="35.999837242894614"/>
               <PropertyValue id="y2" value="25.693015630753223"/>
-              <PropertyValue id="y1" value="23.062499152306742"/>
+              <PropertyValue id="ctrlx1" value="35.999837242894614"/>
               <PropertyValue id="ctrly2" value="25.693015630753223"/>
+              <PropertyValue id="y1" value="23.062499152306742"/>
               <PropertyValue id="ctrly1" value="23.062499152306742"/>
             </PropertyValue>
           </PropertyValue>
@@ -2466,12 +2466,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="382.0"/>
-            <PropertyValue id="ctrlx2" value="382.0"/>
             <PropertyValue id="x1" value="381.0"/>
-            <PropertyValue id="y2" value="342.0"/>
+            <PropertyValue id="ctrlx2" value="382.0"/>
             <PropertyValue id="ctrlx1" value="381.0"/>
-            <PropertyValue id="ctrly2" value="342.0"/>
+            <PropertyValue id="y2" value="342.0"/>
             <PropertyValue id="y1" value="377.0"/>
+            <PropertyValue id="ctrly2" value="342.0"/>
             <PropertyValue id="ctrly1" value="377.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -3009,12 +3009,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="152.75"/>
-            <PropertyValue id="ctrlx2" value="152.75"/>
             <PropertyValue id="x1" value="50.0"/>
-            <PropertyValue id="y2" value="400.0"/>
+            <PropertyValue id="ctrlx2" value="152.75"/>
             <PropertyValue id="ctrlx1" value="50.0"/>
-            <PropertyValue id="ctrly2" value="400.0"/>
+            <PropertyValue id="y2" value="400.0"/>
             <PropertyValue id="y1" value="400.0"/>
+            <PropertyValue id="ctrly2" value="400.0"/>
             <PropertyValue id="ctrly1" value="400.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -3089,12 +3089,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="152.75"/>
-            <PropertyValue id="ctrlx2" value="152.75"/>
             <PropertyValue id="x1" value="51.0"/>
-            <PropertyValue id="y2" value="243.0"/>
+            <PropertyValue id="ctrlx2" value="152.75"/>
             <PropertyValue id="ctrlx1" value="51.0"/>
-            <PropertyValue id="ctrly2" value="243.0"/>
+            <PropertyValue id="y2" value="243.0"/>
             <PropertyValue id="y1" value="244.0"/>
+            <PropertyValue id="ctrly2" value="243.0"/>
             <PropertyValue id="ctrly1" value="244.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -3124,12 +3124,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="26.0"/>
-            <PropertyValue id="ctrlx2" value="26.0"/>
             <PropertyValue id="x1" value="26.0"/>
-            <PropertyValue id="y2" value="516.0"/>
+            <PropertyValue id="ctrlx2" value="26.0"/>
             <PropertyValue id="ctrlx1" value="26.0"/>
-            <PropertyValue id="ctrly2" value="516.0"/>
+            <PropertyValue id="y2" value="516.0"/>
             <PropertyValue id="y1" value="496.0"/>
+            <PropertyValue id="ctrly2" value="516.0"/>
             <PropertyValue id="ctrly1" value="496.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -3159,12 +3159,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="26.0"/>
-            <PropertyValue id="ctrlx2" value="26.0"/>
             <PropertyValue id="x1" value="25.0"/>
-            <PropertyValue id="y2" value="448.0"/>
+            <PropertyValue id="ctrlx2" value="26.0"/>
             <PropertyValue id="ctrlx1" value="25.0"/>
-            <PropertyValue id="ctrly2" value="448.0"/>
+            <PropertyValue id="y2" value="448.0"/>
             <PropertyValue id="y1" value="425.0"/>
+            <PropertyValue id="ctrly2" value="448.0"/>
             <PropertyValue id="ctrly1" value="425.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -3194,12 +3194,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="25.0"/>
-            <PropertyValue id="ctrlx2" value="25.0"/>
             <PropertyValue id="x1" value="26.0"/>
-            <PropertyValue id="y2" value="375.0"/>
+            <PropertyValue id="ctrlx2" value="25.0"/>
             <PropertyValue id="ctrlx1" value="26.0"/>
-            <PropertyValue id="ctrly2" value="375.0"/>
+            <PropertyValue id="y2" value="375.0"/>
             <PropertyValue id="y1" value="345.0"/>
+            <PropertyValue id="ctrly2" value="375.0"/>
             <PropertyValue id="ctrly1" value="345.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -3229,12 +3229,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="26.0"/>
-            <PropertyValue id="ctrlx2" value="26.0"/>
             <PropertyValue id="x1" value="26.0"/>
-            <PropertyValue id="y2" value="297.0"/>
+            <PropertyValue id="ctrlx2" value="26.0"/>
             <PropertyValue id="ctrlx1" value="26.0"/>
-            <PropertyValue id="ctrly2" value="297.0"/>
+            <PropertyValue id="y2" value="297.0"/>
             <PropertyValue id="y1" value="269.0"/>
+            <PropertyValue id="ctrly2" value="297.0"/>
             <PropertyValue id="ctrly1" value="269.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -3264,12 +3264,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="26.0"/>
-            <PropertyValue id="ctrlx2" value="26.0"/>
             <PropertyValue id="x1" value="26.0"/>
-            <PropertyValue id="y2" value="219.0"/>
+            <PropertyValue id="ctrlx2" value="26.0"/>
             <PropertyValue id="ctrlx1" value="26.0"/>
-            <PropertyValue id="ctrly2" value="219.0"/>
+            <PropertyValue id="y2" value="219.0"/>
             <PropertyValue id="y1" value="199.0"/>
+            <PropertyValue id="ctrly2" value="219.0"/>
             <PropertyValue id="ctrly1" value="199.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -3299,12 +3299,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="26.0"/>
-            <PropertyValue id="ctrlx2" value="26.0"/>
             <PropertyValue id="x1" value="24.0"/>
-            <PropertyValue id="y2" value="151.0"/>
+            <PropertyValue id="ctrlx2" value="26.0"/>
             <PropertyValue id="ctrlx1" value="24.0"/>
-            <PropertyValue id="ctrly2" value="151.0"/>
+            <PropertyValue id="y2" value="151.0"/>
             <PropertyValue id="y1" value="128.0"/>
+            <PropertyValue id="ctrly2" value="151.0"/>
             <PropertyValue id="ctrly1" value="128.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -3328,12 +3328,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="23.0"/>
-            <PropertyValue id="ctrlx2" value="23.0"/>
             <PropertyValue id="x1" value="24.0"/>
-            <PropertyValue id="y2" value="53.0"/>
+            <PropertyValue id="ctrlx2" value="23.0"/>
             <PropertyValue id="ctrlx1" value="24.0"/>
-            <PropertyValue id="ctrly2" value="53.0"/>
+            <PropertyValue id="y2" value="53.0"/>
             <PropertyValue id="y1" value="78.0"/>
+            <PropertyValue id="ctrly2" value="53.0"/>
             <PropertyValue id="ctrly1" value="78.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -3361,21 +3361,13 @@
           <PropertyValue id="fap0" value="_root.RootSecuriDN.Arch1.Execute2"/>
         </PropertyValue>
 
-        <Analytics id="suspiciousCmd"
-          G_r="0.0"
-          G_ty="109.0"
-          G_tx="148.0"
-          G_inLayer="_root.RootSecuriDN.Arch1.virtualEng.G_Layer1"
-          G_sy="100.0"
-          G_order="3"
-          G_py="0.0"
-          G_sx="100.0"
-          G_px="0.0"
-          G_iconRef="_root.RootSecuriDN.Arch1.tomcatWebServer.G_analyticsShape">
-          <PropertyValue id="G_toConnections" size="1">
-            <PropertyValue id="fap0" value="_root.RootSecuriDN.Arch1.virtualEng.Arc8"/>
-          </PropertyValue>
-        </Analytics>
+        <G_Layer id="G_Layer1"
+          Locked="false"
+          Visible="true"
+          Order="1"
+          Solvable="true"
+          Label="Layer 1">
+        </G_Layer>
 
         <G_iconDef id="G_NodeAND"
           BBox_y="-12.0"
@@ -3419,13 +3411,21 @@
           </GE_image>
         </G_iconDef>
 
-        <G_Layer id="G_Layer1"
-          Locked="false"
-          Visible="true"
-          Order="1"
-          Solvable="true"
-          Label="Layer 1">
-        </G_Layer>
+        <Analytics id="suspiciousCmd"
+          G_r="0.0"
+          G_ty="109.0"
+          G_tx="148.0"
+          G_inLayer="_root.RootSecuriDN.Arch1.virtualEng.G_Layer1"
+          G_sy="100.0"
+          G_order="3"
+          G_py="0.0"
+          G_sx="100.0"
+          G_px="0.0"
+          G_iconRef="_root.RootSecuriDN.Arch1.tomcatWebServer.G_analyticsShape">
+          <PropertyValue id="G_toConnections" size="1">
+            <PropertyValue id="fap0" value="_root.RootSecuriDN.Arch1.virtualEng.Arc8"/>
+          </PropertyValue>
+        </Analytics>
 
         <G_iconDef id="G_NodeShared"
           BBox_y="-18.5"
@@ -3528,12 +3528,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="213.5003205070642"/>
-              <PropertyValue id="x1" value="32.99877569759411"/>
               <PropertyValue id="ctrlx2" value="213.5003205070642"/>
-              <PropertyValue id="ctrlx1" value="32.99877569759411"/>
+              <PropertyValue id="x1" value="32.99877569759411"/>
               <PropertyValue id="y2" value="20.89110253147321"/>
-              <PropertyValue id="y1" value="19.828588918605803"/>
+              <PropertyValue id="ctrlx1" value="32.99877569759411"/>
               <PropertyValue id="ctrly2" value="20.89110253147321"/>
+              <PropertyValue id="y1" value="19.828588918605803"/>
               <PropertyValue id="ctrly1" value="19.828588918605803"/>
             </PropertyValue>
           </PropertyValue>
@@ -3717,12 +3717,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="125.5"/>
-              <PropertyValue id="ctrlx2" value="125.5"/>
               <PropertyValue id="x1" value="30.543384665876708"/>
-              <PropertyValue id="y2" value="109.0"/>
+              <PropertyValue id="ctrlx2" value="125.5"/>
               <PropertyValue id="ctrlx1" value="30.543384665876708"/>
-              <PropertyValue id="ctrly2" value="109.0"/>
+              <PropertyValue id="y2" value="109.0"/>
               <PropertyValue id="y1" value="27.27487519611913"/>
+              <PropertyValue id="ctrly2" value="109.0"/>
               <PropertyValue id="ctrly1" value="27.27487519611913"/>
             </PropertyValue>
           </PropertyValue>
@@ -4049,12 +4049,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="255.5"/>
-              <PropertyValue id="ctrlx2" value="255.5"/>
               <PropertyValue id="x1" value="186.2095759683115"/>
-              <PropertyValue id="y2" value="85.0"/>
+              <PropertyValue id="ctrlx2" value="255.5"/>
               <PropertyValue id="ctrlx1" value="186.2095759683115"/>
-              <PropertyValue id="ctrly2" value="85.0"/>
+              <PropertyValue id="y2" value="85.0"/>
               <PropertyValue id="y1" value="29.305914568662992"/>
+              <PropertyValue id="ctrly2" value="85.0"/>
               <PropertyValue id="ctrly1" value="29.305914568662992"/>
             </PropertyValue>
           </PropertyValue>
@@ -4094,12 +4094,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="35.5"/>
-              <PropertyValue id="ctrlx2" value="35.5"/>
               <PropertyValue id="x1" value="105.61528538267896"/>
-              <PropertyValue id="y2" value="305.0"/>
+              <PropertyValue id="ctrlx2" value="35.5"/>
               <PropertyValue id="ctrlx1" value="105.61528538267896"/>
-              <PropertyValue id="ctrly2" value="305.0"/>
+              <PropertyValue id="y2" value="305.0"/>
               <PropertyValue id="y1" value="245.4784444606777"/>
+              <PropertyValue id="ctrly2" value="305.0"/>
               <PropertyValue id="ctrly1" value="245.4784444606777"/>
             </PropertyValue>
           </PropertyValue>
@@ -4123,12 +4123,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="23.0"/>
-              <PropertyValue id="ctrlx2" value="23.0"/>
               <PropertyValue id="x1" value="17.10948766180389"/>
-              <PropertyValue id="y2" value="184.0"/>
+              <PropertyValue id="ctrlx2" value="23.0"/>
               <PropertyValue id="ctrlx1" value="17.10948766180389"/>
-              <PropertyValue id="ctrly2" value="184.0"/>
+              <PropertyValue id="y2" value="184.0"/>
               <PropertyValue id="y1" value="28.813130906101783"/>
+              <PropertyValue id="ctrly2" value="184.0"/>
               <PropertyValue id="ctrly1" value="28.813130906101783"/>
             </PropertyValue>
           </PropertyValue>
@@ -4269,12 +4269,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="262.5000185601731"/>
-              <PropertyValue id="x1" value="126.99801702055987"/>
               <PropertyValue id="ctrlx2" value="262.5000185601731"/>
-              <PropertyValue id="ctrlx1" value="126.99801702055987"/>
+              <PropertyValue id="x1" value="126.99801702055987"/>
               <PropertyValue id="y2" value="238.02620545857454"/>
-              <PropertyValue id="y1" value="238.2181457640102"/>
+              <PropertyValue id="ctrlx1" value="126.99801702055987"/>
               <PropertyValue id="ctrly2" value="238.02620545857454"/>
+              <PropertyValue id="y1" value="238.2181457640102"/>
               <PropertyValue id="ctrly1" value="238.2181457640102"/>
             </PropertyValue>
           </PropertyValue>
@@ -4298,12 +4298,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="254.5005718335549"/>
-              <PropertyValue id="x1" value="125.99898815295575"/>
               <PropertyValue id="ctrlx2" value="254.5005718335549"/>
-              <PropertyValue id="ctrlx1" value="125.99898815295575"/>
+              <PropertyValue id="x1" value="125.99898815295575"/>
               <PropertyValue id="y2" value="159.14545622894283"/>
-              <PropertyValue id="y1" value="160.15583101497344"/>
+              <PropertyValue id="ctrlx1" value="125.99898815295575"/>
               <PropertyValue id="ctrly2" value="159.14545622894283"/>
+              <PropertyValue id="y1" value="160.15583101497344"/>
               <PropertyValue id="ctrly1" value="160.15583101497344"/>
             </PropertyValue>
           </PropertyValue>
@@ -4327,12 +4327,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="113.86151418605812"/>
-              <PropertyValue id="x1" value="113.39977796279169"/>
               <PropertyValue id="ctrlx2" value="113.86151418605812"/>
-              <PropertyValue id="ctrlx1" value="113.39977796279169"/>
+              <PropertyValue id="x1" value="113.39977796279169"/>
               <PropertyValue id="y2" value="148.00079912330256"/>
-              <PropertyValue id="y1" value="107.99333888374986"/>
+              <PropertyValue id="ctrlx1" value="113.39977796279169"/>
               <PropertyValue id="ctrly2" value="148.00079912330256"/>
+              <PropertyValue id="y1" value="107.99333888374986"/>
               <PropertyValue id="ctrly1" value="107.99333888374986"/>
             </PropertyValue>
           </PropertyValue>
@@ -4356,12 +4356,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="120.82477419505898"/>
-              <PropertyValue id="x1" value="168.05192517515326"/>
               <PropertyValue id="ctrlx2" value="120.82477419505898"/>
-              <PropertyValue id="ctrlx1" value="168.05192517515326"/>
+              <PropertyValue id="x1" value="168.05192517515326"/>
               <PropertyValue id="y2" value="86.90203820648057"/>
-              <PropertyValue id="y1" value="31.990445293679123"/>
+              <PropertyValue id="ctrlx1" value="168.05192517515326"/>
               <PropertyValue id="ctrly2" value="86.90203820648057"/>
+              <PropertyValue id="y1" value="31.990445293679123"/>
               <PropertyValue id="ctrly1" value="31.990445293679123"/>
             </PropertyValue>
           </PropertyValue>
@@ -4405,12 +4405,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="103.62376522273877"/>
-              <PropertyValue id="x1" value="24.012490481219288"/>
               <PropertyValue id="ctrlx2" value="103.62376522273877"/>
-              <PropertyValue id="ctrlx1" value="24.012490481219288"/>
+              <PropertyValue id="x1" value="24.012490481219288"/>
               <PropertyValue id="y2" value="88.51092653249569"/>
-              <PropertyValue id="y1" value="24.923068554918068"/>
+              <PropertyValue id="ctrlx1" value="24.012490481219288"/>
               <PropertyValue id="ctrly2" value="88.51092653249569"/>
+              <PropertyValue id="y1" value="24.923068554918068"/>
               <PropertyValue id="ctrly1" value="24.923068554918068"/>
             </PropertyValue>
           </PropertyValue>
@@ -7039,12 +7039,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="160.0"/>
-            <PropertyValue id="x1" value="51.0"/>
             <PropertyValue id="ctrlx2" value="160.0"/>
-            <PropertyValue id="ctrlx1" value="51.0"/>
+            <PropertyValue id="x1" value="51.0"/>
             <PropertyValue id="y2" value="628.0"/>
-            <PropertyValue id="y1" value="541.0"/>
+            <PropertyValue id="ctrlx1" value="51.0"/>
             <PropertyValue id="ctrly2" value="628.0"/>
+            <PropertyValue id="y1" value="541.0"/>
             <PropertyValue id="ctrly1" value="541.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -7068,12 +7068,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="169.0"/>
-            <PropertyValue id="ctrlx2" value="169.0"/>
             <PropertyValue id="x1" value="51.0"/>
-            <PropertyValue id="y2" value="541.0"/>
+            <PropertyValue id="ctrlx2" value="169.0"/>
             <PropertyValue id="ctrlx1" value="51.0"/>
-            <PropertyValue id="ctrly2" value="541.0"/>
+            <PropertyValue id="y2" value="541.0"/>
             <PropertyValue id="y1" value="541.0"/>
+            <PropertyValue id="ctrly2" value="541.0"/>
             <PropertyValue id="ctrly1" value="541.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -7184,12 +7184,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="806.0"/>
-            <PropertyValue id="ctrlx2" value="806.0"/>
             <PropertyValue id="x1" value="808.0"/>
-            <PropertyValue id="y2" value="601.0"/>
+            <PropertyValue id="ctrlx2" value="806.0"/>
             <PropertyValue id="ctrlx1" value="808.0"/>
-            <PropertyValue id="ctrly2" value="601.0"/>
+            <PropertyValue id="y2" value="601.0"/>
             <PropertyValue id="y1" value="443.0"/>
+            <PropertyValue id="ctrly2" value="601.0"/>
             <PropertyValue id="ctrly1" value="443.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -7213,12 +7213,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="783.0"/>
-            <PropertyValue id="ctrlx2" value="783.0"/>
             <PropertyValue id="x1" value="620.0"/>
-            <PropertyValue id="y2" value="418.0"/>
+            <PropertyValue id="ctrlx2" value="783.0"/>
             <PropertyValue id="ctrlx1" value="620.0"/>
-            <PropertyValue id="ctrly2" value="418.0"/>
+            <PropertyValue id="y2" value="418.0"/>
             <PropertyValue id="y1" value="300.0"/>
+            <PropertyValue id="ctrly2" value="418.0"/>
             <PropertyValue id="ctrly1" value="300.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -7242,12 +7242,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="592.0"/>
-            <PropertyValue id="ctrlx2" value="592.0"/>
             <PropertyValue id="x1" value="594.0"/>
-            <PropertyValue id="y2" value="516.0"/>
+            <PropertyValue id="ctrlx2" value="592.0"/>
             <PropertyValue id="ctrlx1" value="594.0"/>
-            <PropertyValue id="ctrly2" value="516.0"/>
+            <PropertyValue id="y2" value="516.0"/>
             <PropertyValue id="y1" value="443.0"/>
+            <PropertyValue id="ctrly2" value="516.0"/>
             <PropertyValue id="ctrly1" value="443.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -7271,12 +7271,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="595.0"/>
-            <PropertyValue id="ctrlx2" value="595.0"/>
             <PropertyValue id="x1" value="594.0"/>
-            <PropertyValue id="y2" value="325.0"/>
+            <PropertyValue id="ctrlx2" value="595.0"/>
             <PropertyValue id="ctrlx1" value="594.0"/>
-            <PropertyValue id="ctrly2" value="325.0"/>
+            <PropertyValue id="y2" value="325.0"/>
             <PropertyValue id="y1" value="393.0"/>
+            <PropertyValue id="ctrly2" value="325.0"/>
             <PropertyValue id="ctrly1" value="393.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -7325,7 +7325,7 @@
       </G_iconDef>
 
       <Computer id="stationComputer"
-        IP="3.3.3.3"
+        IP="192.168.40.21"
         observations=""
         observed="false"
         G_r="0.0"
@@ -7412,12 +7412,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="133.18120291144155"/>
-              <PropertyValue id="ctrlx2" value="133.18120291144155"/>
               <PropertyValue id="x1" value="31.691511249749766"/>
-              <PropertyValue id="y2" value="98.92510709541028"/>
+              <PropertyValue id="ctrlx2" value="133.18120291144155"/>
               <PropertyValue id="ctrlx1" value="31.691511249749766"/>
-              <PropertyValue id="ctrly2" value="98.92510709541028"/>
+              <PropertyValue id="y2" value="98.92510709541028"/>
               <PropertyValue id="y1" value="23.076341547436336"/>
+              <PropertyValue id="ctrly2" value="98.92510709541028"/>
               <PropertyValue id="ctrly1" value="23.076341547436336"/>
             </PropertyValue>
           </PropertyValue>
@@ -7439,12 +7439,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="126.54091622726023"/>
-              <PropertyValue id="ctrlx2" value="126.54091622726023"/>
               <PropertyValue id="x1" value="33.98477586079993"/>
-              <PropertyValue id="y2" value="22.77027390408464"/>
+              <PropertyValue id="ctrlx2" value="126.54091622726023"/>
               <PropertyValue id="ctrlx1" value="33.98477586079993"/>
-              <PropertyValue id="ctrly2" value="22.77027390408464"/>
+              <PropertyValue id="y2" value="22.77027390408464"/>
               <PropertyValue id="y1" value="16.604274413149575"/>
+              <PropertyValue id="ctrly2" value="22.77027390408464"/>
               <PropertyValue id="ctrly1" value="16.604274413149575"/>
             </PropertyValue>
           </PropertyValue>
@@ -7703,12 +7703,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="74.0"/>
-              <PropertyValue id="ctrlx2" value="74.0"/>
               <PropertyValue id="x1" value="24.943395038383088"/>
-              <PropertyValue id="y2" value="166.0"/>
+              <PropertyValue id="ctrlx2" value="74.0"/>
               <PropertyValue id="ctrlx1" value="24.943395038383088"/>
-              <PropertyValue id="ctrly2" value="166.0"/>
+              <PropertyValue id="y2" value="166.0"/>
               <PropertyValue id="y1" value="27.633418485037915"/>
+              <PropertyValue id="ctrly2" value="166.0"/>
               <PropertyValue id="ctrly1" value="27.633418485037915"/>
             </PropertyValue>
           </PropertyValue>
@@ -7842,12 +7842,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="219.0"/>
-            <PropertyValue id="ctrlx2" value="219.0"/>
             <PropertyValue id="x1" value="280.0"/>
-            <PropertyValue id="y2" value="541.0"/>
+            <PropertyValue id="ctrlx2" value="219.0"/>
             <PropertyValue id="ctrlx1" value="280.0"/>
-            <PropertyValue id="ctrly2" value="541.0"/>
+            <PropertyValue id="y2" value="541.0"/>
             <PropertyValue id="y1" value="490.0"/>
+            <PropertyValue id="ctrly2" value="541.0"/>
             <PropertyValue id="ctrly1" value="490.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -7871,12 +7871,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="44.25"/>
-            <PropertyValue id="ctrlx2" value="44.25"/>
             <PropertyValue id="x1" value="223.0"/>
-            <PropertyValue id="y2" value="29.0"/>
+            <PropertyValue id="ctrlx2" value="44.25"/>
             <PropertyValue id="ctrlx1" value="223.0"/>
-            <PropertyValue id="ctrly2" value="29.0"/>
+            <PropertyValue id="y2" value="29.0"/>
             <PropertyValue id="y1" value="30.0"/>
+            <PropertyValue id="ctrly2" value="29.0"/>
             <PropertyValue id="ctrly1" value="30.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -7917,12 +7917,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="781.0"/>
-            <PropertyValue id="ctrlx2" value="781.0"/>
             <PropertyValue id="x1" value="210.0"/>
-            <PropertyValue id="y2" value="626.0"/>
+            <PropertyValue id="ctrlx2" value="781.0"/>
             <PropertyValue id="ctrlx1" value="210.0"/>
-            <PropertyValue id="ctrly2" value="626.0"/>
+            <PropertyValue id="y2" value="626.0"/>
             <PropertyValue id="y1" value="628.0"/>
+            <PropertyValue id="ctrly2" value="626.0"/>
             <PropertyValue id="ctrly1" value="628.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -8158,12 +8158,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="175.50848818581045"/>
-              <PropertyValue id="x1" value="29.0"/>
               <PropertyValue id="ctrlx2" value="175.50848818581045"/>
-              <PropertyValue id="ctrlx1" value="29.0"/>
+              <PropertyValue id="x1" value="29.0"/>
               <PropertyValue id="y2" value="22.439651157145775"/>
-              <PropertyValue id="y1" value="18.0"/>
+              <PropertyValue id="ctrlx1" value="29.0"/>
               <PropertyValue id="ctrly2" value="22.439651157145775"/>
+              <PropertyValue id="y1" value="18.0"/>
               <PropertyValue id="ctrly1" value="18.0"/>
             </PropertyValue>
           </PropertyValue>
@@ -8211,22 +8211,6 @@
           </GE_image>
         </G_iconDef>
 
-        <Analytics id="loginFrequency"
-          G_r="0.0"
-          G_ty="98.0"
-          G_tx="122.0"
-          G_inLayer="_root.RootSecuriDN.Arch1.tomcatWebServer.G_Layer1"
-          G_sy="100.0"
-          G_order="3"
-          G_py="0.0"
-          G_sx="100.0"
-          G_px="0.0"
-          G_iconRef="_root.RootSecuriDN.Arch1.tomcatWebServer.G_analyticsShape">
-          <PropertyValue id="G_toConnections" size="1">
-            <PropertyValue id="fap0" value="_root.RootSecuriDN.Arch1.tomcatWebServer.Arc7"/>
-          </PropertyValue>
-        </Analytics>
-
         <NodeShared id="escapeHost"
           asset="execute"
           G_r="0.0"
@@ -8243,6 +8227,22 @@
             <PropertyValue id="fap0" value="_root.RootSecuriDN.Arch1.tomcatWebServer.Arc52"/>
           </PropertyValue>
         </NodeShared>
+
+        <Analytics id="loginFrequency"
+          G_r="0.0"
+          G_ty="98.0"
+          G_tx="122.0"
+          G_inLayer="_root.RootSecuriDN.Arch1.tomcatWebServer.G_Layer1"
+          G_sy="100.0"
+          G_order="3"
+          G_py="0.0"
+          G_sx="100.0"
+          G_px="0.0"
+          G_iconRef="_root.RootSecuriDN.Arch1.tomcatWebServer.G_analyticsShape">
+          <PropertyValue id="G_toConnections" size="1">
+            <PropertyValue id="fap0" value="_root.RootSecuriDN.Arch1.tomcatWebServer.Arc7"/>
+          </PropertyValue>
+        </Analytics>
 
         <G_iconDef id="G_NodeDefense"
           BBox_y="-19.5"
@@ -8371,12 +8371,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="99.5"/>
-              <PropertyValue id="ctrlx2" value="99.5"/>
               <PropertyValue id="x1" value="27.143592274383607"/>
-              <PropertyValue id="y2" value="98.0"/>
+              <PropertyValue id="ctrlx2" value="99.5"/>
               <PropertyValue id="ctrlx1" value="27.143592274383607"/>
-              <PropertyValue id="ctrly2" value="98.0"/>
+              <PropertyValue id="y2" value="98.0"/>
               <PropertyValue id="y1" value="24.411515871544356"/>
+              <PropertyValue id="ctrly2" value="98.0"/>
               <PropertyValue id="ctrly1" value="24.411515871544356"/>
             </PropertyValue>
           </PropertyValue>
@@ -8401,12 +8401,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="567.0"/>
-            <PropertyValue id="ctrlx2" value="567.0"/>
             <PropertyValue id="x1" value="219.0"/>
-            <PropertyValue id="y2" value="541.0"/>
+            <PropertyValue id="ctrlx2" value="567.0"/>
             <PropertyValue id="ctrlx1" value="219.0"/>
-            <PropertyValue id="ctrly2" value="541.0"/>
+            <PropertyValue id="y2" value="541.0"/>
             <PropertyValue id="y1" value="541.0"/>
+            <PropertyValue id="ctrly2" value="541.0"/>
             <PropertyValue id="ctrly1" value="541.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -8430,12 +8430,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="570.0"/>
-            <PropertyValue id="ctrlx2" value="570.0"/>
             <PropertyValue id="x1" value="406.0"/>
-            <PropertyValue id="y2" value="300.0"/>
+            <PropertyValue id="ctrlx2" value="570.0"/>
             <PropertyValue id="ctrlx1" value="406.0"/>
-            <PropertyValue id="ctrly2" value="300.0"/>
+            <PropertyValue id="y2" value="300.0"/>
             <PropertyValue id="y1" value="402.0"/>
+            <PropertyValue id="ctrly2" value="300.0"/>
             <PropertyValue id="ctrly1" value="402.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -8459,12 +8459,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="356.0"/>
-            <PropertyValue id="ctrlx2" value="356.0"/>
             <PropertyValue id="x1" value="195.25"/>
-            <PropertyValue id="y2" value="402.0"/>
+            <PropertyValue id="ctrlx2" value="356.0"/>
             <PropertyValue id="ctrlx1" value="195.25"/>
-            <PropertyValue id="ctrly2" value="402.0"/>
+            <PropertyValue id="y2" value="402.0"/>
             <PropertyValue id="y1" value="400.0"/>
+            <PropertyValue id="ctrly2" value="402.0"/>
             <PropertyValue id="ctrly1" value="400.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -8488,12 +8488,12 @@
         <PropertyValue id="G_segmentsP1" size="1">
           <PropertyValue id="fap0">
             <PropertyValue id="x2" value="173.0"/>
-            <PropertyValue id="ctrlx2" value="173.0"/>
             <PropertyValue id="x1" value="174.0"/>
-            <PropertyValue id="y2" value="182.0"/>
+            <PropertyValue id="ctrlx2" value="173.0"/>
             <PropertyValue id="ctrlx1" value="174.0"/>
-            <PropertyValue id="ctrly2" value="182.0"/>
+            <PropertyValue id="y2" value="182.0"/>
             <PropertyValue id="y1" value="219.0"/>
+            <PropertyValue id="ctrly2" value="182.0"/>
             <PropertyValue id="ctrly1" value="219.0"/>
           </PropertyValue>
         </PropertyValue>
@@ -9583,12 +9583,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="111.0"/>
-              <PropertyValue id="ctrlx2" value="111.0"/>
               <PropertyValue id="x1" value="31.393556570817548"/>
-              <PropertyValue id="y2" value="179.0"/>
+              <PropertyValue id="ctrlx2" value="111.0"/>
               <PropertyValue id="ctrlx1" value="31.393556570817548"/>
-              <PropertyValue id="ctrly2" value="179.0"/>
+              <PropertyValue id="y2" value="179.0"/>
               <PropertyValue id="y1" value="117.57602519192228"/>
+              <PropertyValue id="ctrly2" value="179.0"/>
               <PropertyValue id="ctrly1" value="117.57602519192228"/>
             </PropertyValue>
           </PropertyValue>
@@ -9610,12 +9610,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="23.261931729219576"/>
-              <PropertyValue id="ctrlx2" value="23.261931729219576"/>
               <PropertyValue id="x1" value="24.550316072930865"/>
-              <PropertyValue id="y2" value="97.00285901686456"/>
+              <PropertyValue id="ctrlx2" value="23.261931729219576"/>
               <PropertyValue id="ctrlx1" value="24.550316072930865"/>
-              <PropertyValue id="ctrly2" value="97.00285901686456"/>
+              <PropertyValue id="y2" value="97.00285901686456"/>
               <PropertyValue id="y1" value="37.99157138851017"/>
+              <PropertyValue id="ctrly2" value="97.00285901686456"/>
               <PropertyValue id="ctrly1" value="37.99157138851017"/>
             </PropertyValue>
           </PropertyValue>
@@ -9639,12 +9639,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="212.62239809653136"/>
-              <PropertyValue id="x1" value="34.88099414732804"/>
               <PropertyValue id="ctrlx2" value="212.62239809653136"/>
-              <PropertyValue id="ctrlx1" value="34.88099414732804"/>
+              <PropertyValue id="x1" value="34.88099414732804"/>
               <PropertyValue id="y2" value="111.87544162762575"/>
-              <PropertyValue id="y1" value="110.68581673712087"/>
+              <PropertyValue id="ctrlx1" value="34.88099414732804"/>
               <PropertyValue id="ctrly2" value="111.87544162762575"/>
+              <PropertyValue id="y1" value="110.68581673712087"/>
               <PropertyValue id="ctrly1" value="110.68581673712087"/>
             </PropertyValue>
           </PropertyValue>
@@ -9868,35 +9868,6 @@
           </PropertyValue>
         </NodeShared>
 
-        <Arc id="Arc61"
-          G_r="0.0"
-          G_ty="103.4434981486624"
-          G_tx="106.24787621989378"
-          G_inLayer="_root.RootSecuriDN.Arch1.MMSTLS1.G_Layer1"
-          to="_root.RootSecuriDN.Arch1.MMSTLS1.DERfailure"
-          from="_root.RootSecuriDN.Arch1.MMSTLS1.unauthCmdMsg"
-          G_sy="100.0"
-          G_order="6"
-          G_py="0.0"
-          G_sx="100.0"
-          G_px="0.0"
-          G_iconRef="_root.RootSecuriDN.Arch1.historianServer.G_arcShape">
-          <PropertyValue id="G_segmentsP2" size="0">
-          </PropertyValue>
-          <PropertyValue id="G_segmentsP1" size="1">
-            <PropertyValue id="fap0">
-              <PropertyValue id="x2" value="184.50205864132084"/>
-              <PropertyValue id="x1" value="27.993693798466722"/>
-              <PropertyValue id="ctrlx2" value="184.50205864132084"/>
-              <PropertyValue id="ctrlx1" value="27.993693798466722"/>
-              <PropertyValue id="y2" value="105.27598096105885"/>
-              <PropertyValue id="y1" value="104.61101533626595"/>
-              <PropertyValue id="ctrly2" value="105.27598096105885"/>
-              <PropertyValue id="ctrly1" value="104.61101533626595"/>
-            </PropertyValue>
-          </PropertyValue>
-        </Arc>
-
         <Arc id="Arc59"
           G_r="0.0"
           G_ty="64.48504748326577"
@@ -9915,13 +9886,42 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="16.361327782340993"/>
-              <PropertyValue id="x1" value="18.079642013383136"/>
               <PropertyValue id="ctrlx2" value="16.361327782340993"/>
-              <PropertyValue id="ctrlx1" value="18.079642013383136"/>
+              <PropertyValue id="x1" value="18.079642013383136"/>
               <PropertyValue id="y2" value="93.00544114051257"/>
-              <PropertyValue id="y1" value="35.964653826018974"/>
+              <PropertyValue id="ctrlx1" value="18.079642013383136"/>
               <PropertyValue id="ctrly2" value="93.00544114051257"/>
+              <PropertyValue id="y1" value="35.964653826018974"/>
               <PropertyValue id="ctrly1" value="35.964653826018974"/>
+            </PropertyValue>
+          </PropertyValue>
+        </Arc>
+
+        <Arc id="Arc61"
+          G_r="0.0"
+          G_ty="103.4434981486624"
+          G_tx="106.24787621989378"
+          G_inLayer="_root.RootSecuriDN.Arch1.MMSTLS1.G_Layer1"
+          to="_root.RootSecuriDN.Arch1.MMSTLS1.DERfailure"
+          from="_root.RootSecuriDN.Arch1.MMSTLS1.unauthCmdMsg"
+          G_sy="100.0"
+          G_order="6"
+          G_py="0.0"
+          G_sx="100.0"
+          G_px="0.0"
+          G_iconRef="_root.RootSecuriDN.Arch1.historianServer.G_arcShape">
+          <PropertyValue id="G_segmentsP2" size="0">
+          </PropertyValue>
+          <PropertyValue id="G_segmentsP1" size="1">
+            <PropertyValue id="fap0">
+              <PropertyValue id="x2" value="184.50205864132084"/>
+              <PropertyValue id="ctrlx2" value="184.50205864132084"/>
+              <PropertyValue id="x1" value="27.993693798466722"/>
+              <PropertyValue id="y2" value="105.27598096105885"/>
+              <PropertyValue id="ctrlx1" value="27.993693798466722"/>
+              <PropertyValue id="ctrly2" value="105.27598096105885"/>
+              <PropertyValue id="y1" value="104.61101533626595"/>
+              <PropertyValue id="ctrly1" value="104.61101533626595"/>
             </PropertyValue>
           </PropertyValue>
         </Arc>
@@ -9944,12 +9944,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="173.50789631114054"/>
-              <PropertyValue id="x1" value="30.996388397645887"/>
               <PropertyValue id="ctrlx2" value="173.50789631114054"/>
-              <PropertyValue id="ctrlx1" value="30.996388397645887"/>
+              <PropertyValue id="x1" value="30.996388397645887"/>
               <PropertyValue id="y2" value="23.45953616173611"/>
-              <PropertyValue id="y1" value="24.294389899328735"/>
+              <PropertyValue id="ctrlx1" value="30.996388397645887"/>
               <PropertyValue id="ctrly2" value="23.45953616173611"/>
+              <PropertyValue id="y1" value="24.294389899328735"/>
               <PropertyValue id="ctrly1" value="24.294389899328735"/>
             </PropertyValue>
           </PropertyValue>
@@ -10190,12 +10190,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="89.5"/>
-              <PropertyValue id="ctrlx2" value="89.5"/>
               <PropertyValue id="x1" value="25.370425713316365"/>
-              <PropertyValue id="y2" value="179.0"/>
+              <PropertyValue id="ctrlx2" value="89.5"/>
               <PropertyValue id="ctrlx1" value="25.370425713316365"/>
-              <PropertyValue id="ctrly2" value="179.0"/>
+              <PropertyValue id="y2" value="179.0"/>
               <PropertyValue id="y1" value="112.49634057065309"/>
+              <PropertyValue id="ctrly2" value="179.0"/>
               <PropertyValue id="ctrly1" value="112.49634057065309"/>
             </PropertyValue>
           </PropertyValue>
@@ -10816,42 +10816,13 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="160.5018920028814"/>
-              <PropertyValue id="x1" value="28.999118554428094"/>
               <PropertyValue id="ctrlx2" value="160.5018920028814"/>
-              <PropertyValue id="ctrlx1" value="28.999118554428094"/>
+              <PropertyValue id="x1" value="28.999118554428094"/>
               <PropertyValue id="y2" value="108.73542387308004"/>
-              <PropertyValue id="y1" value="106.85455613873421"/>
+              <PropertyValue id="ctrlx1" value="28.999118554428094"/>
               <PropertyValue id="ctrly2" value="108.73542387308004"/>
+              <PropertyValue id="y1" value="106.85455613873421"/>
               <PropertyValue id="ctrly1" value="106.85455613873421"/>
-            </PropertyValue>
-          </PropertyValue>
-        </Arc>
-
-        <Arc id="Arc42"
-          G_r="0.0"
-          G_ty="65.00424382329317"
-          G_tx="18.663397612615427"
-          G_inLayer="_root.RootSecuriDN.Arch1.historian.G_Layer1"
-          to="_root.RootSecuriDN.Arch1.historian.remoteSrvc"
-          from="_root.RootSecuriDN.Arch1.historian.scanVuln"
-          G_sy="100.0"
-          G_order="2"
-          G_py="0.0"
-          G_sx="100.0"
-          G_px="0.0"
-          G_iconRef="_root.RootSecuriDN.Arch1.historianServer.G_arcShape">
-          <PropertyValue id="G_segmentsP2" size="0">
-          </PropertyValue>
-          <PropertyValue id="G_segmentsP1" size="1">
-            <PropertyValue id="fap0">
-              <PropertyValue id="x2" value="17.474932084610828"/>
-              <PropertyValue id="x1" value="19.85186314061997"/>
-              <PropertyValue id="ctrlx2" value="17.474932084610828"/>
-              <PropertyValue id="ctrlx1" value="19.85186314061997"/>
-              <PropertyValue id="y2" value="95.00940203680369"/>
-              <PropertyValue id="y1" value="34.999085609782654"/>
-              <PropertyValue id="ctrly2" value="95.00940203680369"/>
-              <PropertyValue id="ctrly1" value="34.999085609782654"/>
             </PropertyValue>
           </PropertyValue>
         </Arc>
@@ -10873,6 +10844,35 @@
             <PropertyValue id="fap0" value="_root.RootSecuriDN.Arch1.historian.Arc42"/>
           </PropertyValue>
         </Node>
+
+        <Arc id="Arc42"
+          G_r="0.0"
+          G_ty="65.00424382329317"
+          G_tx="18.663397612615427"
+          G_inLayer="_root.RootSecuriDN.Arch1.historian.G_Layer1"
+          to="_root.RootSecuriDN.Arch1.historian.remoteSrvc"
+          from="_root.RootSecuriDN.Arch1.historian.scanVuln"
+          G_sy="100.0"
+          G_order="2"
+          G_py="0.0"
+          G_sx="100.0"
+          G_px="0.0"
+          G_iconRef="_root.RootSecuriDN.Arch1.historianServer.G_arcShape">
+          <PropertyValue id="G_segmentsP2" size="0">
+          </PropertyValue>
+          <PropertyValue id="G_segmentsP1" size="1">
+            <PropertyValue id="fap0">
+              <PropertyValue id="x2" value="17.474932084610828"/>
+              <PropertyValue id="ctrlx2" value="17.474932084610828"/>
+              <PropertyValue id="x1" value="19.85186314061997"/>
+              <PropertyValue id="y2" value="95.00940203680369"/>
+              <PropertyValue id="ctrlx1" value="19.85186314061997"/>
+              <PropertyValue id="ctrly2" value="95.00940203680369"/>
+              <PropertyValue id="y1" value="34.999085609782654"/>
+              <PropertyValue id="ctrly1" value="34.999085609782654"/>
+            </PropertyValue>
+          </PropertyValue>
+        </Arc>
 
         <G_iconDef id="G_NodeDefense"
           BBox_y="-19.5"
@@ -11159,12 +11159,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="182.5057570454146"/>
-              <PropertyValue id="x1" value="37.99981063445347"/>
               <PropertyValue id="ctrlx2" value="182.5057570454146"/>
-              <PropertyValue id="ctrlx1" value="37.99981063445347"/>
+              <PropertyValue id="x1" value="37.99981063445347"/>
               <PropertyValue id="y2" value="27.538505106455233"/>
-              <PropertyValue id="y1" value="23.93258533351431"/>
+              <PropertyValue id="ctrlx1" value="37.99981063445347"/>
               <PropertyValue id="ctrly2" value="27.538505106455233"/>
+              <PropertyValue id="y1" value="23.93258533351431"/>
               <PropertyValue id="ctrly1" value="23.93258533351431"/>
             </PropertyValue>
           </PropertyValue>
@@ -11550,7 +11550,7 @@
       </Goal>
 
       <Computer id="historianServer"
-        IP="2.2.2.2"
+        IP="192.168.40.22"
         observations=""
         observed="false"
         G_r="0.0"
@@ -11589,12 +11589,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="20.614443613864864"/>
-              <PropertyValue id="x1" value="18.846166488099215"/>
               <PropertyValue id="ctrlx2" value="20.614443613864864"/>
-              <PropertyValue id="ctrlx1" value="18.846166488099215"/>
+              <PropertyValue id="x1" value="18.846166488099215"/>
               <PropertyValue id="y2" value="154.00619550463196"/>
-              <PropertyValue id="y1" value="98.9990139282616"/>
+              <PropertyValue id="ctrlx1" value="18.846166488099215"/>
               <PropertyValue id="ctrly2" value="154.00619550463196"/>
+              <PropertyValue id="y1" value="98.9990139282616"/>
               <PropertyValue id="ctrly1" value="98.9990139282616"/>
             </PropertyValue>
           </PropertyValue>
@@ -11618,12 +11618,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="19.26751063972702"/>
-              <PropertyValue id="x1" value="20.315680185058795"/>
               <PropertyValue id="ctrlx2" value="19.26751063972702"/>
-              <PropertyValue id="ctrlx1" value="20.315680185058795"/>
+              <PropertyValue id="x1" value="20.315680185058795"/>
               <PropertyValue id="y2" value="75.00298211814149"/>
-              <PropertyValue id="y1" value="27.995847032234167"/>
+              <PropertyValue id="ctrlx1" value="20.315680185058795"/>
               <PropertyValue id="ctrly2" value="75.00298211814149"/>
+              <PropertyValue id="y1" value="27.995847032234167"/>
               <PropertyValue id="ctrly1" value="27.995847032234167"/>
             </PropertyValue>
           </PropertyValue>
@@ -11704,12 +11704,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="211.5"/>
-              <PropertyValue id="ctrlx2" value="211.5"/>
               <PropertyValue id="x1" value="31.98909867602066"/>
-              <PropertyValue id="y2" value="26.0"/>
+              <PropertyValue id="ctrlx2" value="211.5"/>
               <PropertyValue id="ctrlx1" value="31.98909867602066"/>
-              <PropertyValue id="ctrly2" value="26.0"/>
+              <PropertyValue id="y2" value="26.0"/>
               <PropertyValue id="y1" value="16.511383355849222"/>
+              <PropertyValue id="ctrly2" value="26.0"/>
               <PropertyValue id="ctrly1" value="16.511383355849222"/>
             </PropertyValue>
           </PropertyValue>
@@ -11733,12 +11733,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="302.5400160731329"/>
-              <PropertyValue id="ctrlx2" value="302.5400160731329"/>
               <PropertyValue id="x1" value="209.96748015901838"/>
-              <PropertyValue id="y2" value="104.21613873378358"/>
+              <PropertyValue id="ctrlx2" value="302.5400160731329"/>
               <PropertyValue id="ctrlx1" value="209.96748015901838"/>
-              <PropertyValue id="ctrly2" value="104.21613873378358"/>
+              <PropertyValue id="y2" value="104.21613873378358"/>
               <PropertyValue id="y1" value="103.11715310302324"/>
+              <PropertyValue id="ctrly2" value="104.21613873378358"/>
               <PropertyValue id="ctrly1" value="103.11715310302324"/>
             </PropertyValue>
           </PropertyValue>
@@ -11760,12 +11760,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="186.6706316202377"/>
-              <PropertyValue id="x1" value="32.2644574370033"/>
               <PropertyValue id="ctrlx2" value="186.6706316202377"/>
-              <PropertyValue id="ctrlx1" value="32.2644574370033"/>
+              <PropertyValue id="x1" value="32.2644574370033"/>
               <PropertyValue id="y2" value="107.95542818360316"/>
-              <PropertyValue id="y1" value="161.86333483951856"/>
+              <PropertyValue id="ctrlx1" value="32.2644574370033"/>
               <PropertyValue id="ctrly2" value="107.95542818360316"/>
+              <PropertyValue id="y1" value="161.86333483951856"/>
               <PropertyValue id="ctrly1" value="161.86333483951856"/>
             </PropertyValue>
           </PropertyValue>
@@ -11787,12 +11787,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="187.24202520105084"/>
-              <PropertyValue id="x1" value="30.744972922814366"/>
               <PropertyValue id="ctrlx2" value="187.24202520105084"/>
-              <PropertyValue id="ctrlx1" value="30.744972922814366"/>
+              <PropertyValue id="x1" value="30.744972922814366"/>
               <PropertyValue id="y2" value="98.68342420112579"/>
-              <PropertyValue id="y1" value="21.342804215764048"/>
+              <PropertyValue id="ctrlx1" value="30.744972922814366"/>
               <PropertyValue id="ctrly2" value="98.68342420112579"/>
+              <PropertyValue id="y1" value="21.342804215764048"/>
               <PropertyValue id="ctrly1" value="21.342804215764048"/>
             </PropertyValue>
           </PropertyValue>
@@ -11877,12 +11877,12 @@
           <PropertyValue id="G_segmentsP1" size="1">
             <PropertyValue id="fap0">
               <PropertyValue id="x2" value="158.5"/>
-              <PropertyValue id="ctrlx2" value="158.5"/>
               <PropertyValue id="x1" value="32.88092209918766"/>
-              <PropertyValue id="y2" value="186.0"/>
+              <PropertyValue id="ctrlx2" value="158.5"/>
               <PropertyValue id="ctrlx1" value="32.88092209918766"/>
-              <PropertyValue id="ctrly2" value="186.0"/>
+              <PropertyValue id="y2" value="186.0"/>
               <PropertyValue id="y1" value="167.68632442698149"/>
+              <PropertyValue id="ctrly2" value="186.0"/>
               <PropertyValue id="ctrly1" value="167.68632442698149"/>
             </PropertyValue>
           </PropertyValue>
@@ -12290,6 +12290,96 @@
       G_iconRef="_root.RootSecuriDN.G_DBNShape"
       use_default_CPT="false">
 
+      <G_iconDef id="G_arcShape"
+        BBox_y="-10.0"
+        BBox_x="-10.0"
+        BBox_w="20.0"
+        BBox_type="box"
+        N_labelSets="0"
+        BBox_h="20.0">
+
+        <GE_edgeSpline id="Spline0"
+          startCapScale="100.0"
+          width="1.0"
+          endCapScale="100.0"
+          strokeColor="000000"
+          G_order="0"
+          endCap="arrow"
+          startCap="none"
+          strokeStyle="solid">
+        </GE_edgeSpline>
+      </G_iconDef>
+
+      <G_iconDef id="G_tarcShape"
+        BBox_y="-10.0"
+        BBox_x="-10.0"
+        BBox_w="20.0"
+        BBox_type="box"
+        N_labelSets="0"
+        BBox_h="20.0">
+
+        <GE_edgeSpline id="Spline0"
+          startCapScale="100.0"
+          width="3.0"
+          endCapScale="100.0"
+          strokeColor="0000ff"
+          G_order="0"
+          endCap="arrow"
+          startCap="none"
+          strokeStyle="solid">
+        </GE_edgeSpline>
+      </G_iconDef>
+
+      <G_iconDef id="G_NodeOR"
+        BBox_y="-12.0"
+        BBox_x="-12.0"
+        BBox_w="24.0"
+        BBox_type="oval"
+        N_labelSets="0"
+        BBox_h="24.0">
+
+        <GE_text id="Text1"
+          G_ty="16.0"
+          G_tx="0.0"
+          fontSize="12"
+          textType="dynamic"
+          fontStyle="plain"
+          G_r="0.0"
+          fillColor="000000"
+          G_order="1"
+          rot="0.0"
+          txt="%24%25ID"
+          G_labelSet="1"
+          G_py="0.0"
+          G_px="0.0"
+          G_sy="100.0"
+          G_sx="100.0"
+          outlineType="fill"
+          fontFace="SansSerif"
+          outlineColor="ffffff">
+        </GE_text>
+
+        <GE_image id="Image1"
+          src="icons/BN/ORNode.png"
+          G_r="0.0"
+          G_ty="-12.0"
+          G_tx="-12.0"
+          G_sy="24.0"
+          G_order="0"
+          G_py="0.0"
+          G_sx="24.0"
+          G_px="0.0">
+        </GE_image>
+      </G_iconDef>
+
+      <G_Layer id="G_Layer1"
+        Locked="false"
+        Visible="true"
+        Order="1"
+        Solvable="true"
+        Label="Layer 1">
+      </G_Layer>
+
       <G_iconDef id="G_Node"
         BBox_y="-12.0"
         BBox_x="-12.0"
@@ -12357,76 +12447,6 @@
         </GE_ellipse>
       </G_iconDef>
 
-      <G_Layer id="G_Layer1"
-        Locked="false"
-        Visible="true"
-        Order="1"
-        Solvable="true"
-        Label="Layer 1">
-      </G_Layer>
-
-      <G_iconDef id="G_tarcShape"
-        BBox_y="-10.0"
-        BBox_x="-10.0"
-        BBox_w="20.0"
-        BBox_type="box"
-        N_labelSets="0"
-        BBox_h="20.0">
-
-        <GE_edgeSpline id="Spline0"
-          startCapScale="100.0"
-          width="3.0"
-          endCapScale="100.0"
-          strokeColor="0000ff"
-          G_order="0"
-          endCap="arrow"
-          startCap="none"
-          strokeStyle="solid">
-        </GE_edgeSpline>
-      </G_iconDef>
-
-      <G_iconDef id="G_NodeOR"
-        BBox_y="-12.0"
-        BBox_x="-12.0"
-        BBox_w="24.0"
-        BBox_type="oval"
-        N_labelSets="0"
-        BBox_h="24.0">
-
-        <GE_text id="Text1"
-          G_ty="16.0"
-          G_tx="0.0"
-          fontSize="12"
-          textType="dynamic"
-          fontStyle="plain"
-          G_r="0.0"
-          fillColor="000000"
-          G_order="1"
-          rot="0.0"
-          txt="%24%25ID"
-          G_labelSet="1"
-          G_py="0.0"
-          G_px="0.0"
-          G_sy="100.0"
-          G_sx="100.0"
-          outlineType="fill"
-          fontFace="SansSerif"
-          outlineColor="ffffff">
-        </GE_text>
-
-        <GE_image id="Image1"
-          src="icons/BN/ORNode.png"
-          G_r="0.0"
-          G_ty="-12.0"
-          G_tx="-12.0"
-          G_sy="24.0"
-          G_order="0"
-          G_py="0.0"
-          G_sx="24.0"
-          G_px="0.0">
-        </GE_image>
-      </G_iconDef>
-
       <G_iconDef id="G_NodeAND"
         BBox_y="-12.0"
         BBox_x="-12.0"
@@ -12467,26 +12487,6 @@
           G_sx="24.0"
           G_px="0.0">
         </GE_image>
-      </G_iconDef>
-
-      <G_iconDef id="G_arcShape"
-        BBox_y="-10.0"
-        BBox_x="-10.0"
-        BBox_w="20.0"
-        BBox_type="box"
-        N_labelSets="0"
-        BBox_h="20.0">
-
-        <GE_edgeSpline id="Spline0"
-          startCapScale="100.0"
-          width="1.0"
-          endCapScale="100.0"
-          strokeColor="000000"
-          G_order="0"
-          endCap="arrow"
-          startCap="none"
-          strokeStyle="solid">
-        </GE_edgeSpline>
       </G_iconDef>
     </DBN>
   </SecuriDN>

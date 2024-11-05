@@ -354,31 +354,33 @@ public class SolverFilterAG extends SolverFilter{
 
 	}
 	
-
 	private void writeJson(ArrayList<String[]> order, String filename) {
-		//Viene creata una mappa dove la chiave è l'IP e il valore è una lista di Id degli attacchi
-		Map<String, ArrayList<String>> m = new HashMap<>();
-
-		//Viene popolata la map raggruppando per IP
+		// Crea una lista di oggetti per l'array "attack_sequence"
+		ArrayList<Map<String, String>> attackSequence = new ArrayList<>();
+	
+		// Popola la lista con gli oggetti, ognuno contenente "attack_name", "IP" e "additional_attribute"
 		for (String[] node : order) {
-			String id = node[0];
-			String ip = node[1];
-			m.putIfAbsent(ip, new ArrayList<>());
-			m.get(ip).add(id);
+			Map<String, String> attackEntry = new HashMap<>();
+			attackEntry.put("attack_name", node[0]); // Nome dell'attacco
+			attackEntry.put("IP", node[1]); // Indirizzo IP associato
+			attackEntry.put("additional_attribute", ""); // Inizializza "additional_attribute" come stringa vuota
+			attackSequence.add(attackEntry);
 		}
-
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+	
+		// Crea l'oggetto JSON principale con chiave "attack_sequence"
 		JsonObject jsonObject = new JsonObject();
-		jsonObject.add("attack_sequence", gson.toJsonTree(m));
-		String jsonString = gson.toJson(jsonObject);
-
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		jsonObject.add("attack_sequence", gson.toJsonTree(attackSequence));
+	
+		// Scrive l'oggetto JSON nel file
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-			writer.write(jsonString);
+			writer.write(gson.toJson(jsonObject));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
+	
+	
 
 
 
