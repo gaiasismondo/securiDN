@@ -32,6 +32,9 @@
 		<propertyDef id="_root.Arch.Network.@query" label="Query"
 			icon="xml/formalism/icons/cloud.png"
 			inPlane="query"/>
+		<propertyDef id="_root.Arch.Network.@IP" label="IP address"
+			icon="xml/formalism/icons/cloud.png"
+			inPlane="model"/>
 
 	<elementDef id="_root.Arch.ExecutionEnvironment" label="Execution Environment" icon="xml/formalism/icons/executionEnvironment.png" 
 	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
@@ -84,17 +87,23 @@
 			icon="xml/formalism/icons/application.png"
 			inPlane="query"/>
 
-	<!-- <elementDef id="_root.Arch.Firewall" label="Firewall" icon="xml/formalism/icons/firewall.png" 
+	<elementDef id="_root.Arch.Firewall" label="Firewall" icon="xml/formalism/icons/firewall.png" 
 	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
-		<propertyDef id="_root.Arch.Network.@observed" label="Observed"
-			icon="xml/formalism/icons/WebServer.png"
-			inPlane="model"/>
-		<propertyDef id="_root.Arch.Network.@observations" label="Observations"
-			icon="xml/formalism/icons/WebServer.png"
-			inPlane="model"/>
-		<propertyDef id="_root.Arch.Network.@query" label="Query"
-			icon="xml/formalism/icons/WebServer.png"
-			inPlane="model"/> -->
+		<propertyDef id="_root.Arch.Firewall.@observed" label="Observed"
+			icon="xml/formalism/icons/firewall.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.Firewall.@observations" label="Observations"
+			icon="xml/formalism/icons/firewall.png"
+			inPlane="query"/>
+		<propertyDef id="_root.Arch.Firewall.@query" label="Query"
+			icon="xml/formalism/icons/firewall.png"
+			inPlane="query"/> 
+		<propertyDef id="_root.Arch.Firewall.@rules" label="Rules"
+			icon="xml/formalism/icons/firewall.png"
+			inPlane="model"/> 
+		<!-- <propertyDef id="_root.Arch.Firewall.@outRules" label="Out Rules"
+			icon="xml/formalism/icons/firewall.png"
+			inPlane="model"/>  -->
 
 	<!-- <elementDef id="_root.Arch.WebServer" label="Web Server" icon="xml/formalism/icons/web.png" 
 	 inPlane="model" derivesFrom="_root.Arch.AssetNode"/>
@@ -304,8 +313,23 @@
 		inPlane="model" 
 		derivesFrom="_root.Arch.AssetArc"/> -->
 
-	<elementDef id="_root.Arch.Client" label="Communicates" 
+	<elementDef id="_root.Arch.CommunicateClient" label="Communicates (client)" 
 		icon="xml/formalism/icons/YellowArcIcon.png" 
+		inPlane="model" 
+		derivesFrom="_root.Arch.AssetArc"/>
+
+	<elementDef id="_root.Arch.CommunicateServer" label="Communicates (server)" 
+		icon="xml/formalism/icons/YellowArcIcon.png" 
+		inPlane="model" 
+		derivesFrom="_root.Arch.AssetArc"/>
+
+	<elementDef id="_root.Arch.Internal" label="Internal Network" 
+		icon="xml/formalism/icons/PinkArcIcon.png" 
+		inPlane="model" 
+		derivesFrom="_root.Arch.AssetArc"/>
+
+	<elementDef id="_root.Arch.External" label="External Network" 
+		icon="xml/formalism/icons/PinkArcIcon.png" 
 		inPlane="model" 
 		derivesFrom="_root.Arch.AssetArc"/>
 

@@ -4,6 +4,7 @@ import drawnet.lib.ddl.ElementInstance;
 import drawnet.lib.ddl.ElementType;
 import drawnet.lib.ddl.propertyvalues.FloatPropertyValue;
 import drawnet.lib.ddl.propertyvalues.StringPropertyValue;
+import drawnet.lib.ddl.propertyvalues.BooleanPropertyValue;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -34,9 +35,6 @@ public class SolverFilterAG extends SolverFilter{
 	private ArrayList<String> edges = new ArrayList<String>();
 	private ArrayList<String[]> nodes = new ArrayList<String[]>();
 
-	//TEST IP
-	private StringPropertyValue HISTORIAN_SERVER_IP = new StringPropertyValue("192.168.40.22");
-	private StringPropertyValue TOMCAT_WEB_SERVER_IP = new StringPropertyValue("192.168.40.21");
 
 	/**
 	 * Constructor.
@@ -130,37 +128,48 @@ public class SolverFilterAG extends SolverFilter{
 		}
 	}
 
-
+	
 	//scorre il grado e inserisce tutti i nodi nell'ArrayList nodes e tutti gli archi nell'arrayList edges
-	private void getEdgesAndNodes(){
-
+	private void getEdgesAndNodes() {
 		Enumeration<ElementInstance> enumeration;
 		ElementInstance elementInstance;
-	  	ElementType elementType;
-
+		ElementType elementType;
+	
 		enumeration = ag.subElementsEnum();
-
-		while (enumeration.hasMoreElements()){
-
+	
+		while (enumeration.hasMoreElements()) {
 			elementInstance = enumeration.nextElement();
 			elementType = elementInstance.getElementType();
-
-			if(elementType.getId().equals("Arc")){
+	
+			if (elementType.getId().equals("Arc")) {
 				edges.add(elementInstance.getId());
-			}
-			else if(elementType.getId().equals("Node")||elementType.getId().equals("NodeOR")||elementType.getId().equals("NodeAND")){
-				String[] tmp = new String[2];
-				tmp[0]=elementInstance.getId();
-				if(elementType.getId().equals("Node"))
-					tmp[1]=elementInstance.getPropertyValue("IP").toString();
-				else 
-					tmp[1]="";
+			} else if (elementType.getId().equals("Node") || elementType.getId().equals("NodeOR") || elementType.getId().equals("NodeAND")) {
+				String[] tmp = new String[3];
+				tmp[0] = elementInstance.getId();
+				
+				// Recupera l'IP se il nodo è di tipo 'Node', altrimenti lascia vuoto
+				tmp[1] = elementType.getId().equals("Node") ? elementInstance.getPropertyValue("IP").toString() : "";
+	
+				String additionalAttribute = "None";
+
+				// Controlla se il valore di initial_technique è True aggiunge Attacker come terzo elemento
+				BooleanPropertyValue initialTechnique = (BooleanPropertyValue) elementInstance.getPropertyValue("initial");
+				if (initialTechnique != null && initialTechnique.getValue()) {
+					additionalAttribute = "Attacker";
+				}
+
+				// Controlla se il valore di final_technique è True aggiunge Target come terzo elemento
+				BooleanPropertyValue finalTechnique = (BooleanPropertyValue) elementInstance.getPropertyValue("final");
+				if (finalTechnique != null && finalTechnique.getValue()) {
+					additionalAttribute = "Target";
+				}
+
+				tmp[2] = additionalAttribute;
 				nodes.add(tmp);
 			}
 		}
-	} 
-
-
+	}
+	
 
 	//Vengono catalogati come "nodi con genitori" tutti i nodi che hanno almeno un arco entrante
 	//Facendo la differenza tra l'insieme di tutti i nodi e dei "nodi con genitori" si trovano quelli senza genitori
@@ -272,7 +281,7 @@ public class SolverFilterAG extends SolverFilter{
 
 		return parentsNodes;
 	}
-	
+
 
 	//restotuisce l'ordine topologico dell'attack graph
 	private ArrayList<String[]> getTopologicalOrder() {
@@ -286,7 +295,7 @@ public class SolverFilterAG extends SolverFilter{
 	
 		String[] start= getNodesWithoutParents(edges, nodes).get(0);
 		String startId = start[0];
-
+		
 		ArrayList<String> visited = new ArrayList<String>();
 		Stack<String> stack = new Stack<String>();
 		ArrayList<String[]> topologicalOrder = new ArrayList<String[]>();
@@ -347,23 +356,23 @@ public class SolverFilterAG extends SolverFilter{
 
 		for(String[] node: topologicalOrder){
 			String[] splittedId = node[0].split("_");
-			orderWithoutPrefix.add(new String[]{splittedId[1],node[1]});
+			orderWithoutPrefix.add(new String[]{splittedId[1],node[1],node[2]});
 		}
 
 		return orderWithoutPrefix;
 
 	}
 	
+	
 	private void writeJson(ArrayList<String[]> order, String filename) {
-		// Crea una lista di oggetti per l'array "attack_sequence"
 		ArrayList<Map<String, String>> attackSequence = new ArrayList<>();
 	
 		// Popola la lista con gli oggetti, ognuno contenente "attack_name", "IP" e "additional_attribute"
 		for (String[] node : order) {
 			Map<String, String> attackEntry = new HashMap<>();
-			attackEntry.put("attack_name", node[0]); // Nome dell'attacco
-			attackEntry.put("IP", node[1]); // Indirizzo IP associato
-			attackEntry.put("additional_attribute", ""); // Inizializza "additional_attribute" come stringa vuota
+			attackEntry.put("attack_name", node[0]); 
+			attackEntry.put("IP", node[1]); 
+			attackEntry.put("additional_attribute", node[2]); 
 			attackSequence.add(attackEntry);
 		}
 	
@@ -381,10 +390,6 @@ public class SolverFilterAG extends SolverFilter{
 	}
 	
 	
-
-
-
-	
 	public boolean execute()
 	{
 
@@ -396,6 +401,7 @@ public class SolverFilterAG extends SolverFilter{
 		ArrayList<String[]> topologicalOrder = this.getTopologicalOrder();
 		topologicalOrder = this.removeLogicalNodes(topologicalOrder);
 		topologicalOrder = this.removePrefix(topologicalOrder);
+
 	
 		System.out.println("TOPOLOGICAL ORDER:");
 		for(String[] node : topologicalOrder) {

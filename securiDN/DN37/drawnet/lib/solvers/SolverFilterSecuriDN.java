@@ -12,6 +12,7 @@ import drawnet.lib.ddl.propertyvalues.ElementRefPropertyValue;
 import drawnet.lib.ddl.propertyvalues.FixedArrayPropertyValue;
 import drawnet.lib.ddl.propertyvalues.FloatPropertyValue;
 import drawnet.lib.ddl.propertyvalues.IntegerPropertyValue;
+import drawnet.lib.ddl.propertyvalues.BooleanPropertyValue;
 import drawnet.lib.ddl.propertyvalues.StructPropertyValue;
 import drawnet.lib.ddl.propertyvalues.StringPropertyValue;
 import drawnet.lib.ddl.propertytypes.StructPropertyType;
@@ -31,6 +32,7 @@ public class SolverFilterSecuriDN extends SolverFilter
 
   private ElementInstance arch, ag, dbn, attack=null, goal=null;
   private ArrayList<String> nodesIn; // nodesOut;
+  private ArrayList<String> visitedNodes;
   private ArrayList<String> visitedAssets;
   private ArrayList<String> reachableAssets;
 
@@ -274,6 +276,8 @@ public class SolverFilterSecuriDN extends SolverFilter
 	//System.out.println(localGoal.getContainer().getId() + "_" + localGoal.getId());
 	attack = ag.getSubElement(localAttack.getContainer().getId() + "_" + localAttack.getId());
 	goal = ag.getSubElement(localGoal.getContainer().getId() + "_" + localGoal.getId());
+	attack.setPropertyValue("initial", new BooleanPropertyValue(true));
+	goal.setPropertyValue("final", new BooleanPropertyValue(true));
 	System.out.println("\nPATH: from " + attack.getId() + " to " + goal.getId());
 	
 	/*
@@ -623,14 +627,14 @@ public class SolverFilterSecuriDN extends SolverFilter
 	String ip, fap;
 	int i;
 
-	// DETERMINA IP DEI COMPUTER
+	// DETERMINA IP DI COMPUTER, IED, NETWORK
 
 	enumeration = arch.subElementsEnum();
 	while (enumeration.hasMoreElements())
 	{
 		elementInstance = enumeration.nextElement();
 		elementType = elementInstance.getElementType();	
-		if (elementType.getId().equals("Computer") || elementType.getId().equals("IED"))
+		if (elementType.getId().equals("Computer") || elementType.getId().equals("IED") || elementType.getId().equals("Network"))
 		{
 			ip = elementInstance.getPropertyValue("IP").toString();
 			if (ip.length() > 0)
@@ -639,45 +643,55 @@ public class SolverFilterSecuriDN extends SolverFilter
 				this.ipCopy(elementInstance, ip);
 			}
 
-			// archi entranti
-			toConnections = (FixedArrayPropertyValue)elementInstance.getPropertyValue("G_toConnections");
-			if (toConnections != null && toConnections.size() > 0)
-				for (i=0; i<toConnections.size(); i++)
-				{	
-					fap = toConnections.getPropertyValueAt(i).toString();
-					arc = arch.getSubElement(fap);
-					if (arc.getElementType().getId().equals("Execute"))
-					{
-						from = arch.getSubElement(arc.getPropertyValue("from").toString());
-						if (from.getElementType().getId().equals("Application"))
-							this.ipCopy(from, ip);
-						if (from.getElementType().getId().equals("ExecutionEnvironment"))
-						{
-							this.ipCopy(from, ip);
-							ipExecutionEnvironment(from, ip);
-						}
-					}	
-				}
+			// RICERCA APPLICAZIONI E VM COLLEGATE AL COMPUTER/IED
 
-			// archi uscenti
-			fromConnections = (FixedArrayPropertyValue)elementInstance.getPropertyValue("G_fromConnections");
-			if (fromConnections != null && fromConnections.size() > 0)
-				for (i=0; i<fromConnections.size(); i++)
-				{
-					fap = fromConnections.getPropertyValueAt(i).toString();
-					arc = arch.getSubElement(fap);
-					if (arc.getElementType().getId().equals("Execute"))
-					{
-						to = arch.getSubElement(arc.getPropertyValue("to").toString());
-						if (to.getElementType().getId().equals("Application"))
-							this.ipCopy(to, ip);
-						if (to.getElementType().getId().equals("ExecutionEnvironment"))
+			if (elementType.getId().equals("Computer") || elementType.getId().equals("IED"))
+			{
+				// archi entranti
+				toConnections = (FixedArrayPropertyValue)elementInstance.getPropertyValue("G_toConnections");
+				if (toConnections != null && toConnections.size() > 0)
+					for (i=0; i<toConnections.size(); i++)
+					{	
+						fap = toConnections.getPropertyValueAt(i).toString();
+						arc = arch.getSubElement(fap);
+						if (arc.getElementType().getId().equals("Execute"))
 						{
-							this.ipCopy(to, ip);
-							ipExecutionEnvironment(to, ip);
-						}
-					}					
-				}
+							from = arch.getSubElement(arc.getPropertyValue("from").toString());
+							if (from.getElementType().getId().equals("Application"))
+							{
+								this.ipCopy(from, ip);
+								this.ipApplication(from, ip);
+							}
+							if (from.getElementType().getId().equals("ExecutionEnvironment"))
+							{
+								this.ipCopy(from, ip);
+								ipExecutionEnvironment(from, ip);
+							}
+						}	
+					}
+				// archi uscenti
+				fromConnections = (FixedArrayPropertyValue)elementInstance.getPropertyValue("G_fromConnections");
+				if (fromConnections != null && fromConnections.size() > 0)
+					for (i=0; i<fromConnections.size(); i++)
+					{
+						fap = fromConnections.getPropertyValueAt(i).toString();
+						arc = arch.getSubElement(fap);
+						if (arc.getElementType().getId().equals("Execute"))
+						{
+							to = arch.getSubElement(arc.getPropertyValue("to").toString());
+							if (to.getElementType().getId().equals("Application"))
+							{
+								this.ipCopy(to, ip);
+								this.ipApplication(to, ip);
+							}
+							if (to.getElementType().getId().equals("ExecutionEnvironment"))
+							{
+								this.ipCopy(to, ip);
+								ipExecutionEnvironment(to, ip);
+							}
+						}					
+					}
+			}
 		}
 	}
   }
@@ -688,6 +702,8 @@ public class SolverFilterSecuriDN extends SolverFilter
 	ElementInstance from, to, arc;
 	String fap;
 	int i;
+
+	// RICERCA APPLICAZIONI COLLEGATE A VM
 
 	// archi entranti
 	toConnections = (FixedArrayPropertyValue)vm.getPropertyValue("G_toConnections");
@@ -700,7 +716,10 @@ public class SolverFilterSecuriDN extends SolverFilter
 			{
 				from = arch.getSubElement(arc.getPropertyValue("from").toString());
 				if (from.getElementType().getId().equals("Application"))
+				{
 					this.ipCopy(from, ip);
+					this.ipApplication(from, ip);
+				}
 			}	
 			
 		}
@@ -716,75 +735,59 @@ public class SolverFilterSecuriDN extends SolverFilter
 			{
 				to = arch.getSubElement(arc.getPropertyValue("to").toString());
 				if (to.getElementType().getId().equals("Application"))
+				{
+					this.ipCopy(to, ip);
+					this.ipApplication(to, ip);
+				}
+			}					
+		}
+  }
+
+  private void ipApplication(ElementInstance app, String ip)
+  {
+	FixedArrayPropertyValue toConnections, fromConnections;
+	ElementInstance from, to, arc;
+	String fap;
+	int i;
+
+	// RICERCA CHANNEL COLLEGATI A SERVER APPLICATION
+
+	// archi entranti
+	toConnections = (FixedArrayPropertyValue)app.getPropertyValue("G_toConnections");
+	if (toConnections != null && toConnections.size() > 0)
+		for (i=0; i<toConnections.size(); i++)
+		{	
+			fap = toConnections.getPropertyValueAt(i).toString();
+			arc = arch.getSubElement(fap);
+			if (arc.getElementType().getId().equals("CommunicateServer"))
+			{
+				from = arch.getSubElement(arc.getPropertyValue("from").toString());
+				if (from.getElementType().getId().equals("Channel"))
+					this.ipCopy(from, ip);
+			}	
+			
+		}
+
+	// archi uscenti
+	fromConnections = (FixedArrayPropertyValue)app.getPropertyValue("G_fromConnections");
+	if (fromConnections != null && fromConnections.size() > 0)
+		for (i=0; i<fromConnections.size(); i++)
+		{
+			fap = fromConnections.getPropertyValueAt(i).toString();
+			arc = arch.getSubElement(fap);
+			if (arc.getElementType().getId().equals("CommunicateServer"))
+			{
+				to = arch.getSubElement(arc.getPropertyValue("to").toString());
+				if (to.getElementType().getId().equals("Channel"))
 					this.ipCopy(to, ip);
 			}					
 		}
   }
-/*
-	// DETERMINA IP DELLE APPLICAZIONI
-
-	enumeration = arch.subElementsEnum();
-      	while (enumeration.hasMoreElements())
-      	{
-		elementInstance = enumeration.nextElement();
-		elementType = elementInstance.getElementType();	
-		if (elementType.getId().equals("Application"))
-		{
-			ip = null;
-
-			// archi entranti
-			toConnections = (FixedArrayPropertyValue)elementInstance.getPropertyValue("G_toConnections");
-			if (toConnections != null && toConnections.size() > 0)
-				for (i=0; i<toConnections.size(); i++)
-				{
-					fap = toConnections.getPropertyValueAt(i).toString();
-					System.out.println("fap: " + fap);
-					arc = arch.getSubElement(fap);
-					if (arc.getElementType().getId().equals("Execute"))
-					{
-						from = arch.getSubElement(arc.getPropertyValue("from").toString());
-						if (from.getElementType().getId().equals("Computer") || from.getElementType().getId().equals("IED"))
-							ip = from.getPropertyValue("IP").toString();
-
-						if (from.getElementType().getId().equals("ExecutionEnvironment"))
-						{
-							// qui
-						}
-					}	
-				}	
-
-			// archi uscenti
-			fromConnections = (FixedArrayPropertyValue)elementInstance.getPropertyValue("G_fromConnections");
-			if (fromConnections != null && fromConnections.size() > 0)
-				for (i=0; i<fromConnections.size(); i++)
-				{
-					fap = fromConnections.getPropertyValueAt(i).toString();
-					arc = arch.getSubElement(fap);
-					if (arc.getElementType().getId().equals("Execute"))
-					{
-						to = arch.getSubElement(arc.getPropertyValue("to").toString());
-					
-						if (to.getElementType().getId().equals("Computer") || to.getElementType().getId().equals("IED"))
-							ip = to.getPropertyValue("IP").toString();
-
-						if (to.getElementType().getId().equals("ExecutionEnvironment"))
-						{
-							// qui
-						}
-					}	
-				}
-			if (ip != null && ip.length() > 0)
-			{
-				System.out.println(elementInstance.getId() + " IP: " + ip);
-				this.ipCopy(elementInstance, ip);	
-			}	
-		} 
-	}	
-  }
-  */
 
   private void ipCopy(ElementInstance asset, String ip)
   {
+	// COPIA IP NELL'AG GENERALE PER LE TECNICHE DELL'ASSET 
+
 	Enumeration<ElementInstance> enumeration;
 	ElementInstance elementInstance;
   	ElementType elementType;
@@ -1020,18 +1023,19 @@ public class SolverFilterSecuriDN extends SolverFilter
 	FixedArrayPropertyValue toConnections;
 
 	String nodeSharedName[] = nodeShared.getId().split("_");	
-	String pathType[] = nodeShared.getPropertyValue("asset").toString().toLowerCase().split("_");
+	String port = nodeShared.getPropertyValue("asset").toString();
 
 	//System.out.println("path di " + pathType.length + " step");
 
 	System.out.println("\nConsidero NodeShared " + nodeShared.getId());
 
-	// CERCA GLI ASSET RAGGIUNGIBILI NELL'ARCH IN BASE AL TIPO DI PATH
+	// CERCA GLI ASSET RAGGIUNGIBILI NELL'ARCH IN BASE AL TIPO DI PORTA
 	sourceAsset = arch.getSubElement(nodeSharedName[0]); 	
-	System.out.println("Cerco gli asset raggiungibili da " + sourceAsset.getId() + " con path " + nodeShared.getPropertyValue("asset").toString());
+	System.out.println("Cerco gli asset raggiungibili da " + sourceAsset.getId() + " con porta " + port);
 	visitedAssets.clear();
 	reachableAssets.clear();
-	archVisit3(sourceAsset, pathType, 0);
+	archVisit4(sourceAsset, port);
+
 
 	// CONTROLLA CHE IL NODO CONDIVISO ABBIA UN ARCO ENTRANTE E INDIVIDUA IL NODO FROM
 	toConnections = (FixedArrayPropertyValue)nodeShared.getPropertyValue("G_toConnections");
@@ -1078,6 +1082,51 @@ public class SolverFilterSecuriDN extends SolverFilter
 	//return merged;
   }
 
+  private void archVisit4(ElementInstance asset, String port)
+  {
+	// VISITA RICORSIVA DELL'ARCH SEGUENDO IL TIPO DI PATH.
+	// GLI ASSET RAGGIUNTI SONO MEMORIZZATI IN reachableAssets.
+
+	ElementInstance arc;
+	FixedArrayPropertyValue fromConnections, toConnections;
+	int i;
+	String fap, toRef, fromRef;
+
+	if (visitedAssets.contains(asset.getId()))
+		return;
+
+	if (asset.getElementType().getId().equals("Attacker") || asset.getElementType().getId().equals("Goal"))
+		return;
+	
+	System.out.println("Visito " + asset.getId());
+	visitedAssets.add(asset.getId());
+	reachableAssets.add(asset.getId());
+	
+	fromConnections = (FixedArrayPropertyValue)asset.getPropertyValue("G_fromConnections");
+	toConnections = (FixedArrayPropertyValue)asset.getPropertyValue("G_toConnections");
+
+	for (i=0; fromConnections!=null && i<fromConnections.size(); i++)
+	{
+		fap = fromConnections.getPropertyValueAt(i).toString();
+		//System.out.println("arco uscente: " + fap);
+		arc = arch.getSubElementByPath(fap);
+		toRef = arc.getPropertyValue("to").toString();
+		//System.out.println("nodo puntato: " + toRef);
+		this.archVisit4(arch.getSubElementByPath(toRef), port);
+	}
+	for (i=0; toConnections!=null && i<toConnections.size(); i++)
+	{
+		fap = toConnections.getPropertyValueAt(i).toString();
+		//System.out.println("arco uscente: " + fap);
+		arc = arch.getSubElementByPath(fap);
+		fromRef = arc.getPropertyValue("from").toString();
+		//System.out.println("nodo puntato: " + toRef);
+		this.archVisit4(arch.getSubElementByPath(fromRef), port);
+	}
+  }
+  
+
+  /*
   private void archVisit3(ElementInstance asset, String pathType[], int step)
   {
 	// VISITA RICORSIVA DELL'ARCH SEGUENDO IL TIPO DI PATH.
@@ -1127,7 +1176,8 @@ public class SolverFilterSecuriDN extends SolverFilter
 		if (arc.getId().toLowerCase().contains(pathType[step]))
 			this.archVisit3(arch.getSubElementByPath(fromRef), pathType, step+1);
 	}
-  }
+  } 
+  */
   
   private void arcClone(ElementInstance arc, ElementInstance sourceNode, ElementInstance destNode, int indice)
   {
@@ -1230,6 +1280,11 @@ public class SolverFilterSecuriDN extends SolverFilter
 		System.out.println("agVisit " + elementInstance.getId() + ": " + elementType.getId());
  	}*/
 
+	if (visitedNodes.contains(node.getId()))
+		return 0;
+	else
+		visitedNodes.add(node.getId());
+	
 	System.out.println("Visito " + node.getId());
 
 	if (node.getId().equals(goal.getId()))
@@ -1961,12 +2016,13 @@ public class SolverFilterSecuriDN extends SolverFilter
 	{
   		visitedAssets = new ArrayList<String>();
 		reachableAssets = new ArrayList<String>();
-        	this.agJoin3();
+        	this.agJoin3(); // AGGIORNARE
 			
 		choice = JOptionPane.showConfirmDialog(null, "Do you want to reduce the general AG?", "shared nodes merged", JOptionPane.YES_NO_OPTION);
 		if (choice == JOptionPane.YES_OPTION)
 		{	
 			nodesIn = new ArrayList<String>();
+			visitedNodes = new ArrayList<String>();
 			//nodesOut = new ArrayList<String>();
 			this.agVisit(attack);
 			this.agVisitDefense();

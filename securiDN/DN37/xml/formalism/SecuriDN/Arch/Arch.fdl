@@ -73,7 +73,7 @@
 			<propertyType name="query" type="boolean" default="false">
         			<inPlane plane="query"/>
       			</propertyType>
-			<propertyType name="IP" type="string" default="">
+			<propertyType name="IP" type="string" default="set IP address">
         			<inPlane plane="model"/>
       			</propertyType>
       			<propertyType name="G_iconRef" type="elementRef" default="G_computerShape">
@@ -94,6 +94,9 @@
       			</propertyType>
 			<propertyType name="query" type="boolean" default="false">
         			<inPlane plane="query"/>
+      			</propertyType>
+			<propertyType name="IP" type="string" default="set IP address">
+        			<inPlane plane="model"/>
       			</propertyType>
       			<propertyType name="G_iconRef" type="elementRef" default="G_networkShape">
         			<inPlane plane="graph"/>
@@ -119,9 +122,8 @@
       			</propertyType>
     		</elementType> 
 
-		<!-- <elementType name="Firewall">
+		<elementType name="Firewall">
 			<parent ref="_root.Arch.AssetNode" />
-			<parent ref="_root.Arch.Application" />
       			<parent ref="_root.AG"/>
 			<defaultInstance src="SecuriDN/Arch/AG/Firewall.fdli"/>
 			<propertyType name="observed" type="boolean" default="false">
@@ -133,10 +135,29 @@
 			<propertyType name="query" type="boolean" default="false">
         			<inPlane plane="query"/>
       			</propertyType>
+			<propertyType name="rules" type="fixedArray" level="formalism" size="10">
+                                <inPlane plane="model" />
+				<propertyType name="inRule" type="struct" level="formalism">
+					<inPlane plane="model" />
+                                	<propertyType name="sourceIP" type="string" default="" />
+					<propertyType name="destinationIP" type="string" default="" />
+                                	<propertyType name="port or protocol" type="string" default="" />
+					<propertyType name="in (uncheck) or out (check)" type="boolean" default="" />
+				</propertyType>
+			</propertyType>
+			<!-- <propertyType name="outRules" type="fixedArray" level="formalism" size="10">
+                                <inPlane plane="model" />
+				<propertyType name="inRule" type="struct" level="formalism">
+					<inPlane plane="model" />
+                                	<propertyType name="source" type="string" default="" />
+					<propertyType name="destination" type="string" default="" />
+                                	<propertyType name="port" type="string" default="" />
+				</propertyType>
+			</propertyType> -->
       			<propertyType name="G_iconRef" type="elementRef" default="G_firewallShape">
         			<inPlane plane="graph"/>
       			</propertyType>
-    		</elementType> -->
+    		</elementType> 
 
 		<!-- <elementType name="WebServer">
 			<parent ref="_root.Arch.AssetNode" />
@@ -266,10 +287,9 @@
 			<propertyType name="query" type="boolean" default="false">
         			<inPlane plane="query"/>
       			</propertyType>
-			<propertyType name="IP" type="string" default="">
+			<propertyType name="IP" type="string" default="set IP address">
         			<inPlane plane="model"/>
       			</propertyType>
-
       			<propertyType name="G_iconRef" type="elementRef" default="G_IEDShape">
         			<inPlane plane="graph"/>
       			</propertyType>
@@ -548,11 +568,11 @@
 			</modelConstraint>
 		</elementType> -->
 
-		<elementType name="Client" >
+		<elementType name="CommunicateClient" >
 			<parent ref="_root.GraphBased.Edge" />
 			<parent ref="_root.Arch.AssetArc" />
 			<inPlane plane="model"/>
-			<propertyType name="G_iconRef" type="elementRef" default="G_clientShape">
+			<propertyType name="G_iconRef" type="elementRef" default="G_communicateShape">
 				<inPlane plane="graph"/>
 			</propertyType>
 			<modelConstraint>
@@ -568,11 +588,11 @@
 			</modelConstraint>
 		</elementType>
 
-		<!-- <elementType name="Server" >
+		<elementType name="CommunicateServer" >
 			<parent ref="_root.GraphBased.Edge" />
 			<parent ref="_root.Arch.AssetArc" />
 			<inPlane plane="model"/>
-			<propertyType name="G_iconRef" type="elementRef" default="G_serverShape">
+			<propertyType name="G_iconRef" type="elementRef" default="G_communicateShape">
 				<inPlane plane="graph"/>
 			</propertyType>
 			<modelConstraint>
@@ -580,8 +600,53 @@
                                         <check op="isOfKind" ref="from" kind="_root.Arch.Channel" />
                                         <check op="isOfKind" ref="to" kind="_root.Arch.Application" />
                         	</constraint>
+
+				<constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.Arch.Application" />
+                                        <check op="isOfKind" ref="to" kind="_root.Arch.Channel" />
+                        	</constraint>
 			</modelConstraint>
-		</elementType>  -->
+		</elementType>
+
+		<elementType name="Internal" >
+			<parent ref="_root.GraphBased.Edge" />
+			<parent ref="_root.Arch.AssetArc" />
+			<inPlane plane="model"/>
+			<propertyType name="G_iconRef" type="elementRef" default="G_internalShape">
+				<inPlane plane="graph"/>
+			</propertyType>
+			<modelConstraint>
+				<constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.Arch.Firewall" />
+                                        <check op="isOfKind" ref="to" kind="_root.Arch.Network" />
+                        	</constraint>
+
+				<constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.Arch.Network" />
+                                        <check op="isOfKind" ref="to" kind="_root.Arch.Firewall" />
+                        	</constraint>
+			</modelConstraint>
+		</elementType>
+
+		<elementType name="External" >
+			<parent ref="_root.GraphBased.Edge" />
+			<parent ref="_root.Arch.AssetArc" />
+			<inPlane plane="model"/>
+			<propertyType name="G_iconRef" type="elementRef" default="G_internalShape">
+				<inPlane plane="graph"/>
+			</propertyType>
+			<modelConstraint>
+				<constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.Arch.Firewall" />
+                                        <check op="isOfKind" ref="to" kind="_root.Arch.Network" />
+                        	</constraint>
+
+				<constraint>
+                                        <check op="isOfKind" ref="from" kind="_root.Arch.Network" />
+                                        <check op="isOfKind" ref="to" kind="_root.Arch.Firewall" />
+                        	</constraint>
+			</modelConstraint>
+		</elementType>
 
 	</elementType>
 

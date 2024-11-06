@@ -23,9 +23,7 @@
 		<!-- <propertyType name="G_iconRef" type="elementRef" default="_self.G_submodelShape">
 			<inPlane plane="graph"/>
 		</propertyType>  -->
-
-		
-		
+	
 		<elementType name="AGNode" type="abstract">
 		</elementType>	
 		<elementType name="NodeLogic" type="abstract">
@@ -41,6 +39,12 @@
 				<inPlane plane="model"/>
 			</propertyType>
 			<propertyType name="IP" type="string" default="">
+				<inPlane plane="model"/>
+			</propertyType>
+			<propertyType name="initial" type="boolean" default="false">
+				<inPlane plane="model"/>
+			</propertyType>
+			<propertyType name="final" type="boolean" default="false">
 				<inPlane plane="model"/>
 			</propertyType>
 			<!-- <propertyType name="type" type="integer" default="1">
@@ -117,7 +121,7 @@
 			<parent ref="_root.GraphBased.Node"/>
 			<parent ref="_root.AG.AGNode"/>
 			<inplane plane="model"/>
-			<propertyType name="asset" type="string" default="path">
+			<propertyType name="asset" type="string" default="port number or protocol">
 				<inPlane plane="model"/>
 			</propertyType> 
 			<propertyType name="G_iconRef" type="elementRef" default="G_NodeShared">

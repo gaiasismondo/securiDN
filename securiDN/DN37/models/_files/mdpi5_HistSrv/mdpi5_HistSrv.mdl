@@ -2417,18 +2417,6 @@
         </G_iconDef>
       </Computer>
 
-      <Client id="Client29"
-        G_iconRef="_root.RootSecuriDN.Arch1.G_clientShape"
-        to="_root.RootSecuriDN.Arch1.MMSTLS1"
-        from="_root.RootSecuriDN.Arch1.MMSclient">
-      </Client>
-
-      <Client id="Client27"
-        G_iconRef="_root.RootSecuriDN.Arch1.G_clientShape"
-        to="_root.RootSecuriDN.Arch1.MMSTLS1"
-        from="_root.RootSecuriDN.Arch1.MMSclient">
-      </Client>
-
       <Execute id="Execute24"
         G_r="0.0"
         G_ty="367.5"
@@ -7135,7 +7123,7 @@
         </GE_image>
       </G_iconDef>
 
-      <Client id="Communicate4"
+      <CommunicateClient id="Communicate4"
         G_r="0.0"
         G_ty="528.0"
         G_tx="764.0"
@@ -7162,9 +7150,9 @@
             <PropertyValue id="ctrly1" value="443.0"/>
           </PropertyValue>
         </PropertyValue>
-      </Client>
+      </CommunicateClient>
 
-      <Client id="Communicate3"
+      <CommunicateClient id="Communicate3"
         G_r="0.0"
         G_ty="358.5"
         G_tx="671.0"
@@ -7191,9 +7179,9 @@
             <PropertyValue id="ctrly1" value="300.0"/>
           </PropertyValue>
         </PropertyValue>
-      </Client>
+      </CommunicateClient>
 
-      <Client id="Communicate2"
+      <CommunicateClient id="Communicate2"
         G_r="0.0"
         G_ty="487.0"
         G_tx="591.5"
@@ -7220,9 +7208,9 @@
             <PropertyValue id="ctrly1" value="443.0"/>
           </PropertyValue>
         </PropertyValue>
-      </Client>
+      </CommunicateClient>
 
-      <Client id="Communicate1"
+      <CommunicateClient id="Communicate1"
         G_r="0.0"
         G_ty="368.5"
         G_tx="587.5"
@@ -7249,7 +7237,7 @@
             <PropertyValue id="ctrly1" value="393.0"/>
           </PropertyValue>
         </PropertyValue>
-      </Client>
+      </CommunicateClient>
 
       <G_iconDef id="G_applicationShape"
         BBox_y="-25.0"

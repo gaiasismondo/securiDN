@@ -187,11 +187,11 @@
               G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
               G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
               txt="%24%25ID" G_order="1" G_labelSet="1" />
-	<!-- <GE_text id="Text2"
+	<GE_text id="Text2"
               G_ty="40.0" G_tx="0.0" fontSize="12" textType="dynamic" fontStyle="plain"
               G_r="0.0" fillColor="000000" rot="0.0" G_py="0.0" G_px="0.0" G_sy="100.0"
               G_sx="100.0" outlineType="fill" fontFace="SansSerif" outlineColor="ffffff"
-              txt="%24asset" G_order="2" G_labelSet="0" />   -->
+              txt="%24asset" G_order="2" G_labelSet="0" /> 
     </G_iconDef>
 	
 	<G_iconDef id="G_analyticsShape" BBox_type="box" BBox_x="-22.5"

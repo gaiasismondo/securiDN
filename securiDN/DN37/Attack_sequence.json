@@ -3,87 +3,52 @@
     {
       "attack_name": "compromise",
       "IP": "1.1.1.1",
-      "additional_attribute": ""
-    },
-    {
-      "attack_name": "scanIP",
-      "IP": "",
-      "additional_attribute": ""
-    },
-    {
-      "attack_name": "scanVuln",
-      "IP": "192.168.40.22",
-      "additional_attribute": ""
-    },
-    {
-      "attack_name": "remoteSrvc",
-      "IP": "192.168.40.22",
-      "additional_attribute": ""
-    },
-    {
-      "attack_name": "shell",
-      "IP": "192.168.40.22",
-      "additional_attribute": ""
-    },
-    {
-      "attack_name": "addSSHkey",
-      "IP": "192.168.40.22",
-      "additional_attribute": ""
+      "additional_attribute": "Attacker"
     },
     {
       "attack_name": "remoteShell",
-      "IP": "192.168.40.22",
-      "additional_attribute": ""
+      "IP": "2.2.2.2",
+      "additional_attribute": "None"
     },
     {
       "attack_name": "bruteForce",
-      "IP": "192.168.40.21",
-      "additional_attribute": ""
+      "IP": "3.3.3.3",
+      "additional_attribute": "None"
     },
     {
       "attack_name": "escapeHost",
-      "IP": "192.168.40.21",
-      "additional_attribute": ""
+      "IP": "3.3.3.3",
+      "additional_attribute": "None"
     },
     {
       "attack_name": "shell",
-      "IP": "192.168.40.21",
-      "additional_attribute": ""
+      "IP": "3.3.3.3",
+      "additional_attribute": "None"
     },
     {
       "attack_name": "modAuthProc",
-      "IP": "192.168.40.21",
-      "additional_attribute": ""
-    },
-    {
-      "attack_name": "unsecCred",
-      "IP": "192.168.40.21",
-      "additional_attribute": ""
+      "IP": "3.3.3.3",
+      "additional_attribute": "None"
     },
     {
       "attack_name": "credAcc",
-      "IP": "192.168.40.21",
-      "additional_attribute": ""
+      "IP": "3.3.3.3",
+      "additional_attribute": "None"
     },
     {
       "attack_name": "AITM",
-      "IP": "",
-      "additional_attribute": ""
-    },
-    {
-      "attack_name": "spoofRepMsg",
-      "IP": "192.168.40.21",
-      "additional_attribute": ""
+      "IP": "5.5.5.5",
+      "additional_attribute": "None"
     },
     {
       "attack_name": "unauthCmdMsg",
-      "IP": "",
-      "additional_attribute": ""
+      "IP": "5.5.5.5",
+      "additional_attribute": "None"
     },
     {
       "attack_name": "DERfailure",
       "IP": "4.4.4.4",
-      "additional_attribute": ""
+      "additional_attribute": "Target"
     }
   ]
 }
