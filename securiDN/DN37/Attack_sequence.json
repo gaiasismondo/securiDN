@@ -7,32 +7,32 @@
     },
     {
       "attack_name": "remoteShell",
-      "IP": "2.2.2.2",
+      "IP": "192.168.40.22",
       "additional_attribute": "None"
     },
     {
       "attack_name": "bruteForce",
-      "IP": "3.3.3.3",
+      "IP": "192.168.40.21",
       "additional_attribute": "None"
     },
     {
       "attack_name": "escapeHost",
-      "IP": "3.3.3.3",
+      "IP": "192.168.40.21",
       "additional_attribute": "None"
     },
     {
       "attack_name": "shell",
-      "IP": "3.3.3.3",
+      "IP": "192.168.40.21",
       "additional_attribute": "None"
     },
     {
       "attack_name": "modAuthProc",
-      "IP": "3.3.3.3",
+      "IP": "192.168.40.21",
       "additional_attribute": "None"
     },
     {
       "attack_name": "credAcc",
-      "IP": "3.3.3.3",
+      "IP": "192.168.40.21",
       "additional_attribute": "None"
     },
     {
